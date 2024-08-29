@@ -1,0 +1,1564 @@
+{
+  "last_node_id": 99,
+  "last_link_id": 212,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "GetImageSizeAndCount",
+      "pos": [
+        630,
+        190
+      ],
+      "size": {
+        "0": 210,
+        "1": 86
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 112
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            148
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "1024 width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "1024 height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "151 count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      }
+    },
+    {
+      "id": 42,
+      "type": "MimicMotionGetPoses",
+      "pos": [
+        40,
+        188
+      ],
+      "size": {
+        "0": 453.1029052734375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ref_image",
+          "type": "IMAGE",
+          "link": 110
+        },
+        {
+          "name": "pose_images",
+          "type": "IMAGE",
+          "link": 211
+        }
+      ],
+      "outputs": [
+        {
+          "name": "poses_with_ref",
+          "type": "IMAGE",
+          "links": [
+            112,
+            114
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "pose_images",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MimicMotionGetPoses"
+      },
+      "widgets_values": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 2,
+      "type": "DownloadAndLoadMimicMotionModel",
+      "pos": [
+        469,
+        1
+      ],
+      "size": {
+        "0": 368.04730224609375,
+        "1": 107.13809967041016
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "mimic_pipeline",
+          "type": "MIMICPIPE",
+          "links": [
+            146,
+            150
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadMimicMotionModel"
+      },
+      "widgets_values": [
+        "MimicMotionMergedUnet_1-1-fp16.safetensors",
+        "fp16"
+      ]
+    },
+    {
+      "id": 89,
+      "type": "PrimitiveNode",
+      "pos": [
+        2420,
+        0
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            185
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "./rotomaker/"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 57,
+      "type": "MimicMotionSampler",
+      "pos": [
+        878,
+        150
+      ],
+      "size": [
+        315,
+        430
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mimic_pipeline",
+          "type": "MIMICPIPE",
+          "link": 146
+        },
+        {
+          "name": "ref_image",
+          "type": "IMAGE",
+          "link": 147
+        },
+        {
+          "name": "pose_images",
+          "type": "IMAGE",
+          "link": 148
+        },
+        {
+          "name": "optional_scheduler",
+          "type": "DIFFUSERS_SCHEDULER",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            149
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MimicMotionSampler"
+      },
+      "widgets_values": [
+        20,
+        2,
+        2,
+        43,
+        "fixed",
+        30,
+        0,
+        16,
+        6,
+        false,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 71,
+      "type": "Note",
+      "pos": [
+        -589,
+        205
+      ],
+      "size": [
+        227.67248905121187,
+        487.70144977998916
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "if you use frame load cap of 450, the second generation queued would use skip first frames 450, then 900 for the third generation queued. You can break it into smaller parts on smaller systems.\n\nThe image size also makes larger GB requirement, so consider keeping the size down.\n\n\nselect every nth\n\n1 = interpolation off\n2 = interpolation on\n\nthis will load half the FPS, then double it, which will match the audio in the end.\n\nIt can save some memory, as can choosing RIFE or FILM. Disable interpolation and use nth=1 for slowest and lowest memory usage, however use less load cap and increase the skip frames to chain outputs together in post.\n\n600 frame load cap\nmight take 2000 seconds and 22GB\n\n300 frame load cap might take 1000 seconds and 16GB\n\n150 frame load cap might take 1000 seconds and 13GB"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 91,
+      "type": "Reroute",
+      "pos": [
+        1115,
+        648
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 191
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "VHS_AUDIO",
+          "links": [
+            192
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 87,
+      "type": "Text Concatenate",
+      "pos": [
+        2420,
+        80
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 185,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 186,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 187,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            188
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true",
+        "./rotomaker/",
+        "rotoMaker-chain005",
+        "/stage1/matted",
+        ""
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 37,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        46,
+        364
+      ],
+      "size": [
+        440,
+        744
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 114
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "Loki-Mimic/Pose",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Pose_00013.mp4",
+            "subfolder": "Loki-Mimic",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 8
+          }
+        }
+      }
+    },
+    {
+      "id": 93,
+      "type": "BRIAAI Matting",
+      "pos": [
+        1264,
+        259
+      ],
+      "size": [
+        245.2787931772839,
+        150
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_frames",
+          "type": "IMAGE",
+          "link": 201
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            200
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BRIAAI Matting"
+      },
+      "widgets_values": [
+        "v1.4",
+        true,
+        "#7F7F7F",
+        4
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        -1251,
+        211
+      ],
+      "size": {
+        "0": 374.4322509765625,
+        "1": 642.6564331054688
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            202
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Target Image",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "SDXL-e2-ondx_man-PromptStyler-psych-1stPass-a man with red hair and a beard standing in front of a red and blue background_00001_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2420,
+        120
+      ],
+      "size": [
+        740,
+        1040
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 200
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": 192,
+          "slot_index": 1
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 188,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "Loki-Mimic/Motion",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "matted_00002-audio.mp4",
+            "subfolder": "rotomaker\\rotoMaker-chain004\\stage1",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 12
+          }
+        }
+      }
+    },
+    {
+      "id": 96,
+      "type": "Text Concatenate",
+      "pos": [
+        1610,
+        70
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 204,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 206,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 205,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            203
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true",
+        "./rotomaker/",
+        "rotoMaker-chain005",
+        "/stage1/mimic",
+        ""
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 98,
+      "type": "PrimitiveNode",
+      "pos": [
+        1610,
+        -10
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            204
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "./rotomaker/"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 97,
+      "type": "PrimitiveNode",
+      "pos": [
+        1620,
+        30
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            205
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "/stage1/mimic"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 95,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1610,
+        134
+      ],
+      "size": [
+        740,
+        1040
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 207
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null,
+          "slot_index": 1
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 203,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "Loki-Mimic/Motion",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "mimic_00002.mp4",
+            "subfolder": "rotomaker\\rotoMaker-chain005\\stage1",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 12
+          }
+        }
+      }
+    },
+    {
+      "id": 58,
+      "type": "MimicMotionDecode",
+      "pos": [
+        1260,
+        130
+      ],
+      "size": {
+        "0": 255.466796875,
+        "1": 78
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mimic_pipeline",
+          "type": "MIMICPIPE",
+          "link": 150,
+          "slot_index": 0
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 149
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            201,
+            207
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MimicMotionDecode"
+      },
+      "widgets_values": [
+        4
+      ]
+    },
+    {
+      "id": 88,
+      "type": "PrimitiveNode",
+      "pos": [
+        2430,
+        40
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            187
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "/stage1/matted"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 28,
+      "type": "ImageResizeKJ",
+      "pos": [
+        -838,
+        -100
+      ],
+      "size": {
+        "0": 315,
+        "1": 242
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 202
+        },
+        {
+          "name": "get_image_size",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width_input"
+          }
+        },
+        {
+          "name": "height_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height_input"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            110,
+            147
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            88,
+            208
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            89,
+            209
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "lanczos",
+        true,
+        64,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 35,
+      "type": "ImageResizeKJ",
+      "pos": [
+        -306,
+        477
+      ],
+      "size": {
+        "0": 315,
+        "1": 242
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 210
+        },
+        {
+          "name": "get_image_size",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width_input",
+          "type": "INT",
+          "link": 88,
+          "widget": {
+            "name": "width_input"
+          }
+        },
+        {
+          "name": "height_input",
+          "type": "INT",
+          "link": 89,
+          "widget": {
+            "name": "height_input"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "lanczos",
+        false,
+        64,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 99,
+      "type": "ImageResize+",
+      "pos": [
+        -310,
+        210
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 212
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 208,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 209,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            210,
+            211
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "lanczos",
+        "fill / crop",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 90,
+      "type": "VHS_LoadVideoPath",
+      "pos": [
+        -840,
+        320
+      ],
+      "size": [
+        225.38272082519484,
+        262
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            212
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "links": [
+            191
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideoPath"
+      },
+      "widgets_values": {
+        "video": "C:\\Users\\genui\\Documents\\Adobe\\Premiere Pro\\22.0\\J-cam\\standing-1.mp4",
+        "force_rate": 30,
+        "force_size": "Custom Height",
+        "custom_width": 512,
+        "custom_height": 1024,
+        "frame_load_cap": 150,
+        "skip_first_frames": 150,
+        "select_every_nth": 1,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "frame_load_cap": 150,
+            "skip_first_frames": 150,
+            "force_rate": 30,
+            "filename": "C:\\Users\\genui\\Documents\\Adobe\\Premiere Pro\\22.0\\J-cam\\standing-1.mp4",
+            "type": "path",
+            "format": "video/mp4",
+            "select_every_nth": 1,
+            "force_size": "?x512"
+          }
+        }
+      }
+    },
+    {
+      "id": 85,
+      "type": "PrimitiveNode",
+      "pos": [
+        -832,
+        204
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            186,
+            206
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "rotoMaker-chain005"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 60,
+      "type": "Note",
+      "pos": [
+        -1376,
+        -289
+      ],
+      "size": {
+        "0": 505.5377502441406,
+        "1": 434.8741455078125
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "RotoMaker-LokiMimicMotion-v62-stage1\nnew video: https://www.youtube.com/watch?v=pMVixnM7LCY\n\nsetup/intro-Video: https://www.youtube.com/watch?v=zfv0gH-RuB4\nWorkflow: https://civitai.com/models/539936\n\nEasy process.\nAdd image, Add video, Queue Video\n\n- workflow will match source video FPS\n- workflow will preserve source audio\n\npack includes driver video and target image, you can use your own.\n\n\nNodes: (use manager)\nhttps://github.com/kijai/ComfyUI-MimicMotionWrapper?tab=readme-ov-file\n\nModels:\nhttps://huggingface.co/Kijai/MimicMotion_pruned/tree/main\n- place all inside /models/mimicmotion/\n\nalso requires Diffusers SVD XT\nhttps://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt-1-1/tree/main\n- place inside /models/diffusers/stable-video-diffusion-img2vid-xt-1-1/\n- move the \"svd_xt_1_1.safetensors\" to /models/diffusers/\n\n\nsave to:\n./rotomaker/PROJECT/stage1/"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      88,
+      28,
+      1,
+      35,
+      2,
+      "INT"
+    ],
+    [
+      89,
+      28,
+      2,
+      35,
+      3,
+      "INT"
+    ],
+    [
+      110,
+      28,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      112,
+      42,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      114,
+      42,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      146,
+      2,
+      0,
+      57,
+      0,
+      "MIMICPIPE"
+    ],
+    [
+      147,
+      28,
+      0,
+      57,
+      1,
+      "IMAGE"
+    ],
+    [
+      148,
+      9,
+      0,
+      57,
+      2,
+      "IMAGE"
+    ],
+    [
+      149,
+      57,
+      0,
+      58,
+      1,
+      "LATENT"
+    ],
+    [
+      150,
+      2,
+      0,
+      58,
+      0,
+      "MIMICPIPE"
+    ],
+    [
+      185,
+      89,
+      0,
+      87,
+      0,
+      "STRING"
+    ],
+    [
+      186,
+      85,
+      0,
+      87,
+      1,
+      "STRING"
+    ],
+    [
+      187,
+      88,
+      0,
+      87,
+      2,
+      "STRING"
+    ],
+    [
+      188,
+      87,
+      0,
+      16,
+      4,
+      "STRING"
+    ],
+    [
+      191,
+      90,
+      2,
+      91,
+      0,
+      "*"
+    ],
+    [
+      192,
+      91,
+      0,
+      16,
+      1,
+      "VHS_AUDIO"
+    ],
+    [
+      200,
+      93,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      201,
+      58,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      202,
+      3,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      203,
+      96,
+      0,
+      95,
+      4,
+      "STRING"
+    ],
+    [
+      204,
+      98,
+      0,
+      96,
+      0,
+      "STRING"
+    ],
+    [
+      205,
+      97,
+      0,
+      96,
+      2,
+      "STRING"
+    ],
+    [
+      206,
+      85,
+      0,
+      96,
+      1,
+      "STRING"
+    ],
+    [
+      207,
+      58,
+      0,
+      95,
+      0,
+      "IMAGE"
+    ],
+    [
+      208,
+      28,
+      1,
+      99,
+      1,
+      "INT"
+    ],
+    [
+      209,
+      28,
+      2,
+      99,
+      2,
+      "INT"
+    ],
+    [
+      210,
+      99,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      211,
+      99,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      212,
+      90,
+      0,
+      99,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.771561000000001,
+      "offset": {
+        "0": 1680.8089726549465,
+        "1": 399.22602055694216
+      }
+    }
+  },
+  "version": 0.4
+}
