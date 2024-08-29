@@ -1,0 +1,3013 @@
+{
+  "last_node_id": 106,
+  "last_link_id": 177,
+  "nodes": [
+    {
+      "id": 34,
+      "type": "PreviewImage",
+      "pos": [
+        -1180,
+        950
+      ],
+      "size": {
+        "0": 271.6227111816406,
+        "1": 246
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 55
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 56,
+      "type": "RIFE VFI",
+      "pos": [
+        2571.151852155988,
+        584.3493359418482
+      ],
+      "size": {
+        "0": 319.20001220703125,
+        "1": 198
+      },
+      "flags": {},
+      "order": 42,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 91
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            94
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RIFE VFI"
+      },
+      "widgets_values": [
+        "rife49.pth",
+        10,
+        2,
+        true,
+        true,
+        1
+      ]
+    },
+    {
+      "id": 60,
+      "type": "FILM VFI",
+      "pos": [
+        2563.7734210513822,
+        971.5320874185129
+      ],
+      "size": {
+        "0": 309.0781555175781,
+        "1": 126.22606658935547
+      },
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 94,
+          "slot_index": 0
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            90,
+            95,
+            96
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FILM VFI"
+      },
+      "widgets_values": [
+        "film_net_fp32.pt",
+        10,
+        2
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 64,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4363,
+        159
+      ],
+      "size": [
+        563.78857421875,
+        867.78857421875
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 96
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null,
+          "slot_index": 1
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 60,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LM60fps",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LM60fps_00002.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 12
+          }
+        }
+      }
+    },
+    {
+      "id": 63,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3728,
+        162
+      ],
+      "size": [
+        563.78857421875,
+        867.78857421875
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 95
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null,
+          "slot_index": 1
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LM30fps",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LM30fps_00002.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 12
+          }
+        }
+      }
+    },
+    {
+      "id": 55,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3115,
+        166
+      ],
+      "size": [
+        563.78857421875,
+        867.78857421875
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 90
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null,
+          "slot_index": 1
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 15,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LM15fps",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LM15fps_00002.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 12
+          }
+        }
+      }
+    },
+    {
+      "id": 35,
+      "type": "PreviewImage",
+      "pos": [
+        -1170,
+        110
+      ],
+      "size": {
+        "0": 271.6227111816406,
+        "1": 246
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 56
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 59,
+      "type": "PrimitiveNode",
+      "pos": [
+        26,
+        209
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            92,
+            93
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "width"
+          }
+        }
+      ],
+      "title": "Dim Limiter",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 62,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -133,
+        "1": 332,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 370.29949951171875,
+        "1": 80.21269226074219
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "yellow",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 61,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -125,
+        "1": 458,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 363.8550720214844,
+        "1": 64.54601287841797
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "brown",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 58,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -137,
+        "1": 570,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 378,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Half your Framerate, when using Interpolation",
+      "properties": {
+        "matchColors": "red",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 38,
+      "type": "EasyAnimateTextEncode",
+      "pos": [
+        314,
+        939
+      ],
+      "size": {
+        "0": 387.89093017578125,
+        "1": 74
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 87
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 103,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": 104,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "links": [
+            64
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateTextEncode"
+      },
+      "widgets_values": [
+        "digital art, landscape of a sphere eye geometry bubble, Tropical, Snowy, Hopeful, Sun Rays, Fish-eye Lens, Primary Colors, artistic, detailed reflections",
+        "low quality, low resolution, photograph, photorealism, dark, moody, night, monochromatic, washed out, text, watermark, bad quality"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "EasyAnimateSampler",
+      "pos": [
+        796,
+        920
+      ],
+      "size": {
+        "0": 352.666748046875,
+        "1": 310
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 86
+        },
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "link": 64,
+          "slot_index": 1
+        },
+        {
+          "name": "image_start",
+          "type": "IMAGE",
+          "link": 171
+        },
+        {
+          "name": "image_end",
+          "type": "IMAGE",
+          "link": 172
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 106,
+          "widget": {
+            "name": "seed"
+          },
+          "slot_index": 4
+        },
+        {
+          "name": "frames",
+          "type": "INT",
+          "link": 108,
+          "widget": {
+            "name": "frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "links": [
+            62
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateSampler"
+      },
+      "widgets_values": [
+        768,
+        768,
+        60,
+        12,
+        7,
+        3456734581,
+        "increment",
+        "DPMSolverMultistepScheduler",
+        6
+      ]
+    },
+    {
+      "id": 57,
+      "type": "ImageResize+",
+      "pos": [
+        2568,
+        219
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 162
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 92,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 93,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            91
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "nearest-exact",
+        "fill / crop",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 76,
+      "type": "PreviewImage",
+      "pos": [
+        -1160,
+        2600
+      ],
+      "size": {
+        "0": 271.6227111816406,
+        "1": 246
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 112
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 77,
+      "type": "PreviewImage",
+      "pos": [
+        -1170,
+        1750
+      ],
+      "size": {
+        "0": 271.6227111816406,
+        "1": 246
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 113
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 86,
+      "type": "EasyAnimateTextEncode",
+      "pos": [
+        320,
+        1860
+      ],
+      "size": {
+        "0": 387.89093017578125,
+        "1": 116
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 141
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": 149,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 147,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "links": [
+            121
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateTextEncode"
+      },
+      "widgets_values": [
+        "digital art, landscape of a sphere eye geometry bubble, Tropical, Snowy, Hopeful, Sun Rays, Fish-eye Lens, Primary Colors, artistic, detailed reflections",
+        "low quality, low resolution, photograph, photorealism, dark, moody, night, monochromatic, washed out, text, watermark, bad quality"
+      ]
+    },
+    {
+      "id": 92,
+      "type": "EasyAnimateSampler",
+      "pos": [
+        800,
+        2570
+      ],
+      "size": {
+        "0": 352.666748046875,
+        "1": 310
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 139
+        },
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "link": 131,
+          "slot_index": 1
+        },
+        {
+          "name": "image_start",
+          "type": "IMAGE",
+          "link": 175
+        },
+        {
+          "name": "image_end",
+          "type": "IMAGE",
+          "link": 177
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 144,
+          "widget": {
+            "name": "seed"
+          },
+          "slot_index": 4
+        },
+        {
+          "name": "frames",
+          "type": "INT",
+          "link": 146,
+          "widget": {
+            "name": "frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "links": [
+            129
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateSampler"
+      },
+      "widgets_values": [
+        768,
+        768,
+        60,
+        12,
+        7,
+        3456734581,
+        "increment",
+        "DPMSolverMultistepScheduler",
+        6
+      ]
+    },
+    {
+      "id": 88,
+      "type": "EasyAnimateSampler",
+      "pos": [
+        790,
+        1730
+      ],
+      "size": {
+        "0": 352.666748046875,
+        "1": 310
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 140
+        },
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "link": 121,
+          "slot_index": 1
+        },
+        {
+          "name": "image_start",
+          "type": "IMAGE",
+          "link": 173
+        },
+        {
+          "name": "image_end",
+          "type": "IMAGE",
+          "link": 174
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 143,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "frames",
+          "type": "INT",
+          "link": 145,
+          "widget": {
+            "name": "frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "links": [
+            119
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateSampler"
+      },
+      "widgets_values": [
+        768,
+        768,
+        60,
+        12,
+        7,
+        3456734581,
+        "increment",
+        "DPMSolverMultistepScheduler",
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "type": "DownloadAndLoadEasyAnimateModel",
+      "pos": [
+        -112,
+        54
+      ],
+      "size": {
+        "0": 354.66668701171875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "links": [
+            10,
+            19,
+            34,
+            85,
+            86,
+            87,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadEasyAnimateModel"
+      },
+      "widgets_values": [
+        "EasyAnimateV3-XL-2-InP-768x768-bf16",
+        "bf16",
+        true
+      ]
+    },
+    {
+      "id": 69,
+      "type": "PrimitiveNode",
+      "pos": [
+        -135,
+        684
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            106,
+            107,
+            143,
+            144
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        3456734581,
+        "increment"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "PrimitiveNode",
+      "pos": [
+        84,
+        679
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            108,
+            109,
+            145,
+            146
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "frames"
+          }
+        }
+      ],
+      "title": "Frame Limit",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        60,
+        "fixed"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "PrimitiveNode",
+      "pos": [
+        340,
+        606
+      ],
+      "size": {
+        "0": 361.8572692871094,
+        "1": 147.48687744140625
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            99,
+            104,
+            149,
+            150
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "low quality, low resolution, photograph, photorealism, dark, moody, night, monochromatic, washed out, text, watermark, bad quality"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 6,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1224,
+        186
+      ],
+      "size": [
+        320,
+        624
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LMab",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LMab_00005.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      }
+    },
+    {
+      "id": 37,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1230,
+        1000
+      ],
+      "size": [
+        320,
+        624
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 57
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LMbc",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LMbc_00003.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      }
+    },
+    {
+      "id": 85,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1230,
+        1830
+      ],
+      "size": [
+        320,
+        624
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 114
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LMcd",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LMa_00002.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      }
+    },
+    {
+      "id": 89,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1240,
+        2650
+      ],
+      "size": [
+        320,
+        624
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 124
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LMda",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LMb_00002.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "EasyAnimateDecode",
+      "pos": [
+        1226,
+        69
+      ],
+      "size": {
+        "0": 313.44537353515625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 19
+        },
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "link": 37,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            20,
+            160
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateDecode"
+      }
+    },
+    {
+      "id": 39,
+      "type": "EasyAnimateDecode",
+      "pos": [
+        1230,
+        900
+      ],
+      "size": {
+        "0": 313.44537353515625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 85
+        },
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "link": 62,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            57,
+            163
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateDecode"
+      }
+    },
+    {
+      "id": 87,
+      "type": "EasyAnimateDecode",
+      "pos": [
+        1230,
+        1720
+      ],
+      "size": {
+        "0": 313.44537353515625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 138
+        },
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "link": 119,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            114,
+            164
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateDecode"
+      }
+    },
+    {
+      "id": 91,
+      "type": "EasyAnimateDecode",
+      "pos": [
+        1240,
+        2550
+      ],
+      "size": {
+        "0": 313.44537353515625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 137
+        },
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "link": 129,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            124,
+            165
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateDecode"
+      }
+    },
+    {
+      "id": 75,
+      "type": "LoadImage",
+      "pos": [
+        -2010,
+        2600
+      ],
+      "size": {
+        "0": 423.4828796386719,
+        "1": 480.107421875
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            111
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00030_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "PrimitiveNode",
+      "pos": [
+        328,
+        367
+      ],
+      "size": {
+        "0": 369.4841003417969,
+        "1": 201.1539306640625
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            98,
+            103,
+            147,
+            148
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "digital art, landscape of a sphere eye geometry bubble, Tropical, Snowy, Hopeful, Sun Rays, Fish-eye Lens, Primary Colors, artistic, detailed reflections"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 71,
+      "type": "Note",
+      "pos": [
+        1689,
+        959
+      ],
+      "size": {
+        "0": 430.55780029296875,
+        "1": 217.22735595703125
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "this is an ABCDA loop\n\nby animating A to B \nthen animating B to C\nthen animating C to D \nfinally animating from D to A\nwe can join them into a loop ABCDA\n\nlook for examples in the pack"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 33,
+      "type": "LoadImage",
+      "pos": [
+        -2030,
+        950
+      ],
+      "size": {
+        "0": 423.4828796386719,
+        "1": 480.107421875
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "578dfb9956825d5189c58b3e6953b203.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "EasyAnimateTextEncode",
+      "pos": [
+        316,
+        213
+      ],
+      "size": {
+        "0": 387.89093017578125,
+        "1": 116
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 10
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": 99,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 98,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "links": [
+            36
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateTextEncode"
+      },
+      "widgets_values": [
+        "digital art, landscape of a sphere eye geometry bubble, Tropical, Snowy, Hopeful, Sun Rays, Fish-eye Lens, Primary Colors, artistic, detailed reflections",
+        "low quality, low resolution, photograph, photorealism, dark, moody, night, monochromatic, washed out, text, watermark, bad quality"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "EasyAnimateSampler",
+      "pos": [
+        781,
+        87
+      ],
+      "size": {
+        "0": 352.666748046875,
+        "1": 310
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 34
+        },
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "link": 36,
+          "slot_index": 1
+        },
+        {
+          "name": "image_start",
+          "type": "IMAGE",
+          "link": 166
+        },
+        {
+          "name": "image_end",
+          "type": "IMAGE",
+          "link": 167
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 107,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "frames",
+          "type": "INT",
+          "link": 109,
+          "widget": {
+            "name": "frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latents",
+          "type": "EASYANIMLATENTS",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateSampler"
+      },
+      "widgets_values": [
+        768,
+        768,
+        60,
+        12,
+        7,
+        3456734581,
+        "increment",
+        "DPMSolverMultistepScheduler",
+        6
+      ]
+    },
+    {
+      "id": 106,
+      "type": "ImpactMakeImageBatch",
+      "pos": [
+        1981,
+        16
+      ],
+      "size": {
+        "0": 314.86187744140625,
+        "1": 106
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 160
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 163
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": 164
+        },
+        {
+          "name": "image4",
+          "type": "IMAGE",
+          "link": 165
+        },
+        {
+          "name": "image5",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            161,
+            162
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactMakeImageBatch"
+      }
+    },
+    {
+      "id": 90,
+      "type": "EasyAnimateTextEncode",
+      "pos": [
+        314,
+        2590
+      ],
+      "size": {
+        "0": 387.89093017578125,
+        "1": 74
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "easyanimate_pipeline",
+          "type": "EASYANIMATEPIPE",
+          "link": 142
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 148,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": 150,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "easyanimate_embeds",
+          "type": "T5EMBEDS",
+          "links": [
+            131
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EasyAnimateTextEncode"
+      },
+      "widgets_values": [
+        "digital art, landscape of a sphere eye geometry bubble, Tropical, Snowy, Hopeful, Sun Rays, Fish-eye Lens, Primary Colors, artistic, detailed reflections",
+        "low quality, low resolution, photograph, photorealism, dark, moody, night, monochromatic, washed out, text, watermark, bad quality"
+      ]
+    },
+    {
+      "id": 72,
+      "type": "LoadImage",
+      "pos": [
+        -2020,
+        1760
+      ],
+      "size": {
+        "0": 423.4828796386719,
+        "1": 480.107421875
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            110
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "81c2d5db59757d2ab8f1730dc26a0165.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -2020,
+        120
+      ],
+      "size": {
+        "0": 423.4828796386719,
+        "1": 480.107421875
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "510ce18668b4619547449108f2c6b118.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "ImageResize+",
+      "pos": [
+        -1540,
+        960
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            55,
+            167,
+            171
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        768,
+        768,
+        "nearest",
+        "stretch",
+        "always",
+        8
+      ]
+    },
+    {
+      "id": 73,
+      "type": "ImageResize+",
+      "pos": [
+        -1530,
+        1750
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 110
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            113,
+            172,
+            173
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        768,
+        768,
+        "nearest",
+        "fill / crop",
+        "always",
+        8
+      ]
+    },
+    {
+      "id": 74,
+      "type": "ImageResize+",
+      "pos": [
+        -1500,
+        2610
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 111
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            112,
+            174,
+            175
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        768,
+        768,
+        "nearest",
+        "stretch",
+        "always",
+        8
+      ]
+    },
+    {
+      "id": 27,
+      "type": "ImageResize+",
+      "pos": [
+        -1530,
+        120
+      ],
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            56,
+            166,
+            177
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        768,
+        768,
+        "nearest",
+        "fill / crop",
+        "always",
+        8
+      ]
+    },
+    {
+      "id": 53,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1980,
+        180
+      ],
+      "size": [
+        320,
+        624
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 161
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "LoopedMotion2/LMabcd",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LMab_00002.mp4",
+            "subfolder": "LoopedMotion2",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      }
+    },
+    {
+      "id": 54,
+      "type": "Note",
+      "pos": [
+        -848,
+        69
+      ],
+      "size": {
+        "0": 686.0140991210938,
+        "1": 916.2085571289062
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "LoopedMotion2-v18-ABCDA\n\n- EasyAnimationV3\n- Ping Pong\n- 2 image input\n- prompt control\n- sequence joiner\n- Dimension Limit\n- interpolation (FILM / RIFE)\n\nVideo: https://www.youtube.com/watch?v=upQs2Tfb_88\n\nworkflow: \nhttps://civitai.com/models/410919?modelVersionId=640517\n\nhttps://fivebelowfive.uk\n\n~OPERATION\n1. choose two image\n2. Start the Queue\n(optional interpolation)\nwill output 120 frames for A\nwill output 120 frames for B \njoined A to B \napplied interpolation (FILM / RIFE)\noutputs 3 videos in 15/30/60 FPS\n\n\ncustom node: (Thanks Kijai !!)\nhttps://github.com/kijai/ComfyUI-EasyAnimateWrapper\n\nYou will need:\nhttps://huggingface.co/Kijai/EasyAnimate-bf16/tree/main\nplace insde /models/easyanimate/transformer\n- take at least the 768x768 model\n\nhttps://huggingface.co/alibaba-pai/EasyAnimateV3-XL-2-InP-768x768\nplace inside /models/easyanimate/common\n- you can skip the contents of /transformers/ but copy everything else.\n\n\nat the time of publishing, you should mirror this structure inside /models/easyanimate/\n\nComfyUI/models/easyanimate/\n├───common\n│   │   .gitattributes\n│   │   model_index.json\n│   │   README.md\n│   │\n│   ├───image_encoder\n│   │       config.json\n│   │       preprocessor_config.json\n│   │       pytorch_model.bin\n│   │\n│   ├───scheduler\n│   │       scheduler_config.json\n│   │\n│   ├───text_encoder\n│   │       config.json\n│   │       model.fp16-00001-of-00002.safetensors\n│   │       model.fp16-00002-of-00002.safetensors\n│   │       model.safetensors.index.json\n│   │\n│   ├───tokenizer\n│   │       added_tokens.json\n│   │       special_tokens_map.json\n│   │       spiece.model\n│   │       tokenizer_config.json\n│   │\n│   └───vae\n│           config.json\n│           diffusion_pytorch_model.safetensors\n│\n└───transformer\n        EasyAnimateV3-XL-2-InP-512x512-bf16.safetensors\n        EasyAnimateV3-XL-2-InP-768x768-bf16.safetensors\n        EasyAnimateV3-XL-2-InP-960x960-bf16.safetensors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      10,
+      2,
+      0,
+      8,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      19,
+      2,
+      0,
+      12,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      20,
+      12,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      34,
+      2,
+      0,
+      22,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      36,
+      8,
+      0,
+      22,
+      1,
+      "T5EMBEDS"
+    ],
+    [
+      37,
+      22,
+      0,
+      12,
+      1,
+      "EASYANIMLATENTS"
+    ],
+    [
+      43,
+      13,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      33,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      55,
+      32,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      27,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      57,
+      39,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      62,
+      41,
+      0,
+      39,
+      1,
+      "EASYANIMLATENTS"
+    ],
+    [
+      64,
+      38,
+      0,
+      41,
+      1,
+      "T5EMBEDS"
+    ],
+    [
+      85,
+      2,
+      0,
+      39,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      86,
+      2,
+      0,
+      41,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      87,
+      2,
+      0,
+      38,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      90,
+      60,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      91,
+      57,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      92,
+      59,
+      0,
+      57,
+      1,
+      "INT"
+    ],
+    [
+      93,
+      59,
+      0,
+      57,
+      2,
+      "INT"
+    ],
+    [
+      94,
+      56,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      95,
+      60,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      96,
+      60,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      98,
+      66,
+      0,
+      8,
+      2,
+      "STRING"
+    ],
+    [
+      99,
+      67,
+      0,
+      8,
+      1,
+      "STRING"
+    ],
+    [
+      103,
+      66,
+      0,
+      38,
+      1,
+      "STRING"
+    ],
+    [
+      104,
+      67,
+      0,
+      38,
+      2,
+      "STRING"
+    ],
+    [
+      106,
+      69,
+      0,
+      41,
+      4,
+      "INT"
+    ],
+    [
+      107,
+      69,
+      0,
+      22,
+      4,
+      "INT"
+    ],
+    [
+      108,
+      70,
+      0,
+      41,
+      5,
+      "INT"
+    ],
+    [
+      109,
+      70,
+      0,
+      22,
+      5,
+      "INT"
+    ],
+    [
+      110,
+      72,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      111,
+      75,
+      0,
+      74,
+      0,
+      "IMAGE"
+    ],
+    [
+      112,
+      74,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      113,
+      73,
+      0,
+      77,
+      0,
+      "IMAGE"
+    ],
+    [
+      114,
+      87,
+      0,
+      85,
+      0,
+      "IMAGE"
+    ],
+    [
+      119,
+      88,
+      0,
+      87,
+      1,
+      "EASYANIMLATENTS"
+    ],
+    [
+      121,
+      86,
+      0,
+      88,
+      1,
+      "T5EMBEDS"
+    ],
+    [
+      124,
+      91,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ],
+    [
+      129,
+      92,
+      0,
+      91,
+      1,
+      "EASYANIMLATENTS"
+    ],
+    [
+      131,
+      90,
+      0,
+      92,
+      1,
+      "T5EMBEDS"
+    ],
+    [
+      137,
+      2,
+      0,
+      91,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      138,
+      2,
+      0,
+      87,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      139,
+      2,
+      0,
+      92,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      140,
+      2,
+      0,
+      88,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      141,
+      2,
+      0,
+      86,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      142,
+      2,
+      0,
+      90,
+      0,
+      "EASYANIMATEPIPE"
+    ],
+    [
+      143,
+      69,
+      0,
+      88,
+      4,
+      "INT"
+    ],
+    [
+      144,
+      69,
+      0,
+      92,
+      4,
+      "INT"
+    ],
+    [
+      145,
+      70,
+      0,
+      88,
+      5,
+      "INT"
+    ],
+    [
+      146,
+      70,
+      0,
+      92,
+      5,
+      "INT"
+    ],
+    [
+      147,
+      66,
+      0,
+      86,
+      2,
+      "STRING"
+    ],
+    [
+      148,
+      66,
+      0,
+      90,
+      1,
+      "STRING"
+    ],
+    [
+      149,
+      67,
+      0,
+      86,
+      1,
+      "STRING"
+    ],
+    [
+      150,
+      67,
+      0,
+      90,
+      2,
+      "STRING"
+    ],
+    [
+      160,
+      12,
+      0,
+      106,
+      0,
+      "IMAGE"
+    ],
+    [
+      161,
+      106,
+      0,
+      53,
+      0,
+      "IMAGE"
+    ],
+    [
+      162,
+      106,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      163,
+      39,
+      0,
+      106,
+      1,
+      "IMAGE"
+    ],
+    [
+      164,
+      87,
+      0,
+      106,
+      2,
+      "IMAGE"
+    ],
+    [
+      165,
+      91,
+      0,
+      106,
+      3,
+      "IMAGE"
+    ],
+    [
+      166,
+      27,
+      0,
+      22,
+      2,
+      "IMAGE"
+    ],
+    [
+      167,
+      32,
+      0,
+      22,
+      3,
+      "IMAGE"
+    ],
+    [
+      171,
+      32,
+      0,
+      41,
+      2,
+      "IMAGE"
+    ],
+    [
+      172,
+      73,
+      0,
+      41,
+      3,
+      "IMAGE"
+    ],
+    [
+      173,
+      73,
+      0,
+      88,
+      2,
+      "IMAGE"
+    ],
+    [
+      174,
+      74,
+      0,
+      88,
+      3,
+      "IMAGE"
+    ],
+    [
+      175,
+      74,
+      0,
+      92,
+      2,
+      "IMAGE"
+    ],
+    [
+      177,
+      27,
+      0,
+      92,
+      3,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Dim Limiter",
+      "bounding": [
+        2516,
+        129,
+        406,
+        323
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "RIFE",
+      "bounding": [
+        2516,
+        495,
+        409,
+        309
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "FILM",
+      "bounding": [
+        2516,
+        851,
+        410,
+        310
+      ],
+      "color": "#A88",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1918176537727319,
+      "offset": {
+        "0": 1130.061979199244,
+        "1": 60.880235035687576
+      }
+    }
+  },
+  "version": 0.4
+}
