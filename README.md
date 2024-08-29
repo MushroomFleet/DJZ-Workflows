@@ -1,10 +1,10 @@
 # DJZ-Workflows
 all workflow packs for ComfyUI from @driftjohnson @fivebelowfiveuk
-
-Installation:
+<br /><br />
+Installation: <br />
 from inside ComfyUI\user\default\workflows
 > git clone https://github.com/MushroomFleet/DJZ-Workflows
-
-Update:
+<br /><br />
+Update:<br />
 from inside ComfyUI\user\default\workflows\DJZ-Workflows
 > git pull
