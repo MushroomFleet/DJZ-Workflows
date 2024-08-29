@@ -1,0 +1,632 @@
+{
+  "last_node_id": 40,
+  "last_link_id": 42,
+  "nodes": [
+    {
+      "id": 17,
+      "type": "LoadChatGLM3",
+      "pos": [
+        200,
+        530
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "chatglm3_model",
+          "type": "CHATGLM3MODEL",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadChatGLM3"
+      },
+      "widgets_values": [
+        "chatglm3-8bit.safetensors"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "VAELoader",
+      "pos": [
+        202,
+        235
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae_fixed.safetensors"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "easy getNode",
+      "pos": [
+        1830,
+        310
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            22
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_VAE",
+      "properties": {},
+      "widgets_values": [
+        "VAE"
+      ],
+      "color": "#223"
+    },
+    {
+      "id": 6,
+      "type": "DownloadAndLoadKolorsModel",
+      "pos": [
+        201,
+        368
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "kolors_model",
+          "type": "KOLORSMODEL",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadKolorsModel"
+      },
+      "widgets_values": [
+        "Kwai-Kolors/Kolors",
+        "fp16"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "easy getNode",
+      "pos": [
+        1290,
+        230
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "KOLORSMODEL",
+          "type": "KOLORSMODEL",
+          "links": [
+            24
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_kolors_model",
+      "properties": {},
+      "widgets_values": [
+        "kolors_model"
+      ],
+      "color": "#223"
+    },
+    {
+      "id": 23,
+      "type": "easy getNode",
+      "pos": [
+        1280,
+        270
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "KOLORS_EMBEDS",
+          "type": "KOLORS_EMBEDS",
+          "links": [
+            26
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_kolors_embeds",
+      "properties": {},
+      "widgets_values": [
+        "kolors_embeds"
+      ],
+      "color": "#223"
+    },
+    {
+      "id": 18,
+      "type": "easy setNode",
+      "pos": [
+        412,
+        189
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "link": 21
+        }
+      ],
+      "title": "Set_VAE",
+      "properties": {
+        "previousName": "VAE"
+      },
+      "widgets_values": [
+        "VAE"
+      ],
+      "color": "#223"
+    },
+    {
+      "id": 20,
+      "type": "easy setNode",
+      "pos": [
+        357,
+        323
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "KOLORSMODEL",
+          "type": "KOLORSMODEL",
+          "link": 23
+        }
+      ],
+      "title": "Set_kolors_model",
+      "properties": {
+        "previousName": "kolors_model"
+      },
+      "widgets_values": [
+        "kolors_model"
+      ],
+      "color": "#223"
+    },
+    {
+      "id": 22,
+      "type": "easy setNode",
+      "pos": [
+        849,
+        486
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "KOLORS_EMBEDS",
+          "type": "KOLORS_EMBEDS",
+          "link": 25
+        }
+      ],
+      "title": "Set_kolors_embeds",
+      "properties": {
+        "previousName": "kolors_embeds"
+      },
+      "widgets_values": [
+        "kolors_embeds"
+      ],
+      "color": "#223"
+    },
+    {
+      "id": 39,
+      "type": "PrimitiveNode",
+      "pos": [
+        566,
+        300
+      ],
+      "size": {
+        "0": 455.69329833984375,
+        "1": 170.08453369140625
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "cinematic photograph of an astronaut riding a horse in space |\nillustration of a cat wearing a top hat and a scarf  |\nphotograph of a goldfish in a bowl |\nanime screencap of a red haired girl"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 12,
+      "type": "KolorsTextEncode",
+      "pos": [
+        566,
+        530
+      ],
+      "size": {
+        "0": 457.28936767578125,
+        "1": 225.28656005859375
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "chatglm3_model",
+          "type": "CHATGLM3MODEL",
+          "link": 20,
+          "slot_index": 0
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 41,
+          "widget": {
+            "name": "prompt"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "kolors_embeds",
+          "type": "KOLORS_EMBEDS",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KolorsTextEncode"
+      },
+      "widgets_values": [
+        "cinematic photograph of an astronaut riding a horse in space |\nillustration of a cat wearing a top hat and a scarf  |\nphotograph of a goldfish in a bowl |\nanime screencap of a red haired girl",
+        "",
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 14,
+      "type": "KolorsSampler",
+      "pos": [
+        1460,
+        220
+      ],
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "kolors_model",
+          "type": "KOLORSMODEL",
+          "link": 24
+        },
+        {
+          "name": "kolors_embeds",
+          "type": "KOLORS_EMBEDS",
+          "link": 26
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KolorsSampler"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1000102404233412,
+        "fixed",
+        25,
+        5,
+        "EulerDiscreteScheduler",
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAEDecode",
+      "pos": [
+        1820,
+        220
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 22,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 40,
+      "type": "SaveImage",
+      "pos": [
+        2176,
+        220
+      ],
+      "size": {
+        "0": 315,
+        "1": 270
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./koda/txt2img/koda"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": [
+        200,
+        636
+      ],
+      "size": {
+        "0": 351.6951599121094,
+        "1": 262.8938293457031
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "koda-txtimg-basic-v6\n\nVideo: https://www.youtube.com/watch?v=3Vcdg5ocjO4\nWorkflow: https://civitai.com/models/589666\n\nKoda Pack v1\nNew Base Model - Kolor\n\ntxt2img basic\n\n\nYou will need:\ninstall any and all missing custom nodes & use the latest version of ComfyUI\n\n\nhttps://huggingface.co/Kijai/ChatGLM3-safetensors/tree/main\n\ndownload one of the models, i will use the fp8 version, you might use another.\n\nplace inside ComfyUI\\models\\LLM\\checkpoints\\\n\nhttps://huggingface.co/Kwai-Kolors/Kolors/resolve/main/unet/diffusion_pytorch_model.fp16.safetensors\n\nplace inside ComfyUI/models/unet/diffusers/kolors\n\nhttps://huggingface.co/Kwai-Kolors/Kolors\n\nI also added all of these files from diffusers here.\nwe already downloaded the \"diffusion_pytorch_model.fp16.safetensors\" and put it into the /models/unet/kolors/ some of the nodes look in a different location, it's up to you which method you want to use as both will work, this is discussed in the video.\n\nWe do not need any .bin of the contents of text_encoder because we took the ChatGLM3.fp8.safetensors instead.\n\nstructure of ComfyUI\\models\\diffusers\\Kolors\\\n\nComfyUI\\models\\diffusers\\Kolors> tree /F\n│   model_index.json\n│\n├───scheduler\n│       scheduler_config.json\n│\n├───text_encoder\n│       config.json\n│       tokenizer.model\n│       tokenizer_config.json\n│       vocab.txt\n│\n└───unet\n        config.json\n        diffusion_pytorch_model.fp16.safetensors\nKolors IP Adapter\nhttps://huggingface.co/Kwai-Kolors/Kolors-IP-Adapter-Plus\n\ndownload ip_adapter_plus_general.bin\n\nplace inside \\models\\ipadapter\\kolors\\\n\nKolors Clip Vision\nhttps://huggingface.co/Kwai-Kolors/Kolors-IP-Adapter-Plus/tree/main/image_encoder\n\ndownload pytorch_model.bin\n\nplace inside \\models\\clip_vision\\kolors\\\n\nhttps://civitai.com/models/441432/mistoline\n\nplace inside \\models\\controlnet\\kolors\\\n\nI'm suggesting a subfolder, or if you prefer rename them as needed.\n\nVAE\nFor all the VAE - just use your favorite SDXL VAE"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      18,
+      14,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      20,
+      17,
+      0,
+      12,
+      0,
+      "CHATGLM3MODEL"
+    ],
+    [
+      21,
+      11,
+      0,
+      18,
+      0,
+      "*"
+    ],
+    [
+      22,
+      19,
+      0,
+      10,
+      1,
+      "VAE"
+    ],
+    [
+      23,
+      6,
+      0,
+      20,
+      0,
+      "*"
+    ],
+    [
+      24,
+      21,
+      0,
+      14,
+      0,
+      "KOLORSMODEL"
+    ],
+    [
+      25,
+      12,
+      0,
+      22,
+      0,
+      "*"
+    ],
+    [
+      26,
+      23,
+      0,
+      14,
+      1,
+      "KOLORS_EMBEDS"
+    ],
+    [
+      41,
+      39,
+      0,
+      12,
+      1,
+      "STRING"
+    ],
+    [
+      42,
+      10,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4641000000000006,
+      "offset": {
+        "0": 226.94019445271363,
+        "1": -383.4463185675294
+      }
+    }
+  },
+  "version": 0.4
+}
