@@ -7,7 +7,7 @@ from inside ComfyUI\user\default\workflows
 <br /><br />
 Update:<br />
 from inside ComfyUI\user\default\workflows\DJZ-Workflows
-- `git pull`
+- `git pull`<br /><br />
 Every Pack has an associated series of videos which you can find here:<br />
 https://www.youtube.com/@FiveBelowFiveUK<br />
 <br />
