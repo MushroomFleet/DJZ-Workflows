@@ -8,3 +8,7 @@ from inside ComfyUI\user\default\workflows
 Update:<br />
 from inside ComfyUI\user\default\workflows\DJZ-Workflows
 - `git pull`
+Every Pack has an associated series of videos which you can find here:<br />
+https://www.youtube.com/@FiveBelowFiveUK<br />
+<br />
+however most workflows will link to either the channel or a specific video in the notes<br />
