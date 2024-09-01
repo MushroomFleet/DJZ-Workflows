@@ -1,0 +1,7540 @@
+{
+  "last_node_id": 1849,
+  "last_link_id": 2647,
+  "nodes": [
+    {
+      "id": 1209,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -7961.103515625,
+        "1": 1073.1365966796875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1483
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "title": "Foda Root",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "./foda/"
+      ]
+    },
+    {
+      "id": 1220,
+      "type": "Note",
+      "pos": {
+        "0": -8122.609375,
+        "1": 2997.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 220.59100341796875,
+        "1": 78.26349639892578
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "1 = txt2img (empty latent)\n\n2 = img2img"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1226,
+      "type": "BasicScheduler",
+      "pos": {
+        "0": -3923.829345703125,
+        "1": 3406.871826171875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 309.76611328125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 75,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2438,
+          "slot_index": 0
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 1507,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 2220,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            1524
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ]
+    },
+    {
+      "id": 1227,
+      "type": "BasicGuider",
+      "pos": {
+        "0": -4163.8291015625,
+        "1": 3067.871826171875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 161.1999969482422,
+        "1": 46
+      },
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2434,
+          "slot_index": 0
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 1981,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            1502
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 1231,
+      "type": "Note",
+      "pos": {
+        "0": -8350.609375,
+        "1": 2175.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 232.28611755371094,
+        "1": 114.16587829589844
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "1.0 denoise with txt2img mode\n\nwith img2img mode use 0.01 to 0.75\ndon't forget to BOOOST the shift ;)"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1241,
+      "type": "ImpactSwitch",
+      "pos": {
+        "0": -7837.609375,
+        "1": 2732.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 72,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "FLOAT",
+          "link": 1517
+        },
+        {
+          "name": "input2",
+          "type": "FLOAT",
+          "link": 1518
+        },
+        {
+          "name": "input3",
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "name": "select",
+          "type": "INT",
+          "link": 1519,
+          "widget": {
+            "name": "select"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            1507,
+            2374,
+            2499,
+            2549
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "FLOAT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 1247,
+      "type": "VAEEncode",
+      "pos": {
+        "0": -8522.609375,
+        "1": 2983.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 209.20352172851562,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 61,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 2442
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1890
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1493
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 1248,
+      "type": "SplitSigmas",
+      "pos": {
+        "0": -3923.829345703125,
+        "1": 3287.871826171875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 83,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 1524
+        }
+      ],
+      "outputs": [
+        {
+          "name": "high_sigmas",
+          "type": "SIGMAS",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "low_sigmas",
+          "type": "SIGMAS",
+          "links": [
+            1504
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitSigmas"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 1400,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": -10325,
+        "1": 2192,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 1166.9921875,
+        "1": 200
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FLUX LORA:",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 1506,
+      "type": "ModelSamplingAuraFlow",
+      "pos": {
+        "0": -8580.609375,
+        "1": 2057.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2350
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1977
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow"
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 1539,
+      "type": "Reroute",
+      "pos": {
+        "0": -7823.609375,
+        "1": 2827.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 71,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 1992
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "LATENT",
+          "links": [
+            1993,
+            2372,
+            2497,
+            2547
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1541,
+      "type": "Reroute",
+      "pos": {
+        "0": -7815.609375,
+        "1": 2110.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 1998
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "VAE",
+          "links": [
+            1999,
+            2365,
+            2490,
+            2540
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1613,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -3499.829345703125,
+        "1": 3184.871826171875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2133,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 2134,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2135
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1654,
+      "type": "Note",
+      "pos": {
+        "0": -10140,
+        "1": 1823,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 482.0799255371094,
+        "1": 355.24700927734375
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "skyforge style (2), multiple girls, ladder, aircraft, airship, paradise style (22), overgrown, neofutur style (18), paradise style (10), junglecity (15)\n\ncity, paradise style (3), hyperfutur style (5), power lines, day, junglecity (9), 6+boys, fantasm style (2), neofutur style (11), no humans\n\n1girl, paradise style (7), building, rockhouse style (4), tower, paradise style (3), neofutur style (3), junglecity (9), neofutur style (31), ocean\n\n\ncranehouse style (3), scenery, sky, no humans, cloud, outdoors, day, ocean, crane (machine), blue sky, watercraft\n\ncloudempire style (3), cloud, scenery, sky, no humans, aircraft, airship, city, building, science fiction, outdoors\n\nparadise style (13), cloud, sky, scenery, no humans, day, outdoors, blue sky, cloudy sky, building, railing\n\ncloudempire style (3), cloud, scenery, sky, no humans, aircraft, airship, city, building, science fiction, outdoors\n\nancientrealm style (4), scenery, moon, sky, cloud, night, castle, city, outdoors, building, tower\n\nfantasm style (6), scenery, no humans, cloud, sky, fantasy, planet, building, city, tree, star (sky)\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1694,
+      "type": "Reroute",
+      "pos": {
+        "0": -8764.609375,
+        "1": 1954.9527587890625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2349
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MODEL",
+          "links": [
+            2350,
+            2351
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1706,
+      "type": "SaveImage",
+      "pos": {
+        "0": -5928.29541015625,
+        "1": 2045.4283447265625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 797.067138671875,
+        "1": 683.7936401367188
+      },
+      "flags": {},
+      "order": 101,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2366
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2367,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1707,
+      "type": "SamplerCustomAdvanced",
+      "pos": {
+        "0": -6578.29541015625,
+        "1": 1955.4283447265625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.0994873046875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 92,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 2566,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 2369,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 2370,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 2371,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 2372,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            2364
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 1708,
+      "type": "BasicScheduler",
+      "pos": {
+        "0": -6578.29541015625,
+        "1": 2315.428466796875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 309.76611328125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 76,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2604,
+          "slot_index": 0
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 2374,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 2375,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            2381
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ]
+    },
+    {
+      "id": 1709,
+      "type": "BasicGuider",
+      "pos": {
+        "0": -6818.29541015625,
+        "1": 1975.4283447265625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 161.1999969482422,
+        "1": 46
+      },
+      "flags": {},
+      "order": 88,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2603,
+          "slot_index": 0
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 2377,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            2369
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 1711,
+      "type": "SplitSigmas",
+      "pos": {
+        "0": -6578.29541015625,
+        "1": 2195.428466796875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 84,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 2381
+        }
+      ],
+      "outputs": [
+        {
+          "name": "high_sigmas",
+          "type": "SIGMAS",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "low_sigmas",
+          "type": "SIGMAS",
+          "links": [
+            2371
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitSigmas"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 1712,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -6181.89111328125,
+        "1": 2143.90771484375,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2391
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "title": "Mode Subdirectory",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "compare"
+      ]
+    },
+    {
+      "id": 1714,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -6173.87109375,
+        "1": 2092.4677734375,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2385,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2391,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2367
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "compare",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1738,
+      "type": "Note",
+      "pos": {
+        "0": -10240,
+        "1": 2646,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 571.7393188476562,
+        "1": 396.8567199707031
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Thorra Actions",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "anime kzk woman with red hair, rushing past lasers and explosions holding a sword in her right hand and standing in the middle of a city with buildings in the background\n\nanime kzk woman with red hair, rushing past lasers and explosions crouches down on the ground in front of a cityscape, with red lights coming from behind her\n\nanime kzk woman with red hair, rushing past lasers and explosions in the middle of a sci - fi - themed scene with bright beams of light coming from behind her\n\nanime kzk woman with red hair, shooting a gun directly at the camera  and glowing eyes on the other side of the gun in the other hand\n\nanime kzk woman with red hair, looking directly at the camera  and a gun in her right hand with blood splatters all around her"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1576,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": -10648,
+        "1": 2388,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 1496.484375,
+        "1": 200
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "STACK TESTER",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 1236,
+      "type": "CLIPTextEncodeFlux",
+      "pos": {
+        "0": -4775.8291015625,
+        "1": 3540.438720703125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.2856750488281,
+        "1": 108
+      },
+      "flags": {},
+      "order": 79,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2435
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 1988,
+          "widget": {
+            "name": "clip_l"
+          }
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 1989,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1981
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "half cybernetic half demon shogun armor, immense mecha, gundam, heavy gear, baroque, hr giger, belinski, octane render, excessive amount of cables, blur",
+        "",
+        3.5,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1739,
+      "type": "Note",
+      "pos": {
+        "0": -9647,
+        "1": 2647,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 571.7393188476562,
+        "1": 396.8567199707031
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Thorra Scenes",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "anime in the background active megacity, an image of a sci - fi environment with a lot of blue and orange lights\n\nanime in the background active megacity, a futuristic looking room with a large circular light in the middle of it\n\nanime in the background active megacity, an image of a sci - fi themed room in a sci - fi environment\n\nanime in the background active megacity, a futuristic looking room with blue lights and a large circular object in the center of the room\n\nanime in the background active megacity, the interior of a sci - fi themed fortress with a round window\n\nanime in the background cyber fortress corridor, a hallway in a sci - fi megacity with red and blue lights\n\nanime in the background cyber fortress corridor, a hallway in a sci - fi megacity with lots of lights on the walls\n\nanime in the background cyber fortress corridor,   a hallway in a sci - fi megacity\n\nanime in the background cyber fortress corridor, a hallway in a sci - fi megacity with neon lights on the walls\n\nanime in the background cyber fortress corridor, a hallway in a sci - fi themed megacity with lots of machines\n\nanime in the background cyber fortress corridor, a hallway in a sci - fi megacity with orange stairs and railings\n\nanime in the background megacity airlock,   a hallway in a sci - fi fortress\n\nanime in the background megacity airlock, a futuristic fortress interior with a large circular object in the middle of it\n\nanime in the background megacity airlock, the interior of a sci - fi themed fortress with red and blue lights\n\nanime in the background megacity airlock, the interior of a futuristic looking building with lots of red and orange doors\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1604,
+      "type": "KSamplerSelect",
+      "pos": {
+        "0": -8122,
+        "1": 2361,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 66.9239730834961
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            2219,
+            2370,
+            2495,
+            2545
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 1750,
+      "type": "Reroute",
+      "pos": {
+        "0": -10284.400390625,
+        "1": 1584.6104736328125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2451,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "STRING",
+          "links": [
+            2452
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1237,
+      "type": "Primitive float [Crystools]",
+      "pos": {
+        "0": -8352,
+        "1": 2496,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": [
+            1517
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "text2image denoise",
+      "properties": {
+        "Node name for S&R": "Primitive float [Crystools]"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1537,
+      "type": "Reroute",
+      "pos": {
+        "0": -7837,
+        "1": 2425,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 74,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 1987,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "STRING",
+          "links": [
+            1988,
+            1989,
+            2379,
+            2380,
+            2504,
+            2505,
+            2554,
+            2555
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1741,
+      "type": "CR Apply LoRA Stack",
+      "pos": {
+        "0": -4777.8291015625,
+        "1": 3036.438720703125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.01287841796875,
+        "1": 66
+      },
+      "flags": {},
+      "order": 67,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2436
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2437
+        },
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": 2433
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2434
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2435
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Apply LoRA Stack"
+      }
+    },
+    {
+      "id": 1224,
+      "type": "SamplerCustomAdvanced",
+      "pos": {
+        "0": -3923.829345703125,
+        "1": 3047.871826171875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.0994873046875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 91,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 2564,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 1502,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 2219,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 1504,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 1993,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            1497
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 1779,
+      "type": "SamplerCustomAdvanced",
+      "pos": {
+        "0": -3896.287353515625,
+        "1": 1962.9215087890625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.0994873046875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 93,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 2563,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 2494,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 2495,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 2496,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 2497,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            2489
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 1780,
+      "type": "BasicScheduler",
+      "pos": {
+        "0": -3896.287353515625,
+        "1": 2321.921630859375,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 309.76611328125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 77,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2498,
+          "slot_index": 0
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 2499,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 2500,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            2506
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ]
+    },
+    {
+      "id": 1781,
+      "type": "BasicGuider",
+      "pos": {
+        "0": -4136.28759765625,
+        "1": 1982.9215087890625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 161.1999969482422,
+        "1": 46
+      },
+      "flags": {},
+      "order": 89,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2501,
+          "slot_index": 0
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 2502,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            2494
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 1782,
+      "type": "CLIPTextEncodeFlux",
+      "pos": {
+        "0": -4748.28759765625,
+        "1": 2455.488525390625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.2856750488281,
+        "1": 108
+      },
+      "flags": {},
+      "order": 81,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2503
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 2504,
+          "widget": {
+            "name": "clip_l"
+          }
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 2505,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            2502
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "half cybernetic half demon shogun armor, immense mecha, gundam, heavy gear, baroque, hr giger, belinski, octane render, excessive amount of cables, blur",
+        "",
+        3.5,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1783,
+      "type": "SplitSigmas",
+      "pos": {
+        "0": -3896.287353515625,
+        "1": 2202.921630859375,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 85,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 2506
+        }
+      ],
+      "outputs": [
+        {
+          "name": "high_sigmas",
+          "type": "SIGMAS",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "low_sigmas",
+          "type": "SIGMAS",
+          "links": [
+            2496
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitSigmas"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 1785,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -3472.287353515625,
+        "1": 2099.921630859375,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 53,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2507,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 2508,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2492
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1787,
+      "type": "CR Apply LoRA Stack",
+      "pos": {
+        "0": -4750.28759765625,
+        "1": 1951.488525390625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.01287841796875,
+        "1": 66
+      },
+      "flags": {},
+      "order": 68,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2509
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2510
+        },
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": 2511
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2501
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2503
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Apply LoRA Stack"
+      }
+    },
+    {
+      "id": 1806,
+      "type": "SaveImage",
+      "pos": {
+        "0": -5920,
+        "1": 3140,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 797.067138671875,
+        "1": 683.7936401367188
+      },
+      "flags": {},
+      "order": 105,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2541
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2542,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1807,
+      "type": "SamplerCustomAdvanced",
+      "pos": {
+        "0": -6570,
+        "1": 3050,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.0994873046875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 94,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 2565,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 2544,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 2545,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 2546,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 2547,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            2539
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 1808,
+      "type": "BasicScheduler",
+      "pos": {
+        "0": -6570,
+        "1": 3400,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 309.76611328125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 78,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2548,
+          "slot_index": 0
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 2549,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 2550,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            2556
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ]
+    },
+    {
+      "id": 1809,
+      "type": "BasicGuider",
+      "pos": {
+        "0": -6810,
+        "1": 3070,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 161.1999969482422,
+        "1": 46
+      },
+      "flags": {},
+      "order": 90,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2551,
+          "slot_index": 0
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 2552,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            2544
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 1810,
+      "type": "CLIPTextEncodeFlux",
+      "pos": {
+        "0": -7420,
+        "1": 3540,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.2856750488281,
+        "1": 108
+      },
+      "flags": {},
+      "order": 82,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2553
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 2554,
+          "widget": {
+            "name": "clip_l"
+          }
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 2555,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            2552
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "half cybernetic half demon shogun armor, immense mecha, gundam, heavy gear, baroque, hr giger, belinski, octane render, excessive amount of cables, blur",
+        "",
+        3.5,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1811,
+      "type": "SplitSigmas",
+      "pos": {
+        "0": -6570,
+        "1": 3290,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 86,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 2556
+        }
+      ],
+      "outputs": [
+        {
+          "name": "high_sigmas",
+          "type": "SIGMAS",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "low_sigmas",
+          "type": "SIGMAS",
+          "links": [
+            2546
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitSigmas"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 1812,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -6140,
+        "1": 3240,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2558
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "title": "Mode Subdirectory",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "compare"
+      ]
+    },
+    {
+      "id": 1813,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -6140,
+        "1": 3180,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 54,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2557,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 2558,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2542
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1815,
+      "type": "CR Apply LoRA Stack",
+      "pos": {
+        "0": -7420,
+        "1": 3030,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.01287841796875,
+        "1": 66
+      },
+      "flags": {},
+      "order": 69,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2559
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2560
+        },
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": 2561
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2551
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2553
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Apply LoRA Stack"
+      }
+    },
+    {
+      "id": 88,
+      "type": "UNETLoader",
+      "pos": {
+        "0": -9767,
+        "1": 1081,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2349
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-schnell.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 1102,
+      "type": "VAELoader",
+      "pos": {
+        "0": -9762,
+        "1": 1394,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            1890,
+            1998
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 1249,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -3499,
+        "1": 3239,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2134
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "title": "Mode Subdirectory",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "compare"
+      ]
+    },
+    {
+      "id": 1535,
+      "type": "CR Model Input Switch",
+      "pos": {
+        "0": -8325.609375,
+        "1": 2054.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {},
+      "order": 60,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model1",
+          "type": "MODEL",
+          "link": 1977
+        },
+        {
+          "name": "model2",
+          "type": "MODEL",
+          "link": 1978
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2594
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Model Input Switch"
+      },
+      "widgets_values": [
+        2
+      ]
+    },
+    {
+      "id": 1232,
+      "type": "ModelSamplingFlux",
+      "pos": {
+        "0": -8577.609375,
+        "1": 2160.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 130.5891876220703
+      },
+      "flags": {},
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2351
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 1883,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 1884,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1978
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        1.5,
+        1.5,
+        1024,
+        1024
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1778,
+      "type": "SaveImage",
+      "pos": {
+        "0": -3254,
+        "1": 2000,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 797.067138671875,
+        "1": 683.7936401367188
+      },
+      "flags": {},
+      "order": 103,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2491
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2492,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1223,
+      "type": "SaveImage",
+      "pos": {
+        "0": -3274,
+        "1": 3063,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 797.067138671875,
+        "1": 683.7936401367188
+      },
+      "flags": {},
+      "order": 99,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1499
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2135,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1788,
+      "type": "RandomNoise",
+      "pos": {
+        "0": -8576,
+        "1": 1128,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            2563,
+            2564,
+            2565,
+            2566
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        52874383452249,
+        "randomize"
+      ]
+    },
+    {
+      "id": 1216,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": -8521,
+        "1": 2854,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 1879,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 1880,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1492
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 559,
+      "type": "AspectSizeV2",
+      "pos": {
+        "0": -8586,
+        "1": 1319,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            1879,
+            1883
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            1880,
+            1884
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        4,
+        5,
+        64
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1743,
+      "type": "ImageResize+",
+      "pos": {
+        "0": -8594,
+        "1": 3145,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2439
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 2444,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 2445,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2442
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "fill / crop",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 1745,
+      "type": "ImageSizeAdjusterV2",
+      "pos": {
+        "0": -8965,
+        "1": 3121,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 306
+      },
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2443
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            2444
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            2445
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSizeAdjusterV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        64,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 1825,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -10918,
+        "1": 2024,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 76.00006103515625
+      },
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 2585
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "9B355099"
+      ]
+    },
+    {
+      "id": 491,
+      "type": "Note",
+      "pos": {
+        "0": -9643,
+        "1": 1932,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 487.993408203125,
+        "1": 238.63739013671875
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "use your lora trained captions as prompts to test\n\nAssassinKahb style a demonic looking skeleton holding a sword with red hair\n\nextreme close up anime kzk woman with long red hair and blue cosmic eyes\n\nanime kzk woman with red hair holding a rifle and wearing a green uniform, crouching down in a hallway with a building in the background\n\nanime kzk woman with red hair shooting directly at the camera,  with red hair holding a gun in front of a white background\n\nanime kzk woman with red hair, sneaking inside a sci-fi megatower interior, holding a gun in a room with a red light coming from the ceiling\n\nclose up anime kzk woman with red hair wearing spysuit portrait,  wearing black and white makeup\n\nA serene coastal landscape where towering cliffs have been intricately carved into the shape of an ancient Sphinx, reminiscent of Egyptian architecture. The Sphinx faces the ocean, its massive form casting a shadow on the calm, reflective waters below. The sky is clear and bright blue, adding to the surreal beauty of the scene, with the contrast between the warm tones of the carved stone and the cool, tranquil sea\n\nAn ancient Asian warrior, clad in traditional armor, is seated in deep meditation atop a massive stone platform. The warrior's presence is powerful yet serene, with strong, chiseled features. The surrounding environment is dominated by towering rock formations and cliffs, intricately carved with symbols and statues that reflect a deep, ancient rock culture. The entire scene is imbued with a sense of strength, discipline, and connection to the earth, under a tranquil sky\n\n\n\nAn ancient Asian warrior, clad in traditional armor, is seated in deep meditation atop a massive stone platform. The warrior's presence is powerful yet serene, with strong, chiseled features. The surrounding environment is dominated by towering rock formations and cliffs, intricately carved with symbols and statues that reflect a deep, ancient rock culture. The entire scene is imbued with a sense of strength, discipline, and connection to the earth, under a tranquil sky\n\nanime kzk woman with red hair, sneaking inside a sci-fi megatower interior, holding a gun in a room with a red light coming from the ceiling,  in the background cyber fortress corridor, a hallway in a sci - fi themed megacity with lots of machines"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": {
+        "0": -9756,
+        "1": 1218,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 307.3152160644531,
+        "1": 106
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2595
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 1575,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -8204,
+        "1": 1209,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 326.03900146484375,
+        "1": 298
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "pale_blue",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 1710,
+      "type": "CLIPTextEncodeFlux",
+      "pos": {
+        "0": -7435,
+        "1": 2497,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.2856750488281,
+        "1": 108
+      },
+      "flags": {},
+      "order": 80,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2606
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 2379,
+          "widget": {
+            "name": "clip_l"
+          }
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 2380,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            2377
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "half cybernetic half demon shogun armor, immense mecha, gundam, heavy gear, baroque, hr giger, belinski, octane render, excessive amount of cables, blur",
+        "",
+        3.5,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1538,
+      "type": "Reroute",
+      "pos": {
+        "0": -7816.609375,
+        "1": 2049.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 64,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2594
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MODEL",
+          "links": [
+            2436,
+            2438,
+            2498,
+            2509,
+            2548,
+            2559,
+            2602
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1540,
+      "type": "Reroute",
+      "pos": {
+        "0": -7816.609375,
+        "1": 2079.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2595
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "CLIP",
+          "links": [
+            2437,
+            2510,
+            2560,
+            2605
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1829,
+      "type": "CR Apply LoRA Stack",
+      "pos": {
+        "0": -7421,
+        "1": 1965,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 306.01287841796875,
+        "1": 66
+      },
+      "flags": {},
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2602
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2605
+        },
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": 2601
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2603,
+            2604
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2606
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Apply LoRA Stack"
+      }
+    },
+    {
+      "id": 1834,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -6310,
+        "1": 950,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2611
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "compare"
+      ]
+    },
+    {
+      "id": 1835,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -6330,
+        "1": 880,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 55,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2622,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2611,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2610
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "compare",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1837,
+      "type": "Reroute",
+      "pos": {
+        "0": -4080,
+        "1": 1370,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 100,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2621
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            2613
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1838,
+      "type": "Reroute",
+      "pos": {
+        "0": -4080,
+        "1": 1310,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 106,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2620
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            2612
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1841,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -3650,
+        "1": 920,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 56,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2623,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2616,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2615
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "compare",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1705,
+      "type": "VAEDecode",
+      "pos": {
+        "0": -6198,
+        "1": 1995,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 190.54541015625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 96,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 2364
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2365
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2366,
+            2632
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 1777,
+      "type": "VAEDecode",
+      "pos": {
+        "0": -3516.287353515625,
+        "1": 2003.9215087890625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 190.54541015625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 97,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 2489
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2490
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2491,
+            2633
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 1805,
+      "type": "VAEDecode",
+      "pos": {
+        "0": -6159,
+        "1": 3047,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 190.54541015625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 98,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 2539
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2540
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2541,
+            2620
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 1222,
+      "type": "VAEDecode",
+      "pos": {
+        "0": -3534,
+        "1": 3066,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 190.54541015625,
+        "1": 46
+      },
+      "flags": {},
+      "order": 95,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 1497
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1999
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1499,
+            2621
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 1833,
+      "type": "SaveImage",
+      "pos": {
+        "0": -5911,
+        "1": 859,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 797.067138671875,
+        "1": 683.7936401367188
+      },
+      "flags": {},
+      "order": 109,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2609
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2610,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1839,
+      "type": "SaveImage",
+      "pos": {
+        "0": -3250,
+        "1": 913,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 797.067138671875,
+        "1": 683.7936401367188
+      },
+      "flags": {},
+      "order": 110,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2614
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2615,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1842,
+      "type": "ImageConcatMulti",
+      "pos": {
+        "0": -2136,
+        "1": 1995,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 150
+      },
+      "flags": {},
+      "order": 111,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 2624
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": 2625
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            2630
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        2,
+        "down",
+        false,
+        null
+      ]
+    },
+    {
+      "id": 1844,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -1805,
+        "1": 2050,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2629
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "concat"
+      ]
+    },
+    {
+      "id": 1845,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -1790,
+        "1": 1990,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2628,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2629,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2627
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "/",
+        "true",
+        "",
+        "concat",
+        "compare",
+        ""
+      ]
+    },
+    {
+      "id": 1840,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -3630,
+        "1": 990,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2616
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "compare"
+      ]
+    },
+    {
+      "id": 1784,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -3471,
+        "1": 2154,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2508
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "title": "Mode Subdirectory",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "compare"
+      ]
+    },
+    {
+      "id": 1828,
+      "type": "CR LoRA Stack",
+      "pos": {
+        "0": -7433,
+        "1": 2093,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 342
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LORA_STACK",
+          "type": "LORA_STACK",
+          "links": [
+            2601
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR LoRA Stack"
+      },
+      "widgets_values": [
+        "On",
+        "flux\\civit\\NTTW-V1-Flux-e7-10.safetensors",
+        0.7000000000000001,
+        1,
+        "Off",
+        "flux\\civit\\AssassinKahb-flux-1024x-Kappa-Prodigy-e12.safetensors",
+        0.6,
+        1,
+        "Off",
+        "flux\\civit\\Thorra-Lite-V2-Scenes-e9-10.safetensors",
+        0.6,
+        1
+      ]
+    },
+    {
+      "id": 1786,
+      "type": "CR LoRA Stack",
+      "pos": {
+        "0": -4754.28759765625,
+        "1": 2065.488525390625,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 342
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LORA_STACK",
+          "type": "LORA_STACK",
+          "links": [
+            2511
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR LoRA Stack"
+      },
+      "widgets_values": [
+        "On",
+        "flux\\civit\\NTTW-V2-kappa-e11-13.safetensors",
+        0.7000000000000001,
+        1,
+        "Off",
+        "flux\\civit\\AssassinKahb-flux-1024x-Kappa-Prodigy-e12.safetensors",
+        0.6,
+        1,
+        "Off",
+        "flux\\civit\\Thorra-Lite-V2-Scenes-e9-10.safetensors",
+        0.6,
+        1
+      ]
+    },
+    {
+      "id": 1814,
+      "type": "CR LoRA Stack",
+      "pos": {
+        "0": -7430,
+        "1": 3150,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 342
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LORA_STACK",
+          "type": "LORA_STACK",
+          "links": [
+            2561
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR LoRA Stack"
+      },
+      "widgets_values": [
+        "On",
+        "flux\\civit\\NTTW-V3-4-16-e9-10.safetensors",
+        0.7000000000000001,
+        1,
+        "Off",
+        "flux\\civit\\AssassinKahb-flux-1024x-Kappa-Prodigy-e12.safetensors",
+        0.6,
+        1,
+        "Off",
+        "flux\\civit\\Thorra-Lite-V2-Scenes-e9-10.safetensors",
+        0.6,
+        1
+      ]
+    },
+    {
+      "id": 1843,
+      "type": "SaveImage",
+      "pos": {
+        "0": -1569,
+        "1": 1994,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 1760.093994140625,
+        "1": 1560.8575439453125
+      },
+      "flags": {},
+      "order": 112,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2630
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 2627,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/thumb/scene"
+      ]
+    },
+    {
+      "id": 1210,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8206,
+        "1": 1082,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1484
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "NTTW-compare"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1212,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -7959,
+        "1": 1116,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 1483,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 1484,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2133,
+            2385,
+            2507,
+            2557,
+            2622,
+            2623,
+            2628
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true",
+        "./foda/",
+        "NTTW-compare",
+        "/scene/flux",
+        ""
+      ]
+    },
+    {
+      "id": 1639,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8119.609375,
+        "1": 2479.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2220,
+            2375,
+            2500,
+            2550
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        20,
+        "fixed"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 1836,
+      "type": "CR Simple Image Compare",
+      "pos": {
+        "0": -3820,
+        "1": 1320,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 493.4223327636719,
+        "1": 276.00006103515625
+      },
+      "flags": {},
+      "order": 108,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 2612
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 2613
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2614,
+            2625
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Simple Image Compare"
+      },
+      "widgets_values": [
+        "NTTW V3 - 4-16",
+        "NTTW V4 - 4-16 - lite\n",
+        100,
+        "AlumniSansCollegiateOne-Regular.ttf",
+        80,
+        "dark",
+        16,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 1830,
+      "type": "CR Simple Image Compare",
+      "pos": {
+        "0": -6500,
+        "1": 1280,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 493.4223327636719,
+        "1": 276.00006103515625
+      },
+      "flags": {},
+      "order": 107,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 2607
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 2608
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2609,
+            2624
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Simple Image Compare"
+      },
+      "widgets_values": [
+        "NTTW V2 - 2-16 ",
+        "NTTW V1 - 2-16 - lite\n",
+        100,
+        "AlumniSansCollegiateOne-Regular.ttf",
+        80,
+        "dark",
+        16,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 1831,
+      "type": "Reroute",
+      "pos": {
+        "0": -6760,
+        "1": 1340,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 102,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2632
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            2608
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1832,
+      "type": "Reroute",
+      "pos": {
+        "0": -6760,
+        "1": 1280,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 104,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2633
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            2607
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1740,
+      "type": "CR LoRA Stack",
+      "pos": {
+        "0": -4781.8291015625,
+        "1": 3150.438720703125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 342
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LORA_STACK",
+          "type": "LORA_STACK",
+          "links": [
+            2433
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR LoRA Stack"
+      },
+      "widgets_values": [
+        "On",
+        "flux\\civit\\NTTW-V3-lite-e10-12.safetensors",
+        0.7000000000000001,
+        1,
+        "Off",
+        "flux\\civit\\AssassinKahb-flux-1024x-Kappa-Prodigy-e12.safetensors",
+        0.6,
+        1,
+        "Off",
+        "flux\\civit\\Thorra-Lite-V2-Scenes-e9-10.safetensors",
+        0.6,
+        1
+      ]
+    },
+    {
+      "id": 1752,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -10667,
+        "1": 1757,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 313.4051818847656,
+        "1": 161.6963653564453
+      },
+      "flags": {},
+      "order": 63,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2456,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "(depiction of Stable, surrounded by detailed  Fen, wetland with alkaline water and diverse plant and animal life:0.9), (the scene is in the style of Columbia, A floating city built upon the clouds, filled with advanced technology and powerful political factions:0.5), 9B355099"
+        ],
+        "(depiction of Igloo, surrounded by detailed  Coral reef, underwater ecosystem with diverse coral and fish species:0.9), (neofutur style (17), scenery, building, outdoors, cloud, sky, no humans, city, bird, day, tree:0.7), 9B355099"
+      ]
+    },
+    {
+      "id": 1757,
+      "type": "Note",
+      "pos": {
+        "0": -11577.400390625,
+        "1": 1517.6104736328125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 262.5476379394531,
+        "1": 573.8054809570312
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Using these example files with a recursive depth of 3 would allow for complex and varied prompt generation. For instance:\n\n\n> A $$color $$animal in a $$location\n\"A light red majestic lion in a dense forest\"\n\nBreakdown:\n$$color expanded to \"$$shade red\"\n$$shade expanded to \"light\"\n$$animal expanded to \"majestic $$predator\"\n$$predator expanded to \"lion\"\n$$location expanded to \"$$natural_setting\"\n\n\n> A $$color $$animal in a $$location\n\"Extremely bright blue cute puppy in a futuristic space station\"\n\nBreakdown:\n$$color expanded to \"$$shade blue\"\n$$shade expanded to \"$$intensity bright\"\n$$intensity expanded to \"extremely\"\n$$animal expanded to \"cute $$pet\"\n$$pet expanded to \"puppy\"\n$$location expanded to \"futuristic $$sci_fi_location\"\n$$sci_fi_location expanded to \"space station\"\n\n\n> $$character wearing $$clothing\n\"Wizard wearing subtly shimmering gold robes\"\n\nBreakdown:\n$$character expanded to \"Wizard\"\n$$clothing expanded to \"$$intensity shimmering gold robes\"\n$$intensity expanded to \"subtly\"\n\n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1849,
+      "type": "ZenkaiWildcardV2",
+      "pos": {
+        "0": -11546,
+        "1": 1434,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.4527282714844,
+        "1": 204.63824462890625
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiWildcardV2"
+      },
+      "widgets_values": [
+        " a {man|woman} in a $$location",
+        1426755418,
+        "randomize",
+        "$$",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 1246,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -8963.609375,
+        "1": 2651.95263671875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 280.1095275878906,
+        "1": 223.4860076904297
+      },
+      "flags": {},
+      "order": 73,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1521,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "(depiction of Stable, surrounded by detailed  Fen, wetland with alkaline water and diverse plant and animal life:0.9), (the scene is in the style of Columbia, A floating city built upon the clouds, filled with advanced technology and powerful political factions:0.5), 9B355099"
+        ],
+        "cinematic photo (depiction of Igloo, surrounded by detailed  Coral reef, underwater ecosystem with diverse coral and fish species:0.9), (neofutur style (17), scenery, building, outdoors, cloud, sky, no humans, city, bird, day, tree:0.7), 9B355099 . 35mm photograph, film, bokeh, professional, 4k, highly detailed"
+      ]
+    },
+    {
+      "id": 1242,
+      "type": "Primitive float [Crystools]",
+      "pos": {
+        "0": -8358,
+        "1": 2628,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": [
+            1518
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "image2image denoise",
+      "properties": {
+        "Node name for S&R": "Primitive float [Crystools]"
+      },
+      "widgets_values": [
+        0.5700000000000001
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1742,
+      "type": "LoadImage",
+      "pos": {
+        "0": -9638,
+        "1": 3123,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 551.4111328125,
+        "1": 448.49920654296875
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2439,
+            2443
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "foda\\NTTW-compare/compare_00568_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 1756,
+      "type": "ZenkaiWildcardV2",
+      "pos": {
+        "0": -11283,
+        "1": 1508,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.4527282714844,
+        "1": 204.63824462890625
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2642
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiWildcardV2"
+      },
+      "widgets_values": [
+        "depiction of $$gabe_building, surrounded by detailed  $$gabe_biome",
+        2833644003,
+        "randomize",
+        "$$",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 1245,
+      "type": "SDXLPromptStyler",
+      "pos": {
+        "0": -8972,
+        "1": 2428,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 304,
+        "1": 178.00009155273438
+      },
+      "flags": {},
+      "order": 66,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "link": 2452,
+          "widget": {
+            "name": "text_positive"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive_prompt_text_g",
+          "type": "STRING",
+          "links": [
+            1521,
+            1987
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "negative_prompt_text_g",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "",
+        "  nsfw",
+        "photographic",
+        "No",
+        "",
+        true,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1217,
+      "type": "LatentSwitch",
+      "pos": {
+        "0": -8121,
+        "1": 2828,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {},
+      "order": 65,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "LATENT",
+          "link": 1492
+        },
+        {
+          "name": "input2",
+          "type": "LATENT",
+          "link": 1493
+        },
+        {
+          "name": "input3",
+          "type": "LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1992
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": [
+            1519
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LatentSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1759,
+      "type": "StringWeights",
+      "pos": {
+        "0": -10936,
+        "1": 1525,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 75.00006866455078
+      },
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2642,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2644
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringWeights"
+      },
+      "widgets_values": [
+        "",
+        0.9,
+        true
+      ]
+    },
+    {
+      "id": 1820,
+      "type": "StringWeights",
+      "pos": {
+        "0": -10941,
+        "1": 1670,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 75.00006866455078
+      },
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2647,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2645
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringWeights"
+      },
+      "widgets_values": [
+        "",
+        0.7000000000000001,
+        true
+      ]
+    },
+    {
+      "id": 1824,
+      "type": "StringPainterV2",
+      "pos": {
+        "0": -11281,
+        "1": 2022,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2585,
+            2646
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "used_seed",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringPainterV2"
+      },
+      "widgets_values": [
+        2603962521,
+        "fixed",
+        "32",
+        "increment",
+        1,
+        0,
+        4294967295
+      ]
+    },
+    {
+      "id": 1749,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -10674,
+        "1": 1527,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {},
+      "order": 59,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2644,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2645,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 2646,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2451,
+            2456
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 518,
+      "type": "DF_Text_Box",
+      "pos": {
+        "0": -11884,
+        "1": 1519,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 286.7135314941406,
+        "1": 330.5632629394531
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Positive Pre-Prompt",
+      "properties": {
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "an {man|woman} standing in front, ",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1847,
+      "type": "ZenkaiWildcardV2",
+      "pos": {
+        "0": -11284,
+        "1": 1759,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 314.4527282714844,
+        "1": 204.63824462890625
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiWildcardV2"
+      },
+      "widgets_values": [
+        "cinematic scene in the style of $$gabe_world",
+        368372688,
+        "randomize",
+        "$$",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 1755,
+      "type": "ZenkaiPromptV2",
+      "pos": {
+        "0": -11281,
+        "1": 1799,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2647
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiPromptV2"
+      },
+      "widgets_values": [
+        "nttw-lite.txt",
+        2373826144,
+        "randomize",
+        1,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 85,
+      "type": "Note",
+      "pos": {
+        "0": -9103.349609375,
+        "1": 972.6387939453125,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 421.6943664550781,
+        "1": 568.6727905273438
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Foda-Flux-Zenkai-StackTester-lines-v42\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\nFoda Pack v18\n\ntxt2img + img2img FLUX1 switch\nLora intermediate compare \n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1483,
+      1209,
+      0,
+      1212,
+      0,
+      "STRING"
+    ],
+    [
+      1484,
+      1210,
+      0,
+      1212,
+      1,
+      "STRING"
+    ],
+    [
+      1492,
+      1216,
+      0,
+      1217,
+      0,
+      "LATENT"
+    ],
+    [
+      1493,
+      1247,
+      0,
+      1217,
+      1,
+      "LATENT"
+    ],
+    [
+      1497,
+      1224,
+      0,
+      1222,
+      0,
+      "LATENT"
+    ],
+    [
+      1499,
+      1222,
+      0,
+      1223,
+      0,
+      "IMAGE"
+    ],
+    [
+      1502,
+      1227,
+      0,
+      1224,
+      1,
+      "GUIDER"
+    ],
+    [
+      1504,
+      1248,
+      1,
+      1224,
+      3,
+      "SIGMAS"
+    ],
+    [
+      1507,
+      1241,
+      0,
+      1226,
+      1,
+      "FLOAT"
+    ],
+    [
+      1517,
+      1237,
+      0,
+      1241,
+      0,
+      "FLOAT"
+    ],
+    [
+      1518,
+      1242,
+      0,
+      1241,
+      1,
+      "FLOAT"
+    ],
+    [
+      1519,
+      1217,
+      2,
+      1241,
+      3,
+      "INT"
+    ],
+    [
+      1521,
+      1245,
+      0,
+      1246,
+      0,
+      "STRING"
+    ],
+    [
+      1524,
+      1226,
+      0,
+      1248,
+      0,
+      "SIGMAS"
+    ],
+    [
+      1879,
+      559,
+      0,
+      1216,
+      0,
+      "INT"
+    ],
+    [
+      1880,
+      559,
+      1,
+      1216,
+      1,
+      "INT"
+    ],
+    [
+      1883,
+      559,
+      0,
+      1232,
+      1,
+      "INT"
+    ],
+    [
+      1884,
+      559,
+      1,
+      1232,
+      2,
+      "INT"
+    ],
+    [
+      1890,
+      1102,
+      0,
+      1247,
+      1,
+      "VAE"
+    ],
+    [
+      1977,
+      1506,
+      0,
+      1535,
+      0,
+      "MODEL"
+    ],
+    [
+      1978,
+      1232,
+      0,
+      1535,
+      1,
+      "MODEL"
+    ],
+    [
+      1981,
+      1236,
+      0,
+      1227,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1987,
+      1245,
+      0,
+      1537,
+      0,
+      "*"
+    ],
+    [
+      1988,
+      1537,
+      0,
+      1236,
+      1,
+      "STRING"
+    ],
+    [
+      1989,
+      1537,
+      0,
+      1236,
+      2,
+      "STRING"
+    ],
+    [
+      1992,
+      1217,
+      0,
+      1539,
+      0,
+      "*"
+    ],
+    [
+      1993,
+      1539,
+      0,
+      1224,
+      4,
+      "LATENT"
+    ],
+    [
+      1998,
+      1102,
+      0,
+      1541,
+      0,
+      "*"
+    ],
+    [
+      1999,
+      1541,
+      0,
+      1222,
+      1,
+      "VAE"
+    ],
+    [
+      2133,
+      1212,
+      0,
+      1613,
+      0,
+      "STRING"
+    ],
+    [
+      2134,
+      1249,
+      0,
+      1613,
+      2,
+      "STRING"
+    ],
+    [
+      2135,
+      1613,
+      0,
+      1223,
+      1,
+      "STRING"
+    ],
+    [
+      2219,
+      1604,
+      0,
+      1224,
+      2,
+      "SAMPLER"
+    ],
+    [
+      2220,
+      1639,
+      0,
+      1226,
+      2,
+      "INT"
+    ],
+    [
+      2349,
+      88,
+      0,
+      1694,
+      0,
+      "*"
+    ],
+    [
+      2350,
+      1694,
+      0,
+      1506,
+      0,
+      "MODEL"
+    ],
+    [
+      2351,
+      1694,
+      0,
+      1232,
+      0,
+      "MODEL"
+    ],
+    [
+      2364,
+      1707,
+      0,
+      1705,
+      0,
+      "LATENT"
+    ],
+    [
+      2365,
+      1541,
+      0,
+      1705,
+      1,
+      "VAE"
+    ],
+    [
+      2366,
+      1705,
+      0,
+      1706,
+      0,
+      "IMAGE"
+    ],
+    [
+      2367,
+      1714,
+      0,
+      1706,
+      1,
+      "STRING"
+    ],
+    [
+      2369,
+      1709,
+      0,
+      1707,
+      1,
+      "GUIDER"
+    ],
+    [
+      2370,
+      1604,
+      0,
+      1707,
+      2,
+      "SAMPLER"
+    ],
+    [
+      2371,
+      1711,
+      1,
+      1707,
+      3,
+      "SIGMAS"
+    ],
+    [
+      2372,
+      1539,
+      0,
+      1707,
+      4,
+      "LATENT"
+    ],
+    [
+      2374,
+      1241,
+      0,
+      1708,
+      1,
+      "FLOAT"
+    ],
+    [
+      2375,
+      1639,
+      0,
+      1708,
+      2,
+      "INT"
+    ],
+    [
+      2377,
+      1710,
+      0,
+      1709,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      2379,
+      1537,
+      0,
+      1710,
+      1,
+      "STRING"
+    ],
+    [
+      2380,
+      1537,
+      0,
+      1710,
+      2,
+      "STRING"
+    ],
+    [
+      2381,
+      1708,
+      0,
+      1711,
+      0,
+      "SIGMAS"
+    ],
+    [
+      2385,
+      1212,
+      0,
+      1714,
+      0,
+      "STRING"
+    ],
+    [
+      2391,
+      1712,
+      0,
+      1714,
+      1,
+      "STRING"
+    ],
+    [
+      2433,
+      1740,
+      0,
+      1741,
+      2,
+      "LORA_STACK"
+    ],
+    [
+      2434,
+      1741,
+      0,
+      1227,
+      0,
+      "MODEL"
+    ],
+    [
+      2435,
+      1741,
+      1,
+      1236,
+      0,
+      "CLIP"
+    ],
+    [
+      2436,
+      1538,
+      0,
+      1741,
+      0,
+      "MODEL"
+    ],
+    [
+      2437,
+      1540,
+      0,
+      1741,
+      1,
+      "CLIP"
+    ],
+    [
+      2438,
+      1538,
+      0,
+      1226,
+      0,
+      "MODEL"
+    ],
+    [
+      2439,
+      1742,
+      0,
+      1743,
+      0,
+      "IMAGE"
+    ],
+    [
+      2442,
+      1743,
+      0,
+      1247,
+      0,
+      "IMAGE"
+    ],
+    [
+      2443,
+      1742,
+      0,
+      1745,
+      0,
+      "IMAGE"
+    ],
+    [
+      2444,
+      1745,
+      0,
+      1743,
+      1,
+      "INT"
+    ],
+    [
+      2445,
+      1745,
+      1,
+      1743,
+      2,
+      "INT"
+    ],
+    [
+      2451,
+      1749,
+      0,
+      1750,
+      0,
+      "*"
+    ],
+    [
+      2452,
+      1750,
+      0,
+      1245,
+      0,
+      "STRING"
+    ],
+    [
+      2456,
+      1749,
+      0,
+      1752,
+      0,
+      "STRING"
+    ],
+    [
+      2489,
+      1779,
+      0,
+      1777,
+      0,
+      "LATENT"
+    ],
+    [
+      2490,
+      1541,
+      0,
+      1777,
+      1,
+      "VAE"
+    ],
+    [
+      2491,
+      1777,
+      0,
+      1778,
+      0,
+      "IMAGE"
+    ],
+    [
+      2492,
+      1785,
+      0,
+      1778,
+      1,
+      "STRING"
+    ],
+    [
+      2494,
+      1781,
+      0,
+      1779,
+      1,
+      "GUIDER"
+    ],
+    [
+      2495,
+      1604,
+      0,
+      1779,
+      2,
+      "SAMPLER"
+    ],
+    [
+      2496,
+      1783,
+      1,
+      1779,
+      3,
+      "SIGMAS"
+    ],
+    [
+      2497,
+      1539,
+      0,
+      1779,
+      4,
+      "LATENT"
+    ],
+    [
+      2498,
+      1538,
+      0,
+      1780,
+      0,
+      "MODEL"
+    ],
+    [
+      2499,
+      1241,
+      0,
+      1780,
+      1,
+      "FLOAT"
+    ],
+    [
+      2500,
+      1639,
+      0,
+      1780,
+      2,
+      "INT"
+    ],
+    [
+      2501,
+      1787,
+      0,
+      1781,
+      0,
+      "MODEL"
+    ],
+    [
+      2502,
+      1782,
+      0,
+      1781,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      2503,
+      1787,
+      1,
+      1782,
+      0,
+      "CLIP"
+    ],
+    [
+      2504,
+      1537,
+      0,
+      1782,
+      1,
+      "STRING"
+    ],
+    [
+      2505,
+      1537,
+      0,
+      1782,
+      2,
+      "STRING"
+    ],
+    [
+      2506,
+      1780,
+      0,
+      1783,
+      0,
+      "SIGMAS"
+    ],
+    [
+      2507,
+      1212,
+      0,
+      1785,
+      0,
+      "STRING"
+    ],
+    [
+      2508,
+      1784,
+      0,
+      1785,
+      2,
+      "STRING"
+    ],
+    [
+      2509,
+      1538,
+      0,
+      1787,
+      0,
+      "MODEL"
+    ],
+    [
+      2510,
+      1540,
+      0,
+      1787,
+      1,
+      "CLIP"
+    ],
+    [
+      2511,
+      1786,
+      0,
+      1787,
+      2,
+      "LORA_STACK"
+    ],
+    [
+      2539,
+      1807,
+      0,
+      1805,
+      0,
+      "LATENT"
+    ],
+    [
+      2540,
+      1541,
+      0,
+      1805,
+      1,
+      "VAE"
+    ],
+    [
+      2541,
+      1805,
+      0,
+      1806,
+      0,
+      "IMAGE"
+    ],
+    [
+      2542,
+      1813,
+      0,
+      1806,
+      1,
+      "STRING"
+    ],
+    [
+      2544,
+      1809,
+      0,
+      1807,
+      1,
+      "GUIDER"
+    ],
+    [
+      2545,
+      1604,
+      0,
+      1807,
+      2,
+      "SAMPLER"
+    ],
+    [
+      2546,
+      1811,
+      1,
+      1807,
+      3,
+      "SIGMAS"
+    ],
+    [
+      2547,
+      1539,
+      0,
+      1807,
+      4,
+      "LATENT"
+    ],
+    [
+      2548,
+      1538,
+      0,
+      1808,
+      0,
+      "MODEL"
+    ],
+    [
+      2549,
+      1241,
+      0,
+      1808,
+      1,
+      "FLOAT"
+    ],
+    [
+      2550,
+      1639,
+      0,
+      1808,
+      2,
+      "INT"
+    ],
+    [
+      2551,
+      1815,
+      0,
+      1809,
+      0,
+      "MODEL"
+    ],
+    [
+      2552,
+      1810,
+      0,
+      1809,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      2553,
+      1815,
+      1,
+      1810,
+      0,
+      "CLIP"
+    ],
+    [
+      2554,
+      1537,
+      0,
+      1810,
+      1,
+      "STRING"
+    ],
+    [
+      2555,
+      1537,
+      0,
+      1810,
+      2,
+      "STRING"
+    ],
+    [
+      2556,
+      1808,
+      0,
+      1811,
+      0,
+      "SIGMAS"
+    ],
+    [
+      2557,
+      1212,
+      0,
+      1813,
+      0,
+      "STRING"
+    ],
+    [
+      2558,
+      1812,
+      0,
+      1813,
+      2,
+      "STRING"
+    ],
+    [
+      2559,
+      1538,
+      0,
+      1815,
+      0,
+      "MODEL"
+    ],
+    [
+      2560,
+      1540,
+      0,
+      1815,
+      1,
+      "CLIP"
+    ],
+    [
+      2561,
+      1814,
+      0,
+      1815,
+      2,
+      "LORA_STACK"
+    ],
+    [
+      2563,
+      1788,
+      0,
+      1779,
+      0,
+      "NOISE"
+    ],
+    [
+      2564,
+      1788,
+      0,
+      1224,
+      0,
+      "NOISE"
+    ],
+    [
+      2565,
+      1788,
+      0,
+      1807,
+      0,
+      "NOISE"
+    ],
+    [
+      2566,
+      1788,
+      0,
+      1707,
+      0,
+      "NOISE"
+    ],
+    [
+      2585,
+      1824,
+      0,
+      1825,
+      0,
+      "*"
+    ],
+    [
+      2594,
+      1535,
+      0,
+      1538,
+      0,
+      "*"
+    ],
+    [
+      2595,
+      11,
+      0,
+      1540,
+      0,
+      "*"
+    ],
+    [
+      2601,
+      1828,
+      0,
+      1829,
+      2,
+      "LORA_STACK"
+    ],
+    [
+      2602,
+      1538,
+      0,
+      1829,
+      0,
+      "MODEL"
+    ],
+    [
+      2603,
+      1829,
+      0,
+      1709,
+      0,
+      "MODEL"
+    ],
+    [
+      2604,
+      1829,
+      0,
+      1708,
+      0,
+      "MODEL"
+    ],
+    [
+      2605,
+      1540,
+      0,
+      1829,
+      1,
+      "CLIP"
+    ],
+    [
+      2606,
+      1829,
+      1,
+      1710,
+      0,
+      "CLIP"
+    ],
+    [
+      2607,
+      1832,
+      0,
+      1830,
+      0,
+      "IMAGE"
+    ],
+    [
+      2608,
+      1831,
+      0,
+      1830,
+      1,
+      "IMAGE"
+    ],
+    [
+      2609,
+      1830,
+      0,
+      1833,
+      0,
+      "IMAGE"
+    ],
+    [
+      2610,
+      1835,
+      0,
+      1833,
+      1,
+      "STRING"
+    ],
+    [
+      2611,
+      1834,
+      0,
+      1835,
+      1,
+      "STRING"
+    ],
+    [
+      2612,
+      1838,
+      0,
+      1836,
+      0,
+      "IMAGE"
+    ],
+    [
+      2613,
+      1837,
+      0,
+      1836,
+      1,
+      "IMAGE"
+    ],
+    [
+      2614,
+      1836,
+      0,
+      1839,
+      0,
+      "IMAGE"
+    ],
+    [
+      2615,
+      1841,
+      0,
+      1839,
+      1,
+      "STRING"
+    ],
+    [
+      2616,
+      1840,
+      0,
+      1841,
+      1,
+      "STRING"
+    ],
+    [
+      2620,
+      1805,
+      0,
+      1838,
+      0,
+      "*"
+    ],
+    [
+      2621,
+      1222,
+      0,
+      1837,
+      0,
+      "*"
+    ],
+    [
+      2622,
+      1212,
+      0,
+      1835,
+      0,
+      "STRING"
+    ],
+    [
+      2623,
+      1212,
+      0,
+      1841,
+      0,
+      "STRING"
+    ],
+    [
+      2624,
+      1830,
+      0,
+      1842,
+      0,
+      "IMAGE"
+    ],
+    [
+      2625,
+      1836,
+      0,
+      1842,
+      1,
+      "IMAGE"
+    ],
+    [
+      2627,
+      1845,
+      0,
+      1843,
+      1,
+      "STRING"
+    ],
+    [
+      2628,
+      1212,
+      0,
+      1845,
+      0,
+      "STRING"
+    ],
+    [
+      2629,
+      1844,
+      0,
+      1845,
+      1,
+      "STRING"
+    ],
+    [
+      2630,
+      1842,
+      0,
+      1843,
+      0,
+      "IMAGE"
+    ],
+    [
+      2632,
+      1705,
+      0,
+      1831,
+      0,
+      "*"
+    ],
+    [
+      2633,
+      1777,
+      0,
+      1832,
+      0,
+      "*"
+    ],
+    [
+      2642,
+      1756,
+      0,
+      1759,
+      0,
+      "STRING"
+    ],
+    [
+      2644,
+      1759,
+      0,
+      1749,
+      0,
+      "STRING"
+    ],
+    [
+      2645,
+      1820,
+      0,
+      1749,
+      1,
+      "STRING"
+    ],
+    [
+      2646,
+      1824,
+      0,
+      1749,
+      2,
+      "STRING"
+    ],
+    [
+      2647,
+      1755,
+      0,
+      1820,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "D",
+      "bounding": [
+        -9961,
+        988,
+        2459,
+        532
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": true
+    },
+    {
+      "title": "TEXT | GENERATION",
+      "bounding": [
+        -8996,
+        1947,
+        1303,
+        1608
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Lora #4",
+      "bounding": [
+        -4879,
+        2941,
+        2515,
+        971
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Loar #1",
+      "bounding": [
+        -7524,
+        1860,
+        2470,
+        950
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Lora #3",
+      "bounding": [
+        -7491,
+        2928,
+        2418,
+        931
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Lora #2",
+      "bounding": [
+        -4899,
+        1878,
+        2494,
+        896
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Zenkai-Prompt",
+      "bounding": [
+        -11628,
+        1398,
+        1444,
+        763
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "compare",
+      "bounding": [
+        -6915,
+        796,
+        4507,
+        842
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "image concat",
+      "bounding": [
+        -2163,
+        1907,
+        2370,
+        1668
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.23579476910002148,
+      "offset": [
+        12636.720421424303,
+        544.4785185283414
+      ]
+    }
+  },
+  "version": 0.4
+}
