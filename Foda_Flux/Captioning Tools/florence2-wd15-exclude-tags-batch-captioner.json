@@ -1,0 +1,674 @@
+{
+  "last_node_id": 27,
+  "last_link_id": 60,
+  "nodes": [
+    {
+      "id": 14,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1421,
+        "1": 369
+      },
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 38
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 54,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CR Save Text To File",
+      "pos": {
+        "0": 1417,
+        "1": 46
+      },
+      "size": {
+        "0": 314.7781677246094,
+        "1": 107
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "multiline_text",
+          "type": "STRING",
+          "link": 51,
+          "widget": {
+            "name": "multiline_text"
+          }
+        },
+        {
+          "name": "file_name",
+          "type": "STRING",
+          "link": 53,
+          "widget": {
+            "name": "file_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Save Text To File"
+      },
+      "widgets_values": [
+        "",
+        "D:\\MACHINES\\Comfyui-Mar24-portable\\ComfyUI_windows_portable_nvidia_cu121_or_cpu\\ComfyUI_windows_portable\\ComfyUI\\output",
+        "",
+        "txt",
+        true
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": 1019,
+        "1": 45
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 31,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 32,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            51,
+            56
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "WD14Tagger|pysssss",
+      "pos": {
+        "0": 517,
+        "1": 64
+      },
+      "size": {
+        "0": 372.70208740234375,
+        "1": 251.04684448242188
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "exclude_tags",
+          "type": "STRING",
+          "link": 58,
+          "widget": {
+            "name": "exclude_tags"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            32
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss"
+      },
+      "widgets_values": [
+        "wd-swinv2-tagger-v3",
+        0.4,
+        0.85,
+        true,
+        false,
+        ""
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": {
+        "0": 107,
+        "1": 70
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            30
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "microsoft/Florence-2-base",
+        "fp16",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1018,
+        "1": 509
+      },
+      "size": {
+        "0": 323.8266906738281,
+        "1": 135.26695251464844
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 55
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "This is an animated image. In this image we can see a person standing on the ground. We can also see some mountains, a pole and the sky which looks cloudy."
+      ]
+    },
+    {
+      "id": 1,
+      "type": "Load Image Batch",
+      "pos": {
+        "0": 103,
+        "1": 370
+      },
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            4,
+            25,
+            38
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            53,
+            54
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        0,
+        "",
+        "E:\\__SDXL__training\\BlackSun",
+        "*",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": 539,
+        "1": -184
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 60,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 59,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            58
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 27,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 208,
+        "1": -184
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            60
+          ],
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1424,
+        "1": 189
+      },
+      "size": {
+        "0": 532.9804077148438,
+        "1": 134.30752563476562
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 56
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "This is an animated image. In this image we can see a person standing on the ground. We can also see some mountains, a pole and the sky which looks cloudy., standing, male focus, sky, glowing, mountain, silhouette, giant"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "Florence2Run",
+      "pos": {
+        "0": 524,
+        "1": 470
+      },
+      "size": {
+        "0": 364.8078918457031,
+        "1": 357
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 25
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null,
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            31,
+            55,
+            59
+          ],
+          "slot_index": 2,
+          "shape": 3
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "",
+        "more_detailed_caption",
+        false,
+        true,
+        1024,
+        4,
+        true,
+        "",
+        979443437980931,
+        "fixed",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      1,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      1,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      11,
+      0,
+      10,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      31,
+      10,
+      2,
+      2,
+      0,
+      "STRING"
+    ],
+    [
+      32,
+      4,
+      0,
+      2,
+      1,
+      "STRING"
+    ],
+    [
+      38,
+      1,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      2,
+      0,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      53,
+      1,
+      1,
+      5,
+      1,
+      "STRING"
+    ],
+    [
+      54,
+      1,
+      1,
+      14,
+      1,
+      "STRING"
+    ],
+    [
+      55,
+      10,
+      2,
+      24,
+      0,
+      "*"
+    ],
+    [
+      56,
+      2,
+      0,
+      25,
+      0,
+      "*"
+    ],
+    [
+      58,
+      26,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      59,
+      10,
+      2,
+      26,
+      1,
+      "STRING"
+    ],
+    [
+      60,
+      27,
+      0,
+      26,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9849732675808143,
+      "offset": [
+        196.0632470003721,
+        307.19700418788864
+      ]
+    }
+  },
+  "version": 0.4
+}

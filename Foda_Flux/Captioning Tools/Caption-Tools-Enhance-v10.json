@@ -1,0 +1,1553 @@
+{
+  "last_node_id": 1555,
+  "last_link_id": 2051,
+  "nodes": [
+    {
+      "id": 1411,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -12241.1982421875,
+        "1": 4134.013671875
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "widget": {
+            "name": "color"
+          }
+        }
+      ],
+      "title": "Color",
+      "properties": {
+        "Run widget replace on values": false
+      }
+    },
+    {
+      "id": 1400,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": -10919,
+        "1": -769
+      },
+      "size": {
+        "0": 1801.26953125,
+        "1": 200
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Recaption Enhance:",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 85,
+      "type": "Note",
+      "pos": {
+        "0": -9616.337890625,
+        "1": -1453.654296875
+      },
+      "size": {
+        "0": 421.6943664550781,
+        "1": 568.6727905273438
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Caption-Tools-Enhance-v10\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1506,
+      "type": "Load Image Batch",
+      "pos": {
+        "0": -8820,
+        "1": -120
+      },
+      "size": [
+        299.4186706542969,
+        222
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 2020,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": 2049,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2048
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            2018,
+            2019
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "single_image",
+        0,
+        "",
+        "E:\\__SDXL__training\\BlackSun",
+        "*",
+        "false",
+        "false"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1527,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -8160,
+        "1": -350
+      },
+      "size": [
+        318.88307790816,
+        142
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 2030,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2028,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2031
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1520,
+      "type": "WD14Tagger|pysssss",
+      "pos": {
+        "0": -7840,
+        "1": -400
+      },
+      "size": [
+        231.9083178001065,
+        216
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1962
+        },
+        {
+          "name": "exclude_tags",
+          "type": "STRING",
+          "link": 2031,
+          "widget": {
+            "name": "exclude_tags"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1966
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss"
+      },
+      "widgets_values": [
+        "wd-swinv2-tagger-v3",
+        0.4,
+        0.85,
+        true,
+        false,
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls",
+        "solo, standing, outdoors, sky, cloud, from behind, glowing, cloudy sky, scenery, science fiction, city, silhouette"
+      ]
+    },
+    {
+      "id": 1519,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -7340,
+        "1": -600
+      },
+      "size": {
+        "0": 210,
+        "1": 142
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 1968,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 2026,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 1966,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1991,
+            2050
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "Blacksun style",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 1516,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8820,
+        "1": -370
+      },
+      "size": [
+        311.1902797934381,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2030
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "title": "Token Exclusion List",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1531,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -7840,
+        "1": -100
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1969
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text2"
+          }
+        }
+      ],
+      "title": "Mode Subdirectory",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "set"
+      ]
+    },
+    {
+      "id": 1546,
+      "type": "CR Text Concatenate",
+      "pos": {
+        "0": -6930,
+        "1": -600
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text1",
+          "type": "STRING",
+          "link": 2012,
+          "widget": {
+            "name": "text1"
+          }
+        },
+        {
+          "name": "text2",
+          "type": "STRING",
+          "link": 2011,
+          "widget": {
+            "name": "text2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "*",
+          "links": [
+            2013,
+            2014
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        ".txt",
+        "/"
+      ]
+    },
+    {
+      "id": 1529,
+      "type": "Reroute",
+      "pos": {
+        "0": -8390,
+        "1": -120
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 2048
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            1962,
+            1964,
+            2025
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1532,
+      "type": "CR Text Concatenate",
+      "pos": {
+        "0": -7830,
+        "1": -50
+      },
+      "size": [
+        219.86238770343243,
+        78
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text1",
+          "type": "STRING",
+          "link": 1970,
+          "widget": {
+            "name": "text1"
+          }
+        },
+        {
+          "name": "text2",
+          "type": "STRING",
+          "link": 1969,
+          "widget": {
+            "name": "text2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "*",
+          "links": [
+            1975,
+            2007,
+            2012
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "set",
+        "/"
+      ]
+    },
+    {
+      "id": 1539,
+      "type": "CR Text Concatenate",
+      "pos": {
+        "0": -6930,
+        "1": -560
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text1",
+          "type": "STRING",
+          "link": 2019,
+          "widget": {
+            "name": "text1"
+          }
+        },
+        {
+          "name": "text2",
+          "type": "STRING",
+          "link": 2008,
+          "widget": {
+            "name": "text2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "*",
+          "links": [
+            2011
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "txt",
+        "."
+      ]
+    },
+    {
+      "id": 1545,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -7830,
+        "1": -10
+      },
+      "size": [
+        219.86238770343243,
+        107.96330875526417
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 2007
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "./CAP/BlackSun-10/set"
+      ]
+    },
+    {
+      "id": 1540,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -6930,
+        "1": -520
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2008
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text2"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "txt"
+      ]
+    },
+    {
+      "id": 1547,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -6700,
+        "1": -400
+      },
+      "size": [
+        348.5777524873083,
+        94.0130217775469
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 2014
+        }
+      ],
+      "outputs": [],
+      "title": "Text Path",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "./CAP/BlackSun-10/set/BlackSun (10).txt"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 1525,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -7120,
+        "1": -370
+      },
+      "size": [
+        362.6124100968336,
+        167.71195983270889
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 2050
+        }
+      ],
+      "outputs": [],
+      "title": "Enhanced Caption",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "Blacksun style, A solitary figure stands in the foreground, illuminated by a bright light, amidst a futuristic landscape. The backdrop is a dark, ominous castle-like structure with glowing lights and a central, glowing sphere. The sky is filled with lightning bolts and other dark elements, creating a sense of mystery and intrigue., solo, standing, outdoors, sky, cloud, from behind, glowing, cloudy sky, scenery, science fiction, city, silhouette"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 1530,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -7830,
+        "1": -630
+      },
+      "size": [
+        226.67448737300765,
+        115.26412830289718
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1968
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "title": "Root Trigger",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Blacksun style"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1209,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8840,
+        "1": -1180
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1483
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "title": "Foda Root",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "./CAP/"
+      ]
+    },
+    {
+      "id": 1212,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -8840,
+        "1": -1140
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 1483,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 1484,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1970
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true",
+        "./CAP/",
+        "BlackSun-11",
+        "/scene/flux",
+        ""
+      ]
+    },
+    {
+      "id": 1554,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8840,
+        "1": -1100
+      },
+      "size": [
+        305.11300171031144,
+        100.98002507762192
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2049
+          ],
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "title": "Dataset Path",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "E:\\__SDXL__training\\BlackSun"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1534,
+      "type": "CR Text Concatenate",
+      "pos": {
+        "0": -7360,
+        "1": -70
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text1",
+          "type": "STRING",
+          "link": 1975,
+          "widget": {
+            "name": "text1"
+          }
+        },
+        {
+          "name": "text2",
+          "type": "STRING",
+          "link": 2018,
+          "widget": {
+            "name": "text2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "*",
+          "links": [
+            1976,
+            2015
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "/set/flux",
+        "/"
+      ]
+    },
+    {
+      "id": 1524,
+      "type": "SaveImage",
+      "pos": {
+        "0": -6700,
+        "1": -120
+      },
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1964
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 1976,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1548,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -6700,
+        "1": -260
+      },
+      "size": [
+        348.91163486466394,
+        86.47245138198775
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 2015
+        }
+      ],
+      "outputs": [],
+      "title": "Image Path",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "./CAP/BlackSun-10/set/BlackSun (10)"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 1552,
+      "type": "UformGen2QwenNode",
+      "pos": {
+        "0": -8240,
+        "1": -40
+      },
+      "size": {
+        "0": 295.525390625,
+        "1": 189.53616333007812
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2025
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2026,
+            2028
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UformGen2QwenNode"
+      },
+      "widgets_values": [
+        "using precise language, capture an impression of the image, This description should enable the image to be reproduced, identify important features in naturally spoken language",
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1210,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8840,
+        "1": -1310
+      },
+      "size": [
+        299.2237247488083,
+        90.28587314496781
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1484
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "BlackSun-11"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1549,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -8830,
+        "1": -260
+      },
+      "size": [
+        308.9371090723398,
+        82
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2020
+          ],
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "title": "Image Index",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "increment"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1538,
+      "type": "SaveText|pysssss",
+      "pos": {
+        "0": -6700,
+        "1": -630
+      },
+      "size": {
+        "0": 310.448974609375,
+        "1": 189.1015167236328
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1991,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "file",
+          "type": "STRING",
+          "link": 2013,
+          "widget": {
+            "name": "file"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveText|pysssss"
+      },
+      "widgets_values": [
+        "output",
+        "file.txt",
+        "new only",
+        true,
+        "",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      1483,
+      1209,
+      0,
+      1212,
+      0,
+      "STRING"
+    ],
+    [
+      1484,
+      1210,
+      0,
+      1212,
+      1,
+      "STRING"
+    ],
+    [
+      1962,
+      1529,
+      0,
+      1520,
+      0,
+      "IMAGE"
+    ],
+    [
+      1964,
+      1529,
+      0,
+      1524,
+      0,
+      "IMAGE"
+    ],
+    [
+      1966,
+      1520,
+      0,
+      1519,
+      2,
+      "STRING"
+    ],
+    [
+      1968,
+      1530,
+      0,
+      1519,
+      0,
+      "STRING"
+    ],
+    [
+      1969,
+      1531,
+      0,
+      1532,
+      1,
+      "STRING"
+    ],
+    [
+      1970,
+      1212,
+      0,
+      1532,
+      0,
+      "STRING"
+    ],
+    [
+      1975,
+      1532,
+      0,
+      1534,
+      0,
+      "STRING"
+    ],
+    [
+      1976,
+      1534,
+      0,
+      1524,
+      1,
+      "STRING"
+    ],
+    [
+      1991,
+      1519,
+      0,
+      1538,
+      0,
+      "STRING"
+    ],
+    [
+      2007,
+      1532,
+      0,
+      1545,
+      0,
+      "*"
+    ],
+    [
+      2008,
+      1540,
+      0,
+      1539,
+      1,
+      "STRING"
+    ],
+    [
+      2011,
+      1539,
+      0,
+      1546,
+      1,
+      "STRING"
+    ],
+    [
+      2012,
+      1532,
+      0,
+      1546,
+      0,
+      "STRING"
+    ],
+    [
+      2013,
+      1546,
+      0,
+      1538,
+      1,
+      "STRING"
+    ],
+    [
+      2014,
+      1546,
+      0,
+      1547,
+      0,
+      "*"
+    ],
+    [
+      2015,
+      1534,
+      0,
+      1548,
+      0,
+      "*"
+    ],
+    [
+      2018,
+      1506,
+      1,
+      1534,
+      1,
+      "STRING"
+    ],
+    [
+      2019,
+      1506,
+      1,
+      1539,
+      0,
+      "STRING"
+    ],
+    [
+      2020,
+      1549,
+      0,
+      1506,
+      0,
+      "INT"
+    ],
+    [
+      2025,
+      1529,
+      0,
+      1552,
+      0,
+      "IMAGE"
+    ],
+    [
+      2026,
+      1552,
+      0,
+      1519,
+      1,
+      "STRING"
+    ],
+    [
+      2028,
+      1552,
+      0,
+      1527,
+      1,
+      "STRING"
+    ],
+    [
+      2030,
+      1516,
+      0,
+      1527,
+      0,
+      "STRING"
+    ],
+    [
+      2031,
+      1527,
+      0,
+      1520,
+      1,
+      "STRING"
+    ],
+    [
+      2048,
+      1506,
+      0,
+      1529,
+      0,
+      "*"
+    ],
+    [
+      2049,
+      1554,
+      0,
+      1506,
+      1,
+      "STRING"
+    ],
+    [
+      2050,
+      1519,
+      0,
+      1525,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "D",
+      "bounding": [
+        -10482,
+        -1426,
+        4709,
+        499
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": true
+    },
+    {
+      "title": "TEXT | GENERATION",
+      "bounding": [
+        -9061,
+        -833,
+        2979,
+        1235
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.43056764313427104,
+      "offset": [
+        11223.918745462977,
+        1801.210513805576
+      ]
+    }
+  },
+  "version": 0.4
+}
