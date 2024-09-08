@@ -1,0 +1,652 @@
+{
+  "last_node_id": 57,
+  "last_link_id": 112,
+  "nodes": [
+    {
+      "id": 31,
+      "type": "CogVideoTextEncode",
+      "pos": {
+        "0": 635,
+        "1": 545
+      },
+      "size": {
+        "0": 465,
+        "1": 320
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 56,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            110
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "conditioning"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "",
+        true
+      ]
+    },
+    {
+      "id": 48,
+      "type": "RIFE VFI",
+      "pos": {
+        "0": 1575,
+        "1": 10
+      },
+      "size": {
+        "0": 620,
+        "1": 200
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 104,
+          "label": "图像"
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null,
+          "label": "插值规则(可选)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RIFE VFI"
+      },
+      "widgets_values": [
+        "rife47.pth",
+        10,
+        2,
+        true,
+        true,
+        1
+      ]
+    },
+    {
+      "id": 56,
+      "type": "IFRNet VFI",
+      "pos": {
+        "0": 1580,
+        "1": -225
+      },
+      "size": {
+        "0": 615,
+        "1": 175
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 107,
+          "label": "图像"
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null,
+          "label": "插值规则(可选)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IFRNet VFI"
+      },
+      "widgets_values": [
+        "IFRNet_L_Vimeo90K.pth",
+        10,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CogVideoDecode",
+      "pos": {
+        "0": 995,
+        "1": -50
+      },
+      "size": {
+        "0": 315,
+        "1": 198
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipeline",
+          "type": "COGVIDEOPIPE",
+          "link": 111,
+          "label": "pipeline"
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 112,
+          "label": "samples"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            77,
+            107
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "images"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoDecode"
+      },
+      "widgets_values": [
+        true,
+        96,
+        96,
+        0.332,
+        0.332,
+        true
+      ]
+    },
+    {
+      "id": 33,
+      "type": "VHS_VideoCombine",
+      "pos": {
+        "0": 1915,
+        "1": 270
+      },
+      "size": [
+        485,
+        310
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 105,
+          "label": "图像"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "label": "音频"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "label": "批次管理"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3,
+          "label": "文件名"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "CogVideoX5B",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "CogVideoX5B_00088.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 20,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 35,
+        "1": 290
+      },
+      "size": {
+        "0": 315,
+        "1": 85
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            54,
+            56
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "sd3"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "VHS_VideoCombine",
+      "pos": {
+        "0": 1450,
+        "1": 270
+      },
+      "size": [
+        450,
+        610.6666666666667
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 77,
+          "label": "图像"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "label": "音频"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "label": "批次管理"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3,
+          "label": "文件名"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 8,
+        "loop_count": 0,
+        "filename_prefix": "CogVideoX5B",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 4,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "CogVideoX5B_00001.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 8
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 57,
+      "type": "CogVideoSampler",
+      "pos": {
+        "0": 980,
+        "1": 270
+      },
+      "size": {
+        "0": 315,
+        "1": 358
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipeline",
+          "type": "COGVIDEOPIPE",
+          "link": 108,
+          "label": "pipeline"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 109,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 110,
+          "label": "negative"
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": null,
+          "label": "samples"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cogvideo_pipe",
+          "type": "COGVIDEOPIPE",
+          "links": [
+            111
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "cogvideo_pipe"
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            112
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "samples"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoSampler"
+      },
+      "widgets_values": [
+        480,
+        720,
+        32,
+        50,
+        6,
+        406805689886597,
+        "randomize",
+        "DPM",
+        32,
+        8,
+        1
+      ]
+    },
+    {
+      "id": 39,
+      "type": "MZ_CogVideoXLoader",
+      "pos": {
+        "0": 530,
+        "1": 50
+      },
+      "size": {
+        "0": 400,
+        "1": 190
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "cogvideo_pipe",
+          "type": "COGVIDEOPIPE",
+          "links": [
+            108
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "cogvideo_pipe"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MZ_CogVideoXLoader"
+      },
+      "widgets_values": [
+        "CogVideoX_5b_Q4_0_vo2.safetensors",
+        "CogVideoX-5b-VAE.safetensors",
+        "GGUF",
+        true,
+        0
+      ]
+    },
+    {
+      "id": 30,
+      "type": "CogVideoTextEncode",
+      "pos": {
+        "0": 530,
+        "1": 295
+      },
+      "size": {
+        "0": 400,
+        "1": 195
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            109
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "conditioning"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "A curious cat approaches a McDonald's takeout by the roadside. It leans in and sniffs. The cat's eyes are wide with interest. The takeout box is colorful and enticing. The background is a busy street with people passing by.",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      54,
+      20,
+      0,
+      30,
+      0,
+      "CLIP"
+    ],
+    [
+      56,
+      20,
+      0,
+      31,
+      0,
+      "CLIP"
+    ],
+    [
+      77,
+      11,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      104,
+      56,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      105,
+      48,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      107,
+      11,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      108,
+      39,
+      0,
+      57,
+      0,
+      "COGVIDEOPIPE"
+    ],
+    [
+      109,
+      30,
+      0,
+      57,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      110,
+      31,
+      0,
+      57,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      111,
+      57,
+      0,
+      11,
+      0,
+      "COGVIDEOPIPE"
+    ],
+    [
+      112,
+      57,
+      1,
+      11,
+      1,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8264462809917354,
+      "offset": [
+        104.92000000000002,
+        486.5132348632814
+      ]
+    }
+  },
+  "version": 0.4
+}
