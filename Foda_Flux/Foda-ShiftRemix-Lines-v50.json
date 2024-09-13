@@ -1,0 +1,2492 @@
+{
+  "last_node_id": 558,
+  "last_link_id": 692,
+  "nodes": [
+    {
+      "id": 84,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -478,
+        "1": -429
+      },
+      "size": {
+        "0": 297.83355712890625,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "cyan",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 158,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": -2352,
+        "1": 173
+      },
+      "size": {
+        "0": 210,
+        "1": 78
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 185,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 186,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            192
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 165,
+      "type": "VAEEncode",
+      "pos": {
+        "0": -2360,
+        "1": 510
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 198
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 645
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            200
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 166,
+      "type": "ImageResize+",
+      "pos": {
+        "0": -2610,
+        "1": 510
+      },
+      "size": {
+        "0": 210,
+        "1": 218
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 195
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 655,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 656,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            198
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "fill / crop",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 193,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 720,
+        "1": 90
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 226
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 650
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            614
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 195,
+      "type": "SamplerCustomAdvanced",
+      "pos": {
+        "0": 330,
+        "1": 90
+      },
+      "size": {
+        "0": 314.0994873046875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 608,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 230,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 231,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 232,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 622,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            226
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 196,
+      "type": "KSamplerSelect",
+      "pos": {
+        "0": 331,
+        "1": 233
+      },
+      "size": {
+        "0": 314.0994873046875,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            231
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 198,
+      "type": "BasicGuider",
+      "pos": {
+        "0": 10,
+        "1": 110
+      },
+      "size": {
+        "0": 263.1893615722656,
+        "1": 46
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 567,
+          "slot_index": 0
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 575,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            230
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 205,
+      "type": "Note",
+      "pos": {
+        "0": 340,
+        "1": 470
+      },
+      "size": {
+        "0": 296.4547424316406,
+        "1": 74.45208740234375
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "1.0 denoise with txt2img mode\n\nwith img2img mode use 0.25 to 0.75"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 448,
+      "type": "CLIPTextEncodeFlux",
+      "pos": {
+        "0": -471,
+        "1": 130
+      },
+      "size": {
+        "0": 305.3254699707031,
+        "1": 100
+      },
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 643
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 670,
+          "widget": {
+            "name": "clip_l"
+          }
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 671,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            575
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "half cybernetic half demon shogun armor, immense mecha, gundam, heavy gear, baroque, hr giger, belinski, octane render, excessive amount of cables, blur",
+        "",
+        3.5,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 529,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1008,
+        "1": 17
+      },
+      "size": {
+        "0": 985.3012084960938,
+        "1": 1060.3828125
+      },
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 614
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 673,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/base/flux"
+      ]
+    },
+    {
+      "id": 88,
+      "type": "UNETLoader",
+      "pos": {
+        "0": -2996,
+        "1": -561
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            639
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-schnell.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": {
+        "0": -2990,
+        "1": -437
+      },
+      "size": {
+        "0": 307.3152160644531,
+        "1": 106
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            640
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": {
+        "0": -2998,
+        "1": -288
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            641
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 532,
+      "type": "Reroute",
+      "pos": {
+        "0": -2570,
+        "1": -470
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 639
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MODEL",
+          "links": [
+            642
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 533,
+      "type": "Reroute",
+      "pos": {
+        "0": -2570,
+        "1": -440
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 640
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "CLIP",
+          "links": [
+            643
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 534,
+      "type": "Reroute",
+      "pos": {
+        "0": -2570,
+        "1": -410
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 641
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "VAE",
+          "links": [
+            645,
+            650
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 168,
+      "type": "Note",
+      "pos": {
+        "0": -2080,
+        "1": 29
+      },
+      "size": {
+        "0": 220.59100341796875,
+        "1": 78.26349639892578
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "1 = txt2img (empty latent)\n\n2 = img2img"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 536,
+      "type": "ImpactSwitch",
+      "pos": {
+        "0": -1684,
+        "1": 206
+      },
+      "size": {
+        "0": 210,
+        "1": 118
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "INT",
+          "link": 659
+        },
+        {
+          "name": "select",
+          "type": "INT",
+          "link": 657,
+          "widget": {
+            "name": "select"
+          }
+        },
+        {
+          "name": "input2",
+          "type": "INT",
+          "link": 660
+        },
+        {
+          "name": "input3",
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            663
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "INT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Switch (Height)",
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 535,
+      "type": "ImageSizeAdjusterV2",
+      "pos": {
+        "0": -2995,
+        "1": 529
+      },
+      "size": {
+        "0": 315,
+        "1": 306
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 654
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            655,
+            662
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            656,
+            660
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSizeAdjusterV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        64,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 160,
+      "type": "AspectSizeV2",
+      "pos": {
+        "0": -3015,
+        "1": 138
+      },
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            185,
+            661
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            186,
+            659
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        4,
+        5,
+        64
+      ]
+    },
+    {
+      "id": 545,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -740,
+        "1": 515
+      },
+      "size": {
+        "0": 210,
+        "1": 142
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 668,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 672,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            670,
+            671,
+            674
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 547,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -733,
+        "1": 711
+      },
+      "size": {
+        "0": 475.1178283691406,
+        "1": 232.1477813720703
+      },
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 674,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "(The image depicts a scene from ancient times, featuring a man in a green and gold helmet, a woman in a blue robe, and a young girl in a pink dress. The man is holding a sword and appears to be in conversation with the woman. The young girl is seated on a bench, and the woman is standing next to her. The background is dark, with a window visible. The painting is in the style of the Renaissance, with a focus on detail and realism., blonde hair, brown hair, holding, weapon, multiple boys, sword, holding weapon, cape, armor, facial hair, helmet, beard, robe, mustache, realistic, laurel crown, fine art parody, greco-roman clothes, blue robe:1.0), C494C7BF"
+      ]
+    },
+    {
+      "id": 537,
+      "type": "ImpactSwitch",
+      "pos": {
+        "0": -1685,
+        "1": 141
+      },
+      "size": {
+        "0": 210,
+        "1": 118
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "INT",
+          "link": 661
+        },
+        {
+          "name": "select",
+          "type": "INT",
+          "link": 658,
+          "widget": {
+            "name": "select"
+          }
+        },
+        {
+          "name": "input2",
+          "type": "INT",
+          "link": 662
+        },
+        {
+          "name": "input3",
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            664
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "INT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Switch (Width)",
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 451,
+      "type": "Primitive float [Crystools]",
+      "pos": {
+        "0": -2075,
+        "1": 353
+      },
+      "size": {
+        "0": 293.5267639160156,
+        "1": 58
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": [
+            675
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Primitive float [Crystools]"
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 550,
+      "type": "ImpactSwitch",
+      "pos": {
+        "0": -1695,
+        "1": 390
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "FLOAT",
+          "link": 675
+        },
+        {
+          "name": "input2",
+          "type": "FLOAT",
+          "link": 676
+        },
+        {
+          "name": "input3",
+          "type": "FLOAT",
+          "link": null
+        },
+        {
+          "name": "select",
+          "type": "INT",
+          "link": 677,
+          "widget": {
+            "name": "select"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            678
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "FLOAT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Switch (denoise)",
+      "properties": {
+        "Node name for S&R": "ImpactSwitch"
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 85,
+      "type": "Note",
+      "pos": {
+        "0": -1021,
+        "1": -469
+      },
+      "size": {
+        "0": 512.2986450195312,
+        "1": 406.68133544921875
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Foda-ShiftRemix-Lines-v50\n\nVideo: https://www.youtube.com/watch?v=uL2klICPegc\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\nFoda Pack v16\n\nAll EasyUse Nodes removed\ntxt2img + img2img switch\nNative Flux Upscaling 4X (23GB)\n\n\nuse only upscale stage 1 if you run into problems with memory limit.\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\nspecial no Easy Use version."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 167,
+      "type": "LoadImage",
+      "pos": {
+        "0": -3277,
+        "1": 516
+      },
+      "size": {
+        "0": 210,
+        "1": 314
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            195,
+            654,
+            688
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "1920px-Alcibades_being_taught_by_Socrates2C_FranC3A7ois-AndrC3A9_Vincent.png",
+        "image"
+      ]
+    },
+    {
+      "id": 556,
+      "type": "Reroute",
+      "pos": {
+        "0": -2630,
+        "1": 1090
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 688
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            682,
+            687
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 558,
+      "type": "UformGen2QwenNode",
+      "pos": {
+        "0": -2520,
+        "1": 1070
+      },
+      "size": {
+        "0": 295.525390625,
+        "1": 189.53616333007812
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 687
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            686,
+            689
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UformGen2QwenNode"
+      },
+      "widgets_values": [
+        "using precise language, capture an impression of the image, This description should enable the image to be reproduced, identify important features in naturally spoken language",
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 542,
+      "type": "StringWeights",
+      "pos": {
+        "0": -988,
+        "1": 515
+      },
+      "size": {
+        "0": 210,
+        "1": 75
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 692,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            668
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringWeights"
+      },
+      "widgets_values": [
+        "",
+        1,
+        true
+      ]
+    },
+    {
+      "id": 551,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -2450,
+        "1": 1310
+      },
+      "size": [
+        210,
+        58.07616604572604
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            685
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_a"
+          }
+        }
+      ],
+      "title": "Token Exclusion List",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 555,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -2190,
+        "1": 1140
+      },
+      "size": [
+        318.8830871582031,
+        142
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 685,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 686,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            683
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 554,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -1580,
+        "1": 1080
+      },
+      "size": [
+        305.6643292908898,
+        248.56608493041654
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 684
+        }
+      ],
+      "outputs": [],
+      "title": "Enhanced Caption",
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "The image depicts a scene from ancient times, featuring a man in a green and gold helmet, a woman in a blue robe, and a young girl in a pink dress. The man is holding a sword and appears to be in conversation with the woman. The young girl is seated on a bench, and the woman is standing next to her. The background is dark, with a window visible. The painting is in the style of the Renaissance, with a focus on detail and realism., blonde hair, brown hair, holding, weapon, multiple boys, sword, holding weapon, cape, armor, facial hair, helmet, beard, robe, mustache, realistic, laurel crown, fine art parody, greco-roman clothes, blue robe"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 197,
+      "type": "BasicScheduler",
+      "pos": {
+        "0": 330,
+        "1": 330
+      },
+      "size": {
+        "0": 309.76611328125,
+        "1": 106
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 568,
+          "slot_index": 0
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 678,
+          "widget": {
+            "name": "denoise"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            232
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ]
+    },
+    {
+      "id": 552,
+      "type": "Text Concatenate",
+      "pos": {
+        "0": -1755,
+        "1": 1108
+      },
+      "size": [
+        210,
+        142
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 689,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 690,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            684,
+            692
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "Blacksun style",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 553,
+      "type": "WD14Tagger|pysssss",
+      "pos": {
+        "0": -2010,
+        "1": 1090
+      },
+      "size": {
+        "0": 231.9083251953125,
+        "1": 216
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 682
+        },
+        {
+          "name": "exclude_tags",
+          "type": "STRING",
+          "link": 683,
+          "widget": {
+            "name": "exclude_tags"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            690
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss"
+      },
+      "widgets_values": [
+        "wd-swinv2-tagger-v3",
+        0.4,
+        0.85,
+        true,
+        false,
+        "1girl, 1boy, 2boys, 2girls, 3boys, 3girls, 4boys, 4girls",
+        "blonde hair, brown hair, holding, weapon, multiple boys, sword, holding weapon, cape, armor, facial hair, helmet, beard, robe, mustache, realistic, laurel crown, fine art parody, greco-roman clothes, blue robe"
+      ]
+    },
+    {
+      "id": 163,
+      "type": "LatentSwitch",
+      "pos": {
+        "0": -2069,
+        "1": 141
+      },
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input1",
+          "type": "LATENT",
+          "link": 192
+        },
+        {
+          "name": "input2",
+          "type": "LATENT",
+          "link": 200
+        },
+        {
+          "name": "input3",
+          "type": "LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            622
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        },
+        {
+          "name": "selected_label",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "selected_index",
+          "type": "INT",
+          "links": [
+            657,
+            658,
+            677
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LatentSwitch"
+      },
+      "widgets_values": [
+        2,
+        false
+      ]
+    },
+    {
+      "id": 546,
+      "type": "ProjectFilePathNode",
+      "pos": {
+        "0": 589,
+        "1": -273
+      },
+      "size": {
+        "0": 340.20001220703125,
+        "1": 154
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            673
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "foda",
+        "oil painting",
+        "img2img",
+        "flux",
+        "auto"
+      ]
+    },
+    {
+      "id": 549,
+      "type": "Primitive float [Crystools]",
+      "pos": {
+        "0": -2077,
+        "1": 469
+      },
+      "size": {
+        "0": 293.5267639160156,
+        "1": 58
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": [
+            676
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Primitive float [Crystools]"
+      },
+      "widgets_values": [
+        0.07
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 206,
+      "type": "ModelSamplingFlux",
+      "pos": {
+        "0": -440,
+        "1": 528
+      },
+      "size": {
+        "0": 264.7846374511719,
+        "1": 130
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 642
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 664,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 663,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            567,
+            568
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        1.5,
+        1.5,
+        1024,
+        1024
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 25,
+      "type": "RandomNoise",
+      "pos": {
+        "0": -3000,
+        "1": -179
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            608
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        818565050715091,
+        "fixed"
+      ]
+    },
+    {
+      "id": 540,
+      "type": "StringPainterV2",
+      "pos": {
+        "0": -1066,
+        "1": 716
+      },
+      "size": {
+        "0": 289.7758483886719,
+        "1": 222
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hex_string",
+          "type": "STRING",
+          "links": [
+            672
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "used_seed",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringPainterV2"
+      },
+      "widgets_values": [
+        3298084799,
+        "fixed",
+        "32",
+        "increment",
+        1,
+        0,
+        4294967295
+      ]
+    }
+  ],
+  "links": [
+    [
+      185,
+      160,
+      0,
+      158,
+      0,
+      "INT"
+    ],
+    [
+      186,
+      160,
+      1,
+      158,
+      1,
+      "INT"
+    ],
+    [
+      192,
+      158,
+      0,
+      163,
+      0,
+      "LATENT"
+    ],
+    [
+      195,
+      167,
+      0,
+      166,
+      0,
+      "IMAGE"
+    ],
+    [
+      198,
+      166,
+      0,
+      165,
+      0,
+      "IMAGE"
+    ],
+    [
+      200,
+      165,
+      0,
+      163,
+      1,
+      "LATENT"
+    ],
+    [
+      226,
+      195,
+      0,
+      193,
+      0,
+      "LATENT"
+    ],
+    [
+      230,
+      198,
+      0,
+      195,
+      1,
+      "GUIDER"
+    ],
+    [
+      231,
+      196,
+      0,
+      195,
+      2,
+      "SAMPLER"
+    ],
+    [
+      232,
+      197,
+      0,
+      195,
+      3,
+      "SIGMAS"
+    ],
+    [
+      567,
+      206,
+      0,
+      198,
+      0,
+      "MODEL"
+    ],
+    [
+      568,
+      206,
+      0,
+      197,
+      0,
+      "MODEL"
+    ],
+    [
+      575,
+      448,
+      0,
+      198,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      608,
+      25,
+      0,
+      195,
+      0,
+      "NOISE"
+    ],
+    [
+      614,
+      193,
+      0,
+      529,
+      0,
+      "IMAGE"
+    ],
+    [
+      622,
+      163,
+      0,
+      195,
+      4,
+      "LATENT"
+    ],
+    [
+      639,
+      88,
+      0,
+      532,
+      0,
+      "*"
+    ],
+    [
+      640,
+      11,
+      0,
+      533,
+      0,
+      "*"
+    ],
+    [
+      641,
+      10,
+      0,
+      534,
+      0,
+      "*"
+    ],
+    [
+      642,
+      532,
+      0,
+      206,
+      0,
+      "MODEL"
+    ],
+    [
+      643,
+      533,
+      0,
+      448,
+      0,
+      "CLIP"
+    ],
+    [
+      645,
+      534,
+      0,
+      165,
+      1,
+      "VAE"
+    ],
+    [
+      650,
+      534,
+      0,
+      193,
+      1,
+      "VAE"
+    ],
+    [
+      654,
+      167,
+      0,
+      535,
+      0,
+      "IMAGE"
+    ],
+    [
+      655,
+      535,
+      0,
+      166,
+      1,
+      "INT"
+    ],
+    [
+      656,
+      535,
+      1,
+      166,
+      2,
+      "INT"
+    ],
+    [
+      657,
+      163,
+      2,
+      536,
+      1,
+      "INT"
+    ],
+    [
+      658,
+      163,
+      2,
+      537,
+      1,
+      "INT"
+    ],
+    [
+      659,
+      160,
+      1,
+      536,
+      0,
+      "*"
+    ],
+    [
+      660,
+      535,
+      1,
+      536,
+      2,
+      "INT"
+    ],
+    [
+      661,
+      160,
+      0,
+      537,
+      0,
+      "*"
+    ],
+    [
+      662,
+      535,
+      0,
+      537,
+      2,
+      "INT"
+    ],
+    [
+      663,
+      536,
+      0,
+      206,
+      2,
+      "INT"
+    ],
+    [
+      664,
+      537,
+      0,
+      206,
+      1,
+      "INT"
+    ],
+    [
+      668,
+      542,
+      0,
+      545,
+      0,
+      "STRING"
+    ],
+    [
+      670,
+      545,
+      0,
+      448,
+      1,
+      "STRING"
+    ],
+    [
+      671,
+      545,
+      0,
+      448,
+      2,
+      "STRING"
+    ],
+    [
+      672,
+      540,
+      0,
+      545,
+      1,
+      "STRING"
+    ],
+    [
+      673,
+      546,
+      0,
+      529,
+      1,
+      "STRING"
+    ],
+    [
+      674,
+      545,
+      0,
+      547,
+      0,
+      "STRING"
+    ],
+    [
+      675,
+      451,
+      0,
+      550,
+      0,
+      "*"
+    ],
+    [
+      676,
+      549,
+      0,
+      550,
+      1,
+      "FLOAT"
+    ],
+    [
+      677,
+      163,
+      2,
+      550,
+      3,
+      "INT"
+    ],
+    [
+      678,
+      550,
+      0,
+      197,
+      1,
+      "FLOAT"
+    ],
+    [
+      682,
+      556,
+      0,
+      553,
+      0,
+      "IMAGE"
+    ],
+    [
+      683,
+      555,
+      0,
+      553,
+      1,
+      "STRING"
+    ],
+    [
+      684,
+      552,
+      0,
+      554,
+      0,
+      "*"
+    ],
+    [
+      685,
+      551,
+      0,
+      555,
+      0,
+      "STRING"
+    ],
+    [
+      686,
+      558,
+      0,
+      555,
+      1,
+      "STRING"
+    ],
+    [
+      687,
+      556,
+      0,
+      558,
+      0,
+      "IMAGE"
+    ],
+    [
+      688,
+      167,
+      0,
+      556,
+      0,
+      "*"
+    ],
+    [
+      689,
+      558,
+      0,
+      552,
+      0,
+      "STRING"
+    ],
+    [
+      690,
+      553,
+      0,
+      552,
+      1,
+      "STRING"
+    ],
+    [
+      692,
+      552,
+      0,
+      542,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Flux Shift",
+      "bounding": [
+        -43,
+        -84,
+        2121,
+        1154
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.37974983358326514,
+      "offset": [
+        2067.0412072358727,
+        948.8799221420413
+      ]
+    }
+  },
+  "version": 0.4
+}
