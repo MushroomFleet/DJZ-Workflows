@@ -1,0 +1,1375 @@
+{
+  "last_node_id": 36,
+  "last_link_id": 42,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "ImageResize+",
+      "pos": {
+        "0": -52,
+        "1": 118
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4,
+            29
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        768,
+        768,
+        "nearest",
+        "keep proportion",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 11,
+      "type": "ImageSizeAdjusterV2",
+      "pos": {
+        "0": -54,
+        "1": 416
+      },
+      "size": {
+        "0": 315,
+        "1": 306
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            8
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSizeAdjusterV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        64,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 26,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 391,
+        "1": 498
+      },
+      "size": {
+        "0": 419.2893371582031,
+        "1": 375.83599853515625
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 27,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "cyborg, futuristic, armor, batman, cityscape, robots"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 840,
+        "1": 494
+      },
+      "size": {
+        "0": 419.2893371582031,
+        "1": 375.83599853515625
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "A futuristic, armored figure stands amidst a dystopian cityscape, surrounded by mechanical structures and glowing orbs. The character's helmet features blue eyes, and the armor is adorned with red accents."
+      ]
+    },
+    {
+      "id": 17,
+      "type": "SaveText|pysssss",
+      "pos": {
+        "0": 1770,
+        "1": 94
+      },
+      "size": {
+        "0": 311.8810119628906,
+        "1": 126
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 39,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "file",
+          "type": "STRING",
+          "link": 25,
+          "widget": {
+            "name": "file"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            18
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveText|pysssss"
+      },
+      "widgets_values": [
+        "output",
+        "file.txt",
+        "new only",
+        true,
+        "",
+        true
+      ]
+    },
+    {
+      "id": 20,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 2186,
+        "1": 92
+      },
+      "size": {
+        "0": 561.0903930664062,
+        "1": 176.9489288330078
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 18,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Blacksun Style, A futuristic, armored figure stands amidst a dystopian cityscape, surrounded by mechanical structures and glowing orbs. The character's helmet features blue eyes, and the armor is adorned with red accents., cyborg, futuristic, armor, batman, cityscape, robots"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "DownloadAndLoadLLaVAOneVisionModel",
+      "pos": {
+        "0": -540,
+        "1": 95
+      },
+      "size": {
+        "0": 359.33319091796875,
+        "1": 130
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "links": [
+            1,
+            28
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadLLaVAOneVisionModel"
+      },
+      "widgets_values": [
+        "lmms-lab/llava-onevision-qwen2-7b-ov",
+        "cuda",
+        "fp16",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LLaVA_OneVision_Run",
+      "pos": {
+        "0": 850,
+        "1": 93
+      },
+      "size": {
+        "0": 392.4593505859375,
+        "1": 292.9259948730469
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "link": 1
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            2,
+            31
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLaVA_OneVision_Run"
+      },
+      "widgets_values": [
+        "using precise language, in 360 characters or less, capture an impression of the image, This description should enable the subject of the image to be reproduced, identify important artistic details, ensure smooth backgrounds are less detailed",
+        4096,
+        true,
+        0,
+        409930667647118,
+        "randomize",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 23,
+      "type": "DF_String_Concatenate",
+      "pos": {
+        "0": 1774,
+        "1": -154
+      },
+      "size": {
+        "0": 299.4110107421875,
+        "1": 82
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Prepend",
+          "type": "STRING",
+          "link": 23,
+          "widget": {
+            "name": "Prepend"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            24,
+            25
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "txt",
+        "."
+      ]
+    },
+    {
+      "id": 22,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 2186,
+        "1": -155
+      },
+      "size": {
+        "0": 315,
+        "1": 76
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 24,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "OneVision\\blacksunV4\\CAP\\blacksunv3 (99).txt"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "LLaVA_OneVision_Run",
+      "pos": {
+        "0": 401,
+        "1": 93
+      },
+      "size": {
+        "0": 392.4593505859375,
+        "1": 292.9259948730469
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "link": 28
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            27,
+            30
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLaVA_OneVision_Run"
+      },
+      "widgets_values": [
+        "using single word tags only, in 40 characters or less, describe the most significant details, as a comma separated list",
+        4096,
+        true,
+        0,
+        780873168680024,
+        "randomize",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 12,
+      "type": "ImageResize+",
+      "pos": {
+        "0": 1774,
+        "1": 396
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 35
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 7,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 8,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "fill / crop",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 16,
+      "type": "SaveImage",
+      "pos": {
+        "0": 2192,
+        "1": 395
+      },
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 13,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "PreviewImage",
+      "pos": {
+        "0": -505,
+        "1": 652
+      },
+      "size": {
+        "0": 299.7441101074219,
+        "1": 246
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 38
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 32,
+      "type": "DF_String_Concatenate",
+      "pos": {
+        "0": 1355,
+        "1": -60
+      },
+      "size": {
+        "0": 299.4110107421875,
+        "1": 82
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Prepend",
+          "type": "STRING",
+          "link": 41,
+          "widget": {
+            "name": "Prepend"
+          }
+        },
+        {
+          "name": "Append",
+          "type": "STRING",
+          "link": 40,
+          "widget": {
+            "name": "Append"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            39
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "Blacksun Style",
+        "txt",
+        ", "
+      ]
+    },
+    {
+      "id": 27,
+      "type": "DF_String_Concatenate",
+      "pos": {
+        "0": 1356,
+        "1": 93
+      },
+      "size": {
+        "0": 299.4110107421875,
+        "1": 82
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Prepend",
+          "type": "STRING",
+          "link": 31,
+          "widget": {
+            "name": "Prepend"
+          }
+        },
+        {
+          "name": "Append",
+          "type": "STRING",
+          "link": 30,
+          "widget": {
+            "name": "Append"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "txt",
+        ", "
+      ]
+    },
+    {
+      "id": 33,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 403,
+        "1": -60
+      },
+      "size": {
+        "0": 385.10833740234375,
+        "1": 83.16710662841797
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "Prepend"
+          }
+        }
+      ],
+      "title": "Trigger Token",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Blacksun Style"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 14,
+      "type": "ProjectFilePathNode",
+      "pos": {
+        "0": 880,
+        "1": -159
+      },
+      "size": {
+        "0": 340.20001220703125,
+        "1": 154
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 11,
+          "widget": {
+            "name": "project_name"
+          }
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "link": 42,
+          "widget": {
+            "name": "filename"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            13,
+            23
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "OneVision",
+        "blacksunV4",
+        "CAP",
+        "image",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 28,
+      "type": "Load Image Batch",
+      "pos": {
+        "0": -512,
+        "1": 388
+      },
+      "size": {
+        "0": 299.4186706542969,
+        "1": 222
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 33,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": 37,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            34,
+            35,
+            36,
+            38
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            42
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "single_image",
+        0,
+        "",
+        "J:\\K_Maybe\\flux_datasets\\blacksun\\Blacksunv3",
+        "*",
+        "false",
+        "false"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -500,
+        "1": -160
+      },
+      "size": {
+        "0": 276.71490478515625,
+        "1": 89.31009674072266
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            11
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "blacksunV4"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 29,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -515,
+        "1": 270
+      },
+      "size": {
+        "0": 308.9371032714844,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            33
+          ],
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "title": "Image Index",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "increment"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 35,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": -1536,
+        "1": 698
+      },
+      "size": {
+        "0": 956.15234375,
+        "1": 200
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Recaption:",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "transparent",
+      "bgcolor": "transparent"
+    },
+    {
+      "id": 36,
+      "type": "Label (rgthree)",
+      "pos": {
+        "0": -1542,
+        "1": 535
+      },
+      "size": {
+        "0": 919.140625,
+        "1": 200
+      },
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "OneVision",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "transparent",
+      "bgcolor": "transparent"
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": {
+        "0": -996,
+        "1": -124
+      },
+      "size": {
+        "0": 421.6943664550781,
+        "1": 568.6727905273438
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Caption-Tools-OneVision-Recaption-v20\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 30,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -500,
+        "1": -40
+      },
+      "size": {
+        "0": 276.71490478515625,
+        "1": 89.31009674072266
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "title": "Image Directory (PATH)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "J:\\K_Maybe\\flux_datasets\\blacksun\\Blacksunv3"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      0,
+      "LLAVAMODEL"
+    ],
+    [
+      2,
+      3,
+      0,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      4,
+      10,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ],
+    [
+      7,
+      11,
+      0,
+      12,
+      1,
+      "INT"
+    ],
+    [
+      8,
+      11,
+      1,
+      12,
+      2,
+      "INT"
+    ],
+    [
+      11,
+      15,
+      0,
+      14,
+      0,
+      "STRING"
+    ],
+    [
+      12,
+      12,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      14,
+      0,
+      16,
+      1,
+      "STRING"
+    ],
+    [
+      18,
+      17,
+      0,
+      20,
+      0,
+      "STRING"
+    ],
+    [
+      23,
+      14,
+      0,
+      23,
+      0,
+      "STRING"
+    ],
+    [
+      24,
+      23,
+      0,
+      22,
+      0,
+      "STRING"
+    ],
+    [
+      25,
+      23,
+      0,
+      17,
+      1,
+      "STRING"
+    ],
+    [
+      27,
+      25,
+      0,
+      26,
+      0,
+      "STRING"
+    ],
+    [
+      28,
+      1,
+      0,
+      25,
+      0,
+      "LLAVAMODEL"
+    ],
+    [
+      29,
+      10,
+      0,
+      25,
+      1,
+      "IMAGE"
+    ],
+    [
+      30,
+      25,
+      0,
+      27,
+      1,
+      "STRING"
+    ],
+    [
+      31,
+      3,
+      0,
+      27,
+      0,
+      "STRING"
+    ],
+    [
+      33,
+      29,
+      0,
+      28,
+      0,
+      "INT"
+    ],
+    [
+      34,
+      28,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      28,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      28,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      30,
+      0,
+      28,
+      1,
+      "STRING"
+    ],
+    [
+      38,
+      28,
+      0,
+      31,
+      0,
+      "IMAGE"
+    ],
+    [
+      39,
+      32,
+      0,
+      17,
+      0,
+      "STRING"
+    ],
+    [
+      40,
+      27,
+      0,
+      32,
+      1,
+      "STRING"
+    ],
+    [
+      41,
+      33,
+      0,
+      32,
+      0,
+      "STRING"
+    ],
+    [
+      42,
+      28,
+      1,
+      14,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.2393920493691639,
+      "offset": [
+        2115.465026608052,
+        1455.9536575737807
+      ]
+    }
+  },
+  "version": 0.4
+}
