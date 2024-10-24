@@ -353,7 +353,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        7150167721653,
+        220546077252290,
         "randomize",
         4,
         1.2,
@@ -374,7 +374,7 @@
         "1": 170
       },
       "flags": {},
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -435,12 +435,12 @@
         "0": 2070,
         "1": 1360
       },
-      "size": {
-        "0": 315,
-        "1": 454
-      },
+      "size": [
+        315,
+        454
+      ],
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -464,14 +464,6 @@
           "name": "negative",
           "type": "SUPIR_cond_neg",
           "link": 114
-        },
-        {
-          "name": "seed",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "seed"
-          }
         }
       ],
       "outputs": [
@@ -518,7 +510,7 @@
         200.86000061035156
       ],
       "flags": {},
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -604,7 +596,7 @@
         "1": 102
       },
       "flags": {},
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -650,7 +642,7 @@
         "1": 126
       },
       "flags": {},
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -685,62 +677,6 @@
       ]
     },
     {
-      "id": 62,
-      "type": "ImageResize+",
-      "pos": {
-        "0": 920,
-        "1": 1380
-      },
-      "size": {
-        "0": 315,
-        "1": 218
-      },
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 123
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            110
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResize+"
-      },
-      "widgets_values": [
-        4096,
-        2160,
-        "lanczos",
-        true,
-        "always",
-        16
-      ]
-    },
-    {
       "id": 63,
       "type": "ColorMatch",
       "pos": {
@@ -752,7 +688,7 @@
         "1": 102
       },
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -772,7 +708,6 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            127,
             134
           ],
           "slot_index": 0,
@@ -785,117 +720,6 @@
       "widgets_values": [
         "mkl",
         1
-      ]
-    },
-    {
-      "id": 64,
-      "type": "Image Comparer (rgthree)",
-      "pos": {
-        "0": 3860,
-        "1": 1320
-      },
-      "size": {
-        "0": 966.4270629882812,
-        "1": 993.589599609375
-      },
-      "flags": {},
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image_a",
-          "type": "IMAGE",
-          "link": 126,
-          "dir": 3
-        },
-        {
-          "name": "image_b",
-          "type": "IMAGE",
-          "link": 127,
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "comparer_mode": "Slide"
-      },
-      "widgets_values": [
-        [
-          {
-            "url": "/view?filename=rgthree.compare._temp_eflof_00003_.png&type=temp&subfolder=&rand=0.024289770217449602",
-            "name": "A",
-            "selected": true
-          },
-          {
-            "url": "/view?filename=rgthree.compare._temp_eflof_00004_.png&type=temp&subfolder=&rand=0.9072862493808909",
-            "name": "B",
-            "selected": true
-          }
-        ]
-      ]
-    },
-    {
-      "id": 65,
-      "type": "SUPIR_model_loader_v2",
-      "pos": {
-        "0": 520,
-        "1": 1360
-      },
-      "size": {
-        "0": 326.68096923828125,
-        "1": 170
-      },
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 128,
-          "slot_index": 0
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 129
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 130
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SUPIR_model",
-          "type": "SUPIRMODEL",
-          "links": [
-            111,
-            115
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "SUPIR_VAE",
-          "type": "SUPIRVAE",
-          "links": [
-            109,
-            119
-          ],
-          "slot_index": 1,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SUPIR_model_loader_v2"
-      },
-      "widgets_values": [
-        "SUPIR\\SUPIR-v0Q_fp16.safetensors",
-        false,
-        "auto",
-        false
       ]
     },
     {
@@ -925,8 +749,7 @@
           "type": "IMAGE",
           "links": [
             123,
-            124,
-            136
+            124
           ]
         }
       ],
@@ -1009,7 +832,7 @@
         "1": 617.4869995117188
       },
       "flags": {},
-      "order": 28,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -1139,62 +962,6 @@
         "showOutputText": false,
         "horizontal": false
       }
-    },
-    {
-      "id": 74,
-      "type": "ImageResize+",
-      "pos": {
-        "0": 2600,
-        "1": 1540
-      },
-      "size": {
-        "0": 315,
-        "1": 218
-      },
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 136
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            126
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResize+"
-      },
-      "widgets_values": [
-        4096,
-        2160,
-        "nearest-exact",
-        true,
-        "always",
-        64
-      ]
     },
     {
       "id": 68,
@@ -1380,6 +1147,126 @@
         "Hyper-SDXL-8steps-lora.safetensors",
         1,
         1
+      ]
+    },
+    {
+      "id": 65,
+      "type": "SUPIR_model_loader_v2",
+      "pos": {
+        "0": 520,
+        "1": 1360
+      },
+      "size": {
+        "0": 326.68096923828125,
+        "1": 170
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 128,
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 129
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 130
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "links": [
+            111,
+            115
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "SUPIR_VAE",
+          "type": "SUPIRVAE",
+          "links": [
+            109,
+            119
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_model_loader_v2"
+      },
+      "widgets_values": [
+        "SUPIR\\SUPIR-v0Q_fp16.safetensors",
+        false,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 62,
+      "type": "ImageResize+",
+      "pos": {
+        "0": 920,
+        "1": 1380
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 123
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            110
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        4096,
+        2160,
+        "lanczos",
+        "keep proportion",
+        "downscale if bigger",
+        64
       ]
     },
     {
@@ -1642,22 +1529,6 @@
       "IMAGE"
     ],
     [
-      126,
-      74,
-      0,
-      64,
-      0,
-      "IMAGE"
-    ],
-    [
-      127,
-      63,
-      0,
-      64,
-      1,
-      "IMAGE"
-    ],
-    [
       128,
       67,
       0,
@@ -1714,14 +1585,6 @@
       "*"
     ],
     [
-      136,
-      66,
-      0,
-      74,
-      0,
-      "IMAGE"
-    ],
-    [
       137,
       8,
       0,
@@ -1742,10 +1605,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.442099361065004,
+      "scale": 1.191817653772733,
       "offset": [
-        748.4651375393697,
-        9.777723129331946
+        1130.8763181809825,
+        25.502258123849344
       ]
     }
   },

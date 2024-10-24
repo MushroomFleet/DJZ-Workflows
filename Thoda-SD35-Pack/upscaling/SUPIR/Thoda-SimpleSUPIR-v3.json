@@ -309,7 +309,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        504914551674579,
+        197670038745714,
         "randomize",
         20,
         5.45,
@@ -379,7 +379,7 @@
         "1": 170
       },
       "flags": {},
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -434,96 +434,18 @@
       ]
     },
     {
-      "id": 58,
-      "type": "SUPIR_sample",
-      "pos": {
-        "0": 2120,
-        "1": 1430
-      },
-      "size": {
-        "0": 315,
-        "1": 454
-      },
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "SUPIR_model",
-          "type": "SUPIRMODEL",
-          "link": 113,
-          "slot_index": 0
-        },
-        {
-          "name": "latents",
-          "type": "LATENT",
-          "link": 114
-        },
-        {
-          "name": "positive",
-          "type": "SUPIR_cond_pos",
-          "link": 115,
-          "slot_index": 2
-        },
-        {
-          "name": "negative",
-          "type": "SUPIR_cond_neg",
-          "link": 116
-        },
-        {
-          "name": "seed",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "seed"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "links": [
-            122
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SUPIR_sample"
-      },
-      "widgets_values": [
-        1026764569950638,
-        "fixed",
-        8,
-        1.2,
-        1,
-        5,
-        1.0030000000000001,
-        1,
-        1,
-        0.9,
-        1,
-        true,
-        "RestoreEDMSampler",
-        1024,
-        1024
-      ]
-    },
-    {
       "id": 59,
       "type": "SUPIR_conditioner",
       "pos": {
         "0": 1660,
         "1": 1630
       },
-      "size": [
-        401.7200012207031,
-        200.86000061035156
-      ],
+      "size": {
+        "0": 401.7200012207031,
+        "1": 200.86000061035156
+      },
       "flags": {},
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -593,7 +515,6 @@
         "bad quality, nsfw",
         "junglecity (15), scenery, cloud, no humans, tree, sky, outdoors, building, city, day, aircraft",
         true,
-        true,
         true
       ]
     },
@@ -609,7 +530,7 @@
         "1": 102
       },
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -655,7 +576,7 @@
         "1": 126
       },
       "flags": {},
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -690,62 +611,6 @@
       ]
     },
     {
-      "id": 62,
-      "type": "ImageResize+",
-      "pos": {
-        "0": 970,
-        "1": 1450
-      },
-      "size": {
-        "0": 315,
-        "1": 218
-      },
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 125
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            112
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResize+"
-      },
-      "widgets_values": [
-        4096,
-        2160,
-        "lanczos",
-        true,
-        "always",
-        16
-      ]
-    },
-    {
       "id": 63,
       "type": "ColorMatch",
       "pos": {
@@ -757,7 +622,7 @@
         "1": 102
       },
       "flags": {},
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -777,7 +642,6 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            129,
             136
           ],
           "slot_index": 0,
@@ -790,53 +654,6 @@
       "widgets_values": [
         "mkl",
         1
-      ]
-    },
-    {
-      "id": 64,
-      "type": "Image Comparer (rgthree)",
-      "pos": {
-        "0": 3910,
-        "1": 1390
-      },
-      "size": {
-        "0": 966.4270629882812,
-        "1": 993.589599609375
-      },
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image_a",
-          "type": "IMAGE",
-          "link": 128,
-          "dir": 3
-        },
-        {
-          "name": "image_b",
-          "type": "IMAGE",
-          "link": 129,
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "comparer_mode": "Slide"
-      },
-      "widgets_values": [
-        [
-          {
-            "url": "/view?filename=rgthree.compare._temp_eflof_00003_.png&type=temp&subfolder=&rand=0.024289770217449602",
-            "name": "A",
-            "selected": true
-          },
-          {
-            "url": "/view?filename=rgthree.compare._temp_eflof_00004_.png&type=temp&subfolder=&rand=0.9072862493808909",
-            "name": "B",
-            "selected": true
-          }
-        ]
       ]
     },
     {
@@ -930,8 +747,7 @@
           "type": "IMAGE",
           "links": [
             125,
-            126,
-            138
+            126
           ]
         }
       ],
@@ -1000,7 +816,8 @@
       ],
       "properties": {
         "Node name for S&R": "CR Apply LoRA Stack"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 69,
@@ -1014,7 +831,7 @@
         "1": 617.4869995117188
       },
       "flags": {},
-      "order": 27,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -1144,62 +961,6 @@
         "showOutputText": false,
         "horizontal": false
       }
-    },
-    {
-      "id": 74,
-      "type": "ImageResize+",
-      "pos": {
-        "0": 2650,
-        "1": 1610
-      },
-      "size": {
-        "0": 315,
-        "1": 218
-      },
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 138
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            128
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResize+"
-      },
-      "widgets_values": [
-        4096,
-        2160,
-        "nearest-exact",
-        true,
-        "always",
-        64
-      ]
     },
     {
       "id": 68,
@@ -1347,6 +1108,132 @@
         "Hyper-SDXL-8steps-lora.safetensors",
         1,
         1
+      ]
+    },
+    {
+      "id": 58,
+      "type": "SUPIR_sample",
+      "pos": {
+        "0": 2120,
+        "1": 1430
+      },
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "link": 113,
+          "slot_index": 0
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": 114
+        },
+        {
+          "name": "positive",
+          "type": "SUPIR_cond_pos",
+          "link": 115,
+          "slot_index": 2
+        },
+        {
+          "name": "negative",
+          "type": "SUPIR_cond_neg",
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            122
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_sample"
+      },
+      "widgets_values": [
+        1026764569950638,
+        "fixed",
+        8,
+        1.2,
+        1,
+        5,
+        1.0030000000000001,
+        1,
+        1,
+        0.9,
+        1,
+        true,
+        "RestoreEDMSampler",
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": 62,
+      "type": "ImageResize+",
+      "pos": {
+        "0": 970,
+        "1": 1450
+      },
+      "size": {
+        "0": 315,
+        "1": 218
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 125
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            112
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        4096,
+        2160,
+        "lanczos",
+        "keep proportion",
+        "downscale if bigger",
+        64
       ]
     },
     {
@@ -1609,22 +1496,6 @@
       "IMAGE"
     ],
     [
-      128,
-      74,
-      0,
-      64,
-      0,
-      "IMAGE"
-    ],
-    [
-      129,
-      63,
-      0,
-      64,
-      1,
-      "IMAGE"
-    ],
-    [
       130,
       67,
       0,
@@ -1681,14 +1552,6 @@
       "*"
     ],
     [
-      138,
-      66,
-      0,
-      74,
-      0,
-      "IMAGE"
-    ],
-    [
       139,
       8,
       0,
@@ -1709,10 +1572,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0834705943388458,
+      "scale": 1.3109994191500065,
       "offset": [
-        1192.5912225732682,
-        95.52250972243388
+        695.3971558039738,
+        33.94288614837072
       ]
     }
   },
