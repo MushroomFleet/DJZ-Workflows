@@ -1,0 +1,592 @@
+{
+  "last_node_id": 58,
+  "last_link_id": 118,
+  "nodes": [
+    {
+      "id": 55,
+      "type": "AspectSizeV2",
+      "pos": {
+        "0": -37,
+        "1": 573
+      },
+      "size": {
+        "0": 298.3753356933594,
+        "1": 150
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            106
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            107
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        1,
+        1,
+        64
+      ]
+    },
+    {
+      "id": 43,
+      "type": "TripleCLIPLoader",
+      "pos": {
+        "0": -57,
+        "1": 265
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            103
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripleCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "clip_g.safetensors",
+        "t5xxl_fp8_e4m3fn_scaled.safetensors"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "FluxBlockPatcherSampler",
+      "pos": {
+        "0": 828,
+        "1": 100
+      },
+      "size": [
+        353.38778442724833,
+        320.73725677152834
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 117
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 112
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 113
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            114
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "sampler_params",
+          "type": "SAMPLER_PARAMS",
+          "links": [
+            110
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "patched_blocks",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxBlockPatcherSampler"
+      },
+      "widgets_values": [
+        183124441421643,
+        "randomize",
+        20,
+        "euler",
+        "sgm_uniform",
+        5.5,
+        1,
+        "double_blocks\\.([0-9]+)\\.(img|txt)_(mod|attn|mlp\\.[02])\\.(lin|qkv|proj)\\.(weight|bias)=1.1\nsingle_blocks\\.([0-9]+)\\.(linear[12]|modulation\\.lin)\\.(weight|bias)=1.05",
+        true
+      ]
+    },
+    {
+      "id": 16,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 352,
+        "1": 265
+      },
+      "size": [
+        369.4566048021346,
+        167.3277860123821
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 103
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            112
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a bottle with a rainbow galaxy inside it on top of a wooden table on a snowy mountain top with the ocean and clouds in the background with a shot glass beside containing darkness beside a snow sculpture in the shape of a fox",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 53,
+      "type": "EmptySD3LatentImage",
+      "pos": {
+        "0": 503,
+        "1": 572
+      },
+      "size": {
+        "0": 210,
+        "1": 80.68087005615234
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 106,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 107,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            113
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 57,
+      "type": "PlotBlockParams",
+      "pos": {
+        "0": 1575,
+        "1": 112
+      },
+      "size": [
+        231.55508937837658,
+        102
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 116
+        },
+        {
+          "name": "params",
+          "type": "SAMPLER_PARAMS",
+          "link": 110
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            115
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PlotBlockParams"
+      },
+      "widgets_values": [
+        0,
+        "true"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1883,
+        "1": 112
+      },
+      "size": {
+        "0": 952.5112915039062,
+        "1": 1007.9328002929688
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 115,
+          "slot_index": 0
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 105,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -53,
+        "1": 98
+      },
+      "size": {
+        "0": 310.30352783203125,
+        "1": 101.80986785888672
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            117
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            53
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sd3.5_large.safetensors"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1265,
+        "1": 114
+      },
+      "size": [
+        214.16118120308965,
+        46
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 114
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 53,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            116
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "ProjectFilePathNode",
+      "pos": {
+        "0": 1579,
+        "1": 270
+      },
+      "size": [
+        226.8000030517578,
+        154
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            105
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "output",
+        "thoda",
+        "basic",
+        "SD3",
+        "auto"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "Note",
+      "pos": {
+        "0": -384,
+        "1": 144
+      },
+      "size": {
+        "0": 223.34756469726562,
+        "1": 254.37765502929688
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Thoda-BasicBlockPatcher-v1\n\n- SD3.5 Large (FP16)\n- Clip T5XXL (FP8)\n- aspect size\n- project file path\n\nSpecial thanks to Matteo, Latentvision\n\nhttps://github.com/cubiq/Block_Patcher_ComfyUI/tree/main"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      53,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      103,
+      43,
+      0,
+      16,
+      0,
+      "CLIP"
+    ],
+    [
+      105,
+      54,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      106,
+      55,
+      0,
+      53,
+      0,
+      "INT"
+    ],
+    [
+      107,
+      55,
+      1,
+      53,
+      1,
+      "INT"
+    ],
+    [
+      110,
+      58,
+      1,
+      57,
+      1,
+      "SAMPLER_PARAMS"
+    ],
+    [
+      112,
+      16,
+      0,
+      58,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      113,
+      53,
+      0,
+      58,
+      2,
+      "LATENT"
+    ],
+    [
+      114,
+      58,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      115,
+      57,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      116,
+      8,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      117,
+      4,
+      0,
+      58,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6115909044841494,
+      "offset": [
+        559.086621567417,
+        122.89373172529297
+      ]
+    }
+  },
+  "version": 0.4
+}
