@@ -1,0 +1,1336 @@
+{
+  "last_node_id": 56,
+  "last_link_id": 73,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 340.06640625,
+        "1": -380.7377624511719
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "sd3"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MochiTextEncode",
+      "pos": {
+        "0": 1120.06640625,
+        "1": -380.7377624511719
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 45,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            10
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "A vibrant hot air balloon, adorned with geometric patterns, slowly rises above a misty valley at dawn. The basket sways gently as it ascends, revealing a panoramic view of rolling hills and winding rivers below. Sunlight gradually illuminates the colorful fabric, creating a mesmerizing interplay of light and shadow as the balloon drifts peacefully across the awakening landscape.\n",
+        1,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 10,
+      "type": "MochiTextEncode",
+      "pos": {
+        "0": 1120.06640625,
+        "1": -130.73744201660156
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "",
+        1,
+        true,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 55,
+      "type": "LayerUtility: PurgeVRAM",
+      "pos": {
+        "0": -418.0226135253906,
+        "1": 1008.1707153320312
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 72
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "widgets_values": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": 56,
+      "type": "Note",
+      "pos": {
+        "0": -398.02264404296875,
+        "1": 758.1707763671875
+      },
+      "size": {
+        "0": 289.91656494140625,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [],
+      "title": "PRESS R TO RELOAD THE LIST",
+      "properties": {},
+      "widgets_values": [
+        "PRESS R TO RELOAD THE LIST"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "MochiDecode",
+      "pos": {
+        "0": -8.022979736328125,
+        "1": 858.170654296875
+      },
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "MOCHIVAE",
+          "link": 71
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 70
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiDecode"
+      },
+      "widgets_values": [
+        false,
+        false,
+        16,
+        80,
+        144,
+        0.3,
+        0.3
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VHS_VideoCombine",
+      "pos": {
+        "0": 374.97711181640625,
+        "1": 858.170654296875
+      },
+      "size": [
+        214.7587890625,
+        430.24082399764154
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 73,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "donut_00005.mp4",
+            "subfolder": "Donut-Mochi\\GGUF-Q8_0-T5-FP16-CPU\\24-frames",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "DownloadAndLoadMochiModel",
+      "pos": {
+        "0": -850,
+        "1": 300
+      },
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trigger",
+          "type": "CONDITIONING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_model",
+          "type": "MOCHIMODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            71
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadMochiModel"
+      },
+      "widgets_values": [
+        "mochi_preview_dit_GGUF_Q8_0.safetensors",
+        "mochi_preview_vae_bf16.safetensors",
+        "fp8_e4m3fn",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "DownloadAndLoadLLaVAOneVisionModel",
+      "pos": {
+        "0": 320.06640625,
+        "1": -241.7376708984375
+      },
+      "size": {
+        "0": 334.4347229003906,
+        "1": 130
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadLLaVAOneVisionModel"
+      },
+      "widgets_values": [
+        "lmms-lab/llava-onevision-qwen2-7b-ov",
+        "cuda",
+        "nf4",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "ImageResize+",
+      "pos": {
+        "0": 326.06640625,
+        "1": -55.73735809326172
+      },
+      "size": {
+        "0": 325.50933837890625,
+        "1": 170
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 50
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 51,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 52,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53,
+            54
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            55
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            56
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "fill / crop",
+        "always",
+        0
+      ]
+    },
+    {
+      "id": 39,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 328.06640625,
+        "1": 168.2625732421875
+      },
+      "size": {
+        "0": 313.968994140625,
+        "1": 246
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 31,
+      "type": "LLaVA_OneVision_Run",
+      "pos": {
+        "0": 710.06640625,
+        "1": 19.262554168701172
+      },
+      "size": {
+        "0": 341.63861083984375,
+        "1": 405.28643798828125
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "link": 43
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            44,
+            45,
+            57
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLaVA_OneVision_Run"
+      },
+      "widgets_values": [
+        "Analyze the given image and generate a detailed video prompt by: describing the main subject or action; detailing the setting and background; noting significant visual elements, colors, and textures; including information about lighting, time of day, or weather conditions if relevant; mentioning any movement, progression, or change in the scene; describing the mood or atmosphere; including sensory details beyond visual elements when appropriate; using vivid, descriptive language; maintaining a neutral tone without subjective interpretations; keeping the description under 256 tokens for clarity and conciseness; structure the output as follows: [Main subject/action]. [Setting and background details]. [Visual elements, colors, textures]. [Lighting, time, weather]. [Movement or progression]. [Mood/atmosphere]. [Additional sensory details if applicable].",
+        256,
+        true,
+        0,
+        502122510358315,
+        "fixed",
+        true
+      ]
+    },
+    {
+      "id": 33,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 700.06640625,
+        "1": -270.73773193359375
+      },
+      "size": {
+        "0": 351.63861083984375,
+        "1": 250.8419952392578
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 44,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "The image depicts a classical painting with three figures. On the left, there is a warrior in armor adorned with a helmet and a purple cloak, holding a spear. In the center, a bearded man in a blue robe gestures with his hand, appearing to speak or argue. To the right, an angelic figure with wings and a wreath on the head looks on attentively. The setting seems to be indoors with a dark background, suggesting a serious or solemn atmosphere. The colors are rich and vibrant, with the gold of the armor and the blue of the robe standing out against the darker tones. The lighting is focused on the central figures, highlighting their expressions and gestures. The mood is one of intensity and engagement, as if the characters are deeply involved in a significant conversation or confrontation."
+      ]
+    },
+    {
+      "id": 15,
+      "type": "OverrideCLIPDevice",
+      "pos": {
+        "0": 700.06640625,
+        "1": -380.7377624511719
+      },
+      "size": {
+        "0": 359.07080078125,
+        "1": 58
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OverrideCLIPDevice"
+      },
+      "widgets_values": [
+        "cpu"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "LayerUtility: PurgeVRAM",
+      "pos": {
+        "0": 1123.06640625,
+        "1": 130.2625732421875
+      },
+      "size": {
+        "0": 398.35247802734375,
+        "1": 82
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 57
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM"
+      },
+      "widgets_values": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": 34,
+      "type": "LoadImage",
+      "pos": {
+        "0": -395.93359375,
+        "1": -369.7377014160156
+      },
+      "size": {
+        "0": 637.5308227539062,
+        "1": 575.7803344726562
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            47,
+            50
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "1920px-Alcibades_being_taught_by_Socrates2C_FranC3A7ois-AndrC3A9_Vincent.png",
+        "image"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "ImageSizeAdjusterV3",
+      "pos": {
+        "0": -389.93359375,
+        "1": 269.2625732421875
+      },
+      "size": {
+        "0": 315,
+        "1": 306
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            48,
+            51
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            49,
+            52
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSizeAdjusterV3"
+      },
+      "widgets_values": [
+        "Mochi1",
+        8,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 36,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 20.066452026367188,
+        "1": 254.2626495361328
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 48,
+          "shape": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "848"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 17.066452026367188,
+        "1": 410.2622985839844
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 49,
+          "shape": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "480"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "SaveLatent",
+      "pos": {
+        "0": 2038.06640625,
+        "1": 299.2624816894531
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 65
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 69,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveLatent"
+      },
+      "widgets_values": [
+        "latents/ComfyUI"
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ProjectFilePathNode",
+      "pos": {
+        "0": -849,
+        "1": 510
+      },
+      "size": {
+        "0": 312.90399169921875,
+        "1": 154
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            69,
+            73
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Latent Save/Load & Video Save Path",
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Donut-Mochi",
+        "GGUF-Q8_0-T5-FP16-CPU",
+        "25-frames",
+        "donut",
+        "auto"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "DJZ-LoadLatent",
+      "pos": {
+        "0": -418.0226135253906,
+        "1": 878.170654296875
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            70,
+            72
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DJZ-LoadLatent"
+      },
+      "widgets_values": [
+        "Donut-Mochi\\GGUF-Q8_0-T5-FP16-CPU\\25-frames\\donut_00001_.latent"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -1195,
+        "1": 52
+      },
+      "size": {
+        "0": 311.2799072265625,
+        "1": 162.47605895996094
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 2,
+      "type": "MochiSampler",
+      "pos": {
+        "0": 1670.06640625,
+        "1": 299.2624816894531
+      },
+      "size": {
+        "0": 315,
+        "1": 242
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MOCHIMODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 12
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 55,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 56,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "LATENT",
+          "links": [
+            65
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSampler"
+      },
+      "widgets_values": [
+        848,
+        480,
+        25,
+        50,
+        7,
+        67611275476446,
+        "randomize"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": {
+        "0": -850,
+        "1": -256
+      },
+      "size": {
+        "0": 375.2408142089844,
+        "1": 495.9891357421875
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Donut-Mochi-848x480-i2v-LatentSideload-v21\n\n- image2video\n- 2 Stage Latent save/load \n- Decode without Tiling\n- OneVision ~with video prompt\n- Auto-Aspect Swapping 16:9/9:16 (fill/crop)\n- Mochi 1 Preview\n- Kijai Wrapper\n- T5XXL_FP16 (CPU)\n- GGUF Q8_0\n- 24 frames (1 second)\n- 100 steps (! 50 steps also works well !)\n\nIntended for use with music videos or short clip applications. 4-5 Minutes to complete.\n\n\n# Latent Side Loading:\n\nUsing the Groups Bypasser, Use this workflow in 2 stages. \n\nStage 1:\n\n- Disable Decode Samples\n- Enable Generate Samples Group\n- Generate the samples\n- Start Queue To generate samples\n- saves .latent files to your chosen path\n\nStage 2:\n\n- Disable Generate Samples Group\n- Enable Decode Samples\n- PRESS R to reload the list\n- Select the .latent from the list\n- Start Queue to run the Decoder (no Tiling)\n- Save Video files to your chosen path"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "MOCHIMODEL"
+    ],
+    [
+      4,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      9,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      11,
+      10,
+      0,
+      2,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      9,
+      0,
+      2,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      7,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      17,
+      15,
+      0,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      43,
+      32,
+      0,
+      31,
+      0,
+      "LLAVAMODEL"
+    ],
+    [
+      44,
+      31,
+      0,
+      33,
+      0,
+      "STRING"
+    ],
+    [
+      45,
+      31,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      47,
+      34,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      48,
+      35,
+      0,
+      36,
+      0,
+      "*"
+    ],
+    [
+      49,
+      35,
+      1,
+      37,
+      0,
+      "*"
+    ],
+    [
+      50,
+      34,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      35,
+      0,
+      38,
+      1,
+      "INT"
+    ],
+    [
+      52,
+      35,
+      1,
+      38,
+      2,
+      "INT"
+    ],
+    [
+      53,
+      38,
+      0,
+      39,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      38,
+      0,
+      31,
+      1,
+      "IMAGE"
+    ],
+    [
+      55,
+      38,
+      1,
+      2,
+      3,
+      "INT"
+    ],
+    [
+      56,
+      38,
+      2,
+      2,
+      4,
+      "INT"
+    ],
+    [
+      57,
+      31,
+      0,
+      40,
+      0,
+      "*"
+    ],
+    [
+      65,
+      2,
+      0,
+      49,
+      0,
+      "LATENT"
+    ],
+    [
+      69,
+      54,
+      0,
+      49,
+      1,
+      "STRING"
+    ],
+    [
+      70,
+      53,
+      0,
+      3,
+      1,
+      "LATENT"
+    ],
+    [
+      71,
+      1,
+      1,
+      3,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      72,
+      53,
+      0,
+      55,
+      0,
+      "*"
+    ],
+    [
+      73,
+      54,
+      0,
+      4,
+      4,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Decode Samples",
+      "bounding": [
+        -453,
+        655,
+        1098,
+        688
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Generate Samples",
+      "bounding": [
+        -449,
+        -479,
+        2847,
+        1103
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.5863092971716597,
+      "offset": [
+        1184.3108584839547,
+        356.05292077876067
+      ]
+    }
+  },
+  "version": 0.4
+}
