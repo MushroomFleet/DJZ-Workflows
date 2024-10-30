@@ -1,0 +1,745 @@
+{
+  "last_node_id": 306,
+  "last_link_id": 616,
+  "nodes": [
+    {
+      "id": 71,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -1020,
+        "1": -90
+      },
+      "size": {
+        "0": 351.8130798339844,
+        "1": 195.57545471191406
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 610
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            606
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "",
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 105,
+      "type": "Note",
+      "pos": {
+        "0": -1990,
+        "1": 440
+      },
+      "size": [
+        287.43875409185443,
+        102.88148197901978
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Make sure the downscale factor is 64 pixels, to ensuire lengths are divisble by 64.\n\nSDXL option will find Aspect Rations that add up to 1 megapixel (1024x1024) which is suitable for SD3.5"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 13,
+      "type": "ModelSamplingSD3",
+      "pos": {
+        "0": -1010,
+        "1": -503
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 445
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            568
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 306,
+      "type": "SaveImage",
+      "pos": {
+        "0": 630,
+        "1": -500
+      },
+      "size": [
+        628.4434333850818,
+        648.7485747173092
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 615
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 616,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 305,
+      "type": "ProjectFilePathNode",
+      "pos": {
+        "0": 250,
+        "1": -400
+      },
+      "size": [
+        226.8000030517578,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            616
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "output",
+        "thoda",
+        "basicMedium",
+        "SD3",
+        "auto"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 250,
+        "1": -500
+      },
+      "size": [
+        229.20816655571923,
+        46
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 572
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 605
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            615
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -2016,
+        "1": -505
+      },
+      "size": [
+        696.9486625943148,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            445
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            605
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sd3.5_medium.safetensors"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "TripleCLIPLoader",
+      "pos": {
+        "0": -2010,
+        "1": -340
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            608
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripleCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_g.safetensors",
+        "clip_l.safetensors",
+        "t5xxl_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -1020,
+        "1": -340
+      },
+      "size": {
+        "0": 342.8335266113281,
+        "1": 177.20867919921875
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 609
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            569
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, purple galaxy bottle,",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 302,
+      "type": "OverrideCLIPDevice",
+      "pos": {
+        "0": -1640,
+        "1": -340
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 608
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            609,
+            610
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OverrideCLIPDevice"
+      },
+      "widgets_values": [
+        "cpu"
+      ]
+    },
+    {
+      "id": 303,
+      "type": "AspectSizeV2",
+      "pos": {
+        "0": -2010,
+        "1": 240
+      },
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            613
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            614
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        1,
+        1,
+        64
+      ]
+    },
+    {
+      "id": 135,
+      "type": "EmptySD3LatentImage",
+      "pos": {
+        "0": -1646,
+        "1": 239
+      },
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 613,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 614,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            598
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 301,
+      "type": "SD3NegativeConditioning+",
+      "pos": {
+        "0": -620,
+        "1": -90
+      },
+      "size": [
+        235.1999969482422,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 606
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            607
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SD3NegativeConditioning+"
+      },
+      "widgets_values": [
+        0.2
+      ]
+    },
+    {
+      "id": 294,
+      "type": "KSampler",
+      "pos": {
+        "0": -250,
+        "1": -500
+      },
+      "size": {
+        "0": 378,
+        "1": 504
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 568
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 569
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 607
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 598
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            572
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        37160214059086,
+        "randomize",
+        20,
+        7,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ]
+    },
+    {
+      "id": 304,
+      "type": "Note",
+      "pos": {
+        "0": -2590,
+        "1": -545
+      },
+      "size": [
+        506.2664359325072,
+        527.8202937582516
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Thoda-SD35-Medium-Opti-v2\n\n- SD3.5 Medium (FP16)\n- Clip T5XXL (FP16) \n(optional CLIP CPU offload, bypass if you prefer)\n- aspect size\n- project file path"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      445,
+      4,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      568,
+      13,
+      0,
+      294,
+      0,
+      "MODEL"
+    ],
+    [
+      569,
+      6,
+      0,
+      294,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      572,
+      294,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      598,
+      135,
+      0,
+      294,
+      3,
+      "LATENT"
+    ],
+    [
+      605,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      606,
+      71,
+      0,
+      301,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      607,
+      301,
+      0,
+      294,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      608,
+      11,
+      0,
+      302,
+      0,
+      "CLIP"
+    ],
+    [
+      609,
+      302,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      610,
+      302,
+      0,
+      71,
+      0,
+      "CLIP"
+    ],
+    [
+      613,
+      303,
+      0,
+      135,
+      0,
+      "INT"
+    ],
+    [
+      614,
+      303,
+      1,
+      135,
+      1,
+      "INT"
+    ],
+    [
+      615,
+      8,
+      0,
+      306,
+      0,
+      "IMAGE"
+    ],
+    [
+      616,
+      305,
+      0,
+      306,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4420993610651618,
+      "offset": [
+        2982.9554173229244,
+        691.1907705894016
+      ]
+    }
+  },
+  "version": 0.4
+}
