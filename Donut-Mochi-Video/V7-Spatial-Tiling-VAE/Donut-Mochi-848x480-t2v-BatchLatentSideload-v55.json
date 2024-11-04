@@ -1,0 +1,892 @@
+{
+  "last_node_id": 70,
+  "last_link_id": 93,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "MochiTextEncode",
+      "pos": {
+        "0": 390,
+        "1": 332.0534362792969
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            82
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "",
+        1,
+        true,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 15,
+      "type": "OverrideCLIPDevice",
+      "pos": {
+        "0": -30,
+        "1": 82.05345153808594
+      },
+      "size": {
+        "0": 359.07080078125,
+        "1": 58
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OverrideCLIPDevice"
+      },
+      "widgets_values": [
+        "cpu"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": -390,
+        "1": 82.05345153808594
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "sd3"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "MochiVAELoader",
+      "pos": {
+        "0": -845,
+        "1": 727
+      },
+      "size": {
+        "0": 304.5504455566406,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "torch_compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            77
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiVAELoader"
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_vae_bf16.safetensors",
+        "bf16"
+      ]
+    },
+    {
+      "id": 62,
+      "type": "MochiModelLoader",
+      "pos": {
+        "0": -851,
+        "1": 295
+      },
+      "size": {
+        "0": 315,
+        "1": 150
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trigger",
+          "type": "CONDITIONING",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_model",
+          "type": "MOCHIMODEL",
+          "links": [
+            80
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiModelLoader"
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_dit_GGUF_Q8_0.safetensors",
+        "fp8_e4m3fn",
+        "sdpa",
+        false
+      ]
+    },
+    {
+      "id": 49,
+      "type": "SaveLatent",
+      "pos": {
+        "0": 1310,
+        "1": 292
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 83
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 69,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveLatent"
+      },
+      "widgets_values": [
+        "latents/ComfyUI"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MochiTextEncode",
+      "pos": {
+        "0": 390,
+        "1": 82.05345153808594
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 84,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            81
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            10
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "Deep within a working steel mill, the Golden Surfer rockets through vats of molten metal. His wake splits the liquid steel like Moses parting waters, the superheated material arcing overhead in perfect parabolas. Behind him, droplets of liquefied metal hang suspended, cooling into perfect spheres that rain down like mercury teardrops. Industrial crucibles tip and spill in his slipstream, their contents creating rivers of light that flow against gravity. His determined expression reflects in every metallic globe, multiplied a thousand times as he carves through the furnace-lit facility, leaving crystallized steel sculptures in his wake.",
+        1,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 66,
+      "type": "MochiSampler",
+      "pos": {
+        "0": 934,
+        "1": 291
+      },
+      "size": {
+        "0": 315,
+        "1": 302
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MOCHIMODEL",
+          "link": 80
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 81
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 82
+        },
+        {
+          "name": "opt_sigmas",
+          "type": "SIGMAS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "cfg_schedule",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg_schedule"
+          },
+          "shape": 7
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            83
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSampler"
+      },
+      "widgets_values": [
+        848,
+        480,
+        49,
+        100,
+        7,
+        79108628340814,
+        "randomize",
+        0
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ProjectFilePathNode",
+      "pos": {
+        "0": -849,
+        "1": 510
+      },
+      "size": {
+        "0": 312.90399169921875,
+        "1": 154
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            69,
+            73
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Latent Save/Load & Video Save Path",
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Donut-Mochi",
+        "V8-100steps",
+        "49-frames",
+        "gold2",
+        "auto"
+      ]
+    },
+    {
+      "id": 57,
+      "type": "ZenkaiPromptV2",
+      "pos": {
+        "0": -16,
+        "1": 247
+      },
+      "size": {
+        "0": 315,
+        "1": 178
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            84
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiPromptV2"
+      },
+      "widgets_values": [
+        "Golden-Surfer-Video.txt",
+        4146150208,
+        "randomize",
+        1,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VHS_VideoCombine",
+      "pos": {
+        "0": 680,
+        "1": 866
+      },
+      "size": [
+        214.7587890625,
+        430.24082399764154
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 78
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 73,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "gold2_00172.mp4",
+            "subfolder": "Donut-Mochi\\V8-100steps\\49-frames",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 64,
+      "type": "MochiDecodeSpatialTiling",
+      "pos": {
+        "0": 257,
+        "1": 866
+      },
+      "size": {
+        "0": 390.5999755859375,
+        "1": 198
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "MOCHIVAE",
+          "link": 77
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            78
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiDecodeSpatialTiling"
+      },
+      "widgets_values": [
+        true,
+        8,
+        8,
+        16,
+        1,
+        256
+      ]
+    },
+    {
+      "id": 68,
+      "type": "easy showAnything",
+      "pos": {
+        "0": -387,
+        "1": 1099
+      },
+      "size": {
+        "0": 555.2291259765625,
+        "1": 76
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 93,
+          "shape": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "Donut-Mochi\\V8-100steps\\73-frames\\gold_00002_.latent"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "Note",
+      "pos": {
+        "0": -390,
+        "1": 928
+      },
+      "size": {
+        "0": 567.688232421875,
+        "1": 105.13184356689453
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [],
+      "title": "PRESS R TO RELOAD THE LIST",
+      "properties": {},
+      "widgets_values": [
+        "PRESS R TO RELOAD THE LIST\n\n- Use the List to find the correct number to start from (your choice)\n- Use increment and batch a queue by number with Comfy queue options\n- OR set to Instant and it will just keep decoding through the list until you stop it."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "DJZ-LoadLatentV2",
+      "pos": {
+        "0": -394,
+        "1": 757
+      },
+      "size": {
+        "0": 575.84619140625,
+        "1": 129.6348419189453
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            91
+          ]
+        },
+        {
+          "name": "current_file",
+          "type": "STRING",
+          "links": [
+            93
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DJZ-LoadLatentV2"
+      },
+      "widgets_values": [
+        "[224] Donut-Mochi\\V8-100steps\\49-frames\\gold2_00001_.latent",
+        294,
+        "increment"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -849,
+        "1": 22
+      },
+      "size": {
+        "0": 311.2799072265625,
+        "1": 162.47605895996094
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": {
+        "0": -1288,
+        "1": 24
+      },
+      "size": {
+        "0": 375.2408142089844,
+        "1": 495.9891357421875
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Donut-Mochi-848x480-t2v-BatchLatentSideload-v55\n\n- text2video\n- 2 Stage Latent save/load \n- Batch .Latent VAE Decode with Spatial Tiling (BF16)\n- Mochi 1 Preview (FP8_e4m3fn)\n- Kijai Wrapper\n- T5XXL_FP16 (CPU)\n- GGUF Q8_0\n- 24 frames (1 second)\n- 100 steps (! 50 steps also works well !)\n\nIntended for use with music videos or short clip applications. 4-5 Minutes to complete.\n\n\n# Latent Side Loading:\n\nUsing the Groups Bypasser, Use this workflow in 2 stages. \n\nStage 1:\n\n- Disable Decode Samples\n- Enable Generate Samples Group\n- Generate the samples\n- Start Queue To generate samples\n- saves .latent files to your chosen path\n\nStage 2: (- PRESS R to reload the .latent list)\n\n- Disable Generate Samples Group\n- Enable Decode Samples\n- Select the .latent number from the list as seed\n- Using Increment, Start Queue to run the VAE Decoder\n- Save Video files to your chosen path"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      10,
+      9,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      16,
+      7,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      17,
+      15,
+      0,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      69,
+      54,
+      0,
+      49,
+      1,
+      "STRING"
+    ],
+    [
+      73,
+      54,
+      0,
+      4,
+      4,
+      "STRING"
+    ],
+    [
+      77,
+      63,
+      0,
+      64,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      78,
+      64,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      62,
+      0,
+      66,
+      0,
+      "MOCHIMODEL"
+    ],
+    [
+      81,
+      9,
+      0,
+      66,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      82,
+      10,
+      0,
+      66,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      83,
+      66,
+      0,
+      49,
+      0,
+      "LATENT"
+    ],
+    [
+      84,
+      57,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      91,
+      70,
+      0,
+      64,
+      1,
+      "LATENT"
+    ],
+    [
+      93,
+      70,
+      1,
+      68,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Decode Samples",
+      "bounding": [
+        -443,
+        652,
+        1361,
+        693
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Generate Samples",
+      "bounding": [
+        -449,
+        -17,
+        2127,
+        619
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.7449402268888974,
+      "offset": [
+        1439.56467765306,
+        106.71975663045173
+      ]
+    }
+  },
+  "version": 0.4
+}
