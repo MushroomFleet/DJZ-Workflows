@@ -1,4 +1,5 @@
 # XODA-LTXV-Video-Pack
+https://www.youtube.com/watch?v=s5c0IX8F0os
 
 A comprehensive workflow pack for ComfyUI implementing the LightTricks LTXV video generation model, complete with example workflows, prompts, and custom tools for streamlined video generation.
 
