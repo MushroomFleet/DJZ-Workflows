@@ -35,6 +35,7 @@ The pack includes the official ComfyUI maintainer and LTXV author-provided workf
    - Custom nodes for workflow automation
    - Includes Zenkai-Prompt nodes for automated prompt handling
    - Seamless integration with provided prompt lists
+   - Located at: [DJZ-Nodes/Prompts](https://github.com/MushroomFleet/DJZ-Nodes/tree/main/prompts)
 
 ## Getting Started
 
