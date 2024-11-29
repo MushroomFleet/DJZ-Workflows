@@ -1,0 +1,1228 @@
+{
+  "last_node_id": 150,
+  "last_link_id": 279,
+  "nodes": [
+    {
+      "id": 127,
+      "type": "CLIPTextEncode",
+      "pos": [
+        157.83714294433594,
+        -897.0106811523438
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 250
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            254
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 128,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -252.16285705566406,
+        -1257.0107421875
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            269
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            256
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.safetensors"
+      ]
+    },
+    {
+      "id": 129,
+      "type": "CLIPLoader",
+      "pos": [
+        -242.16285705566406,
+        -1097.0107421875
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            250,
+            251
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "ltxv"
+      ]
+    },
+    {
+      "id": 130,
+      "type": "PrimitiveNode",
+      "pos": [
+        -252.16285705566406,
+        -1387.0107421875
+      ],
+      "size": [
+        310.79998779296875,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            265
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "title": "Project Title (creates sub-directory)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "LTXV-DAEMONtesting"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 131,
+      "type": "ZenkaiPromptV2",
+      "pos": [
+        -242.16285705566406,
+        -957.0106811523438
+      ],
+      "size": [
+        309.59478759765625,
+        179.35130310058594
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            252
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiPromptV2"
+      },
+      "widgets_values": [
+        "LTXV-science-fiction-scenes.txt",
+        2893185196,
+        "fixed",
+        1,
+        "",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 132,
+      "type": "PrimitiveNode",
+      "pos": [
+        -182.16285705566406,
+        -707.0106811523438
+      ],
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            275
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        8364297198983,
+        "fixed"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "CLIPTextEncode",
+      "pos": [
+        157.83714294433594,
+        -1097.0107421875
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 251
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 252,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            253
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A woman with long brown hair and light skin smiles at another woman with long blonde hair. The woman with brown hair wears a black jacket and has a small, barely noticeable mole on her right cheek. The camera angle is a close-up, focused on the woman with brown hair's face. The lighting is warm and natural, likely from the setting sun, casting a soft glow on the scene. The scene appears to be real-life footage.",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 135,
+      "type": "LTXVConditioning",
+      "pos": [
+        730,
+        -1100
+      ],
+      "size": [
+        223.8660125732422,
+        78
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 253
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 254
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            270
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            271
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 136,
+      "type": "EmptyLTXVLatentVideo",
+      "pos": [
+        740,
+        -970
+      ],
+      "size": [
+        216.89520263671875,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            266,
+            274
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLTXVLatentVideo"
+      },
+      "widgets_values": [
+        768,
+        512,
+        49,
+        1
+      ]
+    },
+    {
+      "id": 137,
+      "type": "VAEDecode",
+      "pos": [
+        1600,
+        -1240
+      ],
+      "size": [
+        232.89111328125,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 255
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 256
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            258,
+            261,
+            276
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 138,
+      "type": "FinalFrameSelector",
+      "pos": [
+        2360,
+        -990
+      ],
+      "size": [
+        252,
+        26
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 257
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            268
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FinalFrameSelector"
+      }
+    },
+    {
+      "id": 139,
+      "type": "ReverseFrameSequence",
+      "pos": [
+        2340,
+        -1070
+      ],
+      "size": [
+        277.20001220703125,
+        26
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Images",
+          "type": "IMAGE",
+          "link": 258
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            257
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReverseFrameSequence"
+      }
+    },
+    {
+      "id": 141,
+      "type": "VideoMerge",
+      "pos": [
+        3150,
+        -1140
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Video_A",
+          "type": "IMAGE",
+          "link": 261
+        },
+        {
+          "name": "Video_B",
+          "type": "IMAGE",
+          "link": 262
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            264
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoMerge"
+      }
+    },
+    {
+      "id": 142,
+      "type": "GIMMVFI_interpolate",
+      "pos": [
+        3450,
+        -1120
+      ],
+      "size": [
+        330,
+        150
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "gimmvfi_model",
+          "type": "GIMMVIF_MODEL",
+          "link": 263
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 264
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            259
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "flow_tensors",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GIMMVFI_interpolate"
+      },
+      "widgets_values": [
+        1,
+        2,
+        117639296894941,
+        "randomize"
+      ]
+    },
+    {
+      "id": 143,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3520,
+        -1340
+      ],
+      "size": [
+        226.8000030517578,
+        130
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 265,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            260
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Xoda",
+        "LTXV-DAEMONtesting",
+        "FFX-GIMM",
+        "LTXV",
+        "auto"
+      ]
+    },
+    {
+      "id": 144,
+      "type": "DownloadAndLoadGIMMVFIModel",
+      "pos": [
+        3460,
+        -910
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "gimmvfi_model",
+          "type": "GIMMVIF_MODEL",
+          "links": [
+            263
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadGIMMVFIModel"
+      },
+      "widgets_values": [
+        "gimmvfi_r_arb_lpips_fp32.safetensors"
+      ]
+    },
+    {
+      "id": 145,
+      "type": "LTXVScheduler",
+      "pos": [
+        990,
+        -980
+      ],
+      "size": [
+        210,
+        154
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 266,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            273
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVScheduler"
+      },
+      "widgets_values": [
+        32,
+        1.79,
+        1.09,
+        true,
+        0.06
+      ]
+    },
+    {
+      "id": 146,
+      "type": "FFXFADEORAMA",
+      "pos": [
+        2730,
+        -1120
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 267
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 268
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            262
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FFXFADEORAMA"
+      },
+      "widgets_values": [
+        12,
+        "openglitchdoors",
+        "FFXFADE"
+      ]
+    },
+    {
+      "id": 147,
+      "type": "KSamplerSelect",
+      "pos": [
+        740,
+        -790
+      ],
+      "size": [
+        210,
+        62.90523910522461
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            272
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 148,
+      "type": "SamplerCustom",
+      "pos": [
+        1250,
+        -1240
+      ],
+      "size": [
+        281.6214294433594,
+        230
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 269
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 270
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 271
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 272
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 273
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 274
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 275,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            255
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        8364297198983,
+        "fixed",
+        3
+      ]
+    },
+    {
+      "id": 149,
+      "type": "FinalFrameSelector",
+      "pos": [
+        2350,
+        -1240
+      ],
+      "size": [
+        252,
+        26
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 276
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            267
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FinalFrameSelector"
+      }
+    },
+    {
+      "id": 140,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3840,
+        -1350
+      ],
+      "size": [
+        680.959228515625,
+        760.6394653320312
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 259
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 260,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LTXV_00003.mp4",
+            "subfolder": "Xoda\\LTXV-DAEMONtesting\\FFX-GIMM",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 150,
+      "type": "Note",
+      "pos": [
+        -775.7487182617188,
+        -1357.35595703125
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Xoda-LTXV-t2v-FG-lines-v70\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/974859\nhttps://www.fivebelowfive.uk\n\nXoda Pack v4\n\n- basic txt2video\n- LTXV Video Generation\n- Video Combine (H264/mp4)\n- 768 x 512 Resolution (recommended)\n- Project Path Generator Node (DJZ-Nodes)\n- Zenkai Prompt V2 (LTXV Holo/Prompt lists)\n- F - FFXFadeOrama\n- G - GIMM interpolation\n\nfixed generation to 24 FPS, as per Author specs\n- NAME YOUR PROJECT !!\n\n\nFrames2Secs Cheat sheet:\n24 Frames = 1 second\n49 Frames = 2 seconds\n74 Frames = 3 seconds\n98 Frames = 4 seconds\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\nDetailer Daemon Removed for Control"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      250,
+      129,
+      0,
+      127,
+      0,
+      "CLIP"
+    ],
+    [
+      251,
+      129,
+      0,
+      134,
+      0,
+      "CLIP"
+    ],
+    [
+      252,
+      131,
+      0,
+      134,
+      1,
+      "STRING"
+    ],
+    [
+      253,
+      134,
+      0,
+      135,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      254,
+      127,
+      0,
+      135,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      255,
+      148,
+      0,
+      137,
+      0,
+      "LATENT"
+    ],
+    [
+      256,
+      128,
+      2,
+      137,
+      1,
+      "VAE"
+    ],
+    [
+      257,
+      139,
+      0,
+      138,
+      0,
+      "IMAGE"
+    ],
+    [
+      258,
+      137,
+      0,
+      139,
+      0,
+      "IMAGE"
+    ],
+    [
+      259,
+      142,
+      0,
+      140,
+      0,
+      "IMAGE"
+    ],
+    [
+      260,
+      143,
+      0,
+      140,
+      4,
+      "STRING"
+    ],
+    [
+      261,
+      137,
+      0,
+      141,
+      0,
+      "IMAGE"
+    ],
+    [
+      262,
+      146,
+      0,
+      141,
+      1,
+      "IMAGE"
+    ],
+    [
+      263,
+      144,
+      0,
+      142,
+      0,
+      "GIMMVIF_MODEL"
+    ],
+    [
+      264,
+      141,
+      0,
+      142,
+      1,
+      "IMAGE"
+    ],
+    [
+      265,
+      130,
+      0,
+      143,
+      0,
+      "STRING"
+    ],
+    [
+      266,
+      136,
+      0,
+      145,
+      0,
+      "LATENT"
+    ],
+    [
+      267,
+      149,
+      0,
+      146,
+      0,
+      "IMAGE"
+    ],
+    [
+      268,
+      138,
+      0,
+      146,
+      1,
+      "IMAGE"
+    ],
+    [
+      269,
+      128,
+      0,
+      148,
+      0,
+      "MODEL"
+    ],
+    [
+      270,
+      135,
+      0,
+      148,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      271,
+      135,
+      1,
+      148,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      272,
+      147,
+      0,
+      148,
+      3,
+      "SAMPLER"
+    ],
+    [
+      273,
+      145,
+      0,
+      148,
+      4,
+      "SIGMAS"
+    ],
+    [
+      274,
+      136,
+      0,
+      148,
+      5,
+      "LATENT"
+    ],
+    [
+      275,
+      132,
+      0,
+      148,
+      6,
+      "INT"
+    ],
+    [
+      276,
+      137,
+      0,
+      149,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1,
+      "offset": [
+        959.774406948335,
+        1524.8514960957236
+      ]
+    }
+  },
+  "version": 0.4
+}
