@@ -1,0 +1,918 @@
+{
+  "last_node_id": 47,
+  "last_link_id": 61,
+  "nodes": [
+    {
+      "id": 17,
+      "type": "VHS_VideoInfo",
+      "pos": [
+        1240,
+        1440
+      ],
+      "size": [
+        262,
+        206
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "source_fps🟨",
+          "type": "FLOAT",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "source_frame_count🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_duration🟨",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "source_width🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_height🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_fps🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_frame_count🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_duration🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_width🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_height🟦",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoInfo"
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 41,
+      "type": "ReActorFaceBoost",
+      "pos": [
+        1750,
+        1790
+      ],
+      "size": [
+        304.136962890625,
+        178
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACE_BOOST",
+          "type": "FACE_BOOST",
+          "links": [
+            51
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceBoost"
+      },
+      "widgets_values": [
+        false,
+        "codeformer.pth",
+        "Bicubic",
+        1,
+        0.5,
+        false
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ReActorLoadFaceModel",
+      "pos": [
+        1750,
+        1690
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": [
+            50
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorLoadFaceModel"
+      },
+      "widgets_values": [
+        "Jannev1.safetensors"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        2140,
+        1650
+      ],
+      "size": [
+        229.14871215820312,
+        358
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 49
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 50,
+          "slot_index": 2,
+          "shape": 7
+        },
+        {
+          "name": "face_boost",
+          "type": "FACE_BOOST",
+          "link": 51,
+          "slot_index": 3,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            48
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "GFPGANv1.4.pth",
+        1,
+        0.5,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 37,
+      "type": "PrimitiveNode",
+      "pos": [
+        1253.8541259765625,
+        1329.51171875
+      ],
+      "size": [
+        241.06651306152344,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            47
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Loki-Faceswap-Project"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "Note",
+      "pos": [
+        790.5390625,
+        1441.2119140625
+      ],
+      "size": [
+        408.995849609375,
+        360.4547119140625
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Toda-Tools-Faceswap-Reactor-v20\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\nCollection of workflows for simple batch processing\n\nFaceswap with Reactor [Loki pack]\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 46,
+      "type": "ReActorMaskHelper",
+      "pos": [
+        2700,
+        1580
+      ],
+      "size": [
+        330,
+        454
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 54
+        },
+        {
+          "name": "swapped_image",
+          "type": "IMAGE",
+          "link": 55
+        },
+        {
+          "name": "mask_optional",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            52
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "MASK_PREVIEW",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 2,
+          "shape": 3
+        },
+        {
+          "name": "SWAPPED_FACE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 3,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorMaskHelper"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt",
+        0.5,
+        10,
+        3,
+        10,
+        "sam_vit_b_01ec64.pth",
+        0,
+        0.93,
+        0,
+        0.7,
+        "False",
+        "dilate",
+        0,
+        9,
+        1
+      ]
+    },
+    {
+      "id": 20,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        1250,
+        1710
+      ],
+      "size": [
+        247.455078125,
+        262
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "skip_first_frames",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "skip_first_frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            60
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [],
+          "slot_index": 2
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [
+            26
+          ],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "b46ad57685a805ecd9e1210c751e8012.mp4",
+        "force_rate": 24,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 30,
+        "skip_first_frames": 90,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 24,
+            "frame_load_cap": 30,
+            "skip_first_frames": 90,
+            "select_every_nth": 1,
+            "filename": "b46ad57685a805ecd9e1210c751e8012.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      },
+      "color": "#ffffff",
+      "bgcolor": "#fafafa"
+    },
+    {
+      "id": 38,
+      "type": "ReActorRestoreFace",
+      "pos": [
+        2426.62255859375,
+        1329.332275390625
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 48
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorRestoreFace"
+      },
+      "widgets_values": [
+        "retinaface_resnet50",
+        "codeformer.pth",
+        1,
+        0.5
+      ]
+    },
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": [
+        1909.47705078125,
+        1330.9617919921875
+      ],
+      "size": [
+        494.76025390625,
+        221.29539489746094
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "If you don't have the \"face_yolov8m.pt\" Ultralytics model - you can download it from the Assets and put it into the \n\"ComfyUI\\models\\ultralytics\\bbox\" directory:\n\nhttps://huggingface.co/datasets/Gourieff/ReActor/blob/main/models/sams/sam_vit_b_01ec64.pth\n\n\nAs well as \"sam_vit_b_01ec64.pth\" model - download (if you don't have it) and put it into the \"ComfyUI\\models\\sams\" directory:\n\nhttps://huggingface.co/datasets/Gourieff/ReActor/blob/main/models/sams/sam_vit_b_01ec64.pth"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 44,
+      "type": "ImpactImageBatchToImageList",
+      "pos": [
+        1566.3538818359375,
+        1442.5677490234375
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 60
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactImageBatchToImageList"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 45,
+      "type": "Reroute",
+      "pos": [
+        1753.243896484375,
+        1570
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            49,
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 15,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3551.70849609375,
+        1374.3525390625
+      ],
+      "size": [
+        1170,
+        967.1029663085938
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 61
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 16,
+          "widget": {
+            "name": "frame_rate"
+          }
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 14,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "clip_00014-audio.mp4",
+            "subfolder": "audio-react\\GIMM-Synced\\video",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 21.438
+          },
+          "muted": false
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 42,
+      "type": "ImageListToImageBatch",
+      "pos": [
+        3259.69482421875,
+        1580
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            61
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageListToImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3249.51416015625,
+        1344.634765625
+      ],
+      "size": [
+        226.8000030517578,
+        130
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 47,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Loki-Faceswap",
+        "Loki-Faceswap-Project",
+        "reactor",
+        "clip",
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      14,
+      12,
+      0,
+      15,
+      5,
+      "STRING"
+    ],
+    [
+      16,
+      17,
+      0,
+      15,
+      4,
+      "FLOAT"
+    ],
+    [
+      26,
+      20,
+      3,
+      17,
+      0,
+      "VHS_VIDEOINFO"
+    ],
+    [
+      47,
+      37,
+      0,
+      12,
+      0,
+      "STRING"
+    ],
+    [
+      48,
+      39,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      49,
+      45,
+      0,
+      39,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
+      47,
+      0,
+      39,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      51,
+      41,
+      0,
+      39,
+      3,
+      "FACE_BOOST"
+    ],
+    [
+      52,
+      46,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      44,
+      0,
+      45,
+      0,
+      "*"
+    ],
+    [
+      54,
+      45,
+      0,
+      46,
+      0,
+      "IMAGE"
+    ],
+    [
+      55,
+      38,
+      0,
+      46,
+      1,
+      "IMAGE"
+    ],
+    [
+      60,
+      20,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      61,
+      42,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8140274938684462,
+      "offset": [
+        -2219.9759764281175,
+        -1176.8428201159943
+      ]
+    }
+  },
+  "version": 0.4
+}

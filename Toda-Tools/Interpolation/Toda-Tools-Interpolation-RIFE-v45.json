@@ -1,0 +1,488 @@
+{
+  "last_node_id": 32,
+  "last_link_id": 43,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "PrimitiveNode",
+      "pos": [
+        1240.859130859375,
+        1342.660888671875
+      ],
+      "size": [
+        241.06651306152344,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            10
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Interp-Project"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "VHS_VideoInfo",
+      "pos": [
+        1238.201416015625,
+        1767.3428955078125
+      ],
+      "size": [
+        262,
+        206
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "source_fps🟨",
+          "type": "FLOAT",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "source_frame_count🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_duration🟨",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "source_width🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_height🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_fps🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_frame_count🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_duration🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_width🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_height🟦",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoInfo"
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 20,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        1235.611328125,
+        1445.607666015625
+      ],
+      "size": [
+        247.455078125,
+        262
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [],
+          "slot_index": 2
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [
+            26
+          ],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "b46ad57685a805ecd9e1210c751e8012.mp4",
+        "force_rate": 24,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 24,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 24,
+            "frame_load_cap": 24,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "b46ad57685a805ecd9e1210c751e8012.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      },
+      "color": "#ffffff",
+      "bgcolor": "#fafafa"
+    },
+    {
+      "id": 32,
+      "type": "RIFE VFI",
+      "pos": [
+        1604.125244140625,
+        1543.2503662109375
+      ],
+      "size": [
+        319.20001220703125,
+        198
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 42
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            43
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RIFE VFI"
+      },
+      "widgets_values": [
+        "rife49.pth",
+        10,
+        2,
+        true,
+        true,
+        1
+      ]
+    },
+    {
+      "id": 15,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1999.3023681640625,
+        1348.650390625
+      ],
+      "size": [
+        1170,
+        967.1029663085938
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 43
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 16,
+          "widget": {
+            "name": "frame_rate"
+          }
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 14,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "clip_00004-audio.mp4",
+            "subfolder": "interpolation\\Interp-Project\\GIMM",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 21.438
+          },
+          "muted": false
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 12,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1590.65185546875,
+        1335.734375
+      ],
+      "size": [
+        340.20001220703125,
+        154
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 10,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "interpolation",
+        "Interp-Project",
+        "RIFE",
+        "clip",
+        "auto"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "Note",
+      "pos": [
+        790.5390625,
+        1441.2119140625
+      ],
+      "size": [
+        408.995849609375,
+        360.4547119140625
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Toda-Tools-Interpolation-RIFE-v45\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\nCollection of workflows for simple batch processing\n\nInterpolation with RIFE\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\nAudio\n1 = Original Video Audio\n2 = Overwrite with loaded file"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      10,
+      10,
+      0,
+      12,
+      0,
+      "STRING"
+    ],
+    [
+      14,
+      12,
+      0,
+      15,
+      5,
+      "STRING"
+    ],
+    [
+      16,
+      17,
+      0,
+      15,
+      4,
+      "FLOAT"
+    ],
+    [
+      26,
+      20,
+      3,
+      17,
+      0,
+      "VHS_VIDEOINFO"
+    ],
+    [
+      42,
+      20,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      32,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.672749994932595,
+      "offset": [
+        -653.8254321836598,
+        -1167.9685661160802
+      ]
+    }
+  },
+  "version": 0.4
+}
