@@ -1,0 +1,917 @@
+{
+  "last_node_id": 24,
+  "last_link_id": 29,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "DepthAnythingV2Preprocessor",
+      "pos": [
+        656.932373046875,
+        195.45538330078125
+      ],
+      "size": [
+        352.79998779296875,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingV2Preprocessor"
+      },
+      "widgets_values": [
+        "depth_anything_v2_vitl.pth",
+        1024
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Depthflow",
+      "pos": [
+        1101.1387939453125,
+        112.91671752929688
+      ],
+      "size": [
+        315,
+        286
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "depth_map",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "motion",
+          "type": "DEPTHFLOW_MOTION",
+          "link": 5
+        },
+        {
+          "name": "effects",
+          "type": "DEPTHFLOW_EFFECTS",
+          "link": 13,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Depthflow",
+        "ttNbgOverride": {
+          "color": "#2a363b",
+          "bgcolor": "#3f5159",
+          "groupcolor": "#3f789e"
+        }
+      },
+      "widgets_values": [
+        1,
+        30,
+        30,
+        150,
+        100,
+        2,
+        0,
+        "mirror"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 6,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1547.1387939453125,
+        112.91671752929688
+      ],
+      "size": [
+        315,
+        781.25
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 7,
+          "shape": 7
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 23,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "color": "#2a363b",
+          "bgcolor": "#3f5159",
+          "groupcolor": "#3f789e"
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00036-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30
+          },
+          "muted": false
+        }
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "DepthflowMotionPresetOrbital",
+      "pos": [
+        1102.1387939453125,
+        469.9162902832031
+      ],
+      "size": [
+        311.60113525390625,
+        202
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "feature",
+          "type": "FEATURE",
+          "link": 15,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DEPTHFLOW_MOTION",
+          "type": "DEPTHFLOW_MOTION",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthflowMotionPresetOrbital",
+        "ttNbgOverride": {
+          "color": "#2a363b",
+          "bgcolor": "#3f5159",
+          "groupcolor": "#3f789e"
+        }
+      },
+      "widgets_values": [
+        1,
+        0,
+        "intensity",
+        "relative",
+        1,
+        false,
+        0.5
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        -158.65921020507812,
+        115
+      ],
+      "size": [
+        721.4166870117188,
+        807.0390625
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            10,
+            20
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "ttNbgOverride": {
+          "color": "#2a363b",
+          "bgcolor": "#3f5159",
+          "groupcolor": "#3f789e"
+        }
+      },
+      "widgets_values": [
+        "6a8d3bea3a0f89ad83b42904911427a1.jpg",
+        "image"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 18,
+      "type": "ImpactImageInfo",
+      "pos": [
+        330,
+        1150
+      ],
+      "size": [
+        243.97824096679688,
+        86
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "batch",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            21
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            22
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "channel",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactImageInfo"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "ManualFeaturePipe",
+      "pos": [
+        668.8368530273438,
+        1165.3519287109375
+      ],
+      "size": [
+        350.8119812011719,
+        102
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 22,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 21,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FEATURE_PIPE",
+          "type": "FEATURE_PIPE",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ManualFeaturePipe"
+      },
+      "widgets_values": [
+        30,
+        180,
+        1920,
+        1080
+      ]
+    },
+    {
+      "id": 10,
+      "type": "DepthflowEffectDOF",
+      "pos": [
+        661.860595703125,
+        342.656982421875
+      ],
+      "size": [
+        347.1287536621094,
+        318
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "feature",
+          "type": "FEATURE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "effects",
+          "type": "DEPTHFLOW_EFFECTS",
+          "link": 14,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DEPTHFLOW_EFFECTS",
+          "type": "DEPTHFLOW_EFFECTS",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthflowEffectDOF"
+      },
+      "widgets_values": [
+        1,
+        0,
+        "dof_intensity",
+        "relative",
+        true,
+        0.6,
+        1,
+        2,
+        1,
+        4,
+        16
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DepthflowEffectVignette",
+      "pos": [
+        665.5986938476562,
+        718.2405395507812
+      ],
+      "size": [
+        344.6921691894531,
+        222
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "feature",
+          "type": "FEATURE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "effects",
+          "type": "DEPTHFLOW_EFFECTS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DEPTHFLOW_EFFECTS",
+          "type": "DEPTHFLOW_EFFECTS",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthflowEffectVignette"
+      },
+      "widgets_values": [
+        1,
+        0,
+        "vignette_intensity",
+        "relative",
+        true,
+        30,
+        0.1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "AudioFeatureExtractor",
+      "pos": [
+        660.6612548828125,
+        1005.2581787109375
+      ],
+      "size": [
+        361.20001220703125,
+        78
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 18
+        },
+        {
+          "name": "feature_pipe",
+          "type": "FEATURE_PIPE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FEATURE",
+          "type": "FEATURE",
+          "links": [
+            15
+          ]
+        },
+        {
+          "name": "FEATURE_PIPE",
+          "type": "FEATURE_PIPE",
+          "links": null,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AudioFeatureExtractor"
+      },
+      "widgets_values": [
+        "rms_energy"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        330,
+        1005.395751953125
+      ],
+      "size": [
+        243.818359375,
+        102
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_time",
+          "type": "FLOAT",
+          "link": 27,
+          "widget": {
+            "name": "start_time"
+          }
+        },
+        {
+          "name": "duration",
+          "type": "FLOAT",
+          "link": 29,
+          "widget": {
+            "name": "duration"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            18,
+            23
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadAudioUpload"
+      },
+      "widgets_values": {
+        "audio": "Echoes of the Steppe.mp3",
+        "start_time": 0,
+        "duration": 6,
+        "choose audio to upload": "image"
+      }
+    },
+    {
+      "id": 21,
+      "type": "SimpleMath+",
+      "pos": [
+        150,
+        1034.604248046875
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "*",
+          "link": 25,
+          "shape": 7
+        },
+        {
+          "name": "b",
+          "type": "*",
+          "link": 28,
+          "shape": 7
+        },
+        {
+          "name": "c",
+          "type": "*",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [],
+          "slot_index": 0
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            27
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleMath+"
+      },
+      "widgets_values": [
+        "a*b"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "Seed Generator",
+      "pos": [
+        -210,
+        1006.40283203125
+      ],
+      "size": [
+        307.1825256347656,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            25
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Audio Segment Index",
+      "properties": {
+        "Node name for S&R": "Seed Generator"
+      },
+      "widgets_values": [
+        0,
+        "increment"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 24,
+      "type": "SimpleMathFloat+",
+      "pos": [
+        -210,
+        1133.812744140625
+      ],
+      "size": [
+        306.6788024902344,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            28,
+            29
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Increment By Seconds",
+      "properties": {
+        "Node name for S&R": "SimpleMathFloat+"
+      },
+      "widgets_values": [
+        6
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 19,
+      "type": "Note",
+      "pos": [
+        -610.7053833007812,
+        116.64413452148438
+      ],
+      "size": [
+        408.995849609375,
+        360.4547119140625
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Roda-ReactiveDepth-V30\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\nAudio Reactive DEPTHFLOW\nVideo & Music Loader\nAuto-Segment-Sync\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n1. Set Audio & Video Segment Index to Zero\n2. Load Audio and Video Track\n3. Enter the Project name\n4. Check the Resize Node\n4. Queue up many jobs"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      5,
+      5,
+      0,
+      4,
+      2,
+      "DEPTHFLOW_MOTION"
+    ],
+    [
+      7,
+      4,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      7,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      7,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      8,
+      0,
+      4,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      10,
+      0,
+      4,
+      3,
+      "DEPTHFLOW_EFFECTS"
+    ],
+    [
+      14,
+      11,
+      0,
+      10,
+      1,
+      "DEPTHFLOW_EFFECTS"
+    ],
+    [
+      15,
+      12,
+      0,
+      5,
+      0,
+      "FEATURE"
+    ],
+    [
+      18,
+      16,
+      0,
+      12,
+      0,
+      "AUDIO"
+    ],
+    [
+      19,
+      17,
+      0,
+      12,
+      1,
+      "FEATURE_PIPE"
+    ],
+    [
+      20,
+      7,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      18,
+      1,
+      17,
+      1,
+      "INT"
+    ],
+    [
+      22,
+      18,
+      2,
+      17,
+      0,
+      "INT"
+    ],
+    [
+      23,
+      16,
+      0,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      25,
+      23,
+      0,
+      21,
+      0,
+      "*"
+    ],
+    [
+      27,
+      21,
+      1,
+      16,
+      0,
+      "FLOAT"
+    ],
+    [
+      28,
+      24,
+      0,
+      21,
+      1,
+      "*"
+    ],
+    [
+      29,
+      24,
+      0,
+      16,
+      1,
+      "FLOAT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.744940226888826,
+      "offset": [
+        796.8225477040979,
+        17.720562332106397
+      ]
+    }
+  },
+  "version": 0.4
+}
