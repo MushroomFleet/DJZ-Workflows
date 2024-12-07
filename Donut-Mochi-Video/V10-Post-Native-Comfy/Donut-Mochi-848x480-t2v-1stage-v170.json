@@ -1,6 +1,6 @@
 {
   "last_node_id": 54,
-  "last_link_id": 104,
+  "last_link_id": 105,
   "nodes": [
     {
       "id": 42,
@@ -47,6 +47,14 @@
           "widget": {
             "name": "frame_rate"
           }
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 105,
+          "widget": {
+            "name": "filename_prefix"
+          }
         }
       ],
       "outputs": [
@@ -78,7 +86,7 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "AnimateDiff_00118.mp4",
+            "filename": "AnimateDiff_00123.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
@@ -104,7 +112,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -167,7 +175,7 @@
         75
       ],
       "flags": {},
-      "order": 8,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -219,7 +227,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -342,7 +350,7 @@
         153.63882446289062
       ],
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -421,50 +429,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 50,
-      "type": "ZenkaiPromptV2",
-      "pos": [
-        950,
-        140
-      ],
-      "size": [
-        307.0064392089844,
-        178
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            93
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ZenkaiPromptV2",
-        "ttNbgOverride": {
-          "color": "#432",
-          "bgcolor": "#653",
-          "groupcolor": "#b58b2a"
-        }
-      },
-      "widgets_values": [
-        "Mochi-Photo-256.txt",
-        3340468103,
-        "randomize",
-        1,
-        "",
-        ""
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 43,
       "type": "SimpleMathInt+",
       "pos": [
@@ -476,7 +440,7 @@
         58
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -516,7 +480,7 @@
         98
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -571,7 +535,7 @@
         58
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -617,7 +581,7 @@
         58
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -662,7 +626,7 @@
         58
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -684,55 +648,6 @@
       },
       "widgets_values": [
         "Mochi-Native-Test"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 45,
-      "type": "ProjectFilePathNode",
-      "pos": [
-        2180,
-        297.6839904785156
-      ],
-      "size": [
-        226.8000030517578,
-        154
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "project_name",
-          "type": "STRING",
-          "link": 88,
-          "widget": {
-            "name": "project_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ProjectFilePathNode",
-        "ttNbgOverride": {
-          "color": "#432",
-          "bgcolor": "#653",
-          "groupcolor": "#b58b2a"
-        }
-      },
-      "widgets_values": [
-        "donut-mochi",
-        "Mochi-Native-Test",
-        "images",
-        "image",
-        "auto"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -789,29 +704,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 51,
-      "type": "Note",
-      "pos": [
-        -409.9245300292969,
-        127.92595672607422
-      ],
-      "size": [
-        375.2408142089844,
-        495.9891357421875
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "Donut-Mochi-848x480-t2v-1stage-v170\n\n- text2video\n- Mochi 1 (FP8_e4m3fn)\n- T5XXL_FP16 (CPU)\n- 24 frames (1 second)\n- 100 steps (! 50 steps also works well !)\n\nIntended for use with music videos or short clip applications. 4-5 Minutes to complete.\n\n\n# Latent Side Loading:\n\nIf Using the 2 Stage version\n\nUse the Groups Bypasser, Use this workflow in 2 stages. \n\nStage 1:\n\n- Disable Decode Samples\n- Enable Generate Samples Group\n- Generate the samples\n- Start Queue To generate samples\n- saves .latent files to your chosen path\n\nStage 2: (- PRESS R to reload the .latent list)\n\n- Disable Generate Samples Group\n- Enable Decode Samples\n- Select the .latent number from the list as seed\n- Using Increment, Start Queue to run the VAE Decoder\n- Save Video files to your chosen path"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 47,
       "type": "StringPainterV2",
       "pos": [
@@ -823,7 +715,7 @@
         222
       ],
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -925,7 +817,7 @@
         }
       },
       "widgets_values": [
-        223933401038839,
+        910884545337885,
         "randomize",
         30,
         7,
@@ -948,7 +840,7 @@
         82
       ],
       "flags": {},
-      "order": 7,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -969,8 +861,127 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        223933401038839,
+        910884545337885,
         "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 50,
+      "type": "ZenkaiPromptV2",
+      "pos": [
+        950,
+        140
+      ],
+      "size": [
+        307.0064392089844,
+        178
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            93
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiPromptV2",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "LTXV-professional-workplace.txt",
+        2739915055,
+        "randomize",
+        1,
+        "",
+        ""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 45,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        2180,
+        297.6839904785156
+      ],
+      "size": [
+        226.8000030517578,
+        154
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 88,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            105
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "donut-mochi",
+        "Mochi-Native-Test",
+        "images",
+        "image",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 51,
+      "type": "Note",
+      "pos": [
+        -409.9245300292969,
+        127.92595672607422
+      ],
+      "size": [
+        375.2408142089844,
+        495.9891357421875
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Donut-Mochi-848x480-t2v-1stage-v170\n\n- text2video\n- Mochi 1 (FP8_e4m3fn)\n- T5XXL_FP16 (CPU)\n- 24 frames (1 second)\n- 100 steps (! 50 steps also works well !)\n\nIntended for use with music videos or short clip applications. 4-5 Minutes to complete.\n\n\n# Latent Side Loading:\n\nIf Using the 2 Stage version\n\nUse the Groups Bypasser, Use this workflow in 2 stages. \n\nStage 1:\n\n- Disable Decode Samples\n- Enable Generate Samples Group\n- Generate the samples\n- Start Queue To generate samples\n- saves .latent files to your chosen path\n\nStage 2: (- PRESS R to reload the .latent list)\n\n- Disable Generate Samples Group\n- Enable Decode Samples\n- Select the .latent number from the list as seed\n- Using Increment, Start Queue to run the VAE Decoder\n- Save Video files to your chosen path"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -1128,16 +1139,24 @@
       3,
       4,
       "INT"
+    ],
+    [
+      105,
+      45,
+      0,
+      42,
+      5,
+      "STRING"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5209868481924657,
+      "scale": 1.1167815779425418,
       "offset": [
-        43.23503592730756,
-        200.995652903276
+        559.3980412151304,
+        36.723126600694485
       ]
     }
   },
