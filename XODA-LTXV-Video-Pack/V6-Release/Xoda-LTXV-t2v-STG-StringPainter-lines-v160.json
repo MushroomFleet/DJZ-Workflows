@@ -1,0 +1,2148 @@
+{
+  "last_node_id": 365,
+  "last_link_id": 670,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -300,
+        1100
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            302
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -2400,
+        1140
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            74,
+            75
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "ltxv"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 163,
+      "type": "FinalFrameSelector",
+      "pos": [
+        3161.9912109375,
+        1334.3096923828125
+      ],
+      "size": [
+        252,
+        26
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 305
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            311
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FinalFrameSelector",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 191,
+      "type": "KSamplerSelect",
+      "pos": [
+        196.49505615234375,
+        1302.9898681640625
+      ],
+      "size": [
+        210,
+        62.90523910522461
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            670
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 161,
+      "type": "EmptyLTXVLatentVideo",
+      "pos": [
+        196.49505615234375,
+        1122.9898681640625
+      ],
+      "size": [
+        216.89520263671875,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            323,
+            343
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLTXVLatentVideo",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        768,
+        512,
+        49,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 190,
+      "type": "LTXVScheduler",
+      "pos": [
+        446.49505615234375,
+        1122.9898681640625
+      ],
+      "size": [
+        210,
+        154
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 343,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            345
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVScheduler",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        32,
+        1.79,
+        1.09,
+        true,
+        0.06
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 167,
+      "type": "FFXFADEORAMA",
+      "pos": [
+        3485.48876953125,
+        1188.3623046875
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 310
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 311
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            309
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FFXFADEORAMA",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        12,
+        "openglitchdoors",
+        "FFXFADE"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 296,
+      "type": "VHS_LoadVideoPath",
+      "pos": [
+        2707.40380859375,
+        1038.355712890625
+      ],
+      "size": [
+        231.8896484375,
+        238
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "video",
+          "type": "STRING",
+          "link": 514,
+          "widget": {
+            "name": "video"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            519,
+            520,
+            521
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideoPath",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": {
+        "video": "",
+        "force_rate": 0,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          },
+          "muted": false
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 164,
+      "type": "ReverseFrameSequence",
+      "pos": [
+        3141.9892578125,
+        1262.41748046875
+      ],
+      "size": [
+        277.20001220703125,
+        26
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "Images",
+          "type": "IMAGE",
+          "link": 520
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            305
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReverseFrameSequence",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 165,
+      "type": "FinalFrameSelector",
+      "pos": [
+        3150.638671875,
+        1108.6331787109375
+      ],
+      "size": [
+        252,
+        26
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 519
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            310
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FinalFrameSelector",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 295,
+      "type": "VHS_SelectFilename",
+      "pos": [
+        2718.93017578125,
+        850.3487548828125
+      ],
+      "size": [
+        219.6669921875,
+        58
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "filenames",
+          "type": "VHS_FILENAMES",
+          "link": 561
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filename",
+          "type": "STRING",
+          "links": [
+            514
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_SelectFilename",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": {
+        "index": -1
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 166,
+      "type": "VideoMerge",
+      "pos": [
+        3581.1787109375,
+        1053.501220703125
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "Video_A",
+          "type": "IMAGE",
+          "link": 521
+        },
+        {
+          "name": "Video_B",
+          "type": "IMAGE",
+          "link": 309
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            530
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoMerge",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 290,
+      "type": "RIFE VFI",
+      "pos": [
+        3863.12890625,
+        1051.41796875
+      ],
+      "size": [
+        319.20001220703125,
+        198
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 530
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            531
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RIFE VFI",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "rife49.pth",
+        10,
+        2,
+        true,
+        true,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 44,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -2400,
+        980
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            557
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            304
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.safetensors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 176,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4395.31494140625,
+        758.5455322265625
+      ],
+      "size": [
+        1506.67724609375,
+        1311.1181640625
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 531
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 326,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "daemon_00093.mp4",
+            "subfolder": "Xoda\\LTXV-DAEMONFLUX\\tricks",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 79,
+      "type": "PrimitiveNode",
+      "pos": [
+        -2400,
+        870
+      ],
+      "size": [
+        310.79998779296875,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            314,
+            562
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "title": "Project Title (creates sub-directory)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "LTXV-DAEMONFLUX"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 169,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3956.642822265625,
+        842.4314575195312
+      ],
+      "size": [
+        226.8000030517578,
+        130
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 314,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            326
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Xoda",
+        "LTXV-DAEMONFLUX",
+        "tricks",
+        "daemon",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 301,
+      "type": "LTXPerturbedAttention",
+      "pos": [
+        -1990,
+        800
+      ],
+      "size": [
+        243.60000610351562,
+        126
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 558
+        },
+        {
+          "name": "attn_override",
+          "type": "ATTN_OVERRIDE",
+          "link": 556,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            559
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXPerturbedAttention",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        1,
+        0.25,
+        3
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 160,
+      "type": "LTXVConditioning",
+      "pos": [
+        206.49505615234375,
+        902.9901123046875
+      ],
+      "size": [
+        223.8660125732422,
+        78
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 301
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 302
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            319
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            320
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        24
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 215,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -2410,
+        580
+      ],
+      "size": [
+        320.0787658691406,
+        199.02713012695312
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "pale_blue",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 300,
+      "type": "LTXAttnOverride",
+      "pos": [
+        -1970,
+        690
+      ],
+      "size": [
+        210,
+        81
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ATTN_OVERRIDE",
+          "type": "ATTN_OVERRIDE",
+          "links": [
+            556
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXAttnOverride",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "14",
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 159,
+      "type": "PrimitiveNode",
+      "pos": [
+        -2378.916748046875,
+        1290.5406494140625
+      ],
+      "size": [
+        282.5907897949219,
+        84.23356628417969
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            324
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false,
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        59401855003476,
+        "fixed"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 302,
+      "type": "ModifyLTXModel",
+      "pos": [
+        -1970,
+        980
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 557
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            558
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModifyLTXModel",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 175,
+      "type": "SamplerCustom",
+      "pos": [
+        706.4950561523438,
+        888.03955078125
+      ],
+      "size": [
+        281.6214294433594,
+        230
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 559
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 319
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 320
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 670
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 345
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 323
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 324,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            303
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        true,
+        59401855003476,
+        "fixed",
+        3
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -300,
+        900
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 436,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            301
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A woman with long brown hair and light skin smiles at another woman with long blonde hair. The woman with brown hair wears a black jacket and has a small, barely noticeable mole on her right cheek. The camera angle is a close-up, focused on the woman with brown hair's face. The lighting is warm and natural, likely from the setting sun, casting a soft glow on the scene. The scene appears to be real-life footage.",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 246,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -733.0785522460938,
+        920.1695556640625
+      ],
+      "size": [
+        375.1165466308594,
+        173.88609313964844
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 645,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            436
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "",
+        "(A woman with olive skin and dark curly hair speaks passionately, then listens intently. The woman wears a deep purple top and small hoop earrings, her hands occasionally gesturing; she nods in understanding. The camera stays focused on her face in tight close-up. Studio lighting provides even illumination across her features. The scene appears to be from a movie.:0.9), F249D3D7"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 363,
+      "type": "Text Concatenate",
+      "pos": [
+        -732.4281005859375,
+        1146.21533203125
+      ],
+      "size": [
+        210,
+        142
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 643,
+          "widget": {
+            "name": "text_a"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 644,
+          "widget": {
+            "name": "text_b"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            645
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 364,
+      "type": "StringWeights",
+      "pos": [
+        -1005.2342529296875,
+        1117.0068359375
+      ],
+      "size": [
+        210,
+        63
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 641,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            643
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringWeights",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "",
+        0.9,
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 81,
+      "type": "ZenkaiPromptV2",
+      "pos": [
+        -1105.234375,
+        883.40966796875
+      ],
+      "size": [
+        309.59478759765625,
+        179.35130310058594
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            641
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiPromptV2"
+      },
+      "widgets_values": [
+        "LTXV-dialogue-closeups.txt",
+        2711370917,
+        "fixed",
+        1,
+        "",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 362,
+      "type": "StringPainterV2",
+      "pos": [
+        -1114.2264404296875,
+        1244.201171875
+      ],
+      "size": [
+        315,
+        222
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hex_string",
+          "type": "STRING",
+          "links": [
+            644
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "used_seed",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringPainterV2",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        2968984941,
+        "randomize",
+        "32",
+        "random",
+        1,
+        0,
+        4294967295
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 162,
+      "type": "VAEDecode",
+      "pos": [
+        1031.6549072265625,
+        967.19873046875
+      ],
+      "size": [
+        232.89111328125,
+        46
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 303
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 304
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            560
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 304,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1370,
+        873.2025756835938
+      ],
+      "size": [
+        226.8000030517578,
+        130
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 562,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            563
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Xoda",
+        "LTXV-DAEMONFLUX",
+        "tricks",
+        "stg",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 303,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1658.4068603515625,
+        794.6646728515625
+      ],
+      "size": [
+        647.33837890625,
+        738.2255859375
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 560
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 563,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": [
+            561
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "stg_00312.mp4",
+            "subfolder": "Xoda\\LTXV-DAEMONFLUX\\tricks",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 365,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2858.115478515625,
+        401.40277099609375
+      ],
+      "size": [
+        514.94140625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "LTX VIDEO",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 80,
+      "type": "Note",
+      "pos": [
+        -2860,
+        584.0903930664062
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Xoda-LTXV-t2v-STG-StringPainter-lines-v160\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/974859\nhttps://www.fivebelowfive.uk\n\nXoda Pack v5\n\n- basic txt2video\n- LTXV Video Generation\n- Video Combine (H264/mp4)\n- 768 x 512 Resolution (recommended)\n- Project Path Generator Node (DJZ-Nodes)\n- Zenkai Prompt V2 (LTXV Holo/Prompt lists)\n- Daemon/less Compare\n- D = Detailer Daemon\n- F = FFXfadeOrama\n- R = RIFE 49 Interpolation\n- R = Reactor\n\n# ENHANCED\n- Foda Flux Animation Upscaler/Enhancer is added\n- GIMM Interp = OOM with this setup so, RIFE is used\n\nfixed generation to 24 FPS, as per Author specs\n- NAME YOUR PROJECT !!\n\n\nFrames2Secs Cheat sheet:\n24 Frames = 1 second\n49 Frames = 2 seconds\n74 Frames = 3 seconds\n98 Frames = 4 seconds\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\nThanks to Throttle & Sonification for doing a lot of research together on the Detailer Daemon settings - we are using that preset in this version.\n\n- Lying Daemon was selected, as we can bypass the lying node at will."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      74,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      301,
+      6,
+      0,
+      160,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      302,
+      7,
+      0,
+      160,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      303,
+      175,
+      0,
+      162,
+      0,
+      "LATENT"
+    ],
+    [
+      304,
+      44,
+      2,
+      162,
+      1,
+      "VAE"
+    ],
+    [
+      305,
+      164,
+      0,
+      163,
+      0,
+      "IMAGE"
+    ],
+    [
+      309,
+      167,
+      0,
+      166,
+      1,
+      "IMAGE"
+    ],
+    [
+      310,
+      165,
+      0,
+      167,
+      0,
+      "IMAGE"
+    ],
+    [
+      311,
+      163,
+      0,
+      167,
+      1,
+      "IMAGE"
+    ],
+    [
+      314,
+      79,
+      0,
+      169,
+      0,
+      "STRING"
+    ],
+    [
+      319,
+      160,
+      0,
+      175,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      320,
+      160,
+      1,
+      175,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      323,
+      161,
+      0,
+      175,
+      5,
+      "LATENT"
+    ],
+    [
+      324,
+      159,
+      0,
+      175,
+      6,
+      "INT"
+    ],
+    [
+      326,
+      169,
+      0,
+      176,
+      4,
+      "STRING"
+    ],
+    [
+      343,
+      161,
+      0,
+      190,
+      0,
+      "LATENT"
+    ],
+    [
+      345,
+      190,
+      0,
+      175,
+      4,
+      "SIGMAS"
+    ],
+    [
+      436,
+      246,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      514,
+      295,
+      0,
+      296,
+      2,
+      "STRING"
+    ],
+    [
+      519,
+      296,
+      0,
+      165,
+      0,
+      "IMAGE"
+    ],
+    [
+      520,
+      296,
+      0,
+      164,
+      0,
+      "IMAGE"
+    ],
+    [
+      521,
+      296,
+      0,
+      166,
+      0,
+      "IMAGE"
+    ],
+    [
+      530,
+      166,
+      0,
+      290,
+      0,
+      "IMAGE"
+    ],
+    [
+      531,
+      290,
+      0,
+      176,
+      0,
+      "IMAGE"
+    ],
+    [
+      556,
+      300,
+      0,
+      301,
+      1,
+      "ATTN_OVERRIDE"
+    ],
+    [
+      557,
+      44,
+      0,
+      302,
+      0,
+      "MODEL"
+    ],
+    [
+      558,
+      302,
+      0,
+      301,
+      0,
+      "MODEL"
+    ],
+    [
+      559,
+      301,
+      0,
+      175,
+      0,
+      "MODEL"
+    ],
+    [
+      560,
+      162,
+      0,
+      303,
+      0,
+      "IMAGE"
+    ],
+    [
+      561,
+      303,
+      0,
+      295,
+      0,
+      "VHS_FILENAMES"
+    ],
+    [
+      562,
+      79,
+      0,
+      304,
+      0,
+      "STRING"
+    ],
+    [
+      563,
+      304,
+      0,
+      303,
+      4,
+      "STRING"
+    ],
+    [
+      641,
+      81,
+      0,
+      364,
+      0,
+      "STRING"
+    ],
+    [
+      643,
+      364,
+      0,
+      363,
+      0,
+      "STRING"
+    ],
+    [
+      644,
+      362,
+      0,
+      363,
+      1,
+      "STRING"
+    ],
+    [
+      645,
+      363,
+      0,
+      246,
+      0,
+      "STRING"
+    ],
+    [
+      670,
+      191,
+      0,
+      175,
+      3,
+      "SAMPLER"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 3,
+      "title": "FBF-V64",
+      "bounding": [
+        -1535.5272216796875,
+        572.762939453125,
+        3997.100830078125,
+        1153.6624755859375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "FG-Combine-btm",
+      "bounding": [
+        2620.941650390625,
+        643.051513671875,
+        3413.015869140625,
+        1061.998046875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.2357947691000287,
+      "offset": [
+        3266.319946850991,
+        384.9615276390441
+      ]
+    }
+  },
+  "version": 0.4
+}
