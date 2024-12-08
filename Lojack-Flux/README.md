@@ -15,17 +15,20 @@ This workflow pack adapts ComfyUI's masking and scheduling capabilities for the 
    - Supports black/white geometric pattern videos for mask generation
    - Integrated directory index selector for motion mask management
    - Frame selection support for both still images and animation sequences
-![LojackFlux-Mask Workflow](/images/Lojack-Flux-Mask.png)
+
+![LojackFlux-Mask Workflow](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/Lojack-Flux-Mask.png)
 
 2. **LojackFlux-Schedule**
    - Enables temporal control over LoRA and model weight application
    - Perfect for creating smooth transitions between different styles or models
-![LojackFlux-Schedule Workflow](/images/Lojack-Flux-scheduling.png)
+
+![LojackFlux-Schedule Workflow](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/Lojack-Flux-scheduling.png)
 
 3. **LojackFlux-ComboBreaker**
    - Combines both masking and scheduling capabilities
    - Allows for complex, multi-stage image generation with precise control
-![LojackFlux-ComboBreaker Workflow](/images/lojack-flux-ComboBreaker.png)
+
+![LojackFlux-ComboBreaker Workflow](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/lojack-flux-ComboBreaker.png)
 
 ## Key Features
 
@@ -68,12 +71,14 @@ Enables precise control over:
 
 ## Usage Tips
 
+![Lonely Drivers Motion Mask Examples](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/lonely-drivers.gif)
+
 1. **Installation**
-   - Clone or download from: https://github.com/MushroomFleet/DJZ-Workflows/tree/main/Lojack-Flux
+   - Clone or download from: [https://github.com/MushroomFleet/DJZ-Workflows/tree/main/Lojack-Flux](https://github.com/MushroomFleet/DJZ-Workflows/tree/main/Lojack-Flux)
    - Place workflows in your ComfyUI workflows directory
 
 2. **Mask Generation**
-   - Download motion masks from the Lonely-Drivers-Pack repository
+   - Download motion masks from the [Lonely-Drivers-Pack repository](https://huggingface.co/mushroomfleet/Lonely-Drivers-Pack)
    - Use black/white video patterns for dynamic masks
    - Ensure complete coverage when using multiple masks
    - Utilize default conditioning for unmapped areas
@@ -110,7 +115,7 @@ Enables precise control over:
 
 ## Motion Mask Examples
 
-![Lonely Drivers Motion Mask Examples](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/blob/main/Lojack-Flux/images/lonely-drivers.gif)
+
 
 ## Credits
 
