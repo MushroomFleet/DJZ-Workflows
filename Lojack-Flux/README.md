@@ -55,6 +55,31 @@ Enables precise control over:
 - Strength adjustment over time
 - Integration with motion mask animations
 
+## Animation Features & Interpolation
+
+### Frame Interpolation Tool
+![Interpolation Tool Preview](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/lojack-interp-tool.png)
+
+The workflow pack includes a specialized interpolation tool designed for enhancing animation sequences. This tool provides:
+
+- **Anti-Flicker Processing**: Built-in mechanisms to reduce unwanted flickering between frames
+- **Smooth Transitions**: Intelligent frame interpolation for fluid motion
+- **Batch Processing**: Handle entire animation sequences efficiently
+- **Frame Rate Control**: Flexible FPS adjustment for output animations
+- **Quality Control**: Balance between interpolation quality and processing speed
+
+The interpolation system works seamlessly with both the masking and scheduling workflows, allowing you to:
+- Smooth out transitions between different LoRA applications
+- Reduce artifacts in mask-based animations
+- Create more natural motion from scheduled weight changes
+- Process multiple animation segments with consistent quality
+
+This tool is particularly useful when:
+- Creating long animation sequences
+- Working with motion mask transitions
+- Combining multiple style changes in a single animation
+- Converting frame sequences to smooth video outputs
+
 ## Technical Details
 
 ### Conditioning System
