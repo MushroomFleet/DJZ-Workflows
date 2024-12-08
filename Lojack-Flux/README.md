@@ -104,6 +104,7 @@ This tool is particularly useful when:
 
 2. **Mask Generation**
    - Download motion masks from the [Lonely-Drivers-Pack repository](https://huggingface.co/mushroomfleet/Lonely-Drivers-Pack)
+   - Unzip them into the "ComfyUI\input\Lonely-Drivers-Pack\" folder
    - Use black/white video patterns for dynamic masks
    - Ensure complete coverage when using multiple masks
    - Utilize default conditioning for unmapped areas
