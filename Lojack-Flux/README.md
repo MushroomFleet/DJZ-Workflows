@@ -15,20 +15,17 @@ This workflow pack adapts ComfyUI's masking and scheduling capabilities for the 
    - Supports black/white geometric pattern videos for mask generation
    - Integrated directory index selector for motion mask management
    - Frame selection support for both still images and animation sequences
-
-   ![LojackFlux-Mask Workflow](/images/Lojack-Flux-Mask.png)
+![LojackFlux-Mask Workflow](/images/Lojack-Flux-Mask.png)
 
 2. **LojackFlux-Schedule**
    - Enables temporal control over LoRA and model weight application
    - Perfect for creating smooth transitions between different styles or models
-
-   ![LojackFlux-Schedule Workflow](/images/Lojack-Flux-scheduling.png)
+![LojackFlux-Schedule Workflow](/images/Lojack-Flux-scheduling.png)
 
 3. **LojackFlux-ComboBreaker**
    - Combines both masking and scheduling capabilities
    - Allows for complex, multi-stage image generation with precise control
-
-   ![LojackFlux-ComboBreaker Workflow](/images/lojack-flux-ComboBreaker.png)
+![LojackFlux-ComboBreaker Workflow](/images/lojack-flux-ComboBreaker.png)
 
 ## Key Features
 
