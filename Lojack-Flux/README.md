@@ -110,7 +110,7 @@ Enables precise control over:
 
 ## Motion Mask Examples
 
-![Lonely Drivers Motion Mask Examples](/images/lonely-drivers.gif)
+![Lonely Drivers Motion Mask Examples](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/blob/main/Lojack-Flux/images/lonely-drivers.gif)
 
 ## Credits
 
