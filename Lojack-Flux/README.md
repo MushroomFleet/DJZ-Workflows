@@ -94,6 +94,16 @@ This tool is particularly useful when:
 - Support for multiple concurrent LoRAs
 - Automatic CLIP and model weight handling
 
+### Advanced Technical Features
+- **Hook Chaining**: Support for multiple LoRAs through chainable hooks
+- **Flexible Hook Combinations**: Different hook chains can be used in different areas
+- **Automatic Hook Application**: Streamlined conditioning with `apply_to_conds`
+- **Strength Control**: 
+  - For LoRAs: Standard strength adjustment
+  - For Model-as-LoRA: Strength of 1.0 fully applies target model weights
+  - Support for weighted averaging between base and target models
+
+
 ## Usage Tips
 
 ![Lonely Drivers Motion Mask Examples](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/lonely-drivers.gif)
