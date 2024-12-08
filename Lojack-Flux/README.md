@@ -140,7 +140,13 @@ This tool is particularly useful when:
 - **Motion Masks**: https://huggingface.co/mushroomfleet/Lonely-Drivers-Pack
 
 ## Motion Mask Examples
+- There are 56 Motion Masks in the Pack.
 
+[Example 1](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/example1.gif) 
+
+[Example 2](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/example2.gif) 
+
+[Example 3](https://raw.githubusercontent.com/MushroomFleet/DJZ-Workflows/main/Lojack-Flux/images/example3.gif) 
 
 
 ## Credits
