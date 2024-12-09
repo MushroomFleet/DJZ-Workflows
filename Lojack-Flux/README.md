@@ -146,7 +146,7 @@ This tool is particularly useful when:
 
 ## Resources
 
-- **Workflow Pack**: https://github.com/MushroomFleet/DJZ-Workflows/tree/main/Lojack-Flux
+- **Workflow Pack**: https://github.com/MushroomFleet/DJZ-Workflows/tree/main/Lojack-Flux & https://civitai.com/models/1021516/lojack-flux-pack
 - **Motion Masks**: https://huggingface.co/mushroomfleet/Lonely-Drivers-Pack
 
 ## Motion Mask Examples
