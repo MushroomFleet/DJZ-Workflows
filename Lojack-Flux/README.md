@@ -162,4 +162,5 @@ This tool is particularly useful when:
 ## Credits
 
 Original ComfyUI masking and scheduling system adapted for Flux pipeline with additional custom features and integrations.
+https://blog.comfy.org/masking-and-scheduling-lora-and-model-weights/
 Motion masks provided by the Lonely-Drivers-Pack.
