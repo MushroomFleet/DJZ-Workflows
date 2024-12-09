@@ -1,0 +1,766 @@
+{
+  "last_node_id": 70,
+  "last_link_id": 94,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "MochiTextEncode",
+      "pos": [
+        390,
+        332.0534362792969
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            82
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "",
+        1,
+        true,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 15,
+      "type": "OverrideCLIPDevice",
+      "pos": [
+        -30,
+        82.05345153808594
+      ],
+      "size": [
+        359.07080078125,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OverrideCLIPDevice",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "cpu"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "CLIPLoader",
+      "pos": [
+        -390,
+        82.05345153808594
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "sd3"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "MochiTextEncode",
+      "pos": [
+        390,
+        82.05345153808594
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 84,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            81
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            10
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "Deep within a working steel mill, the Golden Surfer rockets through vats of molten metal. His wake splits the liquid steel like Moses parting waters, the superheated material arcing overhead in perfect parabolas. Behind him, droplets of liquefied metal hang suspended, cooling into perfect spheres that rain down like mercury teardrops. Industrial crucibles tip and spill in his slipstream, their contents creating rivers of light that flow against gravity. His determined expression reflects in every metallic globe, multiplied a thousand times as he carves through the furnace-lit facility, leaving crystallized steel sculptures in his wake.",
+        1,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 57,
+      "type": "ZenkaiPromptV2",
+      "pos": [
+        -16,
+        247
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            84
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiPromptV2",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Golden-Surfer-Video.txt",
+        4146150208,
+        "randomize",
+        1,
+        "",
+        ""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 54,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        -847.6060791015625,
+        325.0601806640625
+      ],
+      "size": [
+        312.90399169921875,
+        154
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            73
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Latent Save/Load & Video Save Path",
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Donut-Mochi",
+        "V8-100steps",
+        "49-frames",
+        "gold2",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 62,
+      "type": "MochiModelLoader",
+      "pos": [
+        -850,
+        90.6966552734375
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trigger",
+          "type": "CONDITIONING",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_model",
+          "type": "MOCHIMODEL",
+          "links": [
+            80
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiModelLoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_dit_GGUF_Q8_0.safetensors",
+        "fp8_e4m3fn",
+        "sdpa",
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 63,
+      "type": "MochiVAELoader",
+      "pos": [
+        -845.212158203125,
+        561.393310546875
+      ],
+      "size": [
+        304.5504455566406,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "torch_compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            77
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiVAELoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_vae_bf16.safetensors",
+        "bf16"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 64,
+      "type": "MochiDecodeSpatialTiling",
+      "pos": [
+        1429.4908447265625,
+        159.78445434570312
+      ],
+      "size": [
+        260.3999938964844,
+        198
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "MOCHIVAE",
+          "link": 77
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            78
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiDecodeSpatialTiling",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        true,
+        8,
+        8,
+        16,
+        1,
+        256
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 66,
+      "type": "MochiSampler",
+      "pos": [
+        934,
+        82.7288818359375
+      ],
+      "size": [
+        315,
+        302
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MOCHIMODEL",
+          "link": 80
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 81
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 82
+        },
+        {
+          "name": "opt_sigmas",
+          "type": "SIGMAS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "cfg_schedule",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg_schedule"
+          },
+          "shape": 7
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            94
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSampler",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        848,
+        480,
+        49,
+        100,
+        7,
+        79108628340814,
+        "randomize",
+        0
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1819.4910888671875,
+        159.78445434570312
+      ],
+      "size": [
+        697.5719604492188,
+        306
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 78
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 73,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "gold2_00172.mp4",
+            "subfolder": "Donut-Mochi\\V8-100steps\\49-frames",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": [
+        -1270.013916015625,
+        105.75399780273438
+      ],
+      "size": [
+        375.2408142089844,
+        495.9891357421875
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Donut-Mochi-848x480-t2v-1stage-v112\n\n- text2video\n- Batch .Latent VAE Decode with Spatial Tiling (BF16)\n- Mochi 1 Preview (FP8_e4m3fn)\n- Kijai Wrapper\n- T5XXL_FP16 (CPU)\n- GGUF Q8_0\n- 24 frames (1 second)\n- 100 steps (! 50 steps also works well !)\n\nIntended for use with music videos or short clip applications. 4-5 Minutes to complete.\n\n\n# Latent Side Loading:\n\nUsing the Groups Bypasser, Use this workflow in 2 stages. \n\nStage 1:\n\n- Disable Decode Samples\n- Enable Generate Samples Group\n- Generate the samples\n- Start Queue To generate samples\n- saves .latent files to your chosen path\n\nStage 2: (- PRESS R to reload the .latent list)\n\n- Disable Generate Samples Group\n- Enable Decode Samples\n- Select the .latent number from the list as seed\n- Using Increment, Start Queue to run the VAE Decoder\n- Save Video files to your chosen path"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      10,
+      9,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      16,
+      7,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      17,
+      15,
+      0,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      73,
+      54,
+      0,
+      4,
+      4,
+      "STRING"
+    ],
+    [
+      77,
+      63,
+      0,
+      64,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      78,
+      64,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      62,
+      0,
+      66,
+      0,
+      "MOCHIMODEL"
+    ],
+    [
+      81,
+      9,
+      0,
+      66,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      82,
+      10,
+      0,
+      66,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      84,
+      57,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      94,
+      66,
+      0,
+      64,
+      1,
+      "LATENT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Decode Samples",
+      "bounding": [
+        1364.9588623046875,
+        44.57726287841797,
+        1189.2239990234375,
+        470.15673828125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Generate Samples",
+      "bounding": [
+        -449,
+        -17,
+        1770.879638671875,
+        597.4169311523438
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6115909044842167,
+      "offset": [
+        1710.9582000437972,
+        412.89931130529345
+      ]
+    }
+  },
+  "version": 0.4
+}

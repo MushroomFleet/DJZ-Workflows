@@ -1,0 +1,1850 @@
+{
+  "last_node_id": 73,
+  "last_link_id": 104,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPLoader",
+      "pos": [
+        340.06640625,
+        -380.7377624511719
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "sd3"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "MochiTextEncode",
+      "pos": [
+        1120.06640625,
+        -380.7377624511719
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 101,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            86
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [
+            10
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "[Static to dynamic scene]: Three figures - armored warrior(L), seated robed man(C), angelic figure(R). Motion: warrior leans forward with spear, robed man's hands gesture expressively during conversation, angel remains still observing. Lighting subtly shifts, colors remain vivid (pink/gold armor, blue robe, white dress). Focus on facial expressions and hand movements progressing through dialogue.",
+        1,
+        true,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 10,
+      "type": "MochiTextEncode",
+      "pos": [
+        1120.06640625,
+        -130.73744201660156
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            87
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiTextEncode"
+      },
+      "widgets_values": [
+        "",
+        1,
+        true,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 56,
+      "type": "Note",
+      "pos": [
+        -377.1668395996094,
+        1027.84814453125
+      ],
+      "size": [
+        289.91656494140625,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [],
+      "title": "PRESS R TO RELOAD THE LIST",
+      "properties": {},
+      "widgets_values": [
+        "PRESS R TO RELOAD THE LIST"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 39,
+      "type": "PreviewImage",
+      "pos": [
+        328.06640625,
+        168.2625732421875
+      ],
+      "size": [
+        313.968994140625,
+        246
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "OverrideCLIPDevice",
+      "pos": [
+        700.06640625,
+        -380.7377624511719
+      ],
+      "size": [
+        359.07080078125,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OverrideCLIPDevice",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "cpu"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 34,
+      "type": "LoadImage",
+      "pos": [
+        -395.93359375,
+        -369.7377014160156
+      ],
+      "size": [
+        637.5308227539062,
+        575.7803344726562
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            47,
+            50
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "1920px-Alcibades_being_taught_by_Socrates2C_FranC3A7ois-AndrC3A9_Vincent.png",
+        "image"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 35,
+      "type": "ImageSizeAdjusterV3",
+      "pos": [
+        -389.93359375,
+        269.2625732421875
+      ],
+      "size": [
+        315,
+        306
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            48,
+            51
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            49,
+            52
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSizeAdjusterV3",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Mochi1",
+        8,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 36,
+      "type": "easy showAnything",
+      "pos": [
+        20.066452026367188,
+        254.2626495361328
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 48,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "848"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 37,
+      "type": "easy showAnything",
+      "pos": [
+        17.066452026367188,
+        410.2622985839844
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 49,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "480"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 57,
+      "type": "MochiModelLoader",
+      "pos": [
+        -851,
+        303
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trigger",
+          "type": "CONDITIONING",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_model",
+          "type": "MOCHIMODEL",
+          "links": [
+            85
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiModelLoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_dit_GGUF_Q8_0.safetensors",
+        "fp8_e4m3fn",
+        "sdpa",
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 38,
+      "type": "ImageResize+",
+      "pos": [
+        326.06640625,
+        -55.73735809326172
+      ],
+      "size": [
+        325.50933837890625,
+        170
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 50
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 51,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 52,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53,
+            54,
+            93
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            88
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            89
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "fill / crop",
+        "always",
+        0
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 63,
+      "type": "MochiVAEEncoderLoader",
+      "pos": [
+        -849,
+        507
+      ],
+      "size": [
+        307.4261474609375,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "torch_compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            92
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiVAEEncoderLoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_vae_encoder_bf16_.safetensors",
+        "bf16"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 61,
+      "type": "MochiImageEncode",
+      "pos": [
+        1180,
+        374
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "encoder",
+          "type": "MOCHIVAE",
+          "link": 92
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 93
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            91
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiImageEncode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        true,
+        4,
+        4,
+        16,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 49,
+      "type": "SaveLatent",
+      "pos": [
+        2035,
+        296
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 90
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 69,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveLatent",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "latents/ComfyUI"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 62,
+      "type": "MochiSampler",
+      "pos": [
+        1664,
+        296
+      ],
+      "size": [
+        315,
+        294
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MOCHIMODEL",
+          "link": 85
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 86
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 87
+        },
+        {
+          "name": "opt_sigmas",
+          "type": "SIGMAS",
+          "link": 94,
+          "shape": 7
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 91,
+          "shape": 7
+        },
+        {
+          "name": "cfg_schedule",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg_schedule"
+          },
+          "shape": 7
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 88,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 89,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            90
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSampler",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        848,
+        480,
+        49,
+        50,
+        4.5,
+        802542534310603,
+        "randomize",
+        0
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 54,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        -852,
+        647
+      ],
+      "size": [
+        312.90399169921875,
+        154
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            69,
+            73
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Latent Save/Load & Video Save Path",
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Donut-Mochi",
+        "V9-50steps",
+        "50-frames",
+        "donut",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 59,
+      "type": "MochiDecodeSpatialTiling",
+      "pos": [
+        156.85581970214844,
+        1129.67724609375
+      ],
+      "size": [
+        390.5999755859375,
+        198
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "MOCHIVAE",
+          "link": 76
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            78
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiDecodeSpatialTiling",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        true,
+        8,
+        8,
+        16,
+        1,
+        256
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 32,
+      "type": "DownloadAndLoadLLaVAOneVisionModel",
+      "pos": [
+        320,
+        -242
+      ],
+      "size": [
+        334.4347229003906,
+        130
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadLLaVAOneVisionModel",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "lmms-lab/llava-onevision-qwen2-7b-ov",
+        "cuda",
+        "nf4",
+        "sdpa"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "LayerUtility: PurgeVRAM",
+      "pos": [
+        717,
+        473
+      ],
+      "size": [
+        333.4815673828125,
+        82
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 57
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        true,
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 64,
+      "type": "MochiSigmaSchedule",
+      "pos": [
+        1178,
+        164
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "links": [
+            94
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSigmaSchedule",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        50,
+        0.025,
+        25,
+        0.5
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        644.8558349609375,
+        1132.67724609375
+      ],
+      "size": [
+        214.7587890625,
+        330
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 78
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 73,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "donut_00006.gif",
+            "subfolder": "Donut-Mochi\\V9-50steps\\50-frames",
+            "type": "output",
+            "format": "image/gif",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 31,
+      "type": "LLaVA_OneVision_Run",
+      "pos": [
+        714,
+        20
+      ],
+      "size": [
+        341.63861083984375,
+        405.28643798828125
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "llava_model",
+          "type": "LLAVAMODEL",
+          "link": 43
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            44,
+            57
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLaVA_OneVision_Run",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "Create video prompt in less than 256 tokens: [MOTION: main vector/speed], [DYNAMICS: key element movements], [ENVIRONMENT: background motion], [FLOW: scene progression], [VISUALS: motion-relevant details], [DIRECTION: momentum cues], maintain source image coherence.",
+        200,
+        true,
+        0,
+        1001757521694417,
+        "randomize",
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 33,
+      "type": "ShowText|pysssss",
+      "pos": [
+        701,
+        -271
+      ],
+      "size": [
+        351.63861083984375,
+        250.8419952392578
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 44,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            101
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "",
+        "The image depicts a classical scene with three figures. On the left, there is a warrior in armor holding a spear and wearing a helmet adorned with plumes. The warrior's attire includes a purple cloak draped over one shoulder. In the center, there is a bearded man dressed in a blue robe, gesturing with his right hand as if he is speaking or explaining something. To the right, an angelic figure with wings and a wreath on her head looks on attentively. The background is dark, suggesting an indoor setting with a hint of architectural detail. The overall style of the painting is reminiscent of classical European art, likely from the 17th or 18th century."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 55,
+      "type": "LayerUtility: PurgeVRAM",
+      "pos": [
+        -399.1441955566406,
+        1505.677001953125
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 104
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "LayerUtility: PurgeVRAM",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        true,
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 69,
+      "type": "Note",
+      "pos": [
+        1131.7889404296875,
+        -522.6803588867188
+      ],
+      "size": [
+        363.31475830078125,
+        86.33222961425781
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "I have done everything i can to limit the Image Vision prompt to 256 tokens, however if you find it will not play by the rules, connect this primitive to the Mochi Text Encode Below"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 68,
+      "type": "PrimitiveNode",
+      "pos": [
+        693.2310791015625,
+        -522.9302978515625
+      ],
+      "size": [
+        363.0588684082031,
+        88.18461608886719
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connect to widget input",
+          "type": "*",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "title": "Manual Prompt",
+      "properties": {
+        "Run widget replace on values": false,
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 47,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -388.86419677734375,
+        705.1926879882812
+      ],
+      "size": [
+        311.2799072265625,
+        162.47605895996094
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 58,
+      "type": "MochiVAELoader",
+      "pos": [
+        -844,
+        1127.8836669921875
+      ],
+      "size": [
+        304.5504455566406,
+        82
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "torch_compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            76
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiVAELoader",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "mochi\\mochi_preview_vae_bf16.safetensors",
+        "bf16"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "DJZ-LoadLatentV2",
+      "pos": [
+        -411.5091247558594,
+        1218.0009765625
+      ],
+      "size": [
+        531.1273193359375,
+        126
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            102,
+            104
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "current_file",
+          "type": "STRING",
+          "links": [
+            103
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DJZ-LoadLatentV2",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "[0] Donut-Mochi\\49-frames\\100-steps\\donut_00001_.latent",
+        0,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 71,
+      "type": "easy showAnything",
+      "pos": [
+        -406.14422607421875,
+        1391.4744873046875
+      ],
+      "size": [
+        520.4419555664062,
+        54.642303466796875
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 103,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": [
+        -850,
+        -256
+      ],
+      "size": [
+        375.2408142089844,
+        495.9891357421875
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Donut-Mochi-848x480-i2v-2stage-v100\n\n- True image2video\n- 2 Stage Latent save/load \n- VAE Batch Decode with Spatial Tiling (BF16)\n- Mochi 1 Preview (FP8_e4m3fn)\n- OneVision ~with video prompt\n- Auto-Aspect Swapping 16:9/9:16 (fill/crop)\n- Kijai Wrapper\n- T5XXL_FP16 (CPU)\n- GGUF Q8_0\n- 24 frames (1 second)\n- 100 steps (! 50 steps also works well !)\n\nIntended for use with music videos or short clip applications. 4-5 Minutes to complete.\n\n\n# Latent Side Loading:\n\nUsing the Groups Bypasser, Use this workflow in 2 stages. \n\nStage 1:\n\n- Disable Decode Samples\n- Enable Generate Samples Group\n- Generate the samples\n- Start Queue To generate samples\n- saves .latent files to your chosen path\n\nStage 2:\n\n- Disable Generate Samples Group\n- Enable Decode Samples\n- Select the .latent number from the list as seed\n- Using Increment, Start Queue to run the VAE Decoder\n- Save Video files to your chosen path"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      10,
+      9,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      16,
+      7,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      17,
+      15,
+      0,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      43,
+      32,
+      0,
+      31,
+      0,
+      "LLAVAMODEL"
+    ],
+    [
+      44,
+      31,
+      0,
+      33,
+      0,
+      "STRING"
+    ],
+    [
+      47,
+      34,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      48,
+      35,
+      0,
+      36,
+      0,
+      "*"
+    ],
+    [
+      49,
+      35,
+      1,
+      37,
+      0,
+      "*"
+    ],
+    [
+      50,
+      34,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      35,
+      0,
+      38,
+      1,
+      "INT"
+    ],
+    [
+      52,
+      35,
+      1,
+      38,
+      2,
+      "INT"
+    ],
+    [
+      53,
+      38,
+      0,
+      39,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      38,
+      0,
+      31,
+      1,
+      "IMAGE"
+    ],
+    [
+      57,
+      31,
+      0,
+      40,
+      0,
+      "*"
+    ],
+    [
+      69,
+      54,
+      0,
+      49,
+      1,
+      "STRING"
+    ],
+    [
+      73,
+      54,
+      0,
+      4,
+      4,
+      "STRING"
+    ],
+    [
+      76,
+      58,
+      0,
+      59,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      78,
+      59,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      85,
+      57,
+      0,
+      62,
+      0,
+      "MOCHIMODEL"
+    ],
+    [
+      86,
+      9,
+      0,
+      62,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      87,
+      10,
+      0,
+      62,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      88,
+      38,
+      1,
+      62,
+      6,
+      "INT"
+    ],
+    [
+      89,
+      38,
+      2,
+      62,
+      7,
+      "INT"
+    ],
+    [
+      90,
+      62,
+      0,
+      49,
+      0,
+      "LATENT"
+    ],
+    [
+      91,
+      61,
+      0,
+      62,
+      4,
+      "LATENT"
+    ],
+    [
+      92,
+      63,
+      0,
+      61,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      93,
+      38,
+      0,
+      61,
+      1,
+      "IMAGE"
+    ],
+    [
+      94,
+      64,
+      0,
+      62,
+      3,
+      "SIGMAS"
+    ],
+    [
+      101,
+      33,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      102,
+      70,
+      0,
+      59,
+      1,
+      "LATENT"
+    ],
+    [
+      103,
+      70,
+      1,
+      71,
+      0,
+      "*"
+    ],
+    [
+      104,
+      70,
+      0,
+      55,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "Decode Samples",
+      "bounding": [
+        -432.1441955566406,
+        924.6773681640625,
+        1371,
+        711
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Generate Samples",
+      "bounding": [
+        -449,
+        -479,
+        2847,
+        1103
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.9194342495777221,
+      "offset": [
+        1005.0493765420805,
+        362.67287311914686
+      ]
+    }
+  },
+  "version": 0.4
+}
