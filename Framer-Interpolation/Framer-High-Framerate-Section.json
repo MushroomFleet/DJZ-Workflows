@@ -1,0 +1,1034 @@
+{
+  "last_node_id": 113,
+  "last_link_id": 236,
+  "nodes": [
+    {
+      "id": 50,
+      "type": "PreviewImage",
+      "pos": [
+        240.6690216064453,
+        -655.3175048828125
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 89
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 18,
+      "type": "GetImageSizeAndCount",
+      "pos": [
+        1759.27587890625,
+        -477.7424621582031
+      ],
+      "size": [
+        277.20001220703125,
+        86
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            74
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "704 width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "384 height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "24 count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1771.3037109375,
+        -301.6263732910156
+      ],
+      "size": [
+        528.0629272460938,
+        625.125244140625
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 74
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "title": "Framer Interpolation",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "Framer",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Framer_00100.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "Framer_00100.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Framer_00100.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 21,
+      "type": "FramerSift",
+      "pos": [
+        757.4450073242188,
+        -730.5858154296875
+      ],
+      "size": [
+        315,
+        170
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_image",
+          "type": "IMAGE",
+          "link": 84
+        },
+        {
+          "name": "end_image",
+          "type": "IMAGE",
+          "link": 86
+        },
+        {
+          "name": "num_frames",
+          "type": "INT",
+          "link": 77,
+          "widget": {
+            "name": "num_frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pred_tracks",
+          "type": "PREDTRACKS",
+          "links": [
+            72
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "visualization",
+          "type": "IMAGE",
+          "links": [
+            45
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "vis_frames",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FramerSift"
+      },
+      "widgets_values": [
+        24,
+        0.5,
+        5,
+        "random"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "PreviewImage",
+      "pos": [
+        650.0313110351562,
+        -487.42144775390625
+      ],
+      "size": [
+        508.58154296875,
+        636.3059692382812
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 45
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 51,
+      "type": "PreviewImage",
+      "pos": [
+        236.35366821289062,
+        -260.23724365234375
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 90
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 53,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2350.8486328125,
+        -289.4689636230469
+      ],
+      "size": [
+        528.0629272460938,
+        625.125244140625
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 207
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "title": "Swapped Framer",
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "Framer",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Framer_00101.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "Framer_00101.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Framer_00101.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 15,
+      "type": "FramerSampler",
+      "pos": [
+        1314.389892578125,
+        -609.8290405273438
+      ],
+      "size": [
+        315,
+        358
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "FRAMERMODEL",
+          "link": 29
+        },
+        {
+          "name": "start_image",
+          "type": "IMAGE",
+          "link": 81
+        },
+        {
+          "name": "end_image",
+          "type": "IMAGE",
+          "link": 82
+        },
+        {
+          "name": "tracks",
+          "type": "PREDTRACKS",
+          "link": 72,
+          "shape": 7
+        },
+        {
+          "name": "num_frames",
+          "type": "INT",
+          "link": 76,
+          "widget": {
+            "name": "num_frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            39,
+            232
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FramerSampler"
+      },
+      "widgets_values": [
+        24,
+        20,
+        1,
+        3,
+        100,
+        24,
+        0.02,
+        1,
+        99283444596409,
+        "fixed",
+        true
+      ]
+    },
+    {
+      "id": 3,
+      "type": "FramerModelLoader",
+      "pos": [
+        -779.1446533203125,
+        -636.4335327148438
+      ],
+      "size": [
+        234.9320068359375,
+        154
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "FRAMERMODEL",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FramerModelLoader"
+      },
+      "widgets_values": [
+        "Framer_unet_fp16.safetensors",
+        "Framer_controlnet_fp16.safetensors",
+        "fp16",
+        "main_device",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "PrimitiveNode",
+      "pos": [
+        -777.4215698242188,
+        -411.81414794921875
+      ],
+      "size": [
+        230.61251831054688,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            76,
+            77
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "num_frames"
+          }
+        }
+      ],
+      "title": "num_frames",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        24,
+        "fixed"
+      ]
+    },
+    {
+      "id": 111,
+      "type": "PreviewImage",
+      "pos": [
+        -192.4949951171875,
+        -1295.6282958984375
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 234
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 106,
+      "type": "BatchRangeInsert",
+      "pos": [
+        2353.7333984375,
+        -971.3935546875
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "target_sequence",
+          "type": "IMAGE",
+          "link": 204
+        },
+        {
+          "name": "insert_frames",
+          "type": "IMAGE",
+          "link": 232
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            207
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BatchRangeInsert"
+      },
+      "widgets_values": [
+        10,
+        14
+      ]
+    },
+    {
+      "id": 46,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -784.2132568359375,
+        -978.7425537109375
+      ],
+      "size": [
+        247.455078125,
+        400.06640625
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            78,
+            204,
+            233
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "hunyuan_00069.mp4",
+        "force_rate": 0,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "hunyuan_00069.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 48,
+      "type": "FirstFrameSelector",
+      "pos": [
+        210.74578857421875,
+        -731.8431396484375
+      ],
+      "size": [
+        252,
+        26
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            81,
+            84,
+            89
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FirstFrameSelector"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 47,
+      "type": "FinalFrameSelector",
+      "pos": [
+        204.4141845703125,
+        -346.76519775390625
+      ],
+      "size": [
+        252,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            82,
+            86,
+            90
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FinalFrameSelector"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 110,
+      "type": "VHS_SelectImages",
+      "pos": [
+        -441.7605895996094,
+        -1293.8416748046875
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 233
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            234
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "10",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 45,
+      "type": "BatchThief",
+      "pos": [
+        -270.7841491699219,
+        -893.2091674804688
+      ],
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            79,
+            80
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BatchThief"
+      },
+      "widgets_values": [
+        10,
+        14
+      ]
+    },
+    {
+      "id": 107,
+      "type": "Note",
+      "pos": [
+        -1271.5333251953125,
+        -977.957275390625
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Framer-High-Framerate-Section\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\n\nused BatchThief and BatchRangeInsert\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      29,
+      3,
+      0,
+      15,
+      0,
+      "FRAMERMODEL"
+    ],
+    [
+      39,
+      15,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      21,
+      1,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      72,
+      21,
+      0,
+      15,
+      3,
+      "PREDTRACKS"
+    ],
+    [
+      74,
+      18,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      76,
+      42,
+      0,
+      15,
+      4,
+      "INT"
+    ],
+    [
+      77,
+      42,
+      0,
+      21,
+      2,
+      "INT"
+    ],
+    [
+      78,
+      46,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      79,
+      45,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      45,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      81,
+      48,
+      0,
+      15,
+      1,
+      "IMAGE"
+    ],
+    [
+      82,
+      47,
+      0,
+      15,
+      2,
+      "IMAGE"
+    ],
+    [
+      84,
+      48,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      47,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      89,
+      48,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      90,
+      47,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      204,
+      46,
+      0,
+      106,
+      0,
+      "IMAGE"
+    ],
+    [
+      207,
+      106,
+      0,
+      53,
+      0,
+      "IMAGE"
+    ],
+    [
+      232,
+      15,
+      0,
+      106,
+      1,
+      "IMAGE"
+    ],
+    [
+      233,
+      46,
+      0,
+      110,
+      0,
+      "IMAGE"
+    ],
+    [
+      234,
+      110,
+      0,
+      111,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9849732675809795,
+      "offset": [
+        1603.6205396039816,
+        1147.8577712595102
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
