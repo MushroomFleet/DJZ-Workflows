@@ -1,0 +1,794 @@
+{
+  "last_node_id": 120,
+  "last_link_id": 187,
+  "nodes": [
+    {
+      "id": 85,
+      "type": "MMAudioModelLoader",
+      "pos": [
+        180,
+        -300
+      ],
+      "size": [
+        438.219970703125,
+        83.87998962402344
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mmaudio_model",
+          "type": "MMAUDIO_MODEL",
+          "links": [
+            152
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MMAudioModelLoader"
+      },
+      "widgets_values": [
+        "mmaudio_large_44k_v2_fp16.safetensors",
+        "fp16"
+      ]
+    },
+    {
+      "id": 113,
+      "type": "LoadTextDirectory",
+      "pos": [
+        1130,
+        -30
+      ],
+      "size": [
+        393.1747131347656,
+        174
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": 182,
+          "widget": {
+            "name": "path"
+          }
+        },
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 183,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            184,
+            185
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadTextDirectory"
+      },
+      "widgets_values": [
+        "single_file",
+        878401721273500,
+        "randomize",
+        1,
+        "Text Batch 001",
+        "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Xoda\\LTXV091-CattoProject2\\catto",
+        "*"
+      ]
+    },
+    {
+      "id": 92,
+      "type": "MMAudioSampler",
+      "pos": [
+        1919.759033203125,
+        -298.1809387207031
+      ],
+      "size": [
+        411.29339599609375,
+        354
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mmaudio_model",
+          "type": "MMAUDIO_MODEL",
+          "link": 152
+        },
+        {
+          "name": "feature_utils",
+          "type": "MMAUDIO_FEATUREUTILS",
+          "link": 166
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 179,
+          "shape": 7
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 185,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            163,
+            171
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MMAudioSampler"
+      },
+      "widgets_values": [
+        3,
+        25,
+        4.5,
+        7,
+        "fixed",
+        "pikachu talking",
+        "",
+        false,
+        true
+      ]
+    },
+    {
+      "id": 111,
+      "type": "PrimitiveNode",
+      "pos": [
+        670,
+        -30
+      ],
+      "size": [
+        291.2204895019531,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            178,
+            182
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Xoda\\LTXV091-CattoProject2\\catto"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "MMAudioFeatureUtilsLoader",
+      "pos": [
+        190,
+        -170
+      ],
+      "size": [
+        427.8798828125,
+        157.59718322753906
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bigvgan_vocoder_model",
+          "type": "VOCODER_MODEL",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mmaudio_featureutils",
+          "type": "MMAUDIO_FEATUREUTILS",
+          "links": [
+            166
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MMAudioFeatureUtilsLoader"
+      },
+      "widgets_values": [
+        "mmaudio_vae_44k_fp16.safetensors",
+        "mmaudio_synchformer_fp16.safetensors",
+        "apple_DFN5B-CLIP-ViT-H-14-384_fp16.safetensors",
+        "44k",
+        "fp16"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "LoadVideoDirectory",
+      "pos": [
+        1120,
+        -360
+      ],
+      "size": [
+        409.14190673828125,
+        270
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 177,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": 178,
+          "widget": {
+            "name": "path"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "links": [
+            179,
+            180
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideoDirectory"
+      },
+      "widgets_values": [
+        "single_video",
+        873326539304949,
+        "randomize",
+        1,
+        0,
+        0,
+        "Video Batch 001",
+        "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Xoda\\LTXV091-CattoProject2\\catto",
+        "*"
+      ]
+    },
+    {
+      "id": 117,
+      "type": "Label (rgthree)",
+      "pos": [
+        -300,
+        -600
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 118,
+      "type": "Label (rgthree)",
+      "pos": [
+        -300,
+        -810
+      ],
+      "size": [
+        1622.16796875,
+        200
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "MODA MMAUDIO",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 115,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1560,
+        -30
+      ],
+      "size": [
+        318.0457763671875,
+        273.97491455078125
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 184,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "\nThe video is a close-up of a white cat's face. The cat is looking directly at the camera with a serious expression. Its eyes are a piercing yellow color and its nose is a light pink color. Its ears are pointed and its whiskers are long and thin. The background is blurred, but it appears to be a room with a window and a rug. The overall mood of the video is calm and serene.The scene is captured in real-life footage.\nThe video is a close-up of a white cat's face. The cat is looking directly at the camera with a serious expression. Its eyes are a piercing yellow color and its nose is a light pink color. Its ears are pointed and its whiskers are long and thin. The background is blurred, but it appears to be a room with a window and a rug. The overall mood of the video is calm and serene.The scene is captured in real-life footage."
+      ]
+    },
+    {
+      "id": 120,
+      "type": "PrimitiveNode",
+      "pos": [
+        186.41427612304688,
+        -415.689453125
+      ],
+      "size": [
+        424.34027099609375,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            186
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Catto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 110,
+      "type": "PrimitiveNode",
+      "pos": [
+        660,
+        -360
+      ],
+      "size": [
+        301.373046875,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            177,
+            183
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1,
+        "increment"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1929.276123046875,
+        104.66664123535156
+      ],
+      "size": [
+        404.11676025390625,
+        130
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 186,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            187
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "MODA",
+        "Catto",
+        "MMaudio",
+        "clip",
+        "auto"
+      ]
+    },
+    {
+      "id": 98,
+      "type": "PreviewAudio",
+      "pos": [
+        2430.719482421875,
+        -497.51611328125
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 163
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [
+        null
+      ]
+    },
+    {
+      "id": 97,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2431.65380859375,
+        -358.22393798828125
+      ],
+      "size": [
+        648.7454223632812,
+        1129.9317626953125
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 180
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 171,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 187,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "MMaudio",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "MMaudio_00001-audio.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "MMaudio_00001.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\temp\\MMaudio_00001-audio.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 116,
+      "type": "Note",
+      "pos": [
+        -300,
+        -420
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "MODA-MMAUDIO-Video-Caption-Directory-V2\n\n\n# Video: \nhttps://www.youtube.com/@FiveBelowFiveUK\n# Workflow: https://civitai.com/user/driftjohnson/models\n# Website:\nhttps://www.fivebelowfive.uk\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      152,
+      85,
+      0,
+      92,
+      0,
+      "MMAUDIO_MODEL"
+    ],
+    [
+      163,
+      92,
+      0,
+      98,
+      0,
+      "AUDIO"
+    ],
+    [
+      166,
+      102,
+      0,
+      92,
+      1,
+      "MMAUDIO_FEATUREUTILS"
+    ],
+    [
+      171,
+      92,
+      0,
+      97,
+      1,
+      "AUDIO"
+    ],
+    [
+      177,
+      110,
+      0,
+      107,
+      0,
+      "INT"
+    ],
+    [
+      178,
+      111,
+      0,
+      107,
+      1,
+      "STRING"
+    ],
+    [
+      179,
+      107,
+      0,
+      92,
+      2,
+      "IMAGE"
+    ],
+    [
+      180,
+      107,
+      0,
+      97,
+      0,
+      "IMAGE"
+    ],
+    [
+      182,
+      111,
+      0,
+      113,
+      0,
+      "STRING"
+    ],
+    [
+      183,
+      110,
+      0,
+      113,
+      1,
+      "INT"
+    ],
+    [
+      184,
+      113,
+      0,
+      115,
+      0,
+      "STRING"
+    ],
+    [
+      185,
+      113,
+      0,
+      92,
+      3,
+      "STRING"
+    ],
+    [
+      186,
+      120,
+      0,
+      119,
+      0,
+      "STRING"
+    ],
+    [
+      187,
+      119,
+      0,
+      97,
+      4,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9849732675807892,
+      "offset": [
+        227.309807217995,
+        606.7975658705208
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
