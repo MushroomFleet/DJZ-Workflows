@@ -1,0 +1,263 @@
+{
+  "last_node_id": 73,
+  "last_link_id": 94,
+  "nodes": [
+    {
+      "id": 72,
+      "type": "LoadTextDirectory",
+      "pos": [
+        -7342.9716796875,
+        4344.5595703125
+      ],
+      "size": [
+        315,
+        222
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 91,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            93
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            94
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadTextDirectory"
+      },
+      "widgets_values": [
+        "single_file",
+        353609715246564,
+        "randomize",
+        6,
+        "Text Batch 001",
+        "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Florence\\FPV-drive\\CAP",
+        "*"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -6994.46630859375,
+        4344.369140625
+      ],
+      "size": [
+        551.6575317382812,
+        150.9805908203125
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 93,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "fpv Driving,, A view from the inside of a car, looking out the rear-view mirror at a winding road through a lush, green landscape. the car's dashboard is visible, with a black sporty microphone attached to it. the microphone is positioned in the center of the image, and it appears to be a stylized green object. in the background, there are trees, a house, and a few other vehicles on the road, all set against a clear, bright blue sky. the road is wet and has a curvy shape, with white lines running along the center. the image is taken from inside the car, giving a clear view of the scenery."
+      ]
+    },
+    {
+      "id": 73,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -6995.2490234375,
+        4550.94580078125
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 94,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "20241127_115021_1f3903f8_segment14.txt"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "Note",
+      "pos": [
+        -7335.18408203125,
+        4178.37451171875
+      ],
+      "size": [
+        445.4607238769531,
+        95.67969512939453
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "This node is designed to load a text file with batch directory support.\n\nuse increment on the index to iterate throuigh a folder of text files.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 62,
+      "type": "PrimitiveNode",
+      "pos": [
+        -7656.23046875,
+        4344.41552734375
+      ],
+      "size": [
+        278.6571044921875,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            91
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        6,
+        "increment"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        -8036.41650390625,
+        4161.3095703125
+      ],
+      "size": [
+        320.7658996582031,
+        262.17633056640625
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "DJZ-Nodes-Examples-Load-text-Directory\n\n# Video: \nhttps://www.youtube.com/@FiveBelowFiveUK\n# Workflow: https://civitai.com/user/driftjohnson/models\n# Website:\nhttps://www.fivebelowfive.uk\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      91,
+      62,
+      0,
+      72,
+      0,
+      "INT"
+    ],
+    [
+      93,
+      72,
+      0,
+      64,
+      0,
+      "STRING"
+    ],
+    [
+      94,
+      72,
+      1,
+      73,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8535541610671277,
+      "offset": [
+        8131.898910000706,
+        -3987.8144208844437
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
