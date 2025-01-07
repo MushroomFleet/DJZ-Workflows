@@ -1,0 +1,815 @@
+{
+  "last_node_id": 105,
+  "last_link_id": 226,
+  "nodes": [
+    {
+      "id": 86,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -601.1962890625,
+        -327.6922302246094
+      ],
+      "size": [
+        358.478271484375,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            192
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "shuttle-3.1-aesthetic-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 55,
+      "type": "CLIPTextEncode",
+      "pos": [
+        58.52043914794922,
+        57.929901123046875
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 98
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            183
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 87,
+      "type": "VAEEncodeTiled",
+      "pos": [
+        -40.953094482421875,
+        150.03036499023438
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 193
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 194
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            195
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncodeTiled"
+      },
+      "widgets_values": [
+        256,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -601.7183227539062,
+        -183.4259033203125
+      ],
+      "size": [
+        358.1661071777344,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            10,
+            98
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        -596.4172973632812,
+        -31.658416748046875
+      ],
+      "size": [
+        350.6744689941406,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            194,
+            197
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -159.27230834960938,
+        -182.26641845703125
+      ],
+      "size": [
+        431.5182189941406,
+        188.75559997558594
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            102
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "(A middle-aged white male newscaster with neatly combed silver-gray hair speaks directly into the camera, his expression serious and professional. He wears a charcoal gray suit with a navy blue tie and crisp white dress shirt, his posture perfectly upright as he delivers his report. The camera holds a medium close-up shot, framing him from chest to head. The professional studio lighting creates even illumination on his face, eliminating any shadows. The scene appears to be real-life footage.:0.9), 00000003"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 88,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        1044.7288818359375,
+        -326.006591796875
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 196
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 197
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            225
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeTiled"
+      },
+      "widgets_values": [
+        256,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 71,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -587.1734008789062,
+        149.45071411132812
+      ],
+      "size": [
+        461.68292236328125,
+        286
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            193
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "no-daemon_00002 (1).mp4",
+        "force_rate": 0,
+        "force_size": "Custom Width",
+        "custom_width": 768,
+        "custom_height": 1024,
+        "frame_load_cap": 24,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 0,
+            "frame_load_cap": 24,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "no-daemon_00002 (1).mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 76,
+      "type": "CohernetVideoSampler",
+      "pos": [
+        679.782958984375,
+        -326.11090087890625
+      ],
+      "size": [
+        315,
+        382
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 192
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 182
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 183
+        },
+        {
+          "name": "video_latents",
+          "type": "LATENT",
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            196
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CohernetVideoSampler"
+      },
+      "widgets_values": [
+        298398664824497,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "simple",
+        0.71,
+        0.45,
+        1,
+        0.5
+      ]
+    },
+    {
+      "id": 104,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1050,
+        -500
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 103,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1060,
+        -650
+      ],
+      "size": [
+        1964.94140625,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Flux Coherent Video Sampler",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 83,
+      "type": "FILM VFI",
+      "pos": [
+        1425.777587890625,
+        -325.69366455078125
+      ],
+      "size": [
+        318.82177734375,
+        126
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "link": 225
+        },
+        {
+          "name": "optional_interpolation_states",
+          "type": "INTERPOLATION_STATES",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            226
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FILM VFI"
+      },
+      "widgets_values": [
+        "film_net_fp32.pt",
+        10,
+        2
+      ]
+    },
+    {
+      "id": 73,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1809.6005859375,
+        -326.12518310546875
+      ],
+      "size": [
+        879.50537109375,
+        840.4249267578125
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 226
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 20,
+        "loop_count": 0,
+        "filename_prefix": "CG",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "CG_00002.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 20,
+            "workflow": "CG_00002.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\CG_00002.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 56,
+      "type": "FluxGuidance",
+      "pos": [
+        321.4088134765625,
+        -179.96714782714844
+      ],
+      "size": [
+        211.60000610351562,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            182
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ]
+    },
+    {
+      "id": 105,
+      "type": "Note",
+      "pos": [
+        -1050,
+        -320
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "FODA-Flux-Coherent-Video-vid2vid-v5\n\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\ncustom node required:\nhttps://github.com/ShmuelRonen/ComfyUI-CohernetVideoSampler\n\n\nfixed generation to 24 FPS, as per Author specs\n- NAME YOUR PROJECT !!\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      10,
+      11,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      98,
+      11,
+      0,
+      55,
+      0,
+      "CLIP"
+    ],
+    [
+      102,
+      6,
+      0,
+      56,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      182,
+      56,
+      0,
+      76,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      183,
+      55,
+      0,
+      76,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      192,
+      86,
+      0,
+      76,
+      0,
+      "MODEL"
+    ],
+    [
+      193,
+      71,
+      0,
+      87,
+      0,
+      "IMAGE"
+    ],
+    [
+      194,
+      10,
+      0,
+      87,
+      1,
+      "VAE"
+    ],
+    [
+      195,
+      87,
+      0,
+      76,
+      3,
+      "LATENT"
+    ],
+    [
+      196,
+      76,
+      0,
+      88,
+      0,
+      "LATENT"
+    ],
+    [
+      197,
+      10,
+      0,
+      88,
+      1,
+      "VAE"
+    ],
+    [
+      225,
+      88,
+      0,
+      83,
+      0,
+      "IMAGE"
+    ],
+    [
+      226,
+      83,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3109994191500167,
+      "offset": [
+        1149.5995335576551,
+        577.6618635626169
+      ]
+    },
+    "info": {
+      "name": "workflow",
+      "author": "",
+      "description": "",
+      "version": "1",
+      "created": "2024-08-01T19:08:07.203Z",
+      "modified": "2024-08-02T03:55:48.387Z",
+      "software": "ComfyUI"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
