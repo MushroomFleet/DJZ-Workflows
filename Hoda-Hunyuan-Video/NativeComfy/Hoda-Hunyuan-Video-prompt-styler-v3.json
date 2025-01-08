@@ -1,0 +1,825 @@
+{
+  "last_node_id": 164,
+  "last_link_id": 376,
+  "nodes": [
+    {
+      "id": 127,
+      "type": "CLIPTextEncode",
+      "pos": [
+        10,
+        -70
+      ],
+      "size": [
+        285.6000061035156,
+        117.79318237304688
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 322
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 373,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            323
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -893.8248901367188,
+        -137.33502197265625
+      ],
+      "size": [
+        350,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            321,
+            322
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "llava_llama3_fp8_scaled.safetensors",
+        "hunyuan_video",
+        "default"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        -894.4522094726562,
+        12.07817554473877
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            349
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "hunyuan_video_vae_bf16.safetensors"
+      ]
+    },
+    {
+      "id": 142,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -504.0368347167969,
+        270.4451599121094
+      ],
+      "size": [
+        425.7752990722656,
+        165.24510192871094
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 374,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss",
+        "_dpColors": {
+          "body": "#008080"
+        }
+      },
+      "widgets_values": [
+        "",
+        "a spaceship flying through an asteroid field . epic sci-fi space environment, massive star destroyers, laser-filled cosmos, advanced spacecraft aesthetic, retro-futuristic space design, vast stellar vistas . precise forward camera tracking, maintaining constant subject distance, stable horizontal movement, smooth linear progression . extended light exposure streak, illuminated motion path, light source tracing, brightness trail effect"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 67,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        -28.380355834960938,
+        -251.45437622070312
+      ],
+      "size": [
+        327.5635986328125,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 376
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            318
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        7
+      ]
+    },
+    {
+      "id": 44,
+      "type": "CLIPTextEncode",
+      "pos": [
+        10,
+        -120
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 321
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 372,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            175
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A raw footage of a young woman with vibrant blue and pink hair, wearing intricate steampunk gear including a headpiece with a clock, and adorned with elaborate body tattoos. Her intense gaze exemplifies a blend of futuristic and retro elements, as she moves gracefully, revealing more details of her unique attire and striking tattoos. The background is dimly lit, highlighting her as the central focus, with subtle glints of light illuminating her accessories."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 26,
+      "type": "FluxGuidance",
+      "pos": [
+        325.6618347167969,
+        -135.79656982421875
+      ],
+      "size": [
+        211.60000610351562,
+        58
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 175
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            320
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        6
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 126,
+      "type": "KSampler",
+      "pos": [
+        584.1322631835938,
+        -250.261474609375
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 318
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 320
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 323
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 348
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            351
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        454106316096387,
+        "randomize",
+        20,
+        1,
+        "euler",
+        "beta",
+        1
+      ]
+    },
+    {
+      "id": 144,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        924.5009155273438,
+        -248.82423400878906
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 351
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 349
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            350
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeTiled"
+      },
+      "widgets_values": [
+        256,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 145,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1156.7725830078125,
+        -249.32945251464844
+      ],
+      "size": [
+        755.2554931640625,
+        776.8990478515625
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 350
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "vered\\bon",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "bon_00001.mp4",
+            "subfolder": "vered",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "bon_00001.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\temp\\vered\\bon_00001.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 161,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        -893.4346923828125,
+        -243.50599670410156
+      ],
+      "size": [
+        346.7718505859375,
+        61.15196990966797
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            376
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "hunyuan-video-t2v-720p-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 162,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1350,
+        -420
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 163,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1360,
+        -570
+      ],
+      "size": [
+        2373.5595703125,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Hoda Hunyuan Video Prompt Styler",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 143,
+      "type": "EmptyHunyuanLatentForVideo",
+      "pos": [
+        -18.9210262298584,
+        16.043209075927734
+      ],
+      "size": [
+        327.5999755859375,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            348
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyHunyuanLatentForVideo"
+      },
+      "widgets_values": [
+        "768x448 (16:9)",
+        49,
+        1
+      ]
+    },
+    {
+      "id": 160,
+      "type": "HunyuanVideoStyler",
+      "pos": [
+        -508.2520751953125,
+        -242.59632873535156
+      ],
+      "size": [
+        425.7591857910156,
+        463.27801513671875
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            372,
+            374
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [
+            373
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HunyuanVideoStyler",
+        "_dpColors": {
+          "body": "#1a1a1d"
+        }
+      },
+      "widgets_values": [
+        "a spaceship flying through an asteroid field",
+        "",
+        "star-wars-space",
+        "None",
+        "None",
+        "None",
+        "None",
+        "steady-tracking",
+        "None",
+        "light-trails",
+        "None",
+        "None",
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 164,
+      "type": "Note",
+      "pos": [
+        -1350,
+        -240
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Hoda-Hunyuan-Video-prompt-styler-v3\n\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\ncustom node required:\nhttps://github.com/ShmuelRonen/ComfyUI-HunyuanVideoStyler\n\n\nfixed generation to 24 FPS, as per Author specs\n- NAME YOUR PROJECT !!\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      175,
+      44,
+      0,
+      26,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      318,
+      67,
+      0,
+      126,
+      0,
+      "MODEL"
+    ],
+    [
+      320,
+      26,
+      0,
+      126,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      321,
+      11,
+      0,
+      44,
+      0,
+      "CLIP"
+    ],
+    [
+      322,
+      11,
+      0,
+      127,
+      0,
+      "CLIP"
+    ],
+    [
+      323,
+      127,
+      0,
+      126,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      348,
+      143,
+      0,
+      126,
+      3,
+      "LATENT"
+    ],
+    [
+      349,
+      10,
+      0,
+      144,
+      1,
+      "VAE"
+    ],
+    [
+      350,
+      144,
+      0,
+      145,
+      0,
+      "IMAGE"
+    ],
+    [
+      351,
+      126,
+      0,
+      144,
+      0,
+      "LATENT"
+    ],
+    [
+      372,
+      160,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      373,
+      160,
+      1,
+      127,
+      1,
+      "STRING"
+    ],
+    [
+      374,
+      160,
+      0,
+      142,
+      0,
+      "STRING"
+    ],
+    [
+      376,
+      161,
+      0,
+      67,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.5863092971715094,
+      "offset": [
+        1485.3133874759735,
+        399.2446581680149
+      ]
+    },
+    "groupNodes": {},
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
