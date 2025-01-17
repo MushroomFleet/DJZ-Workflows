@@ -1,0 +1,291 @@
+{
+  "last_node_id": 17,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "Label (rgthree)",
+      "pos": [
+        38.28233337402344,
+        462.9090576171875
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 4,
+      "type": "Label (rgthree)",
+      "pos": [
+        39.82332992553711,
+        305.8638916015625
+      ],
+      "size": [
+        891.650390625,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "WINAMP VIZ",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        45.492828369140625,
+        613.987548828125
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "DJZ-Node-Examples-Winamp-Viz\n\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        532.8788452148438,
+        627.3328247070312
+      ],
+      "size": [
+        243.818359375,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            8,
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadAudioUpload"
+      },
+      "widgets_values": {
+        "audio": "2030-cars.wav",
+        "start_time": 0,
+        "duration": 0,
+        "choose audio to upload": "image"
+      }
+    },
+    {
+      "id": 16,
+      "type": "WinampViz",
+      "pos": [
+        855.3845825195312,
+        626.021484375
+      ],
+      "size": [
+        315,
+        226
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WinampViz"
+      },
+      "widgets_values": [
+        512,
+        512,
+        14,
+        0,
+        "milkdrop_bars",
+        "rainbow",
+        1,
+        0.5
+      ]
+    },
+    {
+      "id": 15,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1286.13330078125,
+        626.5551147460938
+      ],
+      "size": [
+        505.8006591796875,
+        833.8006591796875
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 7
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 9,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 14,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00159-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 14,
+            "workflow": "AnimateDiff_00159.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\AnimateDiff_00159-audio.mp4"
+          },
+          "muted": false
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      7,
+      16,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      17,
+      0,
+      16,
+      0,
+      "AUDIO"
+    ],
+    [
+      9,
+      17,
+      0,
+      15,
+      1,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0152559799477168,
+      "offset": [
+        -279.2074163494617,
+        -418.67756825329525
+      ]
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
