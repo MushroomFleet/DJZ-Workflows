@@ -1,0 +1,3100 @@
+{
+  "last_node_id": 126,
+  "last_link_id": 248,
+  "nodes": [
+    {
+      "id": 61,
+      "type": "PrimitiveNode",
+      "pos": [
+        -143.44847106933594,
+        -140
+      ],
+      "size": [
+        306.8687438964844,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            156,
+            224,
+            247
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "ExamplePrompt"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -144.7640380859375,
+        104.85692596435547
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            75,
+            99,
+            214,
+            225
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "oldt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "cosmos",
+        "default"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2800,
+        290
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            168
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        -142.79759216308594,
+        241.24351501464844
+      ],
+      "size": [
+        307.2109680175781,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            76,
+            172,
+            216,
+            237
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "cosmos_cv8x8x8_1.0.safetensors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 37,
+      "type": "UNETLoader",
+      "pos": [
+        -145.7376708984375,
+        -28.673358917236328
+      ],
+      "size": [
+        316.1443786621094,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            165,
+            219
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "Cosmos-1_0-Diffusion-7B-Video2World.safetensors",
+        "default"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "LTXVConditioning",
+      "pos": [
+        3350,
+        360
+      ],
+      "size": [
+        210,
+        78
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 167
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 168
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            169
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            170
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 71,
+      "type": "ModelSamplingContinuousEDM",
+      "pos": [
+        3280,
+        170
+      ],
+      "size": [
+        327.5999755859375,
+        106
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 165
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            166
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingContinuousEDM"
+      },
+      "widgets_values": [
+        "edm",
+        80,
+        0.002
+      ]
+    },
+    {
+      "id": 63,
+      "type": "Label (rgthree)",
+      "pos": [
+        -590,
+        -320
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 62,
+      "type": "Label (rgthree)",
+      "pos": [
+        -590,
+        -480
+      ],
+      "size": [
+        3331.201171875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "CODA Cosmos Pack | LOOPED MOTION (ABBA)",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        3670,
+        170
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 166
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 169
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 170
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            87
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1076281875607095,
+        "fixed",
+        20,
+        7,
+        "euler",
+        "karras",
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 42,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2800,
+        50
+      ],
+      "size": [
+        426.00872802734375,
+        193.99578857421875
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 99
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 204,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            167
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A sleek, humanoid robot stands in a vast warehouse filled with neatly stacked cardboard boxes on industrial shelves. The robot's metallic body gleams under the bright, even lighting, highlighting its futuristic design and intricate joints. A glowing blue light emanates from its chest, adding a touch of advanced technology. The background is dominated by rows of boxes, suggesting a highly organized storage system. The floor is lined with wooden pallets, enhancing the industrial setting. The camera remains static, capturing the robot's poised stance amidst the orderly environment, with a shallow depth of field that keeps the focus on the robot while subtly blurring the background for a cinematic effect."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 92,
+      "type": "Text Concatenate",
+      "pos": [
+        1780,
+        30
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 199,
+          "widget": {
+            "name": "text_a"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 200,
+          "widget": {
+            "name": "text_b"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            203
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 87,
+      "type": "PromptDupeRemoverV2",
+      "pos": [
+        1300,
+        140
+      ],
+      "size": [
+        382.2704772949219,
+        170.4508056640625
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 190,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            202
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PromptDupeRemoverV2"
+      },
+      "widgets_values": [
+        "",
+        true,
+        "in, movement"
+      ]
+    },
+    {
+      "id": 86,
+      "type": "PromptSwap",
+      "pos": [
+        1310,
+        360
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 189,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            190
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PromptSwap"
+      },
+      "widgets_values": [
+        "",
+        "photo, image, painting, picture",
+        "video, video, video, video"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "StringWeights",
+      "pos": [
+        1360,
+        30
+      ],
+      "size": [
+        210,
+        70
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 202,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            199
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringWeights"
+      },
+      "widgets_values": [
+        "",
+        0.9
+      ]
+    },
+    {
+      "id": 77,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2130,
+        20
+      ],
+      "size": [
+        333.7226257324219,
+        214.38467407226562
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 203,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            204
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "A futuristic, sci-fi scene featuring  full-body figure of  male robot with  blue helmet, gas mask, and  bat-like cape, standing confidently on  rooftop   cityscape in the background.   is wearing  black,  armor  various buttons  insignia,  holds  gun in its right hand.  sky  filled  pink   clouds,     visible in  distance.  video has  high-quality, cinematic feel."
+        ],
+        "(A digital illustration of  full-body samurai standing on  rocky cliff, holding  katana in one hand and  sword in the other.  background features  vibrant, gradient  orange  pink hues, with  large,  moon in  center.   is wearing  armor  intricate designs,   helmet   feather.  city skyline below  silhouetted against  sky,  small drones flying around.  style  reminiscent  modern sci-fi art,  bold outlines   colors.:0.9), 000008CB"
+      ]
+    },
+    {
+      "id": 94,
+      "type": "StringPainterV2",
+      "pos": [
+        507.6545715332031,
+        44.231605529785156
+      ],
+      "size": [
+        315,
+        222
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hex_string",
+          "type": "STRING",
+          "links": [
+            200
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "used_seed",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringPainterV2"
+      },
+      "widgets_values": [
+        3571397583,
+        "randomize",
+        "32",
+        "random",
+        1,
+        2000,
+        2500
+      ]
+    },
+    {
+      "id": 85,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        870.9033813476562,
+        43.26304244995117
+      ],
+      "size": [
+        365.4000244140625,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            187
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "MiaoshouAI/Florence-2-base-PromptGen-v2.0",
+        "fp16",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 84,
+      "type": "Florence2Run",
+      "pos": [
+        860.6299438476562,
+        202.60629272460938
+      ],
+      "size": [
+        400,
+        352.00006103515625
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 196
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 187
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            189
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "",
+        "detailed_caption",
+        true,
+        false,
+        1024,
+        3,
+        true,
+        "",
+        1028130144070125,
+        "fixed"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "CosmosImageToVideoLatent",
+      "pos": [
+        2134.386474609375,
+        335.0666809082031
+      ],
+      "size": [
+        315,
+        170
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 172
+        },
+        {
+          "name": "start_image",
+          "type": "IMAGE",
+          "link": 174,
+          "shape": 7
+        },
+        {
+          "name": "end_image",
+          "type": "IMAGE",
+          "link": 207,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            171
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CosmosImageToVideoLatent"
+      },
+      "widgets_values": [
+        704,
+        704,
+        121,
+        1
+      ]
+    },
+    {
+      "id": 106,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2810,
+        1360
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 214
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            218
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 108,
+      "type": "LTXVConditioning",
+      "pos": [
+        3360,
+        1430
+      ],
+      "size": [
+        210,
+        78
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 217
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 218
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            221
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            222
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 109,
+      "type": "ModelSamplingContinuousEDM",
+      "pos": [
+        3290,
+        1240
+      ],
+      "size": [
+        327.5999755859375,
+        106
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 219
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            220
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingContinuousEDM"
+      },
+      "widgets_values": [
+        "edm",
+        80,
+        0.002
+      ]
+    },
+    {
+      "id": 110,
+      "type": "KSampler",
+      "pos": [
+        3680,
+        1240
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 220
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 221
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 222
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 223
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            215
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1076281875607095,
+        "fixed",
+        20,
+        7,
+        "euler",
+        "karras",
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 112,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2810,
+        1120
+      ],
+      "size": [
+        426.00872802734375,
+        193.99578857421875
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 225
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 226,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            217
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A sleek, humanoid robot stands in a vast warehouse filled with neatly stacked cardboard boxes on industrial shelves. The robot's metallic body gleams under the bright, even lighting, highlighting its futuristic design and intricate joints. A glowing blue light emanates from its chest, adding a touch of advanced technology. The background is dominated by rows of boxes, suggesting a highly organized storage system. The floor is lined with wooden pallets, enhancing the industrial setting. The camera remains static, capturing the robot's poised stance amidst the orderly environment, with a shallow depth of field that keeps the focus on the robot while subtly blurring the background for a cinematic effect."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 113,
+      "type": "Text Concatenate",
+      "pos": [
+        1790,
+        1100
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 227,
+          "widget": {
+            "name": "text_a"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 228,
+          "widget": {
+            "name": "text_b"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            234
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 114,
+      "type": "PromptDupeRemoverV2",
+      "pos": [
+        1310,
+        1210
+      ],
+      "size": [
+        382.2704772949219,
+        170.4508056640625
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 229,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            231
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PromptDupeRemoverV2"
+      },
+      "widgets_values": [
+        "",
+        true,
+        "in, movement"
+      ]
+    },
+    {
+      "id": 115,
+      "type": "PromptSwap",
+      "pos": [
+        1320,
+        1430
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 230,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            229
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PromptSwap"
+      },
+      "widgets_values": [
+        "",
+        "photo, image, painting, picture",
+        "video, video, video, video"
+      ]
+    },
+    {
+      "id": 116,
+      "type": "StringWeights",
+      "pos": [
+        1370,
+        1100
+      ],
+      "size": [
+        210,
+        70
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 231,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            227
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringWeights"
+      },
+      "widgets_values": [
+        "",
+        0.9
+      ]
+    },
+    {
+      "id": 118,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2140,
+        1090
+      ],
+      "size": [
+        333.7226257324219,
+        214.38467407226562
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 234,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            226
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "A futuristic, sci-fi scene featuring  full-body figure of  male robot with  blue helmet, gas mask, and  bat-like cape, standing confidently on  rooftop   cityscape in the background.   is wearing  black,  armor  various buttons  insignia,  holds  gun in its right hand.  sky  filled  pink   clouds,     visible in  distance.  video has  high-quality, cinematic feel."
+        ],
+        "(A digital video of  futuristic, sci-fi scene featuring  full-body figure   humanoid robot with  blue helmet and armor, standing confidently in the foreground, flanked by two smaller figures.  background features  large, glowing orange sun  several small, spacecrafts flying in  sky.   is set against  backdrop   golden bridge  distant mountains.  art style  dark  dramatic,   focus on  intricate details   's     lighting.  text \"Cyberpunk 2077\"  at  bottom.:0.9), 0000087C"
+      ]
+    },
+    {
+      "id": 120,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        880,
+        1110
+      ],
+      "size": [
+        365.4000244140625,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            236
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "MiaoshouAI/Florence-2-base-PromptGen-v2.0",
+        "fp16",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 121,
+      "type": "Florence2Run",
+      "pos": [
+        870,
+        1270
+      ],
+      "size": [
+        400,
+        352.00006103515625
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 240
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 236
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            230
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "",
+        "detailed_caption",
+        true,
+        false,
+        1024,
+        3,
+        true,
+        "",
+        1028130144070125,
+        "fixed"
+      ]
+    },
+    {
+      "id": 122,
+      "type": "CosmosImageToVideoLatent",
+      "pos": [
+        2140,
+        1400
+      ],
+      "size": [
+        315,
+        170
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 237
+        },
+        {
+          "name": "start_image",
+          "type": "IMAGE",
+          "link": 241,
+          "shape": 7
+        },
+        {
+          "name": "end_image",
+          "type": "IMAGE",
+          "link": 242,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            223
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CosmosImageToVideoLatent"
+      },
+      "widgets_values": [
+        704,
+        704,
+        121,
+        1
+      ]
+    },
+    {
+      "id": 119,
+      "type": "StringPainterV2",
+      "pos": [
+        510,
+        1110
+      ],
+      "size": [
+        315,
+        222
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hex_string",
+          "type": "STRING",
+          "links": [
+            228
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "used_seed",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringPainterV2"
+      },
+      "widgets_values": [
+        2409614592,
+        "randomize",
+        "32",
+        "random",
+        1,
+        2000,
+        2500
+      ]
+    },
+    {
+      "id": 65,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3660,
+        580
+      ],
+      "size": [
+        315.019775390625,
+        150.40281677246094
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 156,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            157
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "CODA-Cosmos",
+        "ExamplePrompt",
+        "AB",
+        "cosmos",
+        "auto"
+      ]
+    },
+    {
+      "id": 111,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3670,
+        1650
+      ],
+      "size": [
+        315.019775390625,
+        150.40281677246094
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 224,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            233
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "CODA-Cosmos",
+        "ExamplePrompt",
+        "BA",
+        "cosmos",
+        "auto"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        3670,
+        470
+      ],
+      "size": [
+        309.4615783691406,
+        46
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 87
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            155,
+            243
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 107,
+      "type": "VAEDecode",
+      "pos": [
+        3680,
+        1540
+      ],
+      "size": [
+        309.4615783691406,
+        46
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 215
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 216
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            232,
+            244
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 60,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4120,
+        151.47216796875
+      ],
+      "size": [
+        338.11956787109375,
+        662.1195678710938
+      ],
+      "flags": {},
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 155
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 157,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "cosmos_00001.mp4",
+            "subfolder": "CODA-Cosmos\\ExamplePrompt\\AB",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "cosmos_00001.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\CODA-Cosmos\\ExamplePrompt\\AB\\cosmos_00001.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 117,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4140,
+        1130
+      ],
+      "size": [
+        328.84576416015625,
+        652.8457641601562
+      ],
+      "flags": {},
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 232
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 233,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "cosmos_00001.mp4",
+            "subfolder": "CODA-Cosmos\\ExamplePrompt\\BA",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "cosmos_00001.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\CODA-Cosmos\\ExamplePrompt\\BA\\cosmos_00001.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 124,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        5178.3359375,
+        275.3135070800781
+      ],
+      "size": [
+        956.3731689453125,
+        1280.3731689453125
+      ],
+      "flags": {},
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 248
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 246,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "cosmos_00001.mp4",
+            "subfolder": "CODA-Cosmos\\ExamplePrompt\\ABBA",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "cosmos_00001.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\CODA-Cosmos\\ExamplePrompt\\ABBA\\cosmos_00001.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 123,
+      "type": "VideoMerge",
+      "pos": [
+        4812.3994140625,
+        710.0536499023438
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Video_A",
+          "type": "IMAGE",
+          "link": 243
+        },
+        {
+          "name": "Video_B",
+          "type": "IMAGE",
+          "link": 244
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            248
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoMerge"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 125,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        4762.39892578125,
+        872.9695434570312
+      ],
+      "size": [
+        315.019775390625,
+        150.40281677246094
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 247,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            246
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "CODA-Cosmos",
+        "ExamplePrompt",
+        "ABBA",
+        "cosmos",
+        "auto"
+      ]
+    },
+    {
+      "id": 126,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -133.5845947265625,
+        375.1529846191406
+      ],
+      "size": [
+        286.6710510253906,
+        106
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "pale_blue",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 89,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1244.24169921875,
+        653.62548828125
+      ],
+      "size": [
+        302.9617919921875,
+        82
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            195
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "title": "IMAGE A (INDEX)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "fixed"
+      ]
+    },
+    {
+      "id": 96,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1254.24169921875,
+        993.62548828125
+      ],
+      "size": [
+        302.9617919921875,
+        82
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            205
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "title": "IMAGE B (INDEX)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1,
+        "fixed"
+      ]
+    },
+    {
+      "id": 90,
+      "type": "PreviewImage",
+      "pos": [
+        -474.24169921875,
+        653.62548828125
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 197
+        }
+      ],
+      "outputs": [],
+      "title": "IMAGE A",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 98,
+      "type": "PreviewImage",
+      "pos": [
+        -484.24169921875,
+        993.62548828125
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 208
+        }
+      ],
+      "outputs": [],
+      "title": "IMAGE B",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 88,
+      "type": "Load Image Batch",
+      "pos": [
+        -904.24169921875,
+        653.62548828125
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 195,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            193,
+            197
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Load Image A Batch",
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "single_image",
+        7377876024514,
+        "fixed",
+        0,
+        "Batch 001",
+        "\\\\JOHNSON-NAS\\obmhost\\ComfyUI Media\\Output Gallery\\foda\\V4merged-samurai\\CC",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 95,
+      "type": "Load Image Batch",
+      "pos": [
+        -914.24169921875,
+        993.62548828125
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 205,
+          "widget": {
+            "name": "index"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            206,
+            208
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Load Image B Batch",
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "single_image",
+        7377876024514,
+        "fixed",
+        1,
+        "Batch 001",
+        "\\\\JOHNSON-NAS\\obmhost\\ComfyUI Media\\Output Gallery\\foda\\V4merged-samurai\\CC",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 76,
+      "type": "ImageResize+",
+      "pos": [
+        -134.24169921875,
+        653.62548828125
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 193
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            174,
+            196,
+            242
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "🔧 Image A Resize",
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        704,
+        704,
+        "lanczos",
+        "fill / crop",
+        "always",
+        32
+      ]
+    },
+    {
+      "id": 97,
+      "type": "ImageResize+",
+      "pos": [
+        -134.24169921875,
+        983.62548828125
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 206
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            207,
+            240,
+            241
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "🔧 Image B Resize",
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        704,
+        704,
+        "lanczos",
+        "fill / crop",
+        "always",
+        32
+      ]
+    },
+    {
+      "id": 64,
+      "type": "Note",
+      "pos": [
+        -590,
+        -137.91529846191406
+      ],
+      "size": [
+        421.6943664550781,
+        603.2225952148438
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "CODA-Cosmos-Florence2-i2v-LOOPED-ABBA-V50\n\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      76,
+      39,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      87,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      99,
+      38,
+      0,
+      42,
+      0,
+      "CLIP"
+    ],
+    [
+      155,
+      8,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      156,
+      61,
+      0,
+      65,
+      0,
+      "STRING"
+    ],
+    [
+      157,
+      65,
+      0,
+      60,
+      4,
+      "STRING"
+    ],
+    [
+      165,
+      37,
+      0,
+      71,
+      0,
+      "MODEL"
+    ],
+    [
+      166,
+      71,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      167,
+      42,
+      0,
+      72,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      168,
+      7,
+      0,
+      72,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      169,
+      72,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      170,
+      72,
+      1,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      171,
+      73,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      172,
+      39,
+      0,
+      73,
+      0,
+      "VAE"
+    ],
+    [
+      174,
+      76,
+      0,
+      73,
+      1,
+      "IMAGE"
+    ],
+    [
+      187,
+      85,
+      0,
+      84,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      189,
+      84,
+      2,
+      86,
+      0,
+      "STRING"
+    ],
+    [
+      190,
+      86,
+      0,
+      87,
+      0,
+      "STRING"
+    ],
+    [
+      193,
+      88,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      195,
+      89,
+      0,
+      88,
+      0,
+      "INT"
+    ],
+    [
+      196,
+      76,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      197,
+      88,
+      0,
+      90,
+      0,
+      "IMAGE"
+    ],
+    [
+      199,
+      93,
+      0,
+      92,
+      0,
+      "STRING"
+    ],
+    [
+      200,
+      94,
+      0,
+      92,
+      1,
+      "STRING"
+    ],
+    [
+      202,
+      87,
+      0,
+      93,
+      0,
+      "STRING"
+    ],
+    [
+      203,
+      92,
+      0,
+      77,
+      0,
+      "STRING"
+    ],
+    [
+      204,
+      77,
+      0,
+      42,
+      1,
+      "STRING"
+    ],
+    [
+      205,
+      96,
+      0,
+      95,
+      0,
+      "INT"
+    ],
+    [
+      206,
+      95,
+      0,
+      97,
+      0,
+      "IMAGE"
+    ],
+    [
+      207,
+      97,
+      0,
+      73,
+      2,
+      "IMAGE"
+    ],
+    [
+      208,
+      95,
+      0,
+      98,
+      0,
+      "IMAGE"
+    ],
+    [
+      214,
+      38,
+      0,
+      106,
+      0,
+      "CLIP"
+    ],
+    [
+      215,
+      110,
+      0,
+      107,
+      0,
+      "LATENT"
+    ],
+    [
+      216,
+      39,
+      0,
+      107,
+      1,
+      "VAE"
+    ],
+    [
+      217,
+      112,
+      0,
+      108,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      218,
+      106,
+      0,
+      108,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      219,
+      37,
+      0,
+      109,
+      0,
+      "MODEL"
+    ],
+    [
+      220,
+      109,
+      0,
+      110,
+      0,
+      "MODEL"
+    ],
+    [
+      221,
+      108,
+      0,
+      110,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      222,
+      108,
+      1,
+      110,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      223,
+      122,
+      0,
+      110,
+      3,
+      "LATENT"
+    ],
+    [
+      224,
+      61,
+      0,
+      111,
+      0,
+      "STRING"
+    ],
+    [
+      225,
+      38,
+      0,
+      112,
+      0,
+      "CLIP"
+    ],
+    [
+      226,
+      118,
+      0,
+      112,
+      1,
+      "STRING"
+    ],
+    [
+      227,
+      116,
+      0,
+      113,
+      0,
+      "STRING"
+    ],
+    [
+      228,
+      119,
+      0,
+      113,
+      1,
+      "STRING"
+    ],
+    [
+      229,
+      115,
+      0,
+      114,
+      0,
+      "STRING"
+    ],
+    [
+      230,
+      121,
+      2,
+      115,
+      0,
+      "STRING"
+    ],
+    [
+      231,
+      114,
+      0,
+      116,
+      0,
+      "STRING"
+    ],
+    [
+      232,
+      107,
+      0,
+      117,
+      0,
+      "IMAGE"
+    ],
+    [
+      233,
+      111,
+      0,
+      117,
+      4,
+      "STRING"
+    ],
+    [
+      234,
+      113,
+      0,
+      118,
+      0,
+      "STRING"
+    ],
+    [
+      236,
+      120,
+      0,
+      121,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      237,
+      39,
+      0,
+      122,
+      0,
+      "VAE"
+    ],
+    [
+      240,
+      97,
+      0,
+      121,
+      0,
+      "IMAGE"
+    ],
+    [
+      241,
+      97,
+      0,
+      122,
+      1,
+      "IMAGE"
+    ],
+    [
+      242,
+      76,
+      0,
+      122,
+      2,
+      "IMAGE"
+    ],
+    [
+      243,
+      8,
+      0,
+      123,
+      0,
+      "IMAGE"
+    ],
+    [
+      244,
+      107,
+      0,
+      123,
+      1,
+      "IMAGE"
+    ],
+    [
+      246,
+      125,
+      0,
+      124,
+      4,
+      "STRING"
+    ],
+    [
+      247,
+      61,
+      0,
+      125,
+      0,
+      "STRING"
+    ],
+    [
+      248,
+      123,
+      0,
+      124,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "A -> B",
+      "bounding": [
+        403.63421630859375,
+        -110.02471923828125,
+        4176.302734375,
+        997.528564453125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "B -> A",
+      "bounding": [
+        411.8630676269531,
+        935.0523681640625,
+        4175.99951171875,
+        931.35498046875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "ABBA Result",
+      "bounding": [
+        4655.8388671875,
+        54.92660140991211,
+        1547.1513671875,
+        1668.1884765625
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Image Directory Index Controls",
+      "bounding": [
+        -1264.24169921875,
+        580.0255126953125,
+        1455,
+        693.5999755859375
+      ],
+      "color": "#A88",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3513057093104937,
+      "offset": [
+        865.4614530808956,
+        305.4782007250569
+      ]
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
