@@ -1,0 +1,1421 @@
+{
+  "last_node_id": 207,
+  "last_link_id": 351,
+  "nodes": [
+    {
+      "id": 123,
+      "type": "DualCLIPLoader",
+      "pos": [
+        225.54730224609375,
+        1730.248779296875
+      ],
+      "size": [
+        284.3122863769531,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            331
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 108,
+      "type": "VAELoader",
+      "pos": [
+        238.85629272460938,
+        1887.9017333984375
+      ],
+      "size": [
+        260.83404541015625,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            279
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 114,
+      "type": "PulidFluxModelLoader",
+      "pos": [
+        190.08006286621094,
+        2001.740478515625
+      ],
+      "size": [
+        299.536376953125,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "PULIDFLUX",
+          "type": "PULIDFLUX",
+          "links": [
+            325,
+            338
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "PULIDFLUX"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxModelLoader"
+      },
+      "widgets_values": [
+        "pulid_flux_v0.9.0.safetensors"
+      ]
+    },
+    {
+      "id": 124,
+      "type": "PulidFluxInsightFaceLoader",
+      "pos": [
+        243.86241149902344,
+        2109.06201171875
+      ],
+      "size": [
+        243.60000610351562,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACEANALYSIS",
+          "type": "FACEANALYSIS",
+          "links": [
+            327,
+            340
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "FACEANALYSIS"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxInsightFaceLoader"
+      },
+      "widgets_values": [
+        "CUDA"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "PulidFluxEvaClipLoader",
+      "pos": [
+        264.1108703613281,
+        2219.644287109375
+      ],
+      "size": [
+        218.39999389648438,
+        26
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "EVA_CLIP",
+          "type": "EVA_CLIP",
+          "links": [
+            326,
+            339
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "EVA_CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxEvaClipLoader"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 192,
+      "type": "SolidMask",
+      "pos": [
+        586.1332397460938,
+        2128.2021484375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            333
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        0,
+        1024,
+        768
+      ]
+    },
+    {
+      "id": 194,
+      "type": "SolidMask",
+      "pos": [
+        584.66943359375,
+        2283.810302734375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            334
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        1,
+        512,
+        768
+      ]
+    },
+    {
+      "id": 193,
+      "type": "MaskComposite",
+      "pos": [
+        936.1051635742188,
+        2191.961669921875
+      ],
+      "size": [
+        210,
+        126
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "MASK",
+          "link": 333
+        },
+        {
+          "name": "source",
+          "type": "MASK",
+          "link": 334
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            335,
+            336,
+            345
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskComposite"
+      },
+      "widgets_values": [
+        0,
+        0,
+        "add"
+      ]
+    },
+    {
+      "id": 175,
+      "type": "VAEDecode",
+      "pos": [
+        2890,
+        1850
+      ],
+      "size": [
+        270.1292724609375,
+        46
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 278,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 279,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            277
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 174,
+      "type": "PreviewImage",
+      "pos": [
+        2890,
+        1960
+      ],
+      "size": [
+        532.1437377929688,
+        431.74237060546875
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 277,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 111,
+      "type": "RandomNoise",
+      "pos": [
+        621.6414184570312,
+        1592.1983642578125
+      ],
+      "size": [
+        269.1552734375,
+        82
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            280
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "噪波生成"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        589134779645070,
+        "randomize"
+      ]
+    },
+    {
+      "id": 109,
+      "type": "KSamplerSelect",
+      "pos": [
+        2590,
+        2000
+      ],
+      "size": [
+        253,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            299
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "采样器"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 176,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        2590,
+        1850
+      ],
+      "size": [
+        250.84915161132812,
+        107.00357055664062
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 280,
+          "label": "噪波生成"
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 281,
+          "label": "引导"
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 299,
+          "label": "采样器"
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 283,
+          "label": "Sigmas"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 300,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            278
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "输出"
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3,
+          "label": "降噪输出"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 113,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        583.5349731445312,
+        1934.415771484375
+      ],
+      "size": [
+        368.7523498535156,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            300
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 112,
+      "type": "FluxGuidance",
+      "pos": [
+        1700,
+        1820
+      ],
+      "size": [
+        211.60000610351562,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 332,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            276
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ]
+    },
+    {
+      "id": 173,
+      "type": "BasicGuider",
+      "pos": [
+        2340,
+        1800
+      ],
+      "size": [
+        161.1999969482422,
+        46
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 349,
+          "label": "模型"
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 276,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            281
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "引导"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 120,
+      "type": "LoadImage",
+      "pos": [
+        1978.4464111328125,
+        2191.259521484375
+      ],
+      "size": [
+        339.2352294921875,
+        432.958251953125
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            341
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_cibru_00002_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 191,
+      "type": "CLIPTextEncode",
+      "pos": [
+        574.3319702148438,
+        1729.77978515625
+      ],
+      "size": [
+        390.310302734375,
+        139.83885192871094
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 331
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            332
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "On the bustling streets of Neo Tokyo, two men directly facing the camera are captured in a close-up shot. They are dressed in hoodies, embodying a cyberpunk aesthetic. Neon signs and holographic advertisements illuminate the background, casting vibrant colors and shadows. The scene is highly detailed and cinematic, presented in 4K high resolution, creating an immersive experience."
+      ]
+    },
+    {
+      "id": 190,
+      "type": "ApplyPulidFlux",
+      "pos": [
+        1600,
+        1930
+      ],
+      "size": [
+        315,
+        206
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 351,
+          "label": "model"
+        },
+        {
+          "name": "pulid_flux",
+          "type": "PULIDFLUX",
+          "link": 325,
+          "label": "pulid_flux"
+        },
+        {
+          "name": "eva_clip",
+          "type": "EVA_CLIP",
+          "link": 326,
+          "label": "eva_clip"
+        },
+        {
+          "name": "face_analysis",
+          "type": "FACEANALYSIS",
+          "link": 327,
+          "label": "face_analysis"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 347,
+          "label": "image"
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "link": 336,
+          "shape": 7,
+          "label": "attn_mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            343
+          ],
+          "slot_index": 0,
+          "label": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ApplyPulidFlux"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 198,
+      "type": "LoadImage",
+      "pos": [
+        1596.646240234375,
+        2189.944091796875
+      ],
+      "size": [
+        322.4007263183594,
+        455.0903625488281
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            347
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "20240906202537_1.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 196,
+      "type": "ApplyPulidFlux",
+      "pos": [
+        1970,
+        1930
+      ],
+      "size": [
+        315,
+        206
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 343,
+          "label": "model"
+        },
+        {
+          "name": "pulid_flux",
+          "type": "PULIDFLUX",
+          "link": 338,
+          "label": "pulid_flux"
+        },
+        {
+          "name": "eva_clip",
+          "type": "EVA_CLIP",
+          "link": 339,
+          "label": "eva_clip"
+        },
+        {
+          "name": "face_analysis",
+          "type": "FACEANALYSIS",
+          "link": 340,
+          "label": "face_analysis"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 341,
+          "label": "image"
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "link": 346,
+          "shape": 7,
+          "label": "attn_mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            348,
+            349
+          ],
+          "slot_index": 0,
+          "label": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ApplyPulidFlux"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 197,
+      "type": "InvertMask",
+      "pos": [
+        1213.987060546875,
+        2006.185302734375
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 345
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            346
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 195,
+      "type": "MaskPreview+",
+      "pos": [
+        1209.5277099609375,
+        2092.20361328125
+      ],
+      "size": [
+        260.15997314453125,
+        246
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 335
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 205,
+      "type": "Label (rgthree)",
+      "pos": [
+        -260.70269775390625,
+        1458.8804931640625
+      ],
+      "size": [
+        1190.078125,
+        80
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 80,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 122,
+      "type": "UNETLoader",
+      "pos": [
+        225.68780517578125,
+        1593.3408203125
+      ],
+      "size": [
+        280.4382629394531,
+        82
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.safetensors",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 207,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        217.21987915039062,
+        1628.3568115234375
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            351
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "shuttle-jaguar-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 171,
+      "type": "BasicScheduler",
+      "pos": [
+        2580,
+        2100
+      ],
+      "size": [
+        260.2480163574219,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 348,
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            283
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Sigmas"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        4,
+        1
+      ]
+    },
+    {
+      "id": 202,
+      "type": "Label (rgthree)",
+      "pos": [
+        -267.50054931640625,
+        1300.1834716796875
+      ],
+      "size": [
+        3428.6865234375,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FODA Flux | SCHNELL GGUF | PULID 2-Character",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 199,
+      "type": "Note",
+      "pos": [
+        -255.4105682373047,
+        1584.83203125
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Foda-Flux-GGUF-PULID-2-Character-lines-v60\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\nweb: https://www.fivebelowfive.uk\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      276,
+      112,
+      0,
+      173,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      277,
+      175,
+      0,
+      174,
+      0,
+      "IMAGE"
+    ],
+    [
+      278,
+      176,
+      0,
+      175,
+      0,
+      "LATENT"
+    ],
+    [
+      279,
+      108,
+      0,
+      175,
+      1,
+      "VAE"
+    ],
+    [
+      280,
+      111,
+      0,
+      176,
+      0,
+      "NOISE"
+    ],
+    [
+      281,
+      173,
+      0,
+      176,
+      1,
+      "GUIDER"
+    ],
+    [
+      283,
+      171,
+      0,
+      176,
+      3,
+      "SIGMAS"
+    ],
+    [
+      299,
+      109,
+      0,
+      176,
+      2,
+      "SAMPLER"
+    ],
+    [
+      300,
+      113,
+      0,
+      176,
+      4,
+      "LATENT"
+    ],
+    [
+      325,
+      114,
+      0,
+      190,
+      1,
+      "PULIDFLUX"
+    ],
+    [
+      326,
+      119,
+      0,
+      190,
+      2,
+      "EVA_CLIP"
+    ],
+    [
+      327,
+      124,
+      0,
+      190,
+      3,
+      "FACEANALYSIS"
+    ],
+    [
+      331,
+      123,
+      0,
+      191,
+      0,
+      "CLIP"
+    ],
+    [
+      332,
+      191,
+      0,
+      112,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      333,
+      192,
+      0,
+      193,
+      0,
+      "MASK"
+    ],
+    [
+      334,
+      194,
+      0,
+      193,
+      1,
+      "MASK"
+    ],
+    [
+      335,
+      193,
+      0,
+      195,
+      0,
+      "MASK"
+    ],
+    [
+      336,
+      193,
+      0,
+      190,
+      5,
+      "MASK"
+    ],
+    [
+      338,
+      114,
+      0,
+      196,
+      1,
+      "PULIDFLUX"
+    ],
+    [
+      339,
+      119,
+      0,
+      196,
+      2,
+      "EVA_CLIP"
+    ],
+    [
+      340,
+      124,
+      0,
+      196,
+      3,
+      "FACEANALYSIS"
+    ],
+    [
+      341,
+      120,
+      0,
+      196,
+      4,
+      "IMAGE"
+    ],
+    [
+      343,
+      190,
+      0,
+      196,
+      0,
+      "MODEL"
+    ],
+    [
+      345,
+      193,
+      0,
+      197,
+      0,
+      "MASK"
+    ],
+    [
+      346,
+      197,
+      0,
+      196,
+      5,
+      "MASK"
+    ],
+    [
+      347,
+      198,
+      0,
+      190,
+      4,
+      "IMAGE"
+    ],
+    [
+      348,
+      196,
+      0,
+      171,
+      0,
+      "MODEL"
+    ],
+    [
+      349,
+      196,
+      0,
+      173,
+      0,
+      "MODEL"
+    ],
+    [
+      351,
+      207,
+      0,
+      190,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.771561000000001,
+      "offset": [
+        333.2069556783453,
+        -1454.8606750522517
+      ]
+    },
+    "workspace_info": {
+      "id": "g5y3w4snyST0QiwIF3Ojg"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}

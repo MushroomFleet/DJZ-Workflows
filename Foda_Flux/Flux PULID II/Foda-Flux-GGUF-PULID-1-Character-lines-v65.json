@@ -1,0 +1,1037 @@
+{
+  "last_node_id": 196,
+  "last_link_id": 339,
+  "nodes": [
+    {
+      "id": 193,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        164.34071350097656,
+        1602.2723388671875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            337
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "shuttle-jaguar-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 122,
+      "type": "UNETLoader",
+      "pos": [
+        155.9709930419922,
+        1550.227783203125
+      ],
+      "size": [
+        280.4382629394531,
+        82
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.safetensors",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 113,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        1020.9312133789062,
+        1948.7269287109375
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            206
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        768,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 178,
+      "type": "ApplyPulidFlux",
+      "pos": [
+        627.6351318359375,
+        1960.97021484375
+      ],
+      "size": [
+        352.0417175292969,
+        206
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 337,
+          "label": "model"
+        },
+        {
+          "name": "pulid_flux",
+          "type": "PULIDFLUX",
+          "link": 302,
+          "label": "pulid_flux"
+        },
+        {
+          "name": "eva_clip",
+          "type": "EVA_CLIP",
+          "link": 303,
+          "label": "eva_clip"
+        },
+        {
+          "name": "face_analysis",
+          "type": "FACEANALYSIS",
+          "link": 304,
+          "label": "face_analysis"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 305,
+          "label": "image"
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7,
+          "label": "attn_mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            307,
+            309
+          ],
+          "slot_index": 0,
+          "label": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ApplyPulidFlux"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 115,
+      "type": "BasicGuider",
+      "pos": [
+        1290.560791015625,
+        1819.4013671875
+      ],
+      "size": [
+        161.1999969482422,
+        46
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 307,
+          "label": "模型"
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 201,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            203
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "引导"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 116,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1520,
+        1800
+      ],
+      "size": [
+        236.8000030517578,
+        106
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 202,
+          "label": "噪波生成"
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 203,
+          "label": "引导"
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 204,
+          "label": "采样器"
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 205,
+          "label": "Sigmas"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 206,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            207
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "输出"
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3,
+          "label": "降噪输出"
+        }
+      ],
+      "title": "base",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 109,
+      "type": "KSamplerSelect",
+      "pos": [
+        1519.0635986328125,
+        1950.6739501953125
+      ],
+      "size": [
+        232.54713439941406,
+        61.22101974487305
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            204
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "采样器"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 117,
+      "type": "VAEDecode",
+      "pos": [
+        1793.8134765625,
+        1849.40087890625
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 207,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 208,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            209
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 118,
+      "type": "PreviewImage",
+      "pos": [
+        1996.2464599609375,
+        1689.0234375
+      ],
+      "size": [
+        594.0609130859375,
+        672.879638671875
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 209,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "title": "base",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 123,
+      "type": "DualCLIPLoader",
+      "pos": [
+        163.9196014404297,
+        1707.3763427734375
+      ],
+      "size": [
+        311.6909484863281,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            197
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 114,
+      "type": "PulidFluxModelLoader",
+      "pos": [
+        161.017333984375,
+        1981.90478515625
+      ],
+      "size": [
+        309.1994323730469,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "PULIDFLUX",
+          "type": "PULIDFLUX",
+          "links": [
+            302
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "PULIDFLUX"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxModelLoader"
+      },
+      "widgets_values": [
+        "pulid_flux_v0.9.1.safetensors"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "PulidFluxEvaClipLoader",
+      "pos": [
+        166.9907989501953,
+        2096.2685546875
+      ],
+      "size": [
+        298.9255065917969,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "EVA_CLIP",
+          "type": "EVA_CLIP",
+          "links": [
+            303
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "EVA_CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxEvaClipLoader"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 124,
+      "type": "PulidFluxInsightFaceLoader",
+      "pos": [
+        169.23086547851562,
+        2176.298095703125
+      ],
+      "size": [
+        291.9153137207031,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACEANALYSIS",
+          "type": "FACEANALYSIS",
+          "links": [
+            304
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "FACEANALYSIS"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxInsightFaceLoader"
+      },
+      "widgets_values": [
+        "CUDA"
+      ]
+    },
+    {
+      "id": 111,
+      "type": "RandomNoise",
+      "pos": [
+        628.2461547851562,
+        1577.890380859375
+      ],
+      "size": [
+        352.90179443359375,
+        82
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            202
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "噪波生成"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        84033247502233,
+        "randomize"
+      ]
+    },
+    {
+      "id": 108,
+      "type": "VAELoader",
+      "pos": [
+        163.2696075439453,
+        1866.2957763671875
+      ],
+      "size": [
+        308.4172668457031,
+        58
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            208
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "CLIPTextEncode",
+      "pos": [
+        623.1177978515625,
+        1706.802001953125
+      ],
+      "size": [
+        364.9388732910156,
+        158.30029296875
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 197,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            199
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "On the bustling streets of Neo Tokyo, one man directly faces the camera are captured in a close-up shot. He is dressed in a jacket, embodying an aesthetic. Neon signs and holographic advertisements illuminate the background, casting vibrant colors and shadows. The scene is highly detailed and cinematic, presented in 4K high resolution, creating an immersive experience."
+      ]
+    },
+    {
+      "id": 194,
+      "type": "Label (rgthree)",
+      "pos": [
+        -300,
+        1420
+      ],
+      "size": [
+        1190.078125,
+        80
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 80,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 195,
+      "type": "Label (rgthree)",
+      "pos": [
+        -300,
+        1260
+      ],
+      "size": [
+        3428.6865234375,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FODA Flux | SCHNELL GGUF | PULID 1-Character",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 112,
+      "type": "FluxGuidance",
+      "pos": [
+        1021.7789306640625,
+        1842.688720703125
+      ],
+      "size": [
+        211.60000610351562,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 199,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            201
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ]
+    },
+    {
+      "id": 110,
+      "type": "BasicScheduler",
+      "pos": [
+        1520.3369140625,
+        2061.947509765625
+      ],
+      "size": [
+        234.15765380859375,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 309,
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            205
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Sigmas"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1
+      ]
+    },
+    {
+      "id": 120,
+      "type": "LoadImage",
+      "pos": [
+        617.5151977539062,
+        2225.58203125
+      ],
+      "size": [
+        382.8919372558594,
+        535.1791381835938
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            305
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "20240906233646_1.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 196,
+      "type": "Note",
+      "pos": [
+        -290,
+        1540
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Foda-Flux-GGUF-PULID-1-Character-lines-v65\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\nweb: https://www.fivebelowfive.uk\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      197,
+      123,
+      0,
+      107,
+      0,
+      "CLIP"
+    ],
+    [
+      199,
+      107,
+      0,
+      112,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      201,
+      112,
+      0,
+      115,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      202,
+      111,
+      0,
+      116,
+      0,
+      "NOISE"
+    ],
+    [
+      203,
+      115,
+      0,
+      116,
+      1,
+      "GUIDER"
+    ],
+    [
+      204,
+      109,
+      0,
+      116,
+      2,
+      "SAMPLER"
+    ],
+    [
+      205,
+      110,
+      0,
+      116,
+      3,
+      "SIGMAS"
+    ],
+    [
+      206,
+      113,
+      0,
+      116,
+      4,
+      "LATENT"
+    ],
+    [
+      207,
+      116,
+      0,
+      117,
+      0,
+      "LATENT"
+    ],
+    [
+      208,
+      108,
+      0,
+      117,
+      1,
+      "VAE"
+    ],
+    [
+      209,
+      117,
+      0,
+      118,
+      0,
+      "IMAGE"
+    ],
+    [
+      302,
+      114,
+      0,
+      178,
+      1,
+      "PULIDFLUX"
+    ],
+    [
+      303,
+      119,
+      0,
+      178,
+      2,
+      "EVA_CLIP"
+    ],
+    [
+      304,
+      124,
+      0,
+      178,
+      3,
+      "FACEANALYSIS"
+    ],
+    [
+      305,
+      120,
+      0,
+      178,
+      4,
+      "IMAGE"
+    ],
+    [
+      307,
+      178,
+      0,
+      115,
+      0,
+      "MODEL"
+    ],
+    [
+      309,
+      178,
+      0,
+      110,
+      0,
+      "MODEL"
+    ],
+    [
+      337,
+      193,
+      0,
+      178,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3513057093104004,
+      "offset": [
+        474.2020101994827,
+        -1239.4055739709784
+      ]
+    },
+    "workspace_info": {
+      "id": "wj8ZpCiIPAG2BZFJdw9nf"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
