@@ -1,0 +1,453 @@
+{
+  "last_node_id": 233,
+  "last_link_id": 550,
+  "nodes": [
+    {
+      "id": 219,
+      "type": "Label (rgthree)",
+      "pos": [
+        -710,
+        480
+      ],
+      "size": [
+        1190.078125,
+        80
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 80,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 232,
+      "type": "ImageResize+",
+      "pos": [
+        128.34864807128906,
+        754.8441162109375
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 548
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            549,
+            550
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        768,
+        768,
+        "lanczos",
+        "keep proportion",
+        "always",
+        32
+      ]
+    },
+    {
+      "id": 230,
+      "type": "Zoe-DepthMapPreprocessor",
+      "pos": [
+        498.5066223144531,
+        955.6213989257812
+      ],
+      "size": [
+        232.78182983398438,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 550
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            543
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Zoe-DepthMapPreprocessor"
+      },
+      "widgets_values": [
+        768
+      ]
+    },
+    {
+      "id": 229,
+      "type": "DepthBasedPixelization",
+      "pos": [
+        495.23480224609375,
+        754.7651977539062
+      ],
+      "size": [
+        236.47769165039062,
+        150
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 549
+        },
+        {
+          "name": "depth_maps",
+          "type": "IMAGE",
+          "link": 543
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            546
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthBasedPixelization"
+      },
+      "widgets_values": [
+        4,
+        18,
+        1,
+        true
+      ]
+    },
+    {
+      "id": 227,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -160.96934509277344,
+        754.62890625
+      ],
+      "size": [
+        247.455078125,
+        262
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            548
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "clip_00002 (5).mp4",
+        "force_rate": 25,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 25,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "clip_00002 (5).mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 228,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        783.3953247070312,
+        755.8162231445312
+      ],
+      "size": [
+        886.560791015625,
+        817.3870849609375
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 546
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00254.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "AnimateDiff_00254.png",
+            "fullpath": "K:\\MACHINES10\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\AnimateDiff_00254.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 220,
+      "type": "Label (rgthree)",
+      "pos": [
+        -710,
+        320
+      ],
+      "size": [
+        2106.005859375,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "DEPTH BASED PIXELIZATION",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 221,
+      "type": "Note",
+      "pos": [
+        -700,
+        600
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "DJZ-Nodes-Examples-Depth-based-Pixelization\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\nweb: https://www.fivebelowfive.uk\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj input"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      543,
+      230,
+      0,
+      229,
+      1,
+      "IMAGE"
+    ],
+    [
+      546,
+      229,
+      0,
+      228,
+      0,
+      "IMAGE"
+    ],
+    [
+      548,
+      227,
+      0,
+      232,
+      0,
+      "IMAGE"
+    ],
+    [
+      549,
+      232,
+      0,
+      229,
+      0,
+      "IMAGE"
+    ],
+    [
+      550,
+      232,
+      0,
+      230,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4864362802414408,
+      "offset": [
+        847.753267683461,
+        -525.4998374385815
+      ]
+    },
+    "workspace_info": {
+      "id": "l34uVb80o7dcMD7LqAQaG",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
