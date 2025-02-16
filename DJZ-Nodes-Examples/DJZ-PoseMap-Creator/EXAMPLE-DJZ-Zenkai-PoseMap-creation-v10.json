@@ -1,0 +1,604 @@
+{
+  "last_node_id": 37,
+  "last_link_id": 28,
+  "nodes": [
+    {
+      "id": 22,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1140,
+        334.4210510253906
+      ],
+      "size": [
+        1190.078125,
+        80
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 80,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 19,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1145.958984375,
+        195.95909118652344
+      ],
+      "size": [
+        2092.529296875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "DJZ Zenkai Pose Map Creation",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 33,
+      "type": "ImageResize+",
+      "pos": [
+        5.008345603942871,
+        506.55181884765625
+      ],
+      "size": [
+        315,
+        218
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 23,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 24,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest",
+        "fill / crop",
+        "always",
+        32
+      ]
+    },
+    {
+      "id": 32,
+      "type": "ImageSizeAdjusterV2",
+      "pos": [
+        -360.1211853027344,
+        575.8938598632812
+      ],
+      "size": [
+        315,
+        306
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            23
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            24
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageSizeAdjusterV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        32,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 35,
+      "type": "SaveImage",
+      "pos": [
+        838.1973266601562,
+        502.218017578125
+      ],
+      "size": [
+        315,
+        266
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 27,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1115.5736083984375,
+        894.3958129882812
+      ],
+      "size": [
+        370.3536376953125,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            28
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "power rangers"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 36,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        349.3045349121094,
+        902.7003784179688
+      ],
+      "size": [
+        293.61077880859375,
+        138.83140563964844
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "link": 28,
+          "widget": {
+            "name": "project_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            27
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "posemaps",
+        "power rangers",
+        "scenename",
+        "pose",
+        "auto"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "DWPreprocessor",
+      "pos": [
+        337.6337585449219,
+        504.38507080078125
+      ],
+      "size": [
+        315,
+        222
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            25,
+            26
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "POSE_KEYPOINT",
+          "type": "POSE_KEYPOINT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DWPreprocessor"
+      },
+      "widgets_values": [
+        "enable",
+        "enable",
+        "enable",
+        768,
+        "yolox_l.onnx",
+        "dw-ll_ucoco_384_bs5.torchscript.pt",
+        "disable"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -658.258056640625,
+        505.7815246582031
+      ],
+      "size": [
+        247.455078125,
+        455.26263427734375
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20,
+            21
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "AnimateDiff_00265-audio.mp4",
+        "force_rate": 25,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 50,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00265-audio.mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 25,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 50
+          }
+        }
+      }
+    },
+    {
+      "id": 34,
+      "type": "PreviewImage",
+      "pos": [
+        336.9513244628906,
+        778.0477905273438
+      ],
+      "size": [
+        307.5123596191406,
+        246
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 18,
+      "type": "Note",
+      "pos": [
+        -1130,
+        500
+      ],
+      "size": [
+        398.8530578613281,
+        313.70330810546875
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "EXAMPLE-DJZ-Zenkai-PoseMap-creation-v10\n\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      20,
+      30,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      30,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      33,
+      0,
+      31,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      32,
+      0,
+      33,
+      1,
+      "INT"
+    ],
+    [
+      24,
+      32,
+      1,
+      33,
+      2,
+      "INT"
+    ],
+    [
+      25,
+      31,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      31,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      36,
+      0,
+      35,
+      1,
+      "STRING"
+    ],
+    [
+      28,
+      37,
+      0,
+      36,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.798587899092244,
+      "offset": [
+        1196.7635623947185,
+        -277.8139070173969
+      ]
+    },
+    "node_versions": {
+      "comfyui_essentials": "1.1.0",
+      "DJZ-Nodes": "53e7f332f5b2faca8fc46ac2a354348ed983efa4",
+      "comfy-core": "0.3.14",
+      "comfyui_controlnet_aux": "1.0.5",
+      "comfyui-videohelpersuite": "1.5.1"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
