@@ -1,5 +1,6 @@
 # DJZ-Workflows
 A comprehensive collection of ComfyUI workflows from @driftjohnson @fivebelowfiveuk
+https://www.youtube.com/watch?v=Ld8FDuBNOWM
 
 ## Overview
 This repository contains a vast collection of specialized workflow packs for ComfyUI, covering a wide range of AI image and video generation capabilities:
