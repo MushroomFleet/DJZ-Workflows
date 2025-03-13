@@ -1,0 +1,941 @@
+{
+  "last_node_id": 90,
+  "last_link_id": 183,
+  "nodes": [
+    {
+      "id": 49,
+      "type": "ImageResizeKJ",
+      "pos": [
+        1607.403564453125,
+        -305.9742431640625
+      ],
+      "size": [
+        224.30271911621094,
+        286
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 183
+        },
+        {
+          "name": "get_image_size",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "width_input",
+          "type": "INT",
+          "shape": 7,
+          "widget": {
+            "name": "width_input"
+          },
+          "link": null
+        },
+        {
+          "name": "height_input",
+          "type": "INT",
+          "shape": 7,
+          "widget": {
+            "name": "height_input"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            124,
+            126,
+            154
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "263961539ee6d374fa145175fee9b21dbd88f00c",
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "bilinear",
+        true,
+        2,
+        0,
+        0,
+        "disabled"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 10,
+      "type": "GetImagesFromBatchIndexed",
+      "pos": [
+        1614.3514404296875,
+        23.532243728637695
+      ],
+      "size": [
+        215.29432678222656,
+        88
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 124
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            131
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get Images From Batch",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "263961539ee6d374fa145175fee9b21dbd88f00c",
+        "Node name for S&R": "GetImagesFromBatchIndexed"
+      },
+      "widgets_values": [
+        "0"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 62,
+      "type": "TransparentBGSession+",
+      "pos": [
+        1864.389404296875,
+        -248.33831787109375
+      ],
+      "size": [
+        235.73863220214844,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "REMBG_SESSION",
+          "type": "REMBG_SESSION",
+          "links": [
+            142
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "Node name for S&R": "TransparentBGSession+"
+      },
+      "widgets_values": [
+        "base",
+        true
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 57,
+      "type": "ImageRemoveBackground+",
+      "pos": [
+        1869.3223876953125,
+        -123.44623565673828
+      ],
+      "size": [
+        229.2750244140625,
+        46
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "rembg_session",
+          "type": "REMBG_SESSION",
+          "link": 142
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 131
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            136,
+            140
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "Node name for S&R": "ImageRemoveBackground+"
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 60,
+      "type": "MaskToImage",
+      "pos": [
+        1875.60302734375,
+        -32.98050308227539
+      ],
+      "size": [
+        221.59523010253906,
+        26
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 140
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            141
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 50,
+      "type": "Note",
+      "pos": [
+        1619.6661376953125,
+        158.7865447998047
+      ],
+      "size": [
+        210,
+        99.91815948486328
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Extract First Frame to Create Mask\n(if you have your own mask to supply, then replace these nodes with \"Load Image (as Mask)\" Node"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "PrimitiveNode",
+      "pos": [
+        1268.750732421875,
+        -347.5479431152344
+      ],
+      "size": [
+        319.3714904785156,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            159
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "DancingThorras2"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 43,
+      "type": "MatAnyoneVideoMatting",
+      "pos": [
+        2130.5224609375,
+        -302.8050231933594
+      ],
+      "size": [
+        253.60000610351562,
+        198
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_frames",
+          "type": "IMAGE",
+          "link": 126
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 136
+        }
+      ],
+      "outputs": [
+        {
+          "name": "foreground_frames",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        },
+        {
+          "name": "alpha_frames",
+          "type": "MASK",
+          "links": [
+            156
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "aux_id": "KytraScript/ComfyUI_MatAnyone_Kytra",
+        "ver": "2aa6ee97d999e160bd980d2979c23bd97fe7035a",
+        "Node name for S&R": "MatAnyoneVideoMatting"
+      },
+      "widgets_values": [
+        8,
+        8,
+        8,
+        255,
+        255,
+        255
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 65,
+      "type": "LayerUtility: ImageCombineAlpha",
+      "pos": [
+        2421.98779296875,
+        -302.5511169433594
+      ],
+      "size": [
+        260.3999938964844,
+        46
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "RGB_image",
+          "type": "IMAGE",
+          "link": 182
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 156
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RGBA_image",
+          "type": "IMAGE",
+          "links": [
+            148
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_layerstyle",
+        "ver": "4b273d4f08ea28b0743ababab70ae2e6d93be194",
+        "Node name for S&R": "LayerUtility: ImageCombineAlpha"
+      },
+      "widgets_values": [],
+      "color": "rgba(38, 73, 116, 0.7)"
+    },
+    {
+      "id": 71,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        2418.572998046875,
+        -202.34664916992188
+      ],
+      "size": [
+        266.21124267578125,
+        154
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 159
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            160
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "MatAnyone",
+        "DancingThorras2",
+        "webp",
+        "mat",
+        "auto"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "Reroute",
+      "pos": [
+        2307.194580078125,
+        -94.56239318847656
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 154
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            182
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 61,
+      "type": "PreviewImage",
+      "pos": [
+        1881.14990234375,
+        40.27594757080078
+      ],
+      "size": [
+        214.75448608398438,
+        213.6239013671875
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 141
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 63,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2729.641357421875,
+        -310
+      ],
+      "size": [
+        569.5853881835938,
+        581.1417846679688
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 148
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 160
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "image/webp",
+        "pingpong": true,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "mat_00002.webp",
+            "subfolder": "MatAnyone\\DancingThorras2\\webp",
+            "type": "output",
+            "format": "image/webp",
+            "frame_rate": 25,
+            "workflow": "mat_00002.png",
+            "fullpath": "K:\\MACHINES14\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\MatAnyone\\DancingThorras2\\webp\\mat_00002.webp"
+          }
+        }
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 88,
+      "type": "Label (rgthree)",
+      "pos": [
+        780,
+        -495.57904052734375
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 87,
+      "type": "Label (rgthree)",
+      "pos": [
+        780,
+        -645.5791015625
+      ],
+      "size": [
+        2221.875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "MatAnyone + Inspyrenet REMBG",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 90,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        1308.7540283203125,
+        -242.44947814941406
+      ],
+      "size": [
+        247.455078125,
+        551.455078125
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            183
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "hyvid_00001.mp4",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "hyvid_00001.mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 89,
+      "type": "Note",
+      "pos": [
+        770,
+        -345.57904052734375
+      ],
+      "size": [
+        469.4224853515625,
+        651.8865966796875
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "MatAnyone-single-video-mode-v12\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\n- you only need the first frame mask!\n\n- NAME YOUR PROJECT !!\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      124,
+      49,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      126,
+      49,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      131,
+      10,
+      0,
+      57,
+      1,
+      "IMAGE"
+    ],
+    [
+      136,
+      57,
+      1,
+      43,
+      1,
+      "MASK"
+    ],
+    [
+      140,
+      57,
+      1,
+      60,
+      0,
+      "MASK"
+    ],
+    [
+      141,
+      60,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      142,
+      62,
+      0,
+      57,
+      0,
+      "REMBG_SESSION"
+    ],
+    [
+      148,
+      65,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      154,
+      49,
+      0,
+      68,
+      0,
+      "*"
+    ],
+    [
+      156,
+      43,
+      1,
+      65,
+      1,
+      "MASK"
+    ],
+    [
+      159,
+      72,
+      0,
+      71,
+      0,
+      "STRING"
+    ],
+    [
+      160,
+      71,
+      0,
+      63,
+      4,
+      "STRING"
+    ],
+    [
+      182,
+      68,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      183,
+      90,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 5,
+      "title": "stage 1",
+      "bounding": [
+        1262.921630859375,
+        -383.6000061035156,
+        2064.71826171875,
+        691.8938598632812
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 2.1762913579015057,
+      "offset": [
+        -586.8356923480904,
+        557.6195523527163
+      ]
+    },
+    "node_versions": {
+      "ComfyUI_essentials": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+      "comfy-core": "0.3.18",
+      "ComfyUI-KJNodes": "ced72635c7725ea9925b1937739ea128ef68f469",
+      "ComfyUI-VideoHelperSuite": "f7369389620ff244ddd6086cf0fa792a569086f2"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
