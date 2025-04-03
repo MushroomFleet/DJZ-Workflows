@@ -1,0 +1,859 @@
+{
+  "id": "fc34b5d5-e964-41da-99f4-cb94147b127b",
+  "revision": 0,
+  "last_node_id": 35,
+  "last_link_id": 55,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -294.6634216308594,
+        184.63400268554688
+      ],
+      "size": [
+        293.5392761230469,
+        122
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": [
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": "Seed",
+      "type": "RandomNoise",
+      "pos": [
+        -293.1958923339844,
+        437.20111083984375
+      ],
+      "size": [
+        289.09912109375,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "shape": 3,
+          "type": "NOISE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        42,
+        "fixed"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "ControlNetLoader",
+      "pos": [
+        835.6661987304688,
+        356.5338134765625
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            14,
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "aes_stage2_control.safetensors"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "BasicGuider",
+      "pos": [
+        1199.1226806640625,
+        37.765254974365234
+      ],
+      "size": [
+        161.1999969482422,
+        46
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 51
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "shape": 3,
+          "type": "GUIDER",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "KSamplerSelect",
+      "pos": [
+        1451.765380859375,
+        314.3994140625
+      ],
+      "size": [
+        342.0867614746094,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "shape": 3,
+          "type": "SAMPLER",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1852.176513671875,
+        314.9173583984375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "shape": 3,
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        2113.028076171875,
+        22.61640167236328
+      ],
+      "size": [
+        421.0511474609375,
+        470.71142578125
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        -294.015869140625,
+        343.8434753417969
+      ],
+      "size": [
+        291.3192138671875,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "shape": 3,
+          "type": "VAE",
+          "links": [
+            2,
+            28,
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "Label (rgthree)",
+      "pos": [
+        -760,
+        -110
+      ],
+      "size": [
+        1747.16796875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | www.ScuffedEpoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 31,
+      "type": "FaceSwap_InfiniteYou",
+      "pos": [
+        841.6251220703125,
+        40.946502685546875
+      ],
+      "size": [
+        315,
+        274
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 45
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 46
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 47
+        },
+        {
+          "name": "ref_image",
+          "type": "IMAGE",
+          "link": 50
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 49
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 48
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            51
+          ]
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": null
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "ZenAI-Vietnam/ComfyUI_InfiniteYou",
+        "ver": "c1415156d7e8c4da1e8548013e79fa16fb557aee",
+        "Node name for S&R": "FaceSwap_InfiniteYou"
+      },
+      "widgets_values": [
+        "aes_stage2_img_proj.bin",
+        1,
+        0,
+        1,
+        9
+      ]
+    },
+    {
+      "id": 13,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1441.3941650390625,
+        17.62885856628418
+      ],
+      "size": [
+        355.20001220703125,
+        106
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 4
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 5
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 6
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 7
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "shape": 3,
+          "type": "LATENT",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "shape": 3,
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 26,
+      "type": "LoadImage",
+      "pos": [
+        63.43828201293945,
+        105.77690887451172
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19,
+            50
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Face to be swapped",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "flux_00005_.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 32,
+      "type": "LoadImage",
+      "pos": [
+        446.3772277832031,
+        119.59672546386719
+      ],
+      "size": [
+        344.3999938964844,
+        380.3368225097656
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "Target image, where the swapped face goes",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "jaguar_00015_.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 12,
+      "type": "UNETLoader",
+      "pos": [
+        -299.4169006347656,
+        57.303443908691406
+      ],
+      "size": [
+        298.7194519042969,
+        82
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            43,
+            44,
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-schnell.sft",
+        "fp8_e4m3fn"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "Note",
+      "pos": [
+        -750,
+        30
+      ],
+      "size": [
+        421.6943664550781,
+        568.6727905273438
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Foda-InfiniteYou-FluxSchnellFp8-faceswap-v26\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nhttps://civitai.com/user/driftjohnson\nhttps://www.ScuffedEpoch.com\n\nsetup guide:\nhttps://civitai.com/articles/13224\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 34,
+      "type": "Label (rgthree)",
+      "pos": [
+        -770,
+        -300
+      ],
+      "size": [
+        2657.12890625,
+        200
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Infinite You | Flux Schnell FP8",
+      "properties": {
+        "fontSize": 200,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": "Sampler",
+      "type": "BasicScheduler",
+      "pos": [
+        1446.3355712890625,
+        166.22401428222656
+      ],
+      "size": [
+        348.58758544921875,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "shape": 3,
+          "type": "SIGMAS",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        12,
+        0.9000000000000001
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      13,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      2,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      3,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      "Seed",
+      0,
+      13,
+      0,
+      "NOISE"
+    ],
+    [
+      5,
+      22,
+      0,
+      13,
+      1,
+      "GUIDER"
+    ],
+    [
+      6,
+      16,
+      0,
+      13,
+      2,
+      "SAMPLER"
+    ],
+    [
+      7,
+      "Sampler",
+      0,
+      13,
+      3,
+      "SIGMAS"
+    ],
+    [
+      43,
+      12,
+      0,
+      "Sampler",
+      0,
+      "MODEL"
+    ],
+    [
+      45,
+      24,
+      0,
+      31,
+      0,
+      "CONTROL_NET"
+    ],
+    [
+      46,
+      12,
+      0,
+      31,
+      1,
+      "MODEL"
+    ],
+    [
+      47,
+      11,
+      0,
+      31,
+      2,
+      "CLIP"
+    ],
+    [
+      48,
+      10,
+      0,
+      31,
+      5,
+      "VAE"
+    ],
+    [
+      49,
+      32,
+      0,
+      31,
+      4,
+      "IMAGE"
+    ],
+    [
+      50,
+      26,
+      0,
+      31,
+      3,
+      "IMAGE"
+    ],
+    [
+      51,
+      31,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      52,
+      31,
+      1,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      31,
+      3,
+      13,
+      4,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8390545288824041,
+      "offset": [
+        562.6772416871812,
+        305.28781119511376
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
