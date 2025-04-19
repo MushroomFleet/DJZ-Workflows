@@ -1,0 +1,694 @@
+{
+  "id": "4a2d1374-2886-44bf-a016-fec8a7d94b38",
+  "revision": 0,
+  "last_node_id": 13,
+  "last_link_id": 12,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "DF_Text_Box",
+      "pos": [
+        2810,
+        3520
+      ],
+      "size": [
+        308.98846435546875,
+        131.74134826660156
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 7,
+      "type": "Load Image Batch",
+      "pos": [
+        2810,
+        3210
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "link": 6
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "widget": {
+            "name": "path"
+          },
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "9ae952b1b435d2bd846bfe6516919b5a8b9201aa",
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "single_image",
+        0,
+        "randomize",
+        0,
+        "Batch 001",
+        "",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "DepthAnything_V2",
+      "pos": [
+        3830,
+        3190
+      ],
+      "size": [
+        287.615966796875,
+        46
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "da_model",
+          "type": "DAMODEL",
+          "link": 1
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-depthanythingv2",
+        "ver": "1.0.1",
+        "Node name for S&R": "DepthAnything_V2"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3830,
+        3280
+      ],
+      "size": [
+        287.1099548339844,
+        154
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 10
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "widget": {
+            "name": "filename"
+          },
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "depthprompt",
+        "Backplate-Composition-v1",
+        "depth",
+        "jaguar",
+        "auto"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "ImageSizeAdjusterV2",
+      "pos": [
+        3140,
+        3270
+      ],
+      "size": [
+        335.9759826660156,
+        306
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ImageSizeAdjusterV2"
+      },
+      "widgets_values": [
+        "SDXL",
+        64,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 3,
+      "type": "ImageResize+",
+      "pos": [
+        3510,
+        3210
+      ],
+      "size": [
+        276.8609619140625,
+        218
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "shape": 3,
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "width",
+          "shape": 3,
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "height",
+          "shape": 3,
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "bicubic",
+        "fill / crop",
+        "always",
+        64
+      ]
+    },
+    {
+      "id": 11,
+      "type": "Label (rgthree)",
+      "pos": [
+        2364.1103515625,
+        2934.670166015625
+      ],
+      "size": [
+        1487.59765625,
+        100
+      ],
+      "flags": {
+        "allow_interaction": false,
+        "pinned": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FiveBelowFive.UK | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 8,
+      "type": "PrimitiveNode",
+      "pos": [
+        2810,
+        3080
+      ],
+      "size": [
+        303.178466796875,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 10,
+      "type": "PrimitiveNode",
+      "pos": [
+        3130,
+        3080
+      ],
+      "size": [
+        341.0999450683594,
+        77.33553314208984
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Backplate-Composition-v1"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "DownloadAndLoadDepthAnythingV2Model",
+      "pos": [
+        3830,
+        3090
+      ],
+      "size": [
+        294,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "da_v2_model",
+          "type": "DAMODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-depthanythingv2",
+        "ver": "1.0.1",
+        "Node name for S&R": "DownloadAndLoadDepthAnythingV2Model"
+      },
+      "widgets_values": [
+        "depth_anything_v2_vitl_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "SaveImage",
+      "pos": [
+        4150,
+        3090
+      ],
+      "size": [
+        682.316162109375,
+        563.8679809570312
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "./foda/base/flux"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "Label (rgthree)",
+      "pos": [
+        2354.1103515625,
+        2774.670166015625
+      ],
+      "size": [
+        1742.3583984375,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Depth-Prompt Set Creator",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 12,
+      "type": "Note",
+      "pos": [
+        2370,
+        3080
+      ],
+      "size": [
+        418.390380859375,
+        454.04620361328125
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "DJZ-DepthPrompt-Creator-v30\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n- NAME YOUR PROJECT !!\n- use the group switch !!\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "DAMODEL"
+    ],
+    [
+      2,
+      3,
+      0,
+      2,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      4,
+      0,
+      3,
+      1,
+      "INT"
+    ],
+    [
+      4,
+      4,
+      1,
+      3,
+      2,
+      "INT"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      6,
+      8,
+      0,
+      7,
+      0,
+      "INT"
+    ],
+    [
+      7,
+      9,
+      0,
+      7,
+      1,
+      "STRING"
+    ],
+    [
+      8,
+      7,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      7,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      10,
+      0,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      11,
+      2,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      7,
+      1,
+      5,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4864362802415045,
+      "offset": [
+        -2095.8800680087907,
+        -2787.782909447513
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
