@@ -1,123 +1,9 @@
 {
   "id": "9fdf54c0-5b88-4569-ba70-3fbad28d4f4a",
   "revision": 0,
-  "last_node_id": 14,
-  "last_link_id": 10,
+  "last_node_id": 15,
+  "last_link_id": 14,
   "nodes": [
-    {
-      "id": 2,
-      "type": "VideoInterlacedV2",
-      "pos": [
-        600,
-        2300
-      ],
-      "size": [
-        352.79998779296875,
-        298
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 1
-        },
-        {
-          "name": "input_width",
-          "type": "INT",
-          "widget": {
-            "name": "input_width"
-          },
-          "link": 2
-        },
-        {
-          "name": "input_height",
-          "type": "INT",
-          "widget": {
-            "name": "input_height"
-          },
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            5
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "djz-nodes",
-        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
-        "Node name for S&R": "VideoInterlacedV2"
-      },
-      "widgets_values": [
-        720,
-        1280,
-        "top_first",
-        2,
-        0.25,
-        "advanced",
-        "bicubic",
-        "bob",
-        1,
-        1,
-        0.30000000000000004
-      ]
-    },
-    {
-      "id": 3,
-      "type": "GetImageSize+",
-      "pos": [
-        220,
-        2360
-      ],
-      "size": [
-        142.8000030517578,
-        66
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 4
-        }
-      ],
-      "outputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            2
-          ]
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            3
-          ]
-        },
-        {
-          "name": "count",
-          "type": "INT",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui_essentials",
-        "ver": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
-        "Node name for S&R": "GetImageSize+"
-      },
-      "widgets_values": []
-    },
     {
       "id": 4,
       "type": "RIFE VFI",
@@ -130,7 +16,7 @@
         201.6300048828125
       ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -180,7 +66,7 @@
         86
       ],
       "flags": {},
-      "order": 12,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -235,7 +121,7 @@
         154
       ],
       "flags": {},
-      "order": 0,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -244,7 +130,7 @@
           "widget": {
             "name": "project_name"
           },
-          "link": null
+          "link": 13
         }
       ],
       "outputs": [
@@ -269,7 +155,7 @@
       },
       "widgets_values": [
         "VID-GEN",
-        "djz-text-engine",
+        "djz-companion",
         "companion",
         "djz",
         "auto"
@@ -289,7 +175,7 @@
         343
       ],
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -299,205 +185,6 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 8,
-      "type": "VHS_SelectImages",
-      "pos": [
-        160,
-        2560
-      ],
-      "size": [
-        210,
-        106
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            8
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-videohelpersuite",
-        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
-        "Node name for S&R": "VHS_SelectImages"
-      },
-      "widgets_values": {
-        "indexes": "0",
-        "err_if_missing": true,
-        "err_if_empty": true
-      }
-    },
-    {
-      "id": 9,
-      "type": "PreviewImage",
-      "pos": [
-        160,
-        2710
-      ],
-      "size": [
-        210,
-        26
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 8
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 10,
-      "type": "CathodeRayEffect",
-      "pos": [
-        -180,
-        2300
-      ],
-      "size": [
-        315,
-        202
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            1,
-            4,
-            7
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "djz-nodes",
-        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
-        "Node name for S&R": "CathodeRayEffect"
-      },
-      "widgets_values": [
-        "static",
-        "sin(t/10) * 0.1 + 0.2",
-        0,
-        0,
-        0.12000000000000002,
-        0.08000000000000002,
-        0.030000000000000006
-      ]
-    },
-    {
-      "id": 11,
-      "type": "VHS_LoadVideo",
-      "pos": [
-        -520,
-        2300
-      ],
-      "size": [
-        247.455078125,
-        499.0337829589844
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "meta_batch",
-          "shape": 7,
-          "type": "VHS_BatchManager",
-          "link": null
-        },
-        {
-          "name": "vae",
-          "shape": 7,
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": null
-        },
-        {
-          "name": "frame_count",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "links": null
-        },
-        {
-          "name": "video_info",
-          "type": "VHS_VIDEOINFO",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-videohelpersuite",
-        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
-        "Node name for S&R": "VHS_LoadVideo"
-      },
-      "widgets_values": {
-        "video": "bob1.mp4",
-        "force_rate": 0,
-        "custom_width": 0,
-        "custom_height": 0,
-        "frame_load_cap": 0,
-        "skip_first_frames": 0,
-        "select_every_nth": 1,
-        "format": "AnimateDiff",
-        "choose video to upload": "image",
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "bob1.mp4",
-            "type": "input",
-            "format": "video/mp4",
-            "force_rate": 0,
-            "custom_width": 0,
-            "custom_height": 0,
-            "frame_load_cap": 0,
-            "skip_first_frames": 0,
-            "select_every_nth": 1
-          }
-        }
-      }
     },
     {
       "id": 12,
@@ -511,7 +198,7 @@
         334
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -591,7 +278,7 @@
         "pinned": true,
         "allow_interaction": false
       },
-      "order": 4,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -623,7 +310,7 @@
         "pinned": true,
         "allow_interaction": false
       },
-      "order": 5,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -652,7 +339,7 @@
         669.4262084960938
       ],
       "flags": {},
-      "order": 6,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -662,6 +349,359 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "VideoInterlacedV2",
+      "pos": [
+        600,
+        2300
+      ],
+      "size": [
+        352.79998779296875,
+        298
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "input_width",
+          "type": "INT",
+          "widget": {
+            "name": "input_width"
+          },
+          "link": 2
+        },
+        {
+          "name": "input_height",
+          "type": "INT",
+          "widget": {
+            "name": "input_height"
+          },
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "VideoInterlacedV2"
+      },
+      "widgets_values": [
+        720,
+        1280,
+        "top_first",
+        2,
+        0.25,
+        "advanced",
+        "bicubic",
+        "bob",
+        1,
+        1,
+        0.30000000000000004
+      ]
+    },
+    {
+      "id": 11,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -520,
+        2300
+      ],
+      "size": [
+        247.455078125,
+        588.7719116210938
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "hyvid_00001 (1).mp4",
+        "force_rate": 30,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "hyvid_00001 (1).mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 30,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "CathodeRayEffect",
+      "pos": [
+        -180,
+        2300
+      ],
+      "size": [
+        315,
+        202
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            7,
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "CathodeRayEffect"
+      },
+      "widgets_values": [
+        "static",
+        "sin(t/10) * 0.1 + 0.2",
+        0,
+        0,
+        0.12000000000000002,
+        0.08000000000000002,
+        0.030000000000000006
+      ]
+    },
+    {
+      "id": 15,
+      "type": "PrimitiveNode",
+      "pos": [
+        226.37554931640625,
+        2302.414306640625
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "djz-companion"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "GetImageSize+",
+      "pos": [
+        230.29327392578125,
+        2407.129150390625
+      ],
+      "size": [
+        199.8000030517578,
+        66
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+        "Node name for S&R": "GetImageSize+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "VHS_SelectImages",
+      "pos": [
+        223,
+        2525
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "0",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        226,
+        2676
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [
+        ""
+      ]
     }
   ],
   "links": [
@@ -688,14 +728,6 @@
       2,
       2,
       "INT"
-    ],
-    [
-      4,
-      10,
-      0,
-      3,
-      0,
-      "IMAGE"
     ],
     [
       5,
@@ -744,6 +776,30 @@
       12,
       4,
       "STRING"
+    ],
+    [
+      11,
+      11,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      15,
+      0,
+      6,
+      0,
+      "STRING"
+    ],
+    [
+      14,
+      10,
+      0,
+      3,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -766,8 +822,8 @@
     "ds": {
       "scale": 0.5644739300537773,
       "offset": [
-        2004.1159454197464,
-        -1492.8205740124515
+        765.9805193057352,
+        -1672.9591557504418
       ]
     },
     "VHS_latentpreview": false,
