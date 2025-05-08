@@ -1,0 +1,881 @@
+{
+  "id": "6269f7e0-4f24-41d1-ad93-69e8cfef1961",
+  "revision": 0,
+  "last_node_id": 17,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1577.4447021484375,
+        1954.6102294921875
+      ],
+      "size": [
+        1508.251953125,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ScuffedEpoch.com | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 2,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1587.4447021484375,
+        1794.6102294921875
+      ],
+      "size": [
+        1242.041015625,
+        150
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Hoda-FrameTalker",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 9,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1070,
+        2930
+      ],
+      "size": [
+        311.02288818359375,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "fixed"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 10,
+      "type": "VHS_SelectImages",
+      "pos": [
+        -1060,
+        3060
+      ],
+      "size": [
+        305.16650390625,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "0",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 4,
+      "type": "DF_Text_Box",
+      "pos": [
+        -1062.41064453125,
+        2112.38134765625
+      ],
+      "size": [
+        301.39288330078125,
+        88
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "test"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "KokoroTTS_v4",
+      "pos": [
+        -700,
+        2510
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "voice",
+          "type": "VOICE",
+          "link": 9
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "DJZ-KokoroTTS",
+        "ver": "255e40820d60e7e65eb541da8062aed85d7aa852",
+        "Node name for S&R": "KokoroTTS_v4"
+      },
+      "widgets_values": [
+        "Hello, world!",
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "PreviewImage",
+      "pos": [
+        -1067.07177734375,
+        2243.64599609375
+      ],
+      "size": [
+        306.630615234375,
+        219.26119995117188
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "outputs": [],
+      "title": "Current Video First Frame",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "LatentSyncNode",
+      "pos": [
+        -291.464111328125,
+        2237.822998046875
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-LatentSyncWrapper",
+        "ver": "2e504290626348af5e2c867abe6c825e124bb30f",
+        "Node name for S&R": "LatentSyncNode"
+      },
+      "widgets_values": [
+        1247,
+        "randomize",
+        1.5,
+        20
+      ]
+    },
+    {
+      "id": 14,
+      "type": "DJZ_Pedalboard",
+      "pos": [
+        -289.9051818847656,
+        2440.18212890625
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            11,
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "DJZ-Pedalboard",
+        "ver": "505544b06746ad0e0abd4dce8ddcd9644237f712",
+        "Node name for S&R": "DJZ_Pedalboard"
+      },
+      "widgets_values": [
+        "chorus_intense.pdl"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "PreviewAudio",
+      "pos": [
+        -288.2701110839844,
+        2553.552001953125
+      ],
+      "size": [
+        315,
+        88
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        -285.8325500488281,
+        2692.04541015625
+      ],
+      "size": [
+        309.45391845703125,
+        154
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "HODA",
+        "MyProject",
+        "talker",
+        "video",
+        "auto"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "DF_Text_Box",
+      "pos": [
+        -733.5906372070312,
+        2243.398681640625
+      ],
+      "size": [
+        400,
+        226
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "title": "Text for Speech",
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 17,
+      "type": "DF_Text_Box",
+      "pos": [
+        -1576.212646484375,
+        2831.359130859375
+      ],
+      "size": [
+        480.5255126953125,
+        116.19249725341797
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "title": "path to directory containing video",
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "path/to/videos"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 13,
+      "type": "KokoroTTS_LoadVoice_v1",
+      "pos": [
+        -700,
+        2640
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "voice_shape",
+          "type": "VOICE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "DJZ-KokoroTTS",
+        "ver": "255e40820d60e7e65eb541da8062aed85d7aa852",
+        "Node name for S&R": "KokoroTTS_LoadVoice_v1"
+      },
+      "widgets_values": [
+        "custom_voice.kkv"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "Note",
+      "pos": [
+        -1587.4447021484375,
+        2104.610107421875
+      ],
+      "size": [
+        491.0871887207031,
+        665.0338745117188
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Hoda-FrameTalker-Lines-v70\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n- NAME YOUR PROJECT !!\n- use the group switch !!\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\n\n~~\n\nLoad Video with directory batch mode. use increment to process one video per queue\n\nSwap out for your TTS, we used DJZ-Kokoro\n\nCreate your own post audio effects with Pedalboard Presets.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        116.54203033447266,
+        2237.07177734375
+      ],
+      "size": [
+        404.3158264160156,
+        334
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 15
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/nvenc_h264-mp4",
+        "pix_fmt": "yuv420p",
+        "bitrate": 10,
+        "megabit": true,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {}
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "LoadVideoDirectoryV2",
+      "pos": [
+        -1070,
+        2510
+      ],
+      "size": [
+        315,
+        378
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "index",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "link": 5
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "widget": {
+            "name": "path"
+          },
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "links": [
+            6,
+            8
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "LoadVideoDirectoryV2"
+      },
+      "widgets_values": [
+        "single_video",
+        0,
+        "randomize",
+        0,
+        0,
+        0,
+        0,
+        30,
+        "Video Batch 001",
+        "",
+        "*"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      2,
+      5,
+      0,
+      7,
+      4,
+      "STRING"
+    ],
+    [
+      3,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      9,
+      0,
+      8,
+      2,
+      "INT"
+    ],
+    [
+      6,
+      8,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      10,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      8,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      13,
+      0,
+      12,
+      0,
+      "VOICE"
+    ],
+    [
+      11,
+      14,
+      0,
+      15,
+      0,
+      "AUDIO"
+    ],
+    [
+      14,
+      6,
+      1,
+      14,
+      0,
+      "AUDIO"
+    ],
+    [
+      15,
+      14,
+      0,
+      7,
+      1,
+      "AUDIO"
+    ],
+    [
+      16,
+      12,
+      0,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      17,
+      16,
+      0,
+      12,
+      1,
+      "STRING"
+    ],
+    [
+      18,
+      17,
+      0,
+      8,
+      3,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "FrameTalker",
+      "bounding": [
+        -1080,
+        2038.7813720703125,
+        1655.1468505859375,
+        1137.2186279296875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8264462809917358,
+      "offset": [
+        1396.6940128756269,
+        -1947.7065240107468
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
