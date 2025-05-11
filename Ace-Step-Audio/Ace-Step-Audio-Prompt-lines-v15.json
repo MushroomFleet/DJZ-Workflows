@@ -1,0 +1,604 @@
+{
+  "id": "88ac5dad-efd7-40bb-84fe-fbaefdee1fa9",
+  "revision": 0,
+  "last_node_id": 48,
+  "last_link_id": 112,
+  "nodes": [
+    {
+      "id": 46,
+      "type": "Label (rgthree)",
+      "pos": [
+        -24.15207290649414,
+        -236.973876953125
+      ],
+      "size": [
+        1508.251953125,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ScuffedEpoch.com | Drift Johnson",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 47,
+      "type": "Label (rgthree)",
+      "pos": [
+        -12.240189552307129,
+        -383.1017761230469
+      ],
+      "size": [
+        1092.2607421875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ACE-Step Audio",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 44,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1440,
+        -100
+      ],
+      "size": [
+        197.712890625,
+        26
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            109
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "ConditioningZeroOut",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 17,
+      "type": "EmptyAceStepLatentAudio",
+      "pos": [
+        850,
+        30
+      ],
+      "size": [
+        219.63314819335938,
+        82
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "EmptyAceStepLatentAudio",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        200,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 45,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        860,
+        -80
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 111
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "ModelSamplingSD3",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        4.000000000000001
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1650,
+        -70
+      ],
+      "size": [
+        267.1762390136719,
+        320.6292419433594
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 112
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 110
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 109
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            101
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "KSampler",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        325263773247713,
+        "randomize",
+        200,
+        4,
+        "res_multistep",
+        "simple",
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1950,
+        -60
+      ],
+      "size": [
+        150.93612670898438,
+        46
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 101
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "VAEDecodeAudio",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [],
+      "color": "rgba(0,0,0,.8)",
+      "bgcolor": "rgba(24,24,27,.9)"
+    },
+    {
+      "id": 40,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        500,
+        -80
+      ],
+      "size": [
+        317.026123046875,
+        109.63507843017578
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            111
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            80
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "ace_step_v1_3.5b.safetensors"
+      ],
+      "color": "rgba(0,0,0,.8)",
+      "bgcolor": "rgba(24,24,27,.9)"
+    },
+    {
+      "id": 19,
+      "type": "SaveAudio",
+      "pos": [
+        2160,
+        -60
+      ],
+      "size": [
+        475.7466735839844,
+        112
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 26
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "SaveAudio",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "audio/ComfyUI"
+      ],
+      "color": "rgba(0,0,0,.8)",
+      "bgcolor": "rgba(24,24,27,.9)"
+    },
+    {
+      "id": 14,
+      "type": "TextEncodeAceStepAudio",
+      "pos": [
+        1090,
+        -60
+      ],
+      "size": [
+        518.3668212890625,
+        884.3277587890625
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            108,
+            110
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "TextEncodeAceStepAudio",
+        "widget_ue_connectable": {},
+        "ttNbgOverride": {
+          "color": "rgba(0,0,0,.8)",
+          "bgcolor": "rgba(24,24,27,.9)",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "((drum and bass)), (edm), (melodic-core), (phazor guitar), ((fat bouncy bass drums)), really (fat bass muffle distort), keyboard growling, percussion muted, 145 BPM, really fat repeating infectious bass riff, smooth quality phases and beat morphs.\n\n[Intro - Glitchy 8-bit arpeggio, then slams into a fast, skanking ska beat with frantic horns]\n[Chorus - Beat shifts HARD into aggressive, fast-paced thrash metal with double-kick drums, distorted guitar riff, shouted vocals]\n[Bridge - Sudden shift to smooth, soulful R&B groove, velvety vocals, maybe a sax solo]\n[Verse 2 - Snaps back into frantic, slightly off-kilter polka, accordion prominent, vocals yodel-ish]\n[Chorus - Back to thrash metal, even faster, more intense]\n[Verse 3 - Shifts into hyper-fast, glitchy hyperpop, auto-tuned vocals, intense synth arpeggios]\n[Chorus - Final thrash metal blast, absolutely unhinged, add a ridiculous guitar solo that sounds like a spaceship crashing]\n[Outro][Narrator's voice, calm and collected]",
+        "[Intro]\nRadio's buzzin', some news alert screamin' low,\nBut the dishwasher's done, gotta make these clean plates go!\nYeah, gotta make 'em go! Stack 'em high, let the story flow!\n\n[Verse]\nSilverware clinkin', a rhythmic little tune,\nUnloadin' the bounty beneath the afternoon moon... or is it noon?\nSaucers spinnin', like UFOs in flight,\nMugs for coffee, holdin' on with all their might!\nThe announcer's voice is cracklin', somethin' 'bout the sky,\nBut this ceramic army, man, it cannot be denied!\n\n[Chorus]\nALIEN INVASION! SAUCERS IN THE AIR!\nLASER BEAMS ARE FLASHIN'! DO I EVEN CARE?!\nGOT THESE PLATES TO STACK NOW! CUTLERY TO SORT!\nTHEY CAN BLAST THE PLANET! I'LL HOLD DOWN THE FORT!\nTHIS KITCHEN IS MY BATTLEGROUND! MY PORCELAIN DOMAIN!\nZETA RETICULI CAN KISS MY SHINY DRAIN!\n\n[Bridge]\nOh, the newsman's sayin' tentacles are grabbin' at the sun,\nAnd global leaders wonderin' if humanity is done...\nBut baby, these wine glasses, they need a tender touch,\nCan't have 'em gettin' spotty, no, not so very much.\nThis existential crisis can wait until I'm through,\nGot a system for the Tupperware, me and you... well, mostly me, it's true.\n\n[Verse]\nThe bowls go here, the platters go right there!\nLittle green men stompin', showin' off their evil glare!\nHeard they're meltin' monuments, turnin' cities into goo,\nBut this spice rack's disorganized! What's a hero gonna do?!\nOne shelf for paprika, another for the thyme!\nOrganizin' chaos, one dish at a time!\n\n[Chorus]\nALIEN INVASION! DEATH RAYS FROM ABOVE!\nMY NEIGHBORS ARE ALL SCREAMIN'! NEED MORE CLEANING GLOVES!\nGOT THESE POTS TO PUT AWAY! LIDS THAT NEVER FIT!\nTHEY CAN CRUSH THE CONTINENTS! I DON'T GIVE A SPIT!\nTHIS CUPBOARD IS MY SANCTUARY! MY SHELVING IS THE LAW!\nMARTIANS CAN JUST MARINATE AND SUCK IT THROUGH A STRAW!\n\n[Verse]\nBleep-bloop Pods are landin', zap-zap on every street!\nGot this final colander, can't be beat, can't be beat!\nNews flash screamin', \"Run for cover, doom is drawin' NIGH!\"\nBut this drawer ain't gonna organize itself, oh my, oh my!\nFinal plate is home now, dishwasher's gleamin' bright!\nBring on the apocalypse! I've won my kitchen fight! FIGHT-FIGHT-FIGHT!\n\n[Outro][Narrator's voice, calm and collected]\n\"Well, that's that then. Now, what's for tea?\"\n\n(Sound of a distant explosion, then a satisfied sigh)",
+        1.0100000000000002
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 48,
+      "type": "Note",
+      "pos": [
+        -12.067865371704102,
+        -83.1018295288086
+      ],
+      "size": [
+        491.0871887207031,
+        665.0338745117188
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Ace-Step-Audio-Prompt-lines-v15\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n- NAME YOUR PROJECT !!\n- use the group switch !!\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\n\n~~\n\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      23,
+      17,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      26,
+      18,
+      0,
+      19,
+      0,
+      "AUDIO"
+    ],
+    [
+      80,
+      40,
+      1,
+      14,
+      0,
+      "CLIP"
+    ],
+    [
+      83,
+      40,
+      2,
+      18,
+      1,
+      "VAE"
+    ],
+    [
+      101,
+      3,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      108,
+      14,
+      0,
+      44,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      109,
+      44,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      110,
+      14,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      111,
+      40,
+      0,
+      45,
+      0,
+      "MODEL"
+    ],
+    [
+      112,
+      45,
+      0,
+      3,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.18.9",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
