@@ -1,0 +1,1198 @@
+{
+  "id": "e9cb028a-f974-436f-8e13-84d1d0dae4da",
+  "revision": 0,
+  "last_node_id": 24,
+  "last_link_id": 37,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -2100,
+        -1730
+      ],
+      "size": [
+        247.455078125,
+        453.25860595703125
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "The_shoe_is_202506032328.mp4",
+        "force_rate": 24,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 24,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "The_shoe_is_202506032328.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        -1470,
+        -1500
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": [
+        -1240,
+        -1340
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "PreviewImage",
+      "pos": [
+        -1480,
+        -1830
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "VHS_SelectImages",
+      "pos": [
+        -1750,
+        -1570
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            19,
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "60",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 5,
+      "type": "VHS_SelectImages",
+      "pos": [
+        -1750,
+        -1410
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            20,
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "20",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 6,
+      "type": "VHS_SelectImages",
+      "pos": [
+        -1750,
+        -1240
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            21,
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "190",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 8,
+      "type": "PreviewImage",
+      "pos": [
+        -1240,
+        -1670
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        -660,
+        -1820
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "PreviewImage",
+      "pos": [
+        -650,
+        -1490
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 36
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 19,
+      "type": "PreviewImage",
+      "pos": [
+        -410,
+        -1660
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 35
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "InspyrenetRembg",
+      "pos": [
+        -960,
+        -1740
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            33,
+            34
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inspyrenet-rembg",
+        "ver": "1.1.1",
+        "Node name for S&R": "InspyrenetRembg"
+      },
+      "widgets_values": [
+        "on"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "InspyrenetRembg",
+      "pos": [
+        -950,
+        -1570
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            29,
+            35
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inspyrenet-rembg",
+        "ver": "1.1.1",
+        "Node name for S&R": "InspyrenetRembg"
+      },
+      "widgets_values": [
+        "on"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "InspyrenetRembg",
+      "pos": [
+        -950,
+        -1410
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            31,
+            36
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inspyrenet-rembg",
+        "ver": "1.1.1",
+        "Node name for S&R": "InspyrenetRembg"
+      },
+      "widgets_values": [
+        "on"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "InspyrenetRembg",
+      "pos": [
+        -950,
+        -1240
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            24,
+            37
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inspyrenet-rembg",
+        "ver": "1.1.1",
+        "Node name for S&R": "InspyrenetRembg"
+      },
+      "widgets_values": [
+        "on"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "PreviewImage",
+      "pos": [
+        -410,
+        -1340
+      ],
+      "size": [
+        210,
+        258
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 1,
+      "type": "TripoMultiviewToModelNode",
+      "pos": [
+        -70,
+        -1740
+      ],
+      "size": [
+        270,
+        384
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 33
+        },
+        {
+          "name": "image_left",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "name": "image_back",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "name": "image_right",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_file",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "model task_id",
+          "type": "MODEL_TASK_ID",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "TripoMultiviewToModelNode"
+      },
+      "widgets_values": [
+        "v2.5-20250123",
+        "default",
+        true,
+        true,
+        42,
+        42,
+        "standard",
+        "original_image",
+        -1,
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "SaveImage",
+      "pos": [
+        -650,
+        -960
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "turn"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "InspyrenetRembg",
+      "pos": [
+        -950,
+        -960
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-inspyrenet-rembg",
+        "ver": "1.1.1",
+        "Node name for S&R": "InspyrenetRembg"
+      },
+      "widgets_values": [
+        "on"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "ImpactMakeImageBatch",
+      "pos": [
+        -1210,
+        -960
+      ],
+      "size": [
+        156.62362670898438,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 19
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "image4",
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "image5",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "2346b677666e14ad53a6e65e16a33289a78106c7",
+        "Node name for S&R": "ImpactMakeImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 22,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2628.534912109375,
+        -2184.666748046875
+      ],
+      "size": [
+        1319.8974609375,
+        150
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Native Tripo 3D API",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 23,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2621.546142578125,
+        -2020.084716796875
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 3,
+      "type": "VHS_SelectImages",
+      "pos": [
+        -1750,
+        -1740
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            18,
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_SelectImages"
+      },
+      "widgets_values": {
+        "indexes": "160",
+        "err_if_missing": true,
+        "err_if_empty": true
+      }
+    },
+    {
+      "id": 24,
+      "type": "Note",
+      "pos": [
+        -2626.532470703125,
+        -1863.5794677734375
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "API-Tripo3D-multi-img2mesh-simple-v10\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\nrequires comfyui API key\narticle:\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      2,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      2,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      3,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      4,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      5,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      6,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      11,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      3,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      4,
+      0,
+      13,
+      1,
+      "IMAGE"
+    ],
+    [
+      20,
+      5,
+      0,
+      13,
+      2,
+      "IMAGE"
+    ],
+    [
+      21,
+      6,
+      0,
+      13,
+      3,
+      "IMAGE"
+    ],
+    [
+      22,
+      13,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      6,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      17,
+      0,
+      1,
+      3,
+      "IMAGE"
+    ],
+    [
+      28,
+      4,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      15,
+      0,
+      1,
+      1,
+      "IMAGE"
+    ],
+    [
+      30,
+      5,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      16,
+      0,
+      1,
+      2,
+      "IMAGE"
+    ],
+    [
+      32,
+      3,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      14,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      34,
+      14,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      15,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      16,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      17,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 2.357947691000002,
+      "offset": [
+        2710.1447062665934,
+        1991.0057763860334
+      ]
+    },
+    "frontendVersion": "1.22.0",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

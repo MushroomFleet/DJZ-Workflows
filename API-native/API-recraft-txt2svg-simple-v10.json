@@ -1,0 +1,358 @@
+{
+  "id": "22d9a909-4235-4a31-b532-aaeec64adb25",
+  "revision": 0,
+  "last_node_id": 9,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "RecraftColorRGB",
+      "pos": [
+        -1690,
+        -1620
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "recraft_color",
+          "shape": 7,
+          "type": "RECRAFT_COLOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "recraft_color",
+          "type": "RECRAFT_COLOR",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "RecraftColorRGB"
+      },
+      "widgets_values": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "type": "RecraftControls",
+      "pos": [
+        -1320,
+        -1550
+      ],
+      "size": [
+        223.095703125,
+        46
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "colors",
+          "shape": 7,
+          "type": "RECRAFT_COLOR",
+          "link": 2
+        },
+        {
+          "name": "background_color",
+          "shape": 7,
+          "type": "RECRAFT_COLOR",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "recraft_controls",
+          "type": "RECRAFT_CONTROLS",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "RecraftControls"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "RecraftColorRGB",
+      "pos": [
+        -1680,
+        -1440
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "recraft_color",
+          "shape": 7,
+          "type": "RECRAFT_COLOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "recraft_color",
+          "type": "RECRAFT_COLOR",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "RecraftColorRGB"
+      },
+      "widgets_values": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveSVGNode",
+      "pos": [
+        -870,
+        -1620
+      ],
+      "size": [
+        420.70001220703125,
+        480.1000061035156
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svg",
+          "type": "SVG",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "SaveSVGNode"
+      },
+      "widgets_values": [
+        "svg/ComfyUI"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2233.2607421875,
+        -1936.3153076171875
+      ],
+      "size": [
+        1783.9599609375,
+        150
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Native txt2svg ReCraft API",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 8,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2226.27197265625,
+        -1771.7332763671875
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 1,
+      "type": "RecraftTextToVectorNode",
+      "pos": [
+        -1330,
+        -1420
+      ],
+      "size": [
+        400,
+        274
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "negative_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "recraft_controls",
+          "shape": 7,
+          "type": "RECRAFT_CONTROLS",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SVG",
+          "type": "SVG",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "RecraftTextToVectorNode"
+      },
+      "widgets_values": [
+        "a cat sitting on a table",
+        "None",
+        "1024x1024",
+        1,
+        680464316629456,
+        "Result URL: https://img.recraft.ai/c9MScAEYUaue3Adn9juni1sDAbWK6LIzOo7ZJDPmqCg/rs:fit:1024:1024:0/raw:1/plain/abs://external/images/41a84eb9-e079-410b-8ab9-ccb9c59aea4d"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "Note",
+      "pos": [
+        -2210.3212890625,
+        -1616.838623046875
+      ],
+      "size": [
+        495.3026428222656,
+        474.0766296386719
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "API-recraft-txt2svg-simple-v10\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.fivebelowfive.uk\n\nrequires comfyui API key\narticle:\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      1,
+      "RECRAFT_CONTROLS"
+    ],
+    [
+      2,
+      3,
+      0,
+      2,
+      0,
+      "RECRAFT_COLOR"
+    ],
+    [
+      3,
+      4,
+      0,
+      2,
+      1,
+      "RECRAFT_COLOR"
+    ],
+    [
+      4,
+      1,
+      0,
+      5,
+      0,
+      "SVG"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 2.853116706110003,
+      "offset": [
+        2327.2244577491815,
+        1706.540955275064
+      ]
+    },
+    "frontendVersion": "1.22.0",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
