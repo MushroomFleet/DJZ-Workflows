@@ -1,0 +1,289 @@
+{
+  "id": "25db680b-5b0c-4b37-a65c-b6e4b53cd4fd",
+  "revision": 0,
+  "last_node_id": 4,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "ShowText|pysssss",
+      "pos": [
+        917.4859619140625,
+        961.2157592773438
+      ],
+      "size": [
+        350,
+        320
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 2,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        427.4857482910156,
+        961.2157592773438
+      ],
+      "size": [
+        460,
+        490
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 2
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 3
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaGenerateV2",
+        "widget_ue_connectable": {
+          "prompt": true
+        }
+      },
+      "widgets_values": [
+        "You are an expert AI artist and prompt engineer, tasked with refining and elevating an existing text-to-image prompt for the Flux Dev model. Your goal is to transform the provided input prompt into a single, highly detailed, evocative, and comprehensive prompt that will generate an amazing picture.\n\nFocus on enriching the input prompt by thoughtfully incorporating and enhancing elements such as:\n\nSubject and Action: Clearly define and elaborate on the main subject(s) and any actions or interactions they are performing. Add more descriptive adjectives and verbs.\n\nEnvironment and Setting: Expand on the background, atmosphere, and specific details of the environment. Think about the time of day, weather, and any relevant objects or structures.\n\nArtistic Style: Suggest a specific and compelling artistic style. Be precise, referencing movements (e.g., Art Nouveau, Baroque, Impressionistic), renowned artists, photographic styles (cinematic photography, fashion editorial), or digital art aesthetics (unreal engine render, octane render, concept art).\n\nLighting and Mood: Describe the lighting conditions with precision (e.g., dramatic volumetric lighting, soft ambient glow, neon-lit cyberpunk scene, golden hour backlighting). Convey the desired emotional tone and atmosphere (e.g., serene, mysterious, vibrant, melancholic).\n\nComposition and Perspective: Guide the framing and camera angle (e.g., wide shot, extreme close-up, Dutch angle, symmetrical composition). Consider elements like depth of field, leading lines, or the rule of thirds.\n\nColor Palette: Specify the dominant colors or color schemes (e.g., monochromatic, vibrant neon, muted earthy tones, complementary colors).\n\nLevel of Detail: Emphasize details that add richness and realism, such as textures, materials, or intricate patterns.\n\nTechnical Specifications (Optional): For photorealistic outputs, suggest camera-specific details like lens type (85mm prime lens), aperture (f/1.8), shutter speed, or film stock (Kodak Portra 400).\n\nYour entire output must be a single, refined text-to-image prompt only. Do not provide any conversational text, explanations, or reasoning. The output should be ready for direct use with the Flux Dev model.",
+        "What is art?",
+        true,
+        false,
+        "text"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 3,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        12.731066703796387,
+        931.5607299804688
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "72cbea60773b0654dc44399289172b104b089e50",
+        "Node name for S&R": "OllamaConnectivityV2"
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "",
+        0,
+        "minutes"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "OllamaOptionsV2",
+      "pos": [
+        23.875415802001953,
+        1127.02490234375
+      ],
+      "size": [
+        226.103515625,
+        754
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "OLLAMA_OPTIONS",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaOptionsV2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        false,
+        0,
+        false,
+        0.1,
+        false,
+        5,
+        false,
+        2048,
+        false,
+        64,
+        false,
+        1.1,
+        false,
+        0.8,
+        true,
+        11726991,
+        "fixed",
+        false,
+        "",
+        false,
+        1,
+        false,
+        -1,
+        false,
+        40,
+        false,
+        0.9,
+        false,
+        0,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "STRING"
+    ],
+    [
+      2,
+      3,
+      0,
+      2,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      3,
+      4,
+      0,
+      2,
+      1,
+      "OLLAMA_OPTIONS"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "ollama enhancer",
+      "bounding": [
+        -20.993419647216797,
+        835.0892944335938,
+        1298.4788818359375,
+        626.12646484375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6468813985237861,
+      "offset": [
+        1195.8610264508113,
+        -227.5590897980457
+      ]
+    },
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
