@@ -1,0 +1,1638 @@
+{
+  "id": "8bcf2340-71b4-4b8e-84d3-ec4e11f4ddc3",
+  "revision": 0,
+  "last_node_id": 445,
+  "last_link_id": 957,
+  "nodes": [
+    {
+      "id": 375,
+      "type": "easy cleanGpuUsed",
+      "pos": [
+        -1297.6710205078125,
+        41.749568939208984
+      ],
+      "size": [
+        157.38925170898438,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 750
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            751
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "54614079ca96fa66c8953ff89dc66ca77245f5db",
+        "Node name for S&R": "easy cleanGpuUsed",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#1499a3",
+      "bgcolor": "#00858f"
+    },
+    {
+      "id": 376,
+      "type": "easy clearCacheAll",
+      "pos": [
+        -1297.6710205078125,
+        101.74952697753906
+      ],
+      "size": [
+        154,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 751
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            757
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "54614079ca96fa66c8953ff89dc66ca77245f5db",
+        "Node name for S&R": "easy clearCacheAll",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#1499a3",
+      "bgcolor": "#00858f"
+    },
+    {
+      "id": 378,
+      "type": "WanVideoNAG",
+      "pos": [
+        -2137.670166015625,
+        191.74951171875
+      ],
+      "size": [
+        210,
+        126
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 754
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 755
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            768
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "f7eb33abc80a2aded1b46dff0dd14d07856a7d50",
+        "Node name for S&R": "WanVideoNAG",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        5.000000000000001,
+        0.25000000000000006,
+        2.5
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 379,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -2207.669921875,
+        -18.25049591064453
+      ],
+      "size": [
+        269.4439392089844,
+        151.3784942626953
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 756
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            755,
+            896
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "poorly drawn, bad anatomy, bad hands, bad eyes, missing fingers, extra fingers, ugly, deformed, disfigured, blurry, grainy, out of focus, low resolution, amateur, poorly lit, oversaturated, undersaturated, watermark, signature, text, writing, noise, artifacts"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 382,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -2197.669921875,
+        -68.2505111694336
+      ],
+      "size": [
+        755.444091796875,
+        194.1061248779297
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 764
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 844
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            895
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "(masterpiece:1.4), (highest quality:1.4), ultra-detailed, photorealistic, 8K, cinematic photography, a striking portrait of a 19-year-old goth punk girl with a mischievous, knowing grin. She possesses porcelain pale skin, large, expressive, sapphire blue eyes framed by long, dark lashes, and a vibrant, cascading rainbow hairstyle cut into a sharp, asymmetrical bob. Delicate silver piercings adorn her ears, complemented by playful, iridescent purple lipstick and bold, winged black eyeliner. She's confidently strolling through a snow-dusted Victorian park on a crisp winter afternoon, golden hour backlighting illuminating the falling snow. She wears a luxurious, oversized purple velvet winter coat with intricate silver embroidery over a flowing, floor-length black gothic dress of delicate lace and chiffon, paired with black and rich purple striped tights and classic, worn Dr. Martens boots. Intricate snowflakes cling to her hair and coat. Shallow depth of field, captured with a Canon EOS 5D Mark IV and a 85mm prime lens at f/1.8, Kodak Portra 400 film stock, dramatic volumetric lighting, highly detailed textures, symmetrical composition, vibrant yet melancholic mood."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 384,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        -2147.670166015625,
+        371.7493896484375
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 768
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            759
+          ]
+        }
+      ],
+      "title": "Shift",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "ModelSamplingSD3",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        1.0000000000000002
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 248,
+      "type": "CLIPLoader",
+      "pos": [
+        -3210,
+        140
+      ],
+      "size": [
+        350,
+        110
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            791
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "CLIPLoader",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
+        "default"
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 399,
+      "type": "AspectSizeV2",
+      "pos": [
+        -2627.669921875,
+        281.74920654296875
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            766
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            767
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "WAN22",
+        16,
+        9,
+        64
+      ]
+    },
+    {
+      "id": 396,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        -2647.669921875,
+        -68.2505111694336
+      ],
+      "size": [
+        419.3185119628906,
+        265.0024719238281
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 790
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 791
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            754
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": [
+            756,
+            764
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2507080031",
+        "Show Strengths": "Single Strength",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        null,
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "wan14b\\Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank32.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "AAA_testing\\wan\\th0rr4-wan-v0.safetensors",
+          "strength": 0.75,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "wan14b\\Wan2.1_T2V_14B_FusionX_LoRA.safetensors",
+          "strength": 0.4,
+          "strengthTwo": null
+        },
+        null,
+        ""
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 249,
+      "type": "VAELoader",
+      "pos": [
+        -3210,
+        340
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            753
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "wan_2.1_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors?download=true",
+            "directory": "vae"
+          }
+        ],
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 381,
+      "type": "KSampler",
+      "pos": [
+        -1617.6710205078125,
+        -68.2505111694336
+      ],
+      "size": [
+        280,
+        510
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 759
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 895
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 896
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 911
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 763
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            752
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "KSampler",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        78631649195419,
+        "randomize",
+        12,
+        1,
+        "euler",
+        "beta",
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 383,
+      "type": "EmptyHunyuanLatentVideo",
+      "pos": [
+        -2387.669677734375,
+        261.74920654296875
+      ],
+      "size": [
+        210.09432983398438,
+        130
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 766
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 767
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            911
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "EmptyHunyuanLatentVideo",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        1248,
+        1664,
+        1,
+        1
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 419,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1324.890380859375,
+        -579.1237182617188
+      ],
+      "size": [
+        350,
+        320
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 915
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            844
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "High-quality anime digital art of TH0RR4, a red-haired woman with striking blue eyes, standing in a futuristic airlock of a sci-fi megacity. She is dressed in a sleek black combat suit with red accents, holding a high-tech weapon. The airlock is illuminated by vibrant blue and red lights, casting a dramatic glow on the metallic surfaces. The background features towering cyberpunk buildings with glowing windows and neon advertisements, creating a cyberpunk ambiance. The scene is set in a high-tech environment with industrial elements, and the lighting is designed to highlight the advanced weaponry and tactical gear. The composition is dynamic, with a low-angle perspective emphasizing the intensity and action-readiness of the scene."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 422,
+      "type": "DF_String_Concatenate",
+      "pos": [
+        -1324.890380859375,
+        -749.1237182617188
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "Append",
+          "type": "STRING",
+          "widget": {
+            "name": "Append"
+          },
+          "link": 835
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "S0C13TY STYLE",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 423,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        -1934.890380859375,
+        -749.1237182617188
+      ],
+      "size": [
+        590.8753662109375,
+        481.6286926269531
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 885
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 886
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 935
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            835,
+            915
+          ]
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaGenerateV2",
+        "widget_ue_connectable": {
+          "prompt": true
+        }
+      },
+      "widgets_values": [
+        "# TH0RR4 Anime Sci-Fi Prompt Enhancement System\n\nTransform any user input into detailed anime sci-fi prompts featuring the TH0RR4 aesthetic and world.\n\n## Core Enhancement Rules\n**Target**: 80-100 words with rich anime sci-fi specifications\n**Priority**: TH0RR4 universe → Anime style → Sci-fi setting → Technical details\n**Mandatory Elements**:\n- **Character**: Red-haired female protagonist (TH0RR4) with striking blue eyes\n- **Setting**: Futuristic megacity, sci-fi fortress, space station, or cyberpunk environment\n- **Style**: High-quality anime art with vibrant colors and detailed lineart\n- **Atmosphere**: Action-ready, tactical, or stealth scenarios\n- **Technical**: Advanced weaponry, tactical gear, neon lighting, industrial elements\n\n## TH0RR4 Character Specifications\n- **Appearance**: Vibrant red hair (long/flowing), striking blue or red eyes, tactical outfit\n- **Gear**: Black/red combat suit, weapons (rifles, handguns), tactical accessories\n- **Expressions**: Intense, focused, determined, combat-ready\n- **Poses**: Action stances, stealth positions, weapon handling, dynamic movement\n\n## Setting Categories\n**Megacity Environments**: Neon-lit alleyways, cyberpunk streets, holographic advertisements\n**Sci-Fi Interiors**: Space station corridors, fortress hallways, industrial complexes\n**Combat Zones**: Urban warfare settings, tactical infiltration scenes\n**Tech Facilities**: High-tech labs, control rooms, airlocks, machinery-filled spaces\n\n## Lighting & Atmosphere\n- **Neon lighting**: Blue, red, and orange hues creating cyberpunk ambiance\n- **Industrial lighting**: Harsh fluorescents, emergency lights, glowing panels\n- **Dramatic shadows**: High contrast lighting for tension and mystery\n- **Environmental effects**: Steam, sparks, holographic displays\n\n## Enhancement Process\n1. **Identify core subject** from user input\n2. **Integrate TH0RR4 character** as primary focus\n3. **Place in sci-fi megacity/fortress setting** with appropriate background\n4. **Add tactical/action elements** (weapons, gear, stealth scenarios)\n5. **Specify anime art style** with technical details\n6. **Include atmospheric lighting** (neon, industrial, dramatic)\n7. **Add composition details** (framing, perspective, depth of field)\n\n## Enhancement Examples\n\n**Input**: \"Girl with weapon\"\n**Output**: \"High-quality anime digital art, TH0RR4 woman with vibrant red hair and striking blue eyes holding advanced assault rifle in sci-fi megacity environment. She wears black tactical outfit with red accents, crouched in stealth position behind industrial cover. Neon lights from holographic advertisements cast blue and orange glows across metallic surfaces. Background features towering cyberpunk buildings with glowing windows. Dramatic lighting creates intense shadows, emphasizing her focused expression and weapon details. Dynamic low-angle composition with shallow depth of field.\"\n\n**Input**: \"Person in hallway\"\n**Output**: \"Anime TH0RR4 woman with flowing red hair sneaking through sci-fi fortress corridor, wearing sleek black combat suit with tactical gear. Dimly lit hallway features metallic walls, glowing control panels, and red emergency lighting creating atmospheric shadows. Her intense blue eyes scan ahead while holding futuristic weapon ready. Industrial pipes and machinery visible along walls with neon accent lighting. Cinematic perspective down long corridor with dramatic depth of field, emphasizing stealth and tension in high-tech environment.\"\n\n**Input**: \"Action scene\"\n**Output**: \"Dynamic anime artwork of TH0RR4 red-haired woman in intense combat stance within active megacity setting. She dual-wields advanced firearms while wearing tactical black and red outfit, surrounded by neon-lit cyberpunk environment. Explosive action with muzzle flashes and dynamic motion lines, holographic advertisements and towering buildings in background. Vibrant color palette dominated by reds and blues, harsh industrial lighting creating dramatic contrast. Wide-angle composition capturing full action sequence with high energy and detailed anime lineart.\"\n\n## Transformation Rules\n- **Always feature TH0RR4** as the central character regardless of input\n- **Convert any setting** to sci-fi megacity/fortress equivalent\n- **Add tactical elements** even for non-combat inputs\n- **Maintain anime art style** with specific technical descriptors\n- **Include signature lighting** (neon, industrial, dramatic shadows)\n- **Preserve user's intent** while adapting to TH0RR4 universe\n\nTransform any input into the TH0RR4 anime sci-fi aesthetic while maintaining professional visual depth and technical precision for optimal image generation results.",
+        "0ct0pu5 toy, a small blue plush octopus sits on a white surface. It features a round head with two embroidered black eyes, giving it a cute expression. The body is made of a soft, textured fabric, with six small, pointed tentacles extending outward. The underside of the tentacles is a contrasting bright green, adding a pop of color. The simple and playful design makes it an adorable and cuddly toy.",
+        true,
+        false,
+        "text"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 377,
+      "type": "VAEDecode",
+      "pos": [
+        -1297.6710205078125,
+        -68.2505111694336
+      ],
+      "size": [
+        280,
+        50
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 752
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 753
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            750
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "VAEDecode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#1499a3",
+      "bgcolor": "#00858f"
+    },
+    {
+      "id": 380,
+      "type": "SaveImage",
+      "pos": [
+        -837.67041015625,
+        -68.2505111694336
+      ],
+      "size": [
+        560,
+        510
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 757
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 758
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "SaveImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "WAN\\Txt2Img\\%date:yyyy-MM-dd%\\t2I2.2%date:hh-mm-ss%"
+      ],
+      "color": "#143975",
+      "bgcolor": "#002561"
+    },
+    {
+      "id": 397,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        -1297.6710205078125,
+        281.74920654296875
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 792
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            758
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "WAN22",
+        "wan22-TH0RR4-2",
+        "image",
+        "ENH-std",
+        "auto"
+      ]
+    },
+    {
+      "id": 443,
+      "type": "Label (rgthree)",
+      "pos": [
+        -3267.918212890625,
+        -1243.7691650390625
+      ],
+      "size": [
+        1158.4716796875,
+        150
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "TH0RR4-t2i-ENH",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 444,
+      "type": "Label (rgthree)",
+      "pos": [
+        -3260.929443359375,
+        -1079.1871337890625
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 414,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        -2244.890625,
+        -749.1237182617188
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            885
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "72cbea60773b0654dc44399289172b104b089e50",
+        "Node name for S&R": "OllamaConnectivityV2"
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "qwen2.5vl:7b",
+        0,
+        "minutes"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "OllamaOptionsV2",
+      "pos": [
+        -2184.890625,
+        -569.1237182617188
+      ],
+      "size": [
+        226.103515625,
+        754
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "OLLAMA_OPTIONS",
+          "links": [
+            886
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaOptionsV2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        false,
+        0,
+        false,
+        0.1,
+        false,
+        5,
+        false,
+        2048,
+        false,
+        64,
+        false,
+        1.1,
+        false,
+        0.8,
+        true,
+        11726991,
+        "fixed",
+        false,
+        "",
+        false,
+        1,
+        false,
+        -1,
+        false,
+        40,
+        false,
+        0.9,
+        false,
+        0,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 410,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -2690,
+        -550
+      ],
+      "size": [
+        350,
+        320
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 957
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "anime in the background megacity airlock,  a sci - fi hallway with lots of blue and red lights"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 407,
+      "type": "DF_Text_Box",
+      "pos": [
+        -2274.890625,
+        -509.1236572265625
+      ],
+      "size": [
+        314.7159118652344,
+        274.02777099609375
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            935
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "woman, wearing a tactical outfit, . The photo depicts a person dressed in all black, standing against a plain background. They are holding a futuristic weapon in their right hand and wearing a black bodysuit with various straps and buckles. The outfit includes thigh-high boots with platform soles, and the individual has a serious expression on their face. The lighting is dim, casting shadows that accentuate the contours of the costume and the weapon.\n"
+      ]
+    },
+    {
+      "id": 442,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        -2650,
+        -820
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            957
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "th0rr4-wan-v0.txt",
+        90,
+        "increment",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 372,
+      "type": "easy seed",
+      "pos": [
+        -3168.081298828125,
+        462.9410400390625
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            763
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "9292f2286207928cfdade99ad1634103470c0799",
+        "Node name for S&R": "easy seed"
+      },
+      "widgets_values": [
+        195412169419986,
+        "randomize",
+        null
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 348,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        -3205.35498046875,
+        11.997940063476562
+      ],
+      "size": [
+        338.5068664550781,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            790
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-gguf",
+        "ver": "b3ec875a68d94b758914fd48d30571d953bb7a54",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 85,
+      "type": "PrimitiveNode",
+      "pos": [
+        -3151.724853515625,
+        -107.72564697265625
+      ],
+      "size": [
+        266.412109375,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            792
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "wan22-TH0RR4-2"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 445,
+      "type": "Note",
+      "pos": [
+        -3264.88916015625,
+        -862.3631591796875
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "TH0RR4-t2i-ENH-v10\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nWorkflow: https://huggingface.co/mushroomfleet\nhttps://github.com/MushroomFleet\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      750,
+      377,
+      0,
+      375,
+      0,
+      "*"
+    ],
+    [
+      751,
+      375,
+      0,
+      376,
+      0,
+      "*"
+    ],
+    [
+      752,
+      381,
+      0,
+      377,
+      0,
+      "LATENT"
+    ],
+    [
+      753,
+      249,
+      0,
+      377,
+      1,
+      "VAE"
+    ],
+    [
+      754,
+      396,
+      0,
+      378,
+      0,
+      "MODEL"
+    ],
+    [
+      755,
+      379,
+      0,
+      378,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      756,
+      396,
+      1,
+      379,
+      0,
+      "CLIP"
+    ],
+    [
+      757,
+      376,
+      0,
+      380,
+      0,
+      "IMAGE"
+    ],
+    [
+      758,
+      397,
+      0,
+      380,
+      1,
+      "STRING"
+    ],
+    [
+      759,
+      384,
+      0,
+      381,
+      0,
+      "MODEL"
+    ],
+    [
+      763,
+      372,
+      0,
+      381,
+      4,
+      "INT"
+    ],
+    [
+      764,
+      396,
+      1,
+      382,
+      0,
+      "CLIP"
+    ],
+    [
+      766,
+      399,
+      0,
+      383,
+      0,
+      "INT"
+    ],
+    [
+      767,
+      399,
+      1,
+      383,
+      1,
+      "INT"
+    ],
+    [
+      768,
+      378,
+      0,
+      384,
+      0,
+      "MODEL"
+    ],
+    [
+      790,
+      348,
+      0,
+      396,
+      0,
+      "MODEL"
+    ],
+    [
+      791,
+      248,
+      0,
+      396,
+      1,
+      "CLIP"
+    ],
+    [
+      792,
+      85,
+      0,
+      397,
+      0,
+      "STRING"
+    ],
+    [
+      835,
+      423,
+      0,
+      422,
+      0,
+      "STRING"
+    ],
+    [
+      844,
+      419,
+      0,
+      382,
+      1,
+      "STRING"
+    ],
+    [
+      885,
+      414,
+      0,
+      423,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      886,
+      73,
+      0,
+      423,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      895,
+      382,
+      0,
+      381,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      896,
+      379,
+      0,
+      381,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      911,
+      383,
+      0,
+      381,
+      3,
+      "LATENT"
+    ],
+    [
+      915,
+      423,
+      0,
+      419,
+      0,
+      "STRING"
+    ],
+    [
+      935,
+      407,
+      0,
+      423,
+      5,
+      "STRING"
+    ],
+    [
+      957,
+      442,
+      0,
+      410,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 14,
+      "title": "prompt enhancer",
+      "bounding": [
+        -3260,
+        -200,
+        467.0465087890625,
+        806.0834350585938
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 46,
+      "title": "945 enhanced",
+      "bounding": [
+        -2667.669921875,
+        -158.25048828125,
+        2425.37060546875,
+        631.33251953125
+      ],
+      "color": "#4c00ff",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 51,
+      "title": "2",
+      "bounding": [
+        -2254.890625,
+        -819.1237182617188,
+        1290,
+        573.5999755859375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 2.633312543060899,
+      "offset": [
+        3555.2056496481696,
+        961.3956353855242
+      ]
+    },
+    "frontendVersion": "1.23.4",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
