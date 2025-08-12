@@ -1,0 +1,2190 @@
+{
+  "id": "638cb8fe-d1f3-4857-b5c9-bd43570f2e23",
+  "revision": 0,
+  "last_node_id": 491,
+  "last_link_id": 1072,
+  "nodes": [
+    {
+      "id": 231,
+      "type": "easy cleanGpuUsed",
+      "pos": [
+        3784.13037109375,
+        133.56993103027344
+      ],
+      "size": [
+        157.38925170898438,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 1016
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            365
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "54614079ca96fa66c8953ff89dc66ca77245f5db",
+        "Node name for S&R": "easy cleanGpuUsed",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#1499a3",
+      "bgcolor": "#00858f"
+    },
+    {
+      "id": 233,
+      "type": "easy clearCacheAll",
+      "pos": [
+        3784.13037109375,
+        193.56991577148438
+      ],
+      "size": [
+        154,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 365
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            366
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "54614079ca96fa66c8953ff89dc66ca77245f5db",
+        "Node name for S&R": "easy clearCacheAll",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#1499a3",
+      "bgcolor": "#00858f"
+    },
+    {
+      "id": 236,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2874.13037109375,
+        73.570068359375
+      ],
+      "size": [
+        269.4439392089844,
+        151.3784942626953
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 819
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            371,
+            894
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "poorly drawn, bad anatomy, bad hands, bad eyes, missing fingers, extra fingers, ugly, deformed, disfigured, blurry, grainy, out of focus, low resolution, amateur, poorly lit, oversaturated, undersaturated, watermark, signature, text, writing, noise, artifacts"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 234,
+      "type": "SaveImage",
+      "pos": [
+        4244.12939453125,
+        23.56999969482422
+      ],
+      "size": [
+        560,
+        510
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 366
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 367
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "SaveImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "WAN\\Txt2Img\\%date:yyyy-MM-dd%\\t2I2.2%date:hh-mm-ss%"
+      ],
+      "color": "#143975",
+      "bgcolor": "#002561"
+    },
+    {
+      "id": 348,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        960,
+        20
+      ],
+      "size": [
+        338.5068664550781,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            815
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-gguf",
+        "ver": "b3ec875a68d94b758914fd48d30571d953bb7a54",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 248,
+      "type": "CLIPLoader",
+      "pos": [
+        960,
+        220
+      ],
+      "size": [
+        350,
+        110
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            816
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "CLIPLoader",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
+        "default"
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 372,
+      "type": "easy seed",
+      "pos": [
+        990,
+        680
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            740
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "9292f2286207928cfdade99ad1634103470c0799",
+        "Node name for S&R": "easy seed"
+      },
+      "widgets_values": [
+        282094494724702,
+        "randomize",
+        null
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 417,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        4145.33349609375,
+        -671.4938354492188
+      ],
+      "size": [
+        590.8753662109375,
+        481.6286926269531
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 829
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 841
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1036
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "system",
+          "type": "STRING",
+          "widget": {
+            "name": "system"
+          },
+          "link": 950
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 934
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            828,
+            918
+          ]
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaGenerateV2",
+        "widget_ue_connectable": {
+          "prompt": true
+        }
+      },
+      "widgets_values": [
+        "# TH0RR4 Dynamic Anime Action & Combat Enhancement System\n\nTransform any user input into intense, action-packed anime sci-fi prompts featuring high-energy combat scenarios and anime-style special effects within the TH0RR4 universe.\n\n## Core Enhancement Rules\n**Target**: 80-100 words emphasizing dynamic action and anime style specifications\n**Priority**: Anime style → Combat action → Special effects → Dynamic movement → TH0RR4 universe\n**Mandatory Elements**:\n- **Anime Style**: Must begin with \"anime\" and include anime art technical specifications\n- **Action State**: Under fire, shooting, charging, dodging, or in active combat\n- **Special Effects**: Muzzle flashes, bullet trails, explosions, sparks, debris\n- **Dynamic Poses**: Running, jumping, diving, tactical rolls, aggressive stances\n- **Combat Tension**: Enemy presence implied through effects and defensive positioning\n- **Anime Technical**: Cel-shading, vibrant colors, sharp lineart, digital art specifications\n\n## Anime Combat Action Categories\n**Under Enemy Fire**: Defensive anime poses, taking cover, stylized debris effects, impact sparks\n**Active Shooting**: Animated muzzle flashes, cel-shaded shell casings, targeting unseen enemies\n**Charging/Rushing**: Forward momentum with motion lines, aggressive anime stances, speed effects\n**Evasive Action**: Dynamic dodging poses, tactical rolls, anime-style movement blur\n**Breakthrough Moments**: Dramatic entries, explosive anime effects, heroic action poses\n\n## Anime Style Specifications\n**Visual Style Requirements**:\n- All prompts must begin with \"anime TH0RR4 woman\"\n- High-quality anime digital art with cel-shaded style\n- Vibrant colors and sharp lineart\n- Detailed anime character design\n- Smooth animation-ready art style\n- Dynamic anime action sequences\n\n**Anime Technical Elements**:\n- Cel-shading with clean color blocks\n- Sharp, defined lineart and outlines\n- Vibrant color palette with high saturation\n- Anime-style motion lines and speed effects\n- Stylized special effects appropriate for anime\n- Character proportions and anatomy typical of anime art\n\n## Special Effects Specifications\n**Weapon Effects**:\n- Bright muzzle flashes with orange and yellow cores\n- Shell casings mid-ejection with motion blur\n- Bullet trails and tracer rounds\n- Weapon smoke and heat distortion\n\n**Impact Effects**:\n- Sparks from bullet impacts on metal surfaces\n- Debris clouds and dust particles\n- Shattered glass or concrete fragments\n- Explosive blast radii with dramatic lighting\n\n**Environmental Effects**:\n- Steam and smoke for atmosphere\n- Emergency lighting strobing\n- Holographic displays flickering from damage\n- Neon signs sparking and failing\n\n## Dynamic Pose Specifications\n**Combat Stances**:\n- Aggressive forward lean while firing\n- Tactical crouch behind cover\n- Mid-roll evasive maneuvers\n- Charging run with weapon ready\n\n**Movement Dynamics**:\n- Hair and clothing flowing from rapid movement\n- Motion blur on extremities\n- Dynamic camera angles capturing momentum\n- Off-balance poses showing urgency\n\n## Enhancement Process\n1. **Identify core subject** and determine combat scenario\n2. **Add intense action state** (under fire, shooting, charging, etc.)\n3. **Integrate special effects** appropriate to combat situation\n4. **Design dynamic pose** with movement and momentum\n5. **Place in hostile sci-fi environment** with tactical elements\n6. **Add atmospheric tension** through lighting and effects\n7. **Emphasize urgency and energy** in composition\n\n## Enhancement Examples\n\n**Input**: \"Girl with weapon\"\n**Output**: \"Anime TH0RR4 woman with vibrant red hair diving behind industrial cover while under heavy enemy fire, sparks exploding from bullet impacts on metallic surfaces around her. High-quality anime digital art with cel-shaded style and sharp lineart. She clutches advanced assault rifle with animated muzzle flash effects, shell casings scattered mid-air. Dynamic anime action sequence with motion lines and speed effects. Sci-fi fortress background with emergency lights, vibrant color palette dominated by reds and blues.\"\n\n**Input**: \"Person running\"\n**Output**: \"Anime TH0RR4 woman with flowing red hair charging forward through sci-fi corridor while firing dual weapons at unseen enemies. High-energy anime combat scene with cel-shaded art style and vibrant colors. Bright animated muzzle flashes create dramatic lighting as stylized bullet casings eject. Her tactical outfit flows with aggressive momentum, sharp lineart emphasizing dynamic movement. Neon corridor with flickering anime-style special effects, motion blur and speed lines indicating rapid advancement.\"\n\n**Input**: \"Action scene\"\n**Output**: \"Anime TH0RR4 woman with vibrant red hair executing tactical roll while enemy fire creates stylized spark trails overhead. High-quality anime digital artwork with cel-shaded style and dynamic motion lines. She emerges from roll with weapon raised, intense anime-style expression with detailed character design. Megacity background with anime-style explosion effects and debris. Sharp lineart with vibrant color palette, dramatic lighting emphasizing action intensity with clean anime art specifications.\"\n\n**Input**: \"Hallway scene\"\n**Output**: \"Anime TH0RR4 woman with red hair pressed against sci-fi corridor wall as enemy rounds create stylized spark effects. Tense anime action scene with cel-shaded art style and sharp character outlines. She peers around corner with determined anime expression, weapon ready for counter-attack. Emergency lighting creates dramatic anime-style shadows with vibrant red and blue color palette. High-quality digital anime art with clean lineart and detailed character design.\"\n\n**Input**: \"Technology room\"\n**Output**: \"Anime TH0RR4 woman with flowing red hair bursting through damaged sci-fi control room while firing at multiple unseen hostiles. Dynamic anime breach scene with cel-shaded style and vibrant special effects. Stylized sparks cascade from control panels with anime-style motion lines. She advances with rifle blazing, animated muzzle flashes and shell casings flying. High-quality anime digital art with sharp lineart and dramatic color contrast.\"\n\n## Transformation Rules\n- **Always begin with \"anime TH0RR4 woman\"** to ensure anime style output\n- **Include anime technical specifications** (cel-shaded, sharp lineart, vibrant colors)\n- **Add active combat elements** regardless of original input\n- **Use anime-appropriate special effects** (stylized sparks, motion lines, speed effects)\n- **Emphasize dynamic movement** with anime-style motion indicators\n- **Imply enemy presence** through defensive positioning and effects\n- **Include environmental damage** with anime-style visual effects\n- **Maintain high energy and tension** with anime action sequence pacing\n- **Specify \"high-quality anime digital art\"** for consistent style output\n- **Preserve TH0RR4 universe** while maximizing anime action intensity\n\nTransform any input into high-octane anime combat scenarios within the TH0RR4 universe, prioritizing anime art style consistency, dynamic action, and special effects for maximum visual impact and authentic anime aesthetic.",
+        "0ct0pu5 toy, a small blue plush octopus sits on a white surface. It features a round head with two embroidered black eyes, giving it a cute expression. The body is made of a soft, textured fabric, with six small, pointed tentacles extending outward. The underside of the tentacles is a contrasting bright green, adding a pop of color. The simple and playful design makes it an adorable and cuddly toy.",
+        true,
+        false,
+        "text"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 414,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        3775.33349609375,
+        -421.4938049316406
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            829
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "72cbea60773b0654dc44399289172b104b089e50",
+        "Node name for S&R": "OllamaConnectivityV2"
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "qwen2.5vl:7b",
+        0,
+        "minutes"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "OllamaOptionsV2",
+      "pos": [
+        3875.33349609375,
+        -631.4938354492188
+      ],
+      "size": [
+        226.103515625,
+        754
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "OLLAMA_OPTIONS",
+          "links": [
+            841
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaOptionsV2",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        false,
+        0,
+        false,
+        0.1,
+        false,
+        5,
+        false,
+        2048,
+        false,
+        64,
+        false,
+        1.1,
+        false,
+        0.8,
+        true,
+        11726991,
+        "fixed",
+        false,
+        "",
+        false,
+        1,
+        false,
+        -1,
+        false,
+        40,
+        false,
+        0.9,
+        false,
+        0,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 456,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3715.33349609375,
+        -221.49378967285156
+      ],
+      "size": [
+        350,
+        320
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 967
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "# Enhanced Multi-Angle Image Prompt System with LoRA Keywords\nTransform user input (text + optional image) into four professional, anime-style descriptions optimized for AI image generation using different camera perspectives and LoRA-trained keywords.\n\n## Core Function\n**Input**: User text prompt + optional reference image\n**Output**: JSON with 4 enhanced prompts representing different shot types\n**Style Priority**: Anime aesthetic with LoRA keyword integration\n**Consistency Rule**: All 4 prompts must share identical subject details, anime style, lighting, and scene elements\n\n## LoRA Integration Protocol\n**Primary Keywords**: Always include relevant LoRA triggers based on content analysis\n- **Character LoRA**: \"anime TH0RR4 woman with red hair\" (when applicable)\n- **Style Prefix**: Always begin with \"anime\" for consistency\n- **Environment Keywords**: \"sci-fi megatower interior\", \"megacity airlock\", \"cyberpunk setting\"\n- **Action Keywords**: \"shooting directly at camera\", \"sneaking inside\", \"holding gun\", \"crouching down\"\n\n## Trigger Word Substitution Protocol\n**MANDATORY Character Replacement**: ALWAYS replace any user character trigger with trained LoRA trigger\n- **Complete Substitution Rule**: Remove ALL user character triggers and replace with \"TH0RR4 woman\"\n- **Pattern Detection & Replacement**: \n  - ANY \"[trigger] woman\" → \"TH0RR4 woman\"\n  - ANY \"[trigger] girl\" → \"TH0RR4 woman\" \n  - ANY \"[trigger] female\" → \"TH0RR4 woman\"\n  - ANY standalone \"woman\" → \"TH0RR4 woman\"\n- **CRITICAL**: Never preserve user's character trigger - ALWAYS use \"TH0RR4 woman\"\n- **Universal Application**: Every single instance of \"woman\" in ALL 4 prompts MUST be \"TH0RR4 woman\"\n- **Examples**:\n  - User: \"xyz woman\" → Output: \"TH0RR4 woman\" (xyz completely removed)\n  - User: \"sarah girl with blue hair\" → Output: \"TH0RR4 woman with blue hair\" \n  - User: \"beautiful woman in red dress\" → Output: \"beautiful TH0RR4 woman in red dress\"\n\n## Vision Analysis Protocol\nWhen image provided:\n1. **Subject Analysis**: Detailed anime character features, clothing, expressions, poses, hair color/style\n2. **Environment**: Sci-fi settings, background elements, architectural details, lighting sources\n3. **Style Detection**: Anime art style, cel-shading, color palette, character design elements\n4. **Lighting**: Neon lights, red/blue lighting, dramatic shadows, cyberpunk atmosphere\n5. **Technical**: Anime rendering quality, sharp details, vibrant colors, high contrast\n\n## Enhancement Rules\n**Target**: 80-120 words per prompt with anime-specific visual specifications\n**Priority**: LoRA keywords → Vision analysis → User direction → Anime style consistency\n**Mandatory Elements** (identical across all 4 prompts):\n- **Anime Style Prefix**: \"anime\" + relevant LoRA character tags\n- **Character Details**: Hair color, outfit, expressions, age, distinctive features\n- **Art Style**: \"anime-style\", specific rendering techniques, color treatment\n- **Lighting & Atmosphere**: Red/blue neon lighting, dramatic shadows, cyberpunk mood\n- **Environment**: Consistent sci-fi/cyberpunk setting details\n\n## LoRA-Optimized Shot Types\n\n### Prompt 1: Standard Shot\n- **Framing**: \"Medium shot\" showing character waist-up or full body\n- **LoRA Integration**: Include primary character keywords + environment\n- **Anime Elements**: Detailed character design, dynamic pose, environmental context\n- **Composition**: Balanced anime composition with character prominence\n\n### Prompt 2: Closeup Shot (Portrait)\n- **Framing**: \"Close up anime [CHARACTER] portrait\" or \"extreme close up\"\n- **LoRA Integration**: Focus on character-specific keywords and facial features\n- **Anime Elements**: Detailed eyes, hair lighting, facial expressions, anime art style\n- **Composition**: Intimate character focus with dramatic lighting\n\n### Prompt 3: Wide Shot (Establishing)\n- **Framing**: Wide environmental shot showing full scene context\n- **LoRA Integration**: Environment keywords + character in setting\n- **Anime Elements**: Detailed background, atmospheric perspective, scene composition\n- **Composition**: Character within broader anime-style environment\n\n### Prompt 4: Action Shot (Dynamic)\n- **Framing**: Dynamic action poses with movement and energy\n- **LoRA Integration**: Action-specific keywords like \"shooting\", \"sneaking\", \"holding gun\"\n- **Anime Elements**: Motion lines, dynamic angles, action-oriented composition\n- **Composition**: Dramatic perspectives emphasizing movement and intensity\n\n## Anime Style Specifications\n- **Art Style**: Consistent anime/manga aesthetic with cel-shading\n- **Color Palette**: Vibrant colors, high contrast, dramatic lighting\n- **Character Design**: Large expressive eyes, detailed hair, distinctive outfits\n- **Environmental Style**: Detailed backgrounds, atmospheric lighting, cyberpunk elements\n- **Technical Quality**: \"High detail anime art\", \"professional anime illustration\"\n\n## LoRA Keyword Database\n**Character Keywords**:\n- \"anime TH0RR4 woman with red hair\"\n- \"anime kzk woman\" (alternative character)\n- Character-specific descriptors from training data\n\n**Environment Keywords**:\n- \"sci-fi megatower interior\"\n- \"megacity airlock\" \n- \"cyberpunk setting\"\n- \"neon-lit corridor\"\n- \"industrial environment\"\n\n**Action Keywords**:\n- \"shooting directly at the camera\"\n- \"sneaking inside\"\n- \"holding a gun/rifle\"\n- \"crouching down\"\n- \"standing in hallway\"\n\n**Style Keywords**:\n- \"anime-style\"\n- \"red and blue lights\"\n- \"neon lighting\"\n- \"tactical gear\"\n- \"futuristic outfit\"\n\n## Process Steps\n1. **MANDATORY Trigger Word Replacement**:\n   - Scan user input for ANY character references (woman, girl, female, character names)\n   - COMPLETELY REMOVE user's character triggers \n   - REPLACE with \"TH0RR4 woman\" in every instance\n   - Verify \"TH0RR4\" precedes every \"woman\" in final output\n\n2. **LoRA Keyword Selection**:\n   - Use \"TH0RR4 woman\" as primary character trigger\n   - Identify relevant environment and action keywords\n   - Ensure anime style consistency\n\n3. **Analyze Input**:\n   - If image provided: Extract anime-style visual details for consistency\n   - Parse processed text (with TH0RR4 substitution complete) for setting and action preferences\n   - Identify optimal LoRA keyword combinations\n\n3. **Establish Anime Foundation**:\n   - Character appearance with LoRA-specific details\n   - Anime art style and rendering approach\n   - Cyberpunk/sci-fi lighting and atmosphere\n   - Environmental setting with LoRA keywords\n\n4. **Generate Four Perspectives**:\n   - Apply shot-specific framing with anime composition rules\n   - Integrate appropriate LoRA keywords for each shot type\n   - Maintain anime style consistency across all variants\n   - Add shot-appropriate technical and atmospheric details\n\n5. **Output Format**:\n```json\n{\n  \"prompt1\": \"anime [LoRA keywords] standard shot description with detailed anime specifications\",\n  \"prompt2\": \"anime [LoRA keywords] closeup shot description with character focus\",\n  \"prompt3\": \"anime [LoRA keywords] wide shot description with environmental emphasis\", \n  \"prompt4\": \"anime [LoRA keywords] action shot description with dynamic elements\"\n}\n```\n\n## Technical Specifications\n- **Anime Quality**: \"High detail anime art\", \"professional anime illustration\", \"vibrant anime colors\"\n- **Lighting**: Consistent neon lighting, red/blue color schemes, dramatic shadows\n- **Style Consistency**: Same anime art approach, character design, environmental treatment\n- **LoRA Optimization**: Strategic keyword placement for optimal model activation\n\n## Example Output Structure\n**User Input**: \"xyz woman cyberpunk hacker with blue hair\" + [reference anime image]\n\n**BEFORE Processing**: \"xyz woman cyberpunk hacker with blue hair\"\n**AFTER Trigger Replacement**: \"TH0RR4 woman cyberpunk hacker with blue hair\" (xyz completely removed)\n**Final Processing**: All character attributes preserved, LoRA trigger enforced\n\n**JSON Output**:\n```json\n{\n  \"prompt1\": \"anime TH0RR4 woman with blue hair holding a gun in a sci-fi megatower interior, medium shot showing her confident pose while typing on holographic interface. Wearing black tactical gear with blue accents, neon-lit corridor background with red and blue lights creating dramatic shadows. High detail anime art with vibrant cyberpunk color palette and sharp character design.\",\n  \n  \"prompt2\": \"close up anime TH0RR4 woman with blue hair wearing tactical gear portrait, intense focused expression with striking blue eyes reflecting code. Black outfit with blue accents, dramatic side lighting from neon signs creates anime-style shadows across her face. Dark urban background blurred with bokeh effects. Professional anime illustration with detailed character features.\",\n  \n  \"prompt3\": \"anime TH0RR4 woman with blue hair sneaking inside a sci-fi megatower interior, wide establishing shot of cyberpunk cityscape with towering buildings. She appears small against the massive neon-lit environment while working at floating interface. Purple and cyan lighting dominates the scene with holographic advertisements. Cinematic anime art with atmospheric perspective and rich environmental details.\",\n  \n  \"prompt4\": \"anime TH0RR4 woman with blue hair shooting directly at the camera, dynamic action shot with flowing tactical gear and glowing neural implants. Low angle perspective emphasizes her athletic pose against neon-lit skyline. Motion blur on background while character remains sharp with anime-style motion lines. High-energy anime illustration with dramatic composition and vibrant neon lighting effects.\"\n}\n```\n\n## Auto-Enhancement Features\n- **Automatic Trigger Substitution**: Smart replacement of any character triggers with \"TH0RR4 woman\"\n- **Automatic LoRA Integration**: Smart keyword selection based on content analysis\n- **Anime Style Enforcement**: Consistent anime aesthetic across all outputs\n- **Environmental Auto-Fill**: Automatic cyberpunk/sci-fi details when appropriate\n- **Lighting Consistency**: Standardized neon/dramatic lighting schemes\n- **Character Detail Enhancement**: Automatic addition of anime-specific character features\n- **Action Optimization**: Dynamic pose and movement enhancements for action shots\n\nTransform any input into four coherent, LoRA-optimized anime prompts that explore the subject from multiple cinematic perspectives while maintaining perfect visual and stylistic consistency with the training data.\n\n## CRITICAL ENFORCEMENT RULES\n1. **NEVER preserve user character triggers** - Always completely replace with \"TH0RR4 woman\"\n2. **EVERY instance of \"woman\" must be \"TH0RR4 woman\"** in all 4 output prompts\n3. **Complete trigger removal** - User's original character names/triggers must be eliminated entirely\n4. **Verify replacement** - Check that \"TH0RR4\" appears before every \"woman\" in final JSON output"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 413,
+      "type": "ShowText|pysssss",
+      "pos": [
+        4765.33349609375,
+        -501.49383544921875
+      ],
+      "size": [
+        350,
+        320
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 918
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "```json\n{\n  \"prompt1\": \"anime TH0RR4 woman with red hair sneaking inside a sci-fi megatower interior, medium shot showing her cautious pose while navigating through a room filled with equipment and wires. She is wearing tactical gear with red accents, blending into the neon-lit environment. The background features a complex array of wires and machinery, with red and blue lighting creating dramatic shadows. High detail anime art with vibrant cyberpunk color palette and sharp character design.\",\n  \n  \"prompt2\": \"close up anime TH0RR4 woman with red hair sneaking inside a sci-fi megatower interior, extreme close up of her focused expression as she moves stealthily. She is wearing tactical gear with red accents, her eyes reflecting the ambient neon lights. The background is blurred with bokeh effects, emphasizing her determined face. Professional anime illustration with detailed character features and dramatic lighting.\",\n  \n  \"prompt3\": \"anime TH0RR4 woman with red hair sneaking inside a sci-fi megatower interior, wide establishing shot of the room with a lot of equipment and wires hanging from the ceiling. She appears small against the massive environment while carefully moving through the area. The room is filled with neon-lit equipment and wires, with red and blue lighting creating an atmospheric cyberpunk setting. Cinematic anime art with detailed environmental elements and atmospheric perspective.\",\n  \n  \"prompt4\": \"anime TH0RR4 woman with red hair sneaking inside a sci-fi megatower interior, dynamic action shot with her crouching down and holding a gun. She is in a low angle perspective, emphasizing her stealthy movement and readiness for action. The background is a blur of neon-lit wires and equipment, with red and blue lighting creating dramatic shadows. High-energy anime illustration with motion lines and sharp character design.\"\n}\n```"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 449,
+      "type": "ZenkaiENH",
+      "pos": [
+        3775.33349609375,
+        -561.4938354492188
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            950,
+            967
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "MushroomFleet/DJZ-ENH-system",
+        "ver": "4d7e7fe9c5951bae9b78dd567258d1004e10eb03",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "t2i-TH0RR4-ENH-4shot-v2.md"
+      ]
+    },
+    {
+      "id": 416,
+      "type": "DF_String_Concatenate",
+      "pos": [
+        4805.33349609375,
+        -671.4938354492188
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 25,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "Append",
+          "type": "STRING",
+          "widget": {
+            "name": "Append"
+          },
+          "link": 828
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "TH0RR4 woman",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 239,
+      "type": "EmptyHunyuanLatentVideo",
+      "pos": [
+        2694.13037109375,
+        353.5699768066406
+      ],
+      "size": [
+        210.09432983398438,
+        130
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 586
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 587
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "EmptyHunyuanLatentVideo",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        1248,
+        1664,
+        1,
+        1
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 237,
+      "type": "WanVideoNAG",
+      "pos": [
+        2924.13037109375,
+        283.5699768066406
+      ],
+      "size": [
+        210,
+        126
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 817
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 371
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            368
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "f7eb33abc80a2aded1b46dff0dd14d07856a7d50",
+        "Node name for S&R": "WanVideoNAG",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        5.000000000000001,
+        0.25000000000000006,
+        2.5
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 232,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2884.13037109375,
+        23.56999969482422
+      ],
+      "size": [
+        755.444091796875,
+        194.1061248779297
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 818
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1071
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            893
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "(masterpiece:1.4), (highest quality:1.4), ultra-detailed, photorealistic, 8K, cinematic photography, a striking portrait of a 19-year-old goth punk girl with a mischievous, knowing grin. She possesses porcelain pale skin, large, expressive, sapphire blue eyes framed by long, dark lashes, and a vibrant, cascading rainbow hairstyle cut into a sharp, asymmetrical bob. Delicate silver piercings adorn her ears, complemented by playful, iridescent purple lipstick and bold, winged black eyeliner. She's confidently strolling through a snow-dusted Victorian park on a crisp winter afternoon, golden hour backlighting illuminating the falling snow. She wears a luxurious, oversized purple velvet winter coat with intricate silver embroidery over a flowing, floor-length black gothic dress of delicate lace and chiffon, paired with black and rich purple striped tights and classic, worn Dr. Martens boots. Intricate snowflakes cling to her hair and coat. Shallow depth of field, captured with a Canon EOS 5D Mark IV and a 85mm prime lens at f/1.8, Kodak Portra 400 film stock, dramatic volumetric lighting, highly detailed textures, symmetrical composition, vibrant yet melancholic mood."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 474,
+      "type": "VAEEncode",
+      "pos": [
+        3214.13037109375,
+        443.56982421875
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 1011
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 992
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1001
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 235,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        2934.13037109375,
+        463.56982421875
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 368
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            372
+          ]
+        }
+      ],
+      "title": "Shift",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "ModelSamplingSD3",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        1.0000000000000002
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 319,
+      "type": "AspectSizeV2",
+      "pos": [
+        2454.13037109375,
+        393.5699157714844
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            586,
+            1009
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            587,
+            1010
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "WAN22",
+        16,
+        9,
+        64
+      ]
+    },
+    {
+      "id": 481,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        3964.13037109375,
+        23.56999969482422
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 1015
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1033
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1016
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "VAEDecodeTiled"
+      },
+      "widgets_values": [
+        512,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 240,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        3964.13037109375,
+        373.57000732421875
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 376
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            367
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "WAN22",
+        "wan22-TH0RR4-4shot-coffeetime",
+        "image",
+        "ENH-gtp5",
+        "auto"
+      ]
+    },
+    {
+      "id": 249,
+      "type": "VAELoader",
+      "pos": [
+        960,
+        410
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            992,
+            1033
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "wan_2.1_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors?download=true",
+            "directory": "vae"
+          }
+        ],
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 85,
+      "type": "PrimitiveNode",
+      "pos": [
+        1000,
+        540
+      ],
+      "size": [
+        266.412109375,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            376
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "wan22-TH0RR4-4shot-coffeetime"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 485,
+      "type": "Label (rgthree)",
+      "pos": [
+        1655.1922607421875,
+        -948.017578125
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 489,
+      "type": "Reroute",
+      "pos": [
+        2020,
+        -90
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 1035
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            1036,
+            1039,
+            1043
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 460,
+      "type": "OpenRouterNode",
+      "pos": [
+        2670,
+        -670
+      ],
+      "size": [
+        425.9126892089844,
+        394
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pdf_data",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "name": "user_message_input",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": 978
+        },
+        {
+          "name": "system_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 974
+        },
+        {
+          "name": "user_message_box",
+          "type": "STRING",
+          "widget": {
+            "name": "user_message_box"
+          },
+          "link": 1040
+        },
+        {
+          "color_off": "#666",
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 1043
+        },
+        {
+          "color_off": "#666",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "STRING",
+          "links": [
+            1070
+          ]
+        },
+        {
+          "name": "Stats",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "Credits",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "openrouter_node",
+        "ver": "dbfd8e3cfe34b5a68b0d08c8cf0514fca6e0773e",
+        "Node name for S&R": "OpenRouterNode"
+      },
+      "widgets_values": [
+        "",
+        "You are a helpful assistant.",
+        "Hello, how are you?",
+        "anthropic/claude-sonnet-4",
+        false,
+        false,
+        false,
+        1,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 462,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3163.836669921875,
+        -521.7412719726562
+      ],
+      "size": [
+        350,
+        320
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1072
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            1071
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "SH4R0NA woman, Based on the input image showing an anime-style woman with vibrant red-orange hair wearing a white naval officer's cap and uniform, positioned on what appears to be a warship deck with dramatic explosions and battle effects in the background, she's holding a massive military-grade weapon that appears to be a large caliber artillery piece or anti-materiel rifle, enhanced for i2i generation: High-quality anime digital art of a determined female naval officer with flowing crimson hair billowing in the wind, gripping an oversized artillery pistol with both hands in a confident combat stance. She wears a crisp white naval uniform with gold braiding and insignia, complete with officer's cap featuring military emblems. The massive handgun features realistic metallic textures with bronze and steel coloring, oversized barrel, tactical scope, and heavy-duty construction befitting its artillery classification. Dynamic action composition set on a wooden warship deck with dramatic orange and yellow explosion effects illuminating the stormy ocean background. Intense battle atmosphere with flying debris, smoke trails, and fiery lighting casting dramatic shadows across her determined expression. Professional anime art style with detailed character design, vibrant color palette dominated by whites, reds, and warm explosion tones, crisp cel-shading with dynamic motion lines and particle effects creating an epic military action scene."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 490,
+      "type": "DF_String_Concatenate",
+      "pos": [
+        3198.80419921875,
+        -682.2520141601562
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Append",
+          "type": "STRING",
+          "widget": {
+            "name": "Append"
+          },
+          "link": 1070
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            1072
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "SH4R0NA woman",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 484,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        2449.3505859375,
+        649.3472900390625
+      ],
+      "size": [
+        270,
+        286
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1039
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 1009
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 1010
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1011
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "ff49e1b01f10a14496b08e21bb89b64d2b15f333",
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest-exact",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu"
+      ]
+    },
+    {
+      "id": 238,
+      "type": "KSampler",
+      "pos": [
+        3464.13037109375,
+        23.56999969482422
+      ],
+      "size": [
+        280,
+        510
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 372
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 893
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 894
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 1001
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 740
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            1015
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "KSampler",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        135317067826877,
+        "randomize",
+        12,
+        1,
+        "euler",
+        "beta",
+        0.7900000000000001
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 488,
+      "type": "LoadImage",
+      "pos": [
+        1560,
+        390
+      ],
+      "size": [
+        563.53515625,
+        485.4249267578125
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1035
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ENH-epic_00073_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 461,
+      "type": "ZenkaiENH",
+      "pos": [
+        2280,
+        -560
+      ],
+      "size": [
+        317.2135925292969,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            974
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "MushroomFleet/DJZ-ENH-system",
+        "ver": "4d7e7fe9c5951bae9b78dd567258d1004e10eb03",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "i2i-base-ENH.md"
+      ]
+    },
+    {
+      "id": 411,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        2434.13037109375,
+        33.57000732421875
+      ],
+      "size": [
+        419.3185119628906,
+        265.0024719238281
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 815
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 816
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            817
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": [
+            818,
+            819
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2507080031",
+        "Show Strengths": "Single Strength",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        null,
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "wan14b\\Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank32.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "wan14b\\Wan2.1_T2V_14B_FusionX_LoRA.safetensors",
+          "strength": 0.4,
+          "strengthTwo": null
+        },
+        null,
+        ""
+      ],
+      "color": "#371489",
+      "bgcolor": "#230075"
+    },
+    {
+      "id": 407,
+      "type": "DF_Text_Box",
+      "pos": [
+        1680,
+        60
+      ],
+      "size": [
+        314.7159118652344,
+        274.02777099609375
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            934,
+            1040
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "anime woman working holding an oversized artillery pistol"
+      ]
+    },
+    {
+      "id": 464,
+      "type": "DF_Text",
+      "pos": [
+        2510,
+        -650
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            978
+          ]
+        }
+      ],
+      "title": "KEY",
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text"
+      },
+      "widgets_values": [
+        "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"
+      ]
+    },
+    {
+      "id": 486,
+      "type": "Note",
+      "pos": [
+        1665.5345458984375,
+        -775.291015625
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "WAN-i2i-simple-ENH-v30\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nWorkflow: https://huggingface.co/mushroomfleet\nhttps://github.com/MushroomFleet\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      365,
+      231,
+      0,
+      233,
+      0,
+      "*"
+    ],
+    [
+      366,
+      233,
+      0,
+      234,
+      0,
+      "IMAGE"
+    ],
+    [
+      367,
+      240,
+      0,
+      234,
+      1,
+      "STRING"
+    ],
+    [
+      368,
+      237,
+      0,
+      235,
+      0,
+      "MODEL"
+    ],
+    [
+      371,
+      236,
+      0,
+      237,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      372,
+      235,
+      0,
+      238,
+      0,
+      "MODEL"
+    ],
+    [
+      376,
+      85,
+      0,
+      240,
+      0,
+      "STRING"
+    ],
+    [
+      586,
+      319,
+      0,
+      239,
+      0,
+      "INT"
+    ],
+    [
+      587,
+      319,
+      1,
+      239,
+      1,
+      "INT"
+    ],
+    [
+      740,
+      372,
+      0,
+      238,
+      4,
+      "INT"
+    ],
+    [
+      815,
+      348,
+      0,
+      411,
+      0,
+      "MODEL"
+    ],
+    [
+      816,
+      248,
+      0,
+      411,
+      1,
+      "CLIP"
+    ],
+    [
+      817,
+      411,
+      0,
+      237,
+      0,
+      "MODEL"
+    ],
+    [
+      818,
+      411,
+      1,
+      232,
+      0,
+      "CLIP"
+    ],
+    [
+      819,
+      411,
+      1,
+      236,
+      0,
+      "CLIP"
+    ],
+    [
+      828,
+      417,
+      0,
+      416,
+      0,
+      "STRING"
+    ],
+    [
+      829,
+      414,
+      0,
+      417,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      841,
+      73,
+      0,
+      417,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      893,
+      232,
+      0,
+      238,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      894,
+      236,
+      0,
+      238,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      918,
+      417,
+      0,
+      413,
+      0,
+      "STRING"
+    ],
+    [
+      934,
+      407,
+      0,
+      417,
+      6,
+      "STRING"
+    ],
+    [
+      950,
+      449,
+      0,
+      417,
+      5,
+      "STRING"
+    ],
+    [
+      967,
+      449,
+      0,
+      456,
+      0,
+      "STRING"
+    ],
+    [
+      974,
+      461,
+      0,
+      460,
+      3,
+      "STRING"
+    ],
+    [
+      978,
+      464,
+      0,
+      460,
+      2,
+      "STRING"
+    ],
+    [
+      992,
+      249,
+      0,
+      474,
+      1,
+      "VAE"
+    ],
+    [
+      1001,
+      474,
+      0,
+      238,
+      3,
+      "LATENT"
+    ],
+    [
+      1009,
+      319,
+      0,
+      484,
+      2,
+      "INT"
+    ],
+    [
+      1010,
+      319,
+      1,
+      484,
+      3,
+      "INT"
+    ],
+    [
+      1011,
+      484,
+      0,
+      474,
+      0,
+      "IMAGE"
+    ],
+    [
+      1015,
+      238,
+      0,
+      481,
+      0,
+      "LATENT"
+    ],
+    [
+      1016,
+      481,
+      0,
+      231,
+      0,
+      "*"
+    ],
+    [
+      1033,
+      249,
+      0,
+      481,
+      1,
+      "VAE"
+    ],
+    [
+      1035,
+      488,
+      0,
+      489,
+      0,
+      "*"
+    ],
+    [
+      1036,
+      489,
+      0,
+      417,
+      2,
+      "IMAGE"
+    ],
+    [
+      1039,
+      489,
+      0,
+      484,
+      0,
+      "IMAGE"
+    ],
+    [
+      1040,
+      407,
+      0,
+      460,
+      4,
+      "STRING"
+    ],
+    [
+      1043,
+      489,
+      0,
+      460,
+      5,
+      "IMAGE"
+    ],
+    [
+      1070,
+      460,
+      0,
+      490,
+      0,
+      "STRING"
+    ],
+    [
+      1071,
+      462,
+      0,
+      232,
+      1,
+      "STRING"
+    ],
+    [
+      1072,
+      490,
+      0,
+      462,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 14,
+      "title": "prompt enhancer",
+      "bounding": [
+        910,
+        -120,
+        480.156494140625,
+        992.0070190429688
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 25,
+      "title": "1428 enhanced",
+      "bounding": [
+        2414.13037109375,
+        -66.42992401123047,
+        2417.281494140625,
+        637.7059936523438
+      ],
+      "color": "#4c00ff",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 50,
+      "title": "ollama",
+      "bounding": [
+        3705.33349609375,
+        -741.4937744140625,
+        1443.824951171875,
+        598.3955688476562
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 51,
+      "title": "openrouter",
+      "bounding": [
+        2270,
+        -750,
+        1268.1815185546875,
+        595.7559204101562
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 3.8554328942954554,
+      "offset": [
+        -1552.3561842134932,
+        820.9147832143492
+      ]
+    },
+    "frontendVersion": "1.23.4",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
