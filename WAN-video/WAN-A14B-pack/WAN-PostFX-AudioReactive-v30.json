@@ -1,0 +1,909 @@
+{
+  "id": "b6b9f34a-e1f8-45b0-b997-ea05d3cee949",
+  "revision": 0,
+  "last_node_id": 94,
+  "last_link_id": 202,
+  "nodes": [
+    {
+      "id": 81,
+      "type": "FeatureSmoothing",
+      "pos": [
+        8720,
+        900
+      ],
+      "size": [
+        319.20001220703125,
+        174
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "feature",
+          "type": "FEATURE",
+          "link": 172
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FEATURE",
+          "type": "FEATURE",
+          "slot_index": 0,
+          "links": [
+            174
+          ]
+        },
+        {
+          "name": "FEATURE_VISUALIZATION",
+          "type": "IMAGE",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ryanontheinside",
+        "ver": "82da578e1feb8c2a5319213d72870ba26806ad84",
+        "Node name for S&R": "FeatureSmoothing"
+      },
+      "widgets_values": [
+        "moving_average",
+        5,
+        0.3,
+        1,
+        false
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 50,
+      "type": "ImageResizeKJ",
+      "pos": [
+        8411.3623046875,
+        1312.2828369140625
+      ],
+      "size": [
+        259.1609191894531,
+        262.649658203125
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 196
+        },
+        {
+          "name": "get_image_size",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            175
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "87d0cf42db7d59992daba4d58a83655b5b359f44",
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest-exact",
+        false,
+        32,
+        0
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 86,
+      "type": "FlexVideoSpeed",
+      "pos": [
+        8710,
+        1130
+      ],
+      "size": [
+        342.7193298339844,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 175
+        },
+        {
+          "name": "opt_feature",
+          "shape": 7,
+          "type": "FEATURE",
+          "link": 174
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            177
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ryanonyheinside",
+        "ver": "2.0.12",
+        "Node name for S&R": "FlexVideoSpeed"
+      },
+      "widgets_values": [
+        1,
+        0,
+        "speed_factor",
+        "relative",
+        1,
+        "none",
+        true,
+        true,
+        1
+      ]
+    },
+    {
+      "id": 41,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        9103.64453125,
+        531.1605224609375
+      ],
+      "size": [
+        340.20001220703125,
+        154
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            71
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode",
+        "ttNbgOverride": {
+          "color": "#432",
+          "bgcolor": "#653",
+          "groupcolor": "#b58b2a"
+        }
+      },
+      "widgets_values": [
+        "ReactiveAudio",
+        "audio-crash-RUN5",
+        "crash",
+        "clip",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 60,
+      "type": "PrimitiveNode",
+      "pos": [
+        8046.16796875,
+        576.4180297851562
+      ],
+      "size": [
+        241.06651306152344,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "slot_index": 0,
+          "links": [
+            94
+          ]
+        }
+      ],
+      "title": "Project Name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "audio-crash-RUN5"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 94,
+      "type": "Seed",
+      "pos": [
+        8032.61962890625,
+        742.0206909179688
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "SEED",
+          "links": null
+        },
+        {
+          "name": "number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": [
+            201
+          ]
+        },
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            202
+          ]
+        }
+      ],
+      "title": "Seconds (duration)",
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "9ae952b1b435d2bd846bfe6516919b5a8b9201aa",
+        "Node name for S&R": "Seed"
+      },
+      "widgets_values": [
+        10,
+        "fixed"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        9112.9677734375,
+        744.8992309570312
+      ],
+      "size": [
+        1170,
+        1114.6666259765625
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 177
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 69
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "clip_00026-audio.mp4",
+            "subfolder": "ReactiveAudio\\audio-crash-RUN5\\crash",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30,
+            "workflow": "clip_00026.png",
+            "fullpath": "K:\\MACHINES14\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\ReactiveAudio\\audio-crash-RUN5\\crash\\clip_00026-audio.mp4"
+          },
+          "muted": false
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 49,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        8369.18359375,
+        672.4884643554688
+      ],
+      "size": [
+        243.818359375,
+        150
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "start_time",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "start_time"
+          },
+          "link": 195
+        },
+        {
+          "name": "duration",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": 201
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            69,
+            173
+          ]
+        },
+        {
+          "name": "duration",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "031c4ae301c9b6403e2f472eb91f0ff87bbb5385",
+        "Node name for S&R": "VHS_LoadAudioUpload"
+      },
+      "widgets_values": {
+        "audio": "09-CRASH.wav",
+        "start_time": 0,
+        "duration": 10,
+        "choose audio to upload": "image"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 85,
+      "type": "AudioFeatureExtractor",
+      "pos": [
+        8760,
+        670
+      ],
+      "size": [
+        261.2247314453125,
+        174
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 173
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "widget": {
+            "name": "frame_count"
+          },
+          "link": 197
+        }
+      ],
+      "outputs": [
+        {
+          "name": "feature",
+          "type": "FEATURE",
+          "links": [
+            172
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ryanonyheinside",
+        "ver": "2.0.12",
+        "Node name for S&R": "AudioFeatureExtractor"
+      },
+      "widgets_values": [
+        "rms_energy",
+        30,
+        120,
+        512,
+        512
+      ]
+    },
+    {
+      "id": 92,
+      "type": "LoadVideoDirectoryV2",
+      "pos": [
+        8355.47265625,
+        875.0183715820312
+      ],
+      "size": [
+        270,
+        378
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "index",
+          "type": "INT",
+          "widget": {
+            "name": "index"
+          },
+          "link": 199
+        }
+      ],
+      "outputs": [
+        {
+          "name": "frames",
+          "type": "IMAGE",
+          "links": [
+            196
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [
+            197
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "LoadVideoDirectoryV2"
+      },
+      "widgets_values": [
+        "single_video",
+        66,
+        "increment",
+        0,
+        0,
+        0,
+        0,
+        30,
+        "Video Batch 001",
+        "K:\\MACHINES14\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\Xoda\\abstract-chaos-mosh\\03-mosh\\batch",
+        "*"
+      ]
+    },
+    {
+      "id": 89,
+      "type": "SimpleMath+",
+      "pos": [
+        8035.66650390625,
+        948.1163330078125
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "*",
+          "link": 202
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "*",
+          "link": 200
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            195
+          ]
+        }
+      ],
+      "title": "Audio-Start Time",
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+        "Node name for S&R": "SimpleMath+"
+      },
+      "widgets_values": [
+        "a*b"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "Seed",
+      "pos": [
+        8035.6650390625,
+        1112.588134765625
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "SEED",
+          "links": null
+        },
+        {
+          "name": "number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            199,
+            200
+          ]
+        }
+      ],
+      "title": "INDEX (video source) DIR mode",
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "9ae952b1b435d2bd846bfe6516919b5a8b9201aa",
+        "Node name for S&R": "Seed"
+      },
+      "widgets_values": [
+        4,
+        "increment"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": [
+        7431.90087890625,
+        680.7459106445312
+      ],
+      "size": [
+        488.653564453125,
+        596.2415161132812
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "WAN-PostFX-AudioReactive-v30\n\nVideo: https://www.youtube.com/@FiveBelowFiveUK\nWorkflow: https://civitai.com/models/620294\n\nhttps://www.fivebelowfive.uk\n\nAudio Reactive Scrubbing\nVideo & Music Loader\nAuto-Segment-Sync\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\noriginal workflow by Sonification\nusing reactive audio nodes by Ryanontheinside\n\n1. Set Audio & Video Segment Index to Zero\n2. Load Audio and Video Track\n3. Enter the Project name\n4. Check the Resize Node\n4. Queue up many jobs"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      69,
+      49,
+      0,
+      43,
+      1,
+      "AUDIO"
+    ],
+    [
+      71,
+      41,
+      0,
+      43,
+      4,
+      "STRING"
+    ],
+    [
+      94,
+      60,
+      0,
+      41,
+      0,
+      "STRING"
+    ],
+    [
+      172,
+      85,
+      0,
+      81,
+      0,
+      "FEATURE"
+    ],
+    [
+      173,
+      49,
+      0,
+      85,
+      0,
+      "AUDIO"
+    ],
+    [
+      174,
+      81,
+      0,
+      86,
+      1,
+      "FEATURE"
+    ],
+    [
+      175,
+      50,
+      0,
+      86,
+      0,
+      "IMAGE"
+    ],
+    [
+      177,
+      86,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      195,
+      89,
+      1,
+      49,
+      0,
+      "FLOAT"
+    ],
+    [
+      196,
+      92,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      197,
+      92,
+      1,
+      85,
+      1,
+      "INT"
+    ],
+    [
+      199,
+      93,
+      3,
+      92,
+      2,
+      "INT"
+    ],
+    [
+      200,
+      93,
+      3,
+      89,
+      1,
+      "*"
+    ],
+    [
+      201,
+      94,
+      2,
+      49,
+      1,
+      "FLOAT"
+    ],
+    [
+      202,
+      94,
+      3,
+      89,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Glitch",
+      "bounding": [
+        7388.7744140625,
+        460.1077575683594,
+        3943.231689453125,
+        1106.8912353515625
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 4.114477778925174,
+      "offset": [
+        -7363.868304257982,
+        -625.0360457769654
+      ]
+    },
+    "groupNodes": {},
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
