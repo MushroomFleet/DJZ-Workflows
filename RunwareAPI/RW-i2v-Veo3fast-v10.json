@@ -1,0 +1,601 @@
+{
+  "id": "0e660059-b45c-44db-af04-85b11bfbe541",
+  "revision": 0,
+  "last_node_id": 590,
+  "last_link_id": 1277,
+  "nodes": [
+    {
+      "id": 571,
+      "type": "Runware Lora Search",
+      "pos": [
+        1030,
+        -1430
+      ],
+      "size": [
+        270,
+        220
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Runware Lora",
+          "type": "RUNWARELORA",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-Runware",
+        "ver": "fc9da2c74fccb558f180564ec808b351e94d922f",
+        "Node name for S&R": "Runware Lora Search"
+      },
+      "widgets_values": [
+        "",
+        "FLUX.1-Dev",
+        "Lora",
+        "rundiffusion:500@100 (RunDiffusion Photo Flux by RunDiffusion 1.1.2)",
+        1,
+        false,
+        ""
+      ],
+      "bgcolor": "#5345bf"
+    },
+    {
+      "id": 485,
+      "type": "Label (rgthree)",
+      "pos": [
+        1020,
+        -1840
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 585,
+      "type": "SaveVideo",
+      "pos": [
+        1912.69482421875,
+        -1661.2911376953125
+      ],
+      "size": [
+        270,
+        249.875
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 1267
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 1268
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.55",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 574,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1580.8216552734375,
+        -1108.7381591796875
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 1255
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1268
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "VEO3",
+        "veo-3-runware",
+        "video",
+        "veo3",
+        "auto"
+      ]
+    },
+    {
+      "id": 85,
+      "type": "PrimitiveNode",
+      "pos": [
+        1033.574951171875,
+        -1382.3333740234375
+      ],
+      "size": [
+        266.412109375,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            1255
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "veo-3-runware"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 583,
+      "type": "Runware Video Model Search",
+      "pos": [
+        1029.558349609375,
+        -1657.1947021484375
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Runware Video Model",
+          "type": "RUNWAREVIDEOMODEL",
+          "links": [
+            1266
+          ]
+        },
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            1271
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            1272
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-Runware",
+        "ver": "fc9da2c74fccb558f180564ec808b351e94d922f",
+        "Node name for S&R": "Runware Video Model Search"
+      },
+      "widgets_values": [
+        "veo",
+        "Veo",
+        "google:3@1 (Veo 3.0 Fast)",
+        false
+      ],
+      "bgcolor": "#5345bf"
+    },
+    {
+      "id": 588,
+      "type": "Runware Frame Images",
+      "pos": [
+        1036.620849609375,
+        -1018.3121948242188
+      ],
+      "size": [
+        270,
+        190
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1275
+        },
+        {
+          "name": "image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Frame Images",
+          "type": "RUNWAREFRAMEIMAGES",
+          "links": [
+            1274
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-Runware",
+        "ver": "fc9da2c74fccb558f180564ec808b351e94d922f",
+        "Node name for S&R": "Runware Frame Images"
+      },
+      "widgets_values": [
+        "auto",
+        "auto",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 572,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1922.82373046875,
+        -1349.1871337890625
+      ],
+      "size": [
+        268.9330139160156,
+        154.93299865722656
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1273
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "anime in the background active megacity, an image of a futuristic looking hallway in a sci - fi fortress"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 587,
+      "type": "ZenkaiImagePromptV2",
+      "pos": [
+        1030.282470703125,
+        -1267.5068359375
+      ],
+      "size": [
+        270,
+        198
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1275
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1273,
+            1277
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "e16b8572cfd94c85cb3d24aee8bd5029e6d08672",
+        "Node name for S&R": "ZenkaiImagePromptV2"
+      },
+      "widgets_values": [
+        "TH0RR4",
+        2617586565,
+        "randomize",
+        "sequential",
+        1,
+        ""
+      ]
+    },
+    {
+      "id": 582,
+      "type": "Runware Video Inference",
+      "pos": [
+        1458.8726806640625,
+        -1658.0494384765625
+      ],
+      "size": [
+        400,
+        490
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Model",
+          "type": "RUNWAREVIDEOMODEL",
+          "link": 1266
+        },
+        {
+          "name": "frameImages",
+          "shape": 7,
+          "type": "RUNWAREFRAMEIMAGES",
+          "link": 1274
+        },
+        {
+          "name": "referenceImages",
+          "shape": 7,
+          "type": "RUNWAREREFERENCEIMAGES",
+          "link": null
+        },
+        {
+          "name": "providerSettings",
+          "shape": 7,
+          "type": "RUNWAREPROVIDERSETTINGS",
+          "link": null
+        },
+        {
+          "name": "positivePrompt",
+          "type": "STRING",
+          "widget": {
+            "name": "positivePrompt"
+          },
+          "link": 1277
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 1271
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 1272
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            1267
+          ]
+        },
+        {
+          "name": "RW-Task",
+          "type": "RUNWARETASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-Runware",
+        "ver": "fc9da2c74fccb558f180564ec808b351e94d922f",
+        "Node name for S&R": "Runware Video Inference"
+      },
+      "widgets_values": [
+        "",
+        "",
+        false,
+        "Disabled",
+        false,
+        1024,
+        576,
+        8,
+        true,
+        24,
+        "mp4",
+        768296624102644,
+        "randomize",
+        1
+      ],
+      "bgcolor": "#5345bf"
+    }
+  ],
+  "links": [
+    [
+      1255,
+      85,
+      0,
+      574,
+      0,
+      "STRING"
+    ],
+    [
+      1266,
+      583,
+      0,
+      582,
+      0,
+      "RUNWAREVIDEOMODEL"
+    ],
+    [
+      1267,
+      582,
+      0,
+      585,
+      0,
+      "VIDEO"
+    ],
+    [
+      1268,
+      574,
+      0,
+      585,
+      1,
+      "STRING"
+    ],
+    [
+      1271,
+      583,
+      1,
+      582,
+      5,
+      "INT"
+    ],
+    [
+      1272,
+      583,
+      2,
+      582,
+      6,
+      "INT"
+    ],
+    [
+      1273,
+      587,
+      1,
+      572,
+      0,
+      "STRING"
+    ],
+    [
+      1274,
+      588,
+      0,
+      582,
+      1,
+      "RUNWAREFRAMEIMAGES"
+    ],
+    [
+      1275,
+      587,
+      0,
+      588,
+      0,
+      "IMAGE"
+    ],
+    [
+      1277,
+      587,
+      1,
+      582,
+      4,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1000000000000008,
+      "offset": [
+        -463.78836166643754,
+        1790.2340926295
+      ]
+    },
+    "frontendVersion": "1.25.11",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
