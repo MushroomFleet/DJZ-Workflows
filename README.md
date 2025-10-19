@@ -56,3 +56,25 @@ Every workflow pack has associated tutorial videos which can be found at:
 https://www.youtube.com/@FiveBelowFiveUK
 
 Most workflows include direct links to either the channel or specific tutorial videos in their notes.
+
+
+## 📚 Citation
+
+### Academic Citation
+
+If you use this codebase in your research or project, please cite:
+
+```bibtex
+@software{djz_workflows,
+  title = {DJZ Workflows: Johnsons collection of maybe 1000+ ComfyUI Workflows, Enjoy},
+  author = {[Drift Johnson]},
+  year = {2025},
+  url = {https://github.com/MushroomFleet/DJZ-Workflows},
+  version = {1.0.0}
+}
+```
+
+### Donate:
+
+[![Ko-Fi](https://cdn.ko-fi.com/cdn/kofi3.png?v=3)](https://ko-fi.com/driftjohnson)
+
