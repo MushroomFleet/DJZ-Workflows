@@ -1,0 +1,440 @@
+{
+  "id": "f07816c2-7d63-45a8-8915-52c064d23b3a",
+  "revision": 0,
+  "last_node_id": 103,
+  "last_link_id": 181,
+  "nodes": [
+    {
+      "id": 71,
+      "type": "SaveImage",
+      "pos": [
+        6215.767973044551,
+        27119.62883046792
+      ],
+      "size": [
+        969.1281650922192,
+        569.9804236557138
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 166
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 104
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 98,
+      "type": "Flux2ProImageNode",
+      "pos": [
+        5776.736174112353,
+        27125.088478691734
+      ],
+      "size": [
+        400,
+        254
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 164
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 181
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 168
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 169
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            166
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "Flux2ProImageNode"
+      },
+      "widgets_values": [
+        "",
+        1024,
+        768,
+        350177400736503,
+        "randomize",
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 96,
+      "type": "PrimitiveNode",
+      "pos": [
+        4345.961336211613,
+        27687.431618038867
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            134
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "variationator-2a"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        4057.9704942674966,
+        27124.210862065604
+      ],
+      "size": [
+        604.4078491683231,
+        464.0580104326036
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            164,
+            167
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "id6_00001_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 99,
+      "type": "ImageSizeAdjusterV2",
+      "pos": [
+        4792.313984507407,
+        27248.660036768626
+      ],
+      "size": [
+        270,
+        306
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 167
+        }
+      ],
+      "outputs": [
+        {
+          "name": "adjusted_width",
+          "type": "INT",
+          "links": [
+            168
+          ]
+        },
+        {
+          "name": "adjusted_height",
+          "type": "INT",
+          "links": [
+            169
+          ]
+        },
+        {
+          "name": "applied_scale",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "original_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "original_height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ImageSizeAdjusterV2"
+      },
+      "widgets_values": [
+        "WAN22",
+        64,
+        "up",
+        "none",
+        false,
+        1,
+        2048,
+        2048
+      ]
+    },
+    {
+      "id": 103,
+      "type": "DF_Text_Box",
+      "pos": [
+        5197.465973809405,
+        27240.612359275005
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            181
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "change the style to watercolour ink linework"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        5845.767973044551,
+        27569.62883046792
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 134
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            104
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Flux2",
+        "variationator-2a",
+        "distance",
+        "flux2",
+        "auto"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    }
+  ],
+  "links": [
+    [
+      104,
+      73,
+      0,
+      71,
+      1,
+      "STRING"
+    ],
+    [
+      134,
+      96,
+      0,
+      73,
+      0,
+      "STRING"
+    ],
+    [
+      164,
+      7,
+      0,
+      98,
+      0,
+      "IMAGE"
+    ],
+    [
+      166,
+      98,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      167,
+      7,
+      0,
+      99,
+      0,
+      "IMAGE"
+    ],
+    [
+      168,
+      99,
+      0,
+      98,
+      2,
+      "INT"
+    ],
+    [
+      169,
+      99,
+      1,
+      98,
+      3,
+      "INT"
+    ],
+    [
+      181,
+      103,
+      0,
+      98,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 12,
+      "title": "a",
+      "bounding": [
+        4735.767973044551,
+        27036.02883046792,
+        2544.691726811986,
+        802.8404225365812
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.2284597357367906,
+      "offset": [
+        -5279.732796967793,
+        -27302.39963532837
+      ]
+    },
+    "frontendVersion": "1.33.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
