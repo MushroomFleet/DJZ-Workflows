@@ -1,0 +1,1815 @@
+{
+  "id": "de341da4-2f8d-43dc-9ee3-24a193f90108",
+  "revision": 0,
+  "last_node_id": 82,
+  "last_link_id": 135,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1209,
+        188
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 51
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [
+        423.301097648636,
+        60
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "ModelSamplingAuraFlow"
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 16,
+      "type": "UNETLoader",
+      "pos": [
+        80,
+        60
+      ],
+      "size": [
+        309.9613519573699,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "z_image_turbo_bf16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": [
+        71.95149993896484,
+        192.96051025390625
+      ],
+      "size": [
+        322.22525250509256,
+        174.95547614921037
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "The \"You are an assistant... <Prompt Start> \" text before the actual prompt is the one used in the official example.\n\nThe reason it is exposed to the user like this is because the model still works if you modify or remove it."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "CLIPLoader",
+      "pos": [
+        80.74001031497491,
+        414.85848889028927
+      ],
+      "size": [
+        310.70137469341864,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            43,
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen_3_4b.safetensors",
+        "lumina2",
+        "default"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        420,
+        411.1003658828786
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry ugly bad"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 28,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        79.8190045955579,
+        -60.26271847151839
+      ],
+      "size": [
+        311.3547568772136,
+        58.83544708429315
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "d3e14efda6bb891de0406d2debffcb07e88d4231",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "z_image_turbo-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "VAELoader",
+      "pos": [
+        75.6683885065325,
+        574.4518937496125
+      ],
+      "size": [
+        313.6614904797612,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1210.1030777549565,
+        292.74191291429287
+      ],
+      "size": [
+        210,
+        154
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            86
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Z-IMAGE",
+        "thorra-Turbo",
+        "TURBO",
+        "zimg",
+        "auto"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "PrimitiveNode",
+      "pos": [
+        -352.66512478723496,
+        103.93935320676174
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "thorra-Turbo"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1454.93896484375,
+        190.9700164794922
+      ],
+      "size": [
+        424.6556935996034,
+        364.7455500171768
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 86
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        420,
+        190
+      ],
+      "size": [
+        423.83001708984375,
+        177.11770629882812
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 43
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "{\n  \"scene\": \"Neo-Tokyo highway at night with towering brutalist architecture and flickering holographic advertisements\",\n  \"subjects\": [\n    {\n      \"description\": \"Red Kaneda motorcycle with intricate mechanical details, glowing plasma trails streaming behind, meticulous line work defining every component\",\n      \"position\": \"center foreground in dynamic motion\",\n      \"action\": \"Speeding through highway with extreme velocity\",\n      \"color_palette\": [\"#CC0000\", \"#FF3333\", \"#8B0000\"]\n    },\n    {\n      \"description\": \"Vibrant neon signs and holographic advertisements with light bloom effects, urban decay details\",\n      \"position\": \"background flanking both sides\",\n      \"color_palette\": [\"#00FFFF\", \"#FF00FF\", \"#FF1493\", \"#00CED1\"]\n    }\n  ],\n  \"style\": \"Hand-painted animation cel aesthetic with 1980s theatrical anime quality, cel shading with bold shadows and highlights, realistic proportions with gritty texture work, film grain and rich color saturation characteristic of 35mm anime production\",\n  \"color_palette\": [\"#CC0000\", \"#00FFFF\", \"#FF00FF\", \"#1A1A1A\", \"#2C2C2C\"],\n  \"lighting\": \"Dramatic neon lighting with cyan and magenta lights reflecting off wet asphalt, light bloom around signs, strong color contrast\",\n  \"mood\": \"High-energy, kinetic, cyberpunk intensity, gritty urban atmosphere\",\n  \"background\": \"Rain-slicked wet asphalt reflecting neon lights, towering brutalist buildings, urban decay with detailed architectural elements\",\n  \"composition\": \"Extreme foreshortening with dramatic perspective, dynamic speed lines creating motion blur effect, strong leading lines following motorcycle trajectory\",\n  \"camera\": {\n    \"angle\": \"Low angle with extreme perspective creating dramatic foreshortening\",\n    \"distance\": \"Medium shot\",\n    \"lens-mm\": 24,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 800,\n    \"depth_of_field\": \"Moderate depth with motion blur on background elements, sharp focus on motorcycle with speed line effects\",\n    \"focus\": \"Sharp focus on motorcycle mechanical details with plasma trail glow, background showing characteristic anime motion blur\"\n  }\n}"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 49,
+      "type": "EmptyLatentImage",
+      "pos": [
+        870.2595724431818,
+        490.155959787736
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 90
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            92
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 50,
+      "type": "AspectSizeV2",
+      "pos": [
+        -242.1537512656209,
+        510.11182462702953
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            90
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            91
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "QWEN",
+        16,
+        9,
+        64
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        863,
+        186
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        850390711961229,
+        "randomize",
+        8,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ShowText|pysssss",
+      "pos": [
+        428.7379625562741,
+        652.2631644826628
+      ],
+      "size": [
+        420.0372480677638,
+        242.0080631313823
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 124
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            102
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "{\n  \"scene\": \"City street with buildings and urban elements, , moonlit night, clear sky lighting, , heavy downpour, intense rain, dramatic weather conditions\",\n  \"subjects\": [\n    {\n      \"description\": \"Red Kaneda-style chopper type motorcycle with intricate mechanical details, chrome exhaust pipes, and glowing plasma energy trails streaming behind\",\n      \"position\": \"center foreground speeding toward viewer\",\n      \"action\": \"Racing at high speed with motion blur and dynamic speed lines\",\n      \"pose\": \"cruising riding position, front wheel slightly lifted\",\n      \"color_palette\": [\n        \"#E30B17\",\n        \"#7DFDFE\",\n        \"#C0C0C0\",\n        \"#FF6B35\"\n      ]\n    },\n    {\n      \"description\": \"woman with short red hair wearing black military leather combat sneaking stealth suit\",\n      \"position\": \"center foreground speeding toward viewer\",\n      \"action\": \"riding the red motorcycle harley davidson style\",\n      \"pose\": \"leaning back in reclined chopper motorcycle position\",\n      \"color_palette\": [\n        \"#E30B17\",\n        \"#7DFDFE\",\n        \"#C0C0C0\",\n        \"#FF6B35\"\n      ]\n    },\n    {\n      \"description\": \"Massive brutalist concrete structures with geometric angular forms, covered in flickering holographic advertisements and neon signage\",\n      \"position\": \"background on both sides creating urban canyon effect\",\n      \"action\": \"Static but with animated holographic elements and light reflections\",\n      \"color_palette\": [\n        \"#00FFFF\",\n        \"#FF00FF\",\n        \"#2C2C2C\",\n        \"#FFD700\"\n      ]\n    }\n  ],\n  \"style\": \"1980s theatrical anime aesthetic, hand-painted animation cels with meticulous line work, cel shading with bold shadows and highlights, rich layered colors, realistic proportions, gritty texture work, 35mm film grain, high color saturation characteristic of high-budget anime production, artistic expression\",\n  \"color_palette\": [\n    \"#E30B17\",\n    \"#00FFFF\",\n    \"#FF00FF\",\n    \"#1A1A1A\"\n  ],\n  \"lighting\": \"Neon-drenched environment with vibrant cyan and magenta lights casting reflections on wet road surface\",\n  \"mood\": \"High-octane, kinetic energy with gritty urban decay and retrofuturistic atmosphere\",\n  \"background\": \"Towering brutalist architecture lining the highway with flickering holographic advertisements and neon signs creating light bloom effects\",\n  \"composition\": \", minimalist negative space, breathing room, isolated subject\",\n  \"camera\": {\n    \"angle\": \"Low angle tracking shot following subject, slight Dutch angle for dynamic tension\",\n    \"distance\": \"Full shot\",\n    \"lens-mm\": 50,\n    \"f-number\": \"f/8\",\n    \"depth_of_field\": \"Everything sharp\"\n  }\n}"
+      ]
+    },
+    {
+      "id": 51,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        -246.38947080705492,
+        248.90795276614347
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "Thorra-Main-spysuit.txt",
+        2808841847,
+        "randomize",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 66,
+      "type": "FLUX2_SubjectArray",
+      "pos": [
+        -1961.5457528579484,
+        643.3508478937595
+      ],
+      "size": [
+        194.5083984375,
+        166
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "subject_1",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": 116
+        },
+        {
+          "name": "subject_2",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": 117
+        },
+        {
+          "name": "subject_3",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": 118
+        },
+        {
+          "name": "subject_4",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": null
+        },
+        {
+          "name": "subject_5",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": null
+        },
+        {
+          "name": "subject_6",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": null
+        },
+        {
+          "name": "subject_7",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": null
+        },
+        {
+          "name": "subject_8",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "subjects",
+          "type": "FLUX2_SUBJECT_ARRAY",
+          "links": [
+            119
+          ]
+        },
+        {
+          "name": "subject_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "summary",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_SubjectArray",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 67,
+      "type": "FLUX2_StyleSelector",
+      "pos": [
+        -1691.5457528579484,
+        403.35084789375946
+      ],
+      "size": [
+        400,
+        214
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "style",
+          "type": "STRING",
+          "links": [
+            123
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_StyleSelector",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "Custom",
+        "Artistic: Digital illustration with clean vector aesthetics",
+        "1980s theatrical anime aesthetic, hand-painted animation cels with meticulous line work, cel shading with bold shadows and highlights, rich layered colors, realistic proportions, gritty texture work, 35mm film grain, high color saturation characteristic of high-budget anime production",
+        "Artistic expression",
+        ""
+      ]
+    },
+    {
+      "id": 68,
+      "type": "FLUX2_SubjectCreator",
+      "pos": [
+        -2851.545752857948,
+        663.3508478937595
+      ],
+      "size": [
+        400,
+        328
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "subject",
+          "type": "FLUX2_SUBJECT",
+          "links": [
+            117
+          ]
+        }
+      ],
+      "title": "character",
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_SubjectCreator",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "woman with short red hair wearing black military leather combat sneaking stealth suit",
+        "center foreground speeding toward viewer",
+        "center",
+        "middle",
+        "midground",
+        "riding the red motorcycle harley davidson style",
+        "leaning back in reclined chopper motorcycle position",
+        "#E30B17",
+        "#7DFDFE",
+        "#C0C0C0",
+        "#FF6B35"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "FLUX2_ColorPalette",
+      "pos": [
+        -1201.545752857948,
+        453.3508478937595
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "color_palette",
+          "type": "FLUX2_COLOR_ARRAY",
+          "links": [
+            120
+          ]
+        },
+        {
+          "name": "palette_preview",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_ColorPalette",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "#E30B17",
+        "#00FFFF",
+        "#FF00FF",
+        "#1A1A1A"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "FLUX2_SubjectCreator",
+      "pos": [
+        -2411.5457528579477,
+        413.3508478937595
+      ],
+      "size": [
+        400,
+        328
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "subject",
+          "type": "FLUX2_SUBJECT",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "title": "motorcycle",
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_SubjectCreator",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "Red Kaneda-style chopper type motorcycle with intricate mechanical details, chrome exhaust pipes, and glowing plasma energy trails streaming behind",
+        "center foreground speeding toward viewer",
+        "center",
+        "middle",
+        "foreground",
+        "Racing at high speed with motion blur and dynamic speed lines",
+        "cruising riding position, front wheel slightly lifted",
+        "#E30B17",
+        "#7DFDFE",
+        "#C0C0C0",
+        "#FF6B35"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "FLUX2_PromptAssembler",
+      "pos": [
+        -881.5457528579477,
+        653.3508478937595
+      ],
+      "size": [
+        400,
+        386
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "subjects",
+          "shape": 7,
+          "type": "FLUX2_SUBJECT_ARRAY",
+          "link": 119
+        },
+        {
+          "name": "color_palette",
+          "shape": 7,
+          "type": "FLUX2_COLOR_ARRAY",
+          "link": 120
+        },
+        {
+          "name": "camera",
+          "shape": 7,
+          "type": "FLUX2_CAMERA",
+          "link": 121
+        },
+        {
+          "name": "scene",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "scene"
+          },
+          "link": 122
+        },
+        {
+          "name": "style",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "style"
+          },
+          "link": 123
+        },
+        {
+          "name": "composition",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "composition"
+          },
+          "link": 125
+        }
+      ],
+      "outputs": [
+        {
+          "name": "json_string",
+          "type": "STRING",
+          "links": [
+            124
+          ]
+        },
+        {
+          "name": "json_object",
+          "type": "FLUX2_JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_PromptAssembler",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "Neon-drenched environment with vibrant cyan and magenta lights casting reflections on wet road surface",
+        "High-octane, kinetic energy with gritty urban decay and retrofuturistic atmosphere",
+        "Towering brutalist architecture lining the highway with flickering holographic advertisements and neon signs creating light bloom effects",
+        "",
+        true,
+        true
+      ]
+    },
+    {
+      "id": 70,
+      "type": "FLUX2_CameraRig",
+      "pos": [
+        -1201.545752857948,
+        683.3508478937595
+      ],
+      "size": [
+        270,
+        366
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "custom_distance",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "custom_distance"
+          },
+          "link": 130
+        }
+      ],
+      "outputs": [
+        {
+          "name": "camera",
+          "type": "FLUX2_CAMERA",
+          "links": [
+            121
+          ]
+        },
+        {
+          "name": "camera_summary",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_CameraRig",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "None",
+        "Low angle tracking shot following subject, slight Dutch angle for dynamic tension",
+        "",
+        "Full shot",
+        "",
+        50,
+        "",
+        "f/8",
+        400,
+        "",
+        "Everything sharp",
+        "",
+        true
+      ]
+    },
+    {
+      "id": 77,
+      "type": "PromptWeatherModifier",
+      "pos": [
+        -1679.0219872325754,
+        1043.247377751383
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 126
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            127
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptWeatherModifier"
+      },
+      "widgets_values": [
+        "",
+        7,
+        true
+      ]
+    },
+    {
+      "id": 71,
+      "type": "FLUX2_SceneBuilder",
+      "pos": [
+        -1691.5457528579484,
+        723.3508478937594
+      ],
+      "size": [
+        400,
+        262
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "custom_time_of_day",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "custom_time_of_day"
+          },
+          "link": 128
+        },
+        {
+          "name": "custom_weather",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "custom_weather"
+          },
+          "link": 127
+        }
+      ],
+      "outputs": [
+        {
+          "name": "scene",
+          "type": "STRING",
+          "links": [
+            122
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_SceneBuilder",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "Urban Street",
+        "Neo-Tokyo futuristic highway at night with wet asphalt reflecting neon lights",
+        "",
+        "Custom",
+        "",
+        "Custom",
+        ""
+      ]
+    },
+    {
+      "id": 79,
+      "type": "PromptLightingModifier",
+      "pos": [
+        -1679.2292692726546,
+        1091.9956969855336
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 129
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            128
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptLightingModifier"
+      },
+      "widgets_values": [
+        "",
+        7,
+        true
+      ]
+    },
+    {
+      "id": 78,
+      "type": "SequentialNumberGenerator",
+      "pos": [
+        -1954.4989783158737,
+        966.0267325542593
+      ],
+      "size": [
+        226.671484375,
+        150
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "links": [
+            126,
+            132
+          ]
+        },
+        {
+          "name": "next",
+          "type": "INT",
+          "links": [
+            129,
+            131
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "SequentialNumberGenerator"
+      },
+      "widgets_values": [
+        1,
+        20,
+        51,
+        "increment"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 80,
+      "type": "PromptDistanceModifier",
+      "pos": [
+        -1194.7392250027583,
+        1100.1873279815236
+      ],
+      "size": [
+        210,
+        136
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 131
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            130
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptDistanceModifier"
+      },
+      "widgets_values": [
+        "",
+        6,
+        true
+      ]
+    },
+    {
+      "id": 76,
+      "type": "PromptComposition",
+      "pos": [
+        -870.5827581304974,
+        1096.9255042637294
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 132
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            125
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptComposition"
+      },
+      "widgets_values": [
+        "",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 81,
+      "type": "PromptLocationModifier",
+      "pos": [
+        -2844.6385619756156,
+        1060.479984299511
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            133
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptLocationModifier"
+      },
+      "widgets_values": [
+        "Massive brutalist concrete structures",
+        7,
+        true
+      ]
+    },
+    {
+      "id": 74,
+      "type": "FLUX2_SubjectCreator",
+      "pos": [
+        -2399.9254584813657,
+        801.5160807795892
+      ],
+      "size": [
+        400,
+        328
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "subject",
+          "type": "FLUX2_SUBJECT",
+          "links": [
+            118
+          ]
+        }
+      ],
+      "title": "Set Dressing",
+      "properties": {
+        "cnr_id": "comfyui-flux2-json",
+        "ver": "028554ab40e327b57c9b44399a674140afdec9e6",
+        "Node name for S&R": "FLUX2_SubjectCreator",
+        "aux_id": "MushroomFleet/ComfyUI-FLUX2-JSON"
+      },
+      "widgets_values": [
+        "Massive brutalist concrete structures with geometric angular forms, covered in flickering holographic advertisements and neon signage",
+        "background on both sides creating urban canyon effect",
+        "",
+        "",
+        "midground",
+        "Static but with animated holographic elements and light reflections",
+        "",
+        "#00FFFF",
+        "#FF00FF",
+        "#2C2C2C",
+        "#FFD700"
+      ]
+    },
+    {
+      "id": 82,
+      "type": "easy showAnything",
+      "pos": [
+        -2415.3017022334907,
+        1193.806764148508
+      ],
+      "size": [
+        265.37614288495934,
+        96.18249984797671
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 133
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "76b5896f089d5b4f7619559cf5f7fc0560e3dc40",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "Massive brutalist concrete structures, open countryside, rural landscape, agricultural fields, expansive views"
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      18,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      44,
+      18,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      45,
+      17,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      47,
+      11,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      51,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      52,
+      28,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      85,
+      48,
+      0,
+      47,
+      0,
+      "STRING"
+    ],
+    [
+      86,
+      47,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      90,
+      50,
+      0,
+      49,
+      0,
+      "INT"
+    ],
+    [
+      91,
+      50,
+      1,
+      49,
+      1,
+      "INT"
+    ],
+    [
+      92,
+      49,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      102,
+      54,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      116,
+      69,
+      0,
+      66,
+      0,
+      "FLUX2_SUBJECT"
+    ],
+    [
+      117,
+      68,
+      0,
+      66,
+      1,
+      "FLUX2_SUBJECT"
+    ],
+    [
+      118,
+      74,
+      0,
+      66,
+      2,
+      "FLUX2_SUBJECT"
+    ],
+    [
+      119,
+      66,
+      0,
+      75,
+      0,
+      "FLUX2_SUBJECT_ARRAY"
+    ],
+    [
+      120,
+      73,
+      0,
+      75,
+      1,
+      "FLUX2_COLOR_ARRAY"
+    ],
+    [
+      121,
+      70,
+      0,
+      75,
+      2,
+      "FLUX2_CAMERA"
+    ],
+    [
+      122,
+      71,
+      0,
+      75,
+      3,
+      "STRING"
+    ],
+    [
+      123,
+      67,
+      0,
+      75,
+      4,
+      "STRING"
+    ],
+    [
+      124,
+      75,
+      0,
+      54,
+      0,
+      "STRING"
+    ],
+    [
+      125,
+      76,
+      0,
+      75,
+      5,
+      "STRING"
+    ],
+    [
+      126,
+      78,
+      0,
+      77,
+      0,
+      "INT"
+    ],
+    [
+      127,
+      77,
+      0,
+      71,
+      1,
+      "STRING"
+    ],
+    [
+      128,
+      79,
+      0,
+      71,
+      0,
+      "STRING"
+    ],
+    [
+      129,
+      78,
+      1,
+      79,
+      0,
+      "INT"
+    ],
+    [
+      130,
+      80,
+      0,
+      70,
+      0,
+      "STRING"
+    ],
+    [
+      131,
+      78,
+      1,
+      80,
+      0,
+      "INT"
+    ],
+    [
+      132,
+      78,
+      0,
+      76,
+      0,
+      "INT"
+    ],
+    [
+      133,
+      81,
+      0,
+      82,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "2JSON",
+      "bounding": [
+        -2861.545752857948,
+        209.75084789375921,
+        2390,
+        931.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5730855330116815,
+      "offset": [
+        1638.3900839366725,
+        204.53088654629062
+      ]
+    },
+    "frontendVersion": "1.30.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

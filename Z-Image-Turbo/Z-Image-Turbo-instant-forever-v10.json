@@ -1,0 +1,1149 @@
+{
+  "id": "1718f50f-15c7-4a27-abda-26ee9364dfe6",
+  "revision": 0,
+  "last_node_id": 54,
+  "last_link_id": 100,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1209,
+        188
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 51
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [
+        423.301097648636,
+        60
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "ModelSamplingAuraFlow"
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 16,
+      "type": "UNETLoader",
+      "pos": [
+        80,
+        60
+      ],
+      "size": [
+        309.9613519573699,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "z_image_turbo_bf16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": [
+        71.95149993896484,
+        192.96051025390625
+      ],
+      "size": [
+        322.22525250509256,
+        174.95547614921037
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "The \"You are an assistant... <Prompt Start> \" text before the actual prompt is the one used in the official example.\n\nThe reason it is exposed to the user like this is because the model still works if you modify or remove it."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "CLIPLoader",
+      "pos": [
+        80.74001031497491,
+        414.85848889028927
+      ],
+      "size": [
+        310.70137469341864,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            43,
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen_3_4b.safetensors",
+        "lumina2",
+        "default"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        420,
+        411.1003658828786
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry ugly bad"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 28,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        79.8190045955579,
+        -60.26271847151839
+      ],
+      "size": [
+        311.3547568772136,
+        58.83544708429315
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "d3e14efda6bb891de0406d2debffcb07e88d4231",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "z_image_turbo-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        420,
+        190
+      ],
+      "size": [
+        423.83001708984375,
+        177.11770629882812
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 43
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 100
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "cute anime style girl with massive fluffy fennec ears and a big fluffy tail blonde messy long hair blue eyes wearing a maid outfit with a long black gold leaf pattern dress and a white apron, it is a postcard held by a hand in front of a beautiful realistic city at sunset and there is cursive writing that says \"ZImage, Now in ComfyUI\""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 33,
+      "type": "PromptLightingModifier",
+      "pos": [
+        -700.7179163619468,
+        357.69982589019565
+      ],
+      "size": [
+        210,
+        136
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            61
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptLightingModifier"
+      },
+      "widgets_values": [
+        "",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 17,
+      "type": "VAELoader",
+      "pos": [
+        75.6683885065325,
+        574.4518937496125
+      ],
+      "size": [
+        313.6614904797612,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1454.93896484375,
+        190.9700164794922
+      ],
+      "size": [
+        424.6556935996034,
+        364.7455500171768
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 86
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1210.1030777549565,
+        292.74191291429287
+      ],
+      "size": [
+        210,
+        154
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            86
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "Z-IMAGE",
+        "thorra-Turbo",
+        "TURBO",
+        "zimg",
+        "auto"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "PrimitiveNode",
+      "pos": [
+        -352.66512478723496,
+        103.93935320676174
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "thorra-Turbo"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 49,
+      "type": "EmptyLatentImage",
+      "pos": [
+        565.2483484883569,
+        650.0961837538348
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 90
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            92
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 34,
+      "type": "PromptDistanceModifier",
+      "pos": [
+        -703.0884983055525,
+        159.543851915096
+      ],
+      "size": [
+        210,
+        136
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 97
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptDistanceModifier"
+      },
+      "widgets_values": [
+        "",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 51,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        -748.9020412602341,
+        561.6517420803781
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            93
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "3mp1r3-style-v1a.txt",
+        1518063000,
+        "randomize",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        863,
+        186
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        196610236902552,
+        "randomize",
+        10,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 53,
+      "type": "SequentialNumberGenerator",
+      "pos": [
+        -1128.9219942473885,
+        242.0758225314633
+      ],
+      "size": [
+        286.671484375,
+        150
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "links": [
+            96,
+            97,
+            98
+          ]
+        },
+        {
+          "name": "next",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "SequentialNumberGenerator"
+      },
+      "widgets_values": [
+        1,
+        20,
+        419496993845747,
+        "randomize"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "PromptCombiner",
+      "pos": [
+        -358.8688041732452,
+        222.36246901788107
+      ],
+      "size": [
+        400,
+        274
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_1",
+          "type": "STRING",
+          "widget": {
+            "name": "text_1"
+          },
+          "link": 93
+        },
+        {
+          "name": "text_2",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_2"
+          },
+          "link": 94
+        },
+        {
+          "name": "text_3",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_3"
+          },
+          "link": 62
+        },
+        {
+          "name": "text_4",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_4"
+          },
+          "link": 61
+        }
+      ],
+      "outputs": [
+        {
+          "name": "combined_text",
+          "type": "STRING",
+          "links": [
+            99
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptCombiner"
+      },
+      "widgets_values": [
+        "Change the image to ",
+        "",
+        "",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 52,
+      "type": "PromptActionModifier",
+      "pos": [
+        -700.5863738041913,
+        -24.252283523242237
+      ],
+      "size": [
+        210,
+        136
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "modifier_id",
+          "type": "INT",
+          "widget": {
+            "name": "modifier_id"
+          },
+          "link": 98
+        }
+      ],
+      "outputs": [
+        {
+          "name": "modified_prompt",
+          "type": "STRING",
+          "links": [
+            94
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptActionModifier"
+      },
+      "widgets_values": [
+        "",
+        5,
+        true
+      ]
+    },
+    {
+      "id": 50,
+      "type": "AspectSizeV2",
+      "pos": [
+        -354.83471291579804,
+        564.2853345050316
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            90
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            91
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "QWEN",
+        16,
+        9,
+        64
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1450.157028845757,
+        601.8654902016948
+      ],
+      "size": [
+        482.77057688210994,
+        214.12981595452857
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            100
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "3mp1r3 style illustration depicting Imperial regiment in ceremonial formation across post-conquest urban rooftop with prominent lead figure featuring distinctive blue cylindrical cubic machine head completely enclosed by atmospheric processing headgear and brass communication arrays. Red enamel military coats display precision-engineered wear patterns with segmented structural architecture visible in bronze chest plating and hydraulic articulation systems at armor joint connections. Advanced rifles incorporate spine-like mechanical configurations with industrial breathing apparatus integration while multiple synchronized units maintain formation discipline across weathered concrete platforms. Dystopian metropolitan skyline with towering spires creates breathing industrial infrastructure backdrop under dramatic overcast lighting that emphasizes technological superiority through muted palette contrasted by vibrant Imperial red accents and organic-mechanical environmental fusion elements., , emerging/revealing, dramatic entrance, unveiling moment, , wide contextual distance, subject in full environmental context, spatial relationships clear, , blue hour, deep clear sky"
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      18,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      44,
+      18,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      45,
+      17,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      47,
+      11,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      51,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      52,
+      28,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      61,
+      33,
+      0,
+      31,
+      3,
+      "STRING"
+    ],
+    [
+      62,
+      34,
+      0,
+      31,
+      2,
+      "STRING"
+    ],
+    [
+      85,
+      48,
+      0,
+      47,
+      0,
+      "STRING"
+    ],
+    [
+      86,
+      47,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      90,
+      50,
+      0,
+      49,
+      0,
+      "INT"
+    ],
+    [
+      91,
+      50,
+      1,
+      49,
+      1,
+      "INT"
+    ],
+    [
+      92,
+      49,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      93,
+      51,
+      0,
+      31,
+      0,
+      "STRING"
+    ],
+    [
+      94,
+      52,
+      0,
+      31,
+      1,
+      "STRING"
+    ],
+    [
+      96,
+      53,
+      0,
+      33,
+      0,
+      "INT"
+    ],
+    [
+      97,
+      53,
+      0,
+      34,
+      0,
+      "INT"
+    ],
+    [
+      98,
+      53,
+      0,
+      52,
+      0,
+      "INT"
+    ],
+    [
+      99,
+      31,
+      0,
+      54,
+      0,
+      "STRING"
+    ],
+    [
+      100,
+      54,
+      0,
+      6,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 3.5049389948139384,
+      "offset": [
+        -1364.9963664237162,
+        -223.39119497265847
+      ]
+    },
+    "frontendVersion": "1.30.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
