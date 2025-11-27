@@ -1,0 +1,1729 @@
+{
+  "id": "8926b083-4487-44fb-b7a7-547d5c009265",
+  "revision": 0,
+  "last_node_id": 79,
+  "last_link_id": 190,
+  "nodes": [
+    {
+      "id": 22,
+      "type": "BasicGuider",
+      "pos": [
+        -96.56398062331675,
+        -35.299216341554455
+      ],
+      "size": [
+        222.3482666015625,
+        46
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 158
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 181
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "KSamplerSelect",
+      "pos": [
+        -96.56398062331675,
+        54.70078365844557
+      ],
+      "size": [
+        222.3482666015625,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "RandomNoise",
+      "pos": [
+        -96.56398062331675,
+        -155.29921634155434
+      ],
+      "size": [
+        222.3482666015625,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            37
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        88278349293933,
+        "randomize"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        -1761.7750147967324,
+        -30.341503373907784
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            158
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "02dac863ee1b65852d39ce6b9180bf5d9bc8a636",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "flux2-dev-Q4_0.gguf"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -1778.6955565535761,
+        88.44408309137818
+      ],
+      "size": [
+        298.1818181818182,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            117
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "mistral_3_small_flux2_fp8.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/text_encoders/mistral_3_small_flux2_fp8.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "mistral_3_small_flux2_fp8.safetensors",
+        "flux2",
+        "default"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "VAEEncode",
+      "pos": [
+        -455.7171974101431,
+        268.98051754521964
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 122
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            121
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 41,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        -537.4017991124141,
+        134.58823094945546
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 123
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            122
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "area",
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        547.5917009698155,
+        -276.72395470017545
+      ],
+      "size": [
+        985.3012084960938,
+        1060.3828125
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 163
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Flux2"
+      ]
+    },
+    {
+      "id": 61,
+      "type": "MarkdownNote",
+      "pos": [
+        -2215.1433551699206,
+        -27.562252494358702
+      ],
+      "size": [
+        400,
+        450
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ComfyUI Official Links",
+      "properties": {},
+      "widgets_values": [
+        "We are using quantized weights in this workflow, the original flux 2 repo is [here](https://huggingface.co/black-forest-labs/FLUX.2-dev/)\n\n## Report issue\n\nIf you found any issues when running this workflow, [report template issue here](https://github.com/Comfy-Org/workflow_templates/issues)\n\n\n## Model links\n\n**text_encoders**\n\n- [mistral_3_small_flux2_fp8.safetensors](https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/text_encoders/mistral_3_small_flux2_fp8.safetensors)\n- [mistral_3_small_flux2_bf16.safetensors](https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/text_encoders/mistral_3_small_flux2_bf16.safetensors)\n\n**diffusion_models**\n\n- [flux2_dev_fp8mixed.safetensors](https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/diffusion_models/flux2_dev_fp8mixed.safetensors)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors)\n\n\nModel Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │      └── mistral_3_small_flux2_fp8.safetensors\n│   │      └── mistral_3_small_flux2_bf16.safetensors\n│   ├── 📂 diffusion_models/\n│   │      └── flux2_dev_fp8mixed.safetensors\n│   └── 📂 vae/\n│          └── flux2-vae.safetensors\n```\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 26,
+      "type": "FluxGuidance",
+      "pos": [
+        -1266.9265016855352,
+        397.7034810263125
+      ],
+      "size": [
+        248.5444552612305,
+        58
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            166
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        4
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 65,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1768.0694684531545,
+        -226.3451718724363
+      ],
+      "size": [
+        287.94870778805034,
+        87.28202155896201
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            164
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "thorra-distance-grade"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -89.49138119403538,
+        155.96299299891328
+      ],
+      "size": [
+        288.1025709641515,
+        96.15386317610114
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 186
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Interpreting this as a dynamic cyber-futuristic vehicle portrait: a low pod-chair motorbike performing a power-slide with a redheaded female agent leaning back in a confident, stylized pose. I'll prioritize the vehicle as the primary subject with the rider as a close secondary subject and set cinematic camera/lighting for motion and glossy red materials.\n\n{\n  \"scene\": \"Futuristic urban racetrack / neon street environment with wet reflective surface\",\n  \"subjects\": [\n    {\n      \"description\": \"Low pod-chair-design motorbike with integrated aerodynamic 'muscled' windshield and low-slung cockpit, glossy red lacquer panels, wide rear tire and covered wheel hubs, stunt-ready chassis\",\n      \"position\": \"center foreground\",\n      \"action\": \"Power slide drifting with rear end kicked out, motion blur on wheels and ground\",\n      \"color_palette\": [\n        \"#FF0000\",\n        \"#000000\",\n        \"#B0B0B0\"\n      ]\n    },\n    {\n      \"description\": \"Female redhead agent wearing a fitted red tactical suit and black harness, leaning back in the pod-chair cockpit with one hand near controls and the other balancing the drift, confident expression\",\n      \"position\": \"center foreground seated in cockpit\",\n      \"action\": \"Leaning back while maintaining control of the drift\",\n      \"pose\": \"Relaxed, confident lean-back, torso rotated slightly toward camera, legs braced in cockpit\",\n      \"color_palette\": [\n        \"#FF4500\",\n        \"#FF0000\",\n        \"#FFBF00\",\n        \"#000000\"\n      ]\n    }\n  ],\n  \"style\": \"Cinematic futuristic concept art with anime-influenced character detailing and high-gloss vehicle rendering\",\n  \"color_palette\": [\n    \"#FF0000\",\n    \"#FF4500\",\n    \"#FFBF00\",\n    \"#000000\",\n    \"#B0B0B0\",\n    \"#FFFFFF\"\n  ],\n  \"lighting\": \"Dynamic high-contrast rim and directional neon lighting with specular highlights on lacquered surfaces, subtle fill to reveal form, motion streaks and particle sparks\",\n  \"mood\": \"Adrenaline-charged, stylish, confident\",\n  \"background\": \"Blurred neon-lit cityscape / racetrack with wet reflective asphalt and light streaks to emphasize speed\",\n  \"composition\": \"Low-angle three-quarter view, subject centered slightly to the right foreground, strong leading lines and motion blur toward the rear to emphasize drift\",\n  \"camera\": {\n    \"angle\": \"Low angle, slight tilt\",\n    \"distance\": \"Full shot\",\n    \"lens-mm\": 35,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 400,\n    \"depth_of_field\": \"Shallow with motion blur; rider and cockpit sharp, background and wheels blurred\",\n    \"focus\": \"Sharp focus on rider's face and vehicle cockpit\"\n  }\n}\n\nTechnical notes: Chose 35mm for a cinematic, dynamic field of view capturing full vehicle and rider while preserving perspective distortion; f/2.8 and shallow DOF emphasize subject separation and neon bokeh; red lacquer and hair tones use #FF0000 and #FF4500 for clear differentiation; ISO 400 balances low-light neon with minimal noise."
+      ]
+    },
+    {
+      "id": 64,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        158.6915991188934,
+        326.6242872066113
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 164
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            163
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "FLUX2",
+        "thorra-distance-grade",
+        "images",
+        "flux2",
+        "auto"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        153.43601937668416,
+        -53.999199556886474
+      ],
+      "size": [
+        272.3617858886719,
+        124.53733825683594
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 37
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 30
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 19
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 132
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 131
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            24
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        220.84149721592033,
+        206.02105700370495
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 24
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9,
+            174
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 67,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1776.1841567326255,
+        368.9554487455446
+      ],
+      "size": [
+        297.1199778442383,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connect to widget input",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Mofifier ID",
+      "properties": {
+        "Run widget replace on values": false
+      }
+    },
+    {
+      "id": 71,
+      "type": "LayerUtility: PurgeVRAM V2",
+      "pos": [
+        164.70076176476374,
+        543.6007687770924
+      ],
+      "size": [
+        264.98941513305647,
+        82
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 174
+        }
+      ],
+      "outputs": [
+        {
+          "name": "any",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_layerstyle",
+        "ver": "4f4d5cbbe40e030a5a0bb474fb65c4032585bc3c",
+        "Node name for S&R": "LayerUtility: PurgeVRAM V2"
+      },
+      "widgets_values": [
+        true,
+        true
+      ],
+      "color": "rgba(38, 73, 116, 0.7)"
+    },
+    {
+      "id": 72,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        -1820.9205123193015,
+        896.9842621603304
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            175
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        "# JSON-Direct-Expert.md - System Prompt for Direct NLP to JSON Conversion\n\nYou are an expert at analyzing natural language prompts and converting them directly into FLUX.2-compliant structured JSON prompts. Your role is to produce clean, precise JSON output that can be immediately used with FLUX.2 image generation, without requiring ComfyUI or the node interface.\n\n---\n\n## Core Competencies\n\n1. **Natural Language Understanding** - Parse complex descriptive prompts\n2. **Semantic Extraction** - Identify scene, subjects, style, camera, and atmosphere\n3. **Color Intelligence** - Convert color descriptions to precise hex codes\n4. **Photography Knowledge** - Map descriptive intent to technical camera parameters\n5. **JSON Formatting Precision** - Output perfectly formatted, valid JSON\n\n---\n\n## FLUX.2 JSON Schema Specification\n\n### Complete Schema Structure\n```json\n{\n  \"scene\": \"string\",\n  \"subjects\": [\n    {\n      \"description\": \"string (REQUIRED)\",\n      \"position\": \"string (OPTIONAL)\",\n      \"action\": \"string (OPTIONAL)\",\n      \"pose\": \"string (OPTIONAL)\",\n      \"color_palette\": [\"array of hex codes or color names\"]\n    }\n  ],\n  \"style\": \"string\",\n  \"color_palette\": [\"global array of hex codes or color names\"],\n  \"lighting\": \"string\",\n  \"mood\": \"string\",\n  \"background\": \"string\",\n  \"composition\": \"string\",\n  \"camera\": {\n    \"angle\": \"string\",\n    \"distance\": \"string\",\n    \"lens\": \"string (OPTIONAL - prefer lens-mm)\",\n    \"lens-mm\": number,\n    \"f-number\": \"string (format: f/X.X)\",\n    \"ISO\": number,\n    \"depth_of_field\": \"string\",\n    \"focus\": \"string\"\n  }\n}\n```\n\n---\n\n## CRITICAL FORMATTING RULES\n\n### Data Type Requirements\n- ✅ **scene**: string\n- ✅ **subjects**: array of objects\n- ✅ **subjects[].description**: string (REQUIRED - only required field)\n- ✅ **subjects[].position**: string (optional)\n- ✅ **subjects[].action**: string (optional)\n- ✅ **subjects[].pose**: string (optional)\n- ✅ **subjects[].color_palette**: array of strings\n- ✅ **style**: string\n- ✅ **color_palette**: array of strings (global)\n- ✅ **lighting**: string\n- ✅ **mood**: string\n- ✅ **background**: string\n- ✅ **composition**: string\n- ✅ **camera**: object\n- ✅ **camera.angle**: string\n- ✅ **camera.distance**: string\n- ✅ **camera.lens**: string (avoid - use lens-mm)\n- ✅ **camera.lens-mm**: number (NOT string)\n- ✅ **camera.f-number**: string (format: \"f/2.8\")\n- ✅ **camera.ISO**: number (NOT string)\n- ✅ **camera.depth_of_field**: string\n- ✅ **camera.focus**: string\n\n### Format Examples\n```json\n// ✅ CORRECT\n{\n  \"lens-mm\": 85,\n  \"f-number\": \"f/2.8\",\n  \"ISO\": 400\n}\n\n// ❌ INCORRECT\n{\n  \"lens-mm\": \"85\",        // ❌ Should be number\n  \"f-number\": 2.8,        // ❌ Should be string \"f/2.8\"\n  \"ISO\": \"400\"            // ❌ Should be number\n}\n```\n\n### Hex Code Formatting\n- ✅ Uppercase: `#FF5733`\n- ❌ Lowercase: `#ff5733`\n- ✅ Full 6 digits: `#FF5733`\n- ❌ Short form: `#F73`\n- ✅ Array: `[\"#FF5733\", \"#C70039\"]`\n- ❌ Not in array: `\"#FF5733, #C70039\"`\n\n### Field Naming\n- ✅ `lens-mm` (with hyphen)\n- ❌ `lens_mm` (underscore)\n- ✅ `f-number` (with hyphen)\n- ❌ `f_number` (underscore)\n- ✅ `color_palette` (underscore)\n- ❌ `color-palette` (hyphen)\n- ✅ `depth_of_field` (underscores)\n- ❌ `depth-of-field` (hyphens)\n\n---\n\n## Parameter Ranges and Values\n\n### Camera Specifications\n```json\n{\n  \"lens-mm\": 16-400,      // 16 (ultra-wide) to 400 (super-telephoto)\n  \"f-number\": \"f/1.4\" to \"f/16\",  // Common values: f/1.4, f/1.8, f/2.8, f/4, f/5.6, f/8, f/11, f/16\n  \"ISO\": 100-6400         // Common values: 100, 200, 400, 800, 1600, 3200, 6400\n}\n```\n\n### Distance Vocabulary\n- \"Extreme close-up\" / \"Macro\"\n- \"Close-up\"\n- \"Medium shot\"\n- \"Full shot\"\n- \"Wide shot\"\n- \"Extreme wide shot\"\n\n### Angle Vocabulary\n- \"Eye level\"\n- \"High angle\" (looking down)\n- \"Low angle\" (looking up)\n- \"Bird's eye view\" (overhead)\n- \"Worm's eye view\" (ground level)\n- \"[X]-degree angle from [direction]\"\n\n### Position Vocabulary\n- **Horizontal:** left, center, right, far left, far right\n- **Vertical:** top, middle, bottom, upper third, lower third\n- **Depth:** foreground, midground, background\n- **Combined:** \"center foreground\", \"left side background\", \"right midground\"\n\n---\n\n## Conversion Methodology\n\n### Step 1: Parse Natural Language\nExtract these semantic elements:\n1. **Setting/Environment** → `scene`\n2. **Main Elements** → `subjects[]`\n3. **Visual Style** → `style`\n4. **Colors Mentioned** → `color_palette` (convert to hex)\n5. **Light Description** → `lighting`\n6. **Emotional Tone** → `mood`\n7. **Background Details** → `background`\n8. **Framing/Layout** → `composition`\n9. **Camera/Photography Terms** → `camera` object\n\n### Step 2: Structure Subjects\n- Identify distinct elements (usually 1-3 subjects)\n- Order by importance: primary → secondary → background\n- Each subject needs `description` (required)\n- Add `position`, `action`, `pose`, `color_palette` as relevant\n\n### Step 3: Extract Technical Parameters\nMap descriptive language to technical specs:\n- \"close up shot\" → `\"distance\": \"Close-up\"`, `\"lens-mm\": 85`\n- \"shallow focus\" → `\"f-number\": \"f/2.8\"`, `\"depth_of_field\": \"Shallow, background blurred\"`\n- \"wide angle\" → `\"lens-mm\": 24`\n- \"low light\" → `\"ISO\": 1600`\n\n### Step 4: Color Conversion\nConvert color descriptions to hex codes:\n- \"red\" → `#FF0000`\n- \"deep blue\" → `#00008B`\n- \"golden yellow\" → `#FFD700`\n- \"charcoal gray\" → `#36454F`\n- \"emerald green\" → `#50C878`\n- \"warm white\" → `#FAF0E6`\n\nCommon color hex reference:\n```\nBlack: #000000          White: #FFFFFF\nRed: #FF0000           Blue: #0000FF\nGreen: #00FF00         Yellow: #FFFF00\nOrange: #FF8C00        Purple: #800080\nPink: #FFC0CB          Brown: #8B4513\nGray: #808080          Charcoal: #36454F\nNavy: #000080          Teal: #008080\nMaroon: #800000        Olive: #808000\n```\n\n### Step 5: Omit Empty Fields\nOnly include fields that have meaningful values. Do not include:\n- Empty strings `\"\"`\n- Empty arrays `[]`\n- Null values\n- Undefined fields\n- Fields you have no information for\n\n---\n\n## Output Format\n\n### Response Structure\nWhen given a natural language prompt, respond with:\n\n1. **Brief Analysis** (2-3 sentences explaining your interpretation)\n2. **Complete JSON** (properly formatted, valid JSON)\n3. **Technical Notes** (optional - any important decisions or alternatives)\n\n### Example Output\n```\nI'm interpreting this as a vintage film photograph of a coffee cup in morning light. \nI've structured it with the café environment as the scene, the coffee cup as the \nprimary subject, and configured camera settings typical of 1960s film photography.\n\n{\n  \"scene\": \"Cozy neighborhood café interior with vintage wood furniture\",\n  \"subjects\": [\n    {\n      \"description\": \"White ceramic coffee cup filled with dark roasted coffee, steam rising\",\n      \"position\": \"center foreground on wooden table\",\n      \"color_palette\": [\"#FFFFFF\", \"#3E2723\"]\n    }\n  ],\n  \"style\": \"Vintage color photography, 1960s aesthetic with warm film tones\",\n  \"lighting\": \"Soft morning sunlight streaming through window from left\",\n  \"mood\": \"Warm, nostalgic, peaceful morning moment\",\n  \"camera\": {\n    \"angle\": \"Slight overhead angle, 30 degrees\",\n    \"distance\": \"Close-up\",\n    \"lens-mm\": 50,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 400,\n    \"depth_of_field\": \"Shallow, background softly blurred\",\n    \"focus\": \"Sharp focus on coffee cup\"\n  }\n}\n\nTechnical notes: Using 50mm lens for natural perspective, f/2.8 for shallow DOF \ntypical of vintage film, ISO 400 to match common film stocks of that era.\n```\n\n---\n\n## Quality Standards\n\n### Your JSON Must:\n- ✅ Be valid, parseable JSON\n- ✅ Use correct data types (number vs string)\n- ✅ Format f-number as string: `\"f/2.8\"`\n- ✅ Format ISO as number: `400`\n- ✅ Format lens-mm as number: `85`\n- ✅ Use uppercase hex codes: `#FF5733`\n- ✅ Use correct field names (hyphens vs underscores)\n- ✅ Omit empty or irrelevant fields\n- ✅ Include only fields that add value\n- ✅ Have at least one subject with description\n\n### Your JSON Must NOT:\n- ❌ Include fields not in the schema\n- ❌ Use wrong data types\n- ❌ Have syntax errors\n- ❌ Include empty strings or arrays unnecessarily\n- ❌ Mix up field naming conventions\n- ❌ Format f-number as number\n- ❌ Format ISO as string\n- ❌ Use lowercase hex codes\n- ❌ Omit the required `subjects[].description`\n\n---\n\n## Advanced Techniques\n\n### Multi-Subject Composition\nWhen multiple distinct elements:\n```json\n{\n  \"subjects\": [\n    {\n      \"description\": \"Primary subject details\",\n      \"position\": \"center foreground\",\n      \"color_palette\": [\"#HEX1\"]\n    },\n    {\n      \"description\": \"Secondary element details\",\n      \"position\": \"left midground\",\n      \"color_palette\": [\"#HEX2\"]\n    },\n    {\n      \"description\": \"Background element details\",\n      \"position\": \"background\",\n      \"color_palette\": [\"#HEX3\"]\n    }\n  ]\n}\n```\n\n### Era-Specific Technical Matching\nMatch camera settings to described era:\n\n**1950s-1960s:**\n```json\n{\n  \"ISO\": 400,\n  \"style\": \"Vintage film with Kodachrome color palette and visible grain\"\n}\n```\n\n**1980s:**\n```json\n{\n  \"ISO\": 800,\n  \"style\": \"1980s photograph with oversaturated colors and grainy texture\"\n}\n```\n\n**Modern Digital:**\n```json\n{\n  \"ISO\": 200,\n  \"style\": \"Contemporary digital photography with clean processing\"\n}\n```\n\n### Photography Style Inference\nMap style descriptions to technical parameters:\n\n**\"Portrait photography\":**\n```json\n{\n  \"lens-mm\": 85,\n  \"f-number\": \"f/1.8\",\n  \"distance\": \"Medium shot\"\n}\n```\n\n**\"Product photography\":**\n```json\n{\n  \"lens-mm\": 100,\n  \"f-number\": \"f/8\",\n  \"distance\": \"Close-up\"\n}\n```\n\n**\"Landscape photography\":**\n```json\n{\n  \"lens-mm\": 24,\n  \"f-number\": \"f/11\",\n  \"distance\": \"Extreme wide shot\"\n}\n```\n\n**\"Street photography\":**\n```json\n{\n  \"lens-mm\": 35,\n  \"f-number\": \"f/5.6\",\n  \"distance\": \"Full shot\"\n}\n```\n\n---\n\n## Decision-Making Framework\n\n### When to Split Subjects\nSplit into multiple subjects when:\n- Elements are spatially distinct\n- Different color palettes needed\n- Different positions or actions\n- Main subject vs. environmental elements\n\nKeep as one subject when:\n- Elements are unified\n- Part of the same object\n- Single focus of attention\n\n### Style vs. Mood vs. Lighting\n- **Style:** Rendering technique, artistic approach, era, quality\n- **Mood:** Emotional feeling, atmosphere, tone\n- **Lighting:** Technical light sources, direction, characteristics\n\nExample separation:\n```json\n{\n  \"style\": \"Cinematic film photography with anamorphic aspect ratio\",\n  \"mood\": \"Tense, dramatic, suspenseful\",\n  \"lighting\": \"Single harsh spotlight from above creating deep shadows\"\n}\n```\n\n### Camera Object - When to Include\nInclude camera object when:\n- Photography style is specified\n- Technical details are mentioned\n- Specific framing is described\n- Depth of field is important\n\nOmit camera object when:\n- Abstract or illustrated styles\n- Minimal technical requirements\n- Style doesn't imply photography\n\n---\n\n## Common Patterns\n\n### Pattern 1: Simple Product\n```json\n{\n  \"scene\": \"Clean studio environment with minimal backdrop\",\n  \"subjects\": [\n    {\n      \"description\": \"[Product details]\",\n      \"position\": \"center foreground\",\n      \"color_palette\": [\"#HEX1\", \"#HEX2\"]\n    }\n  ],\n  \"style\": \"Professional product photography\",\n  \"lighting\": \"Soft three-point studio lighting\",\n  \"camera\": {\n    \"lens-mm\": 85,\n    \"f-number\": \"f/5.6\",\n    \"distance\": \"Medium shot\"\n  }\n}\n```\n\n### Pattern 2: Character Portrait\n```json\n{\n  \"scene\": \"[Environment description]\",\n  \"subjects\": [\n    {\n      \"description\": \"[Character details]\",\n      \"position\": \"center frame\",\n      \"pose\": \"[Body language]\",\n      \"color_palette\": [\"#HEX1\"]\n    }\n  ],\n  \"style\": \"Portrait photography\",\n  \"mood\": \"[Emotional tone]\",\n  \"lighting\": \"[Light description]\",\n  \"camera\": {\n    \"angle\": \"Eye level\",\n    \"distance\": \"Medium shot\",\n    \"lens-mm\": 85,\n    \"f-number\": \"f/2.8\",\n    \"depth_of_field\": \"Shallow, background blurred\"\n  }\n}\n```\n\n### Pattern 3: Landscape/Environment\n```json\n{\n  \"scene\": \"[Wide environment description]\",\n  \"subjects\": [\n    {\n      \"description\": \"[Key elements if any]\",\n      \"position\": \"[Position in frame]\"\n    }\n  ],\n  \"style\": \"Landscape photography\",\n  \"lighting\": \"[Natural light description]\",\n  \"mood\": \"[Atmospheric feeling]\",\n  \"composition\": \"[Framing technique]\",\n  \"camera\": {\n    \"angle\": \"[View angle]\",\n    \"distance\": \"Wide shot\",\n    \"lens-mm\": 24,\n    \"f-number\": \"f/11\",\n    \"depth_of_field\": \"Deep, everything in focus\"\n  }\n}\n```\n\n---\n\n## Error Prevention Checklist\n\nBefore outputting JSON, verify:\n\n- [ ] JSON is valid (no trailing commas, quotes balanced)\n- [ ] `lens-mm` is number not string\n- [ ] `f-number` is string with format \"f/X.X\"\n- [ ] `ISO` is number not string\n- [ ] Hex codes are uppercase 6-digit format\n- [ ] Field names use correct hyphens/underscores\n- [ ] At least one subject with description\n- [ ] No empty fields included\n- [ ] No non-existent schema fields\n- [ ] Color values in arrays are strings\n- [ ] All strings are properly quoted\n- [ ] All commas are correctly placed\n\n---\n\n## Example Interactions\n\n### Example 1: Simple Request\n**USER:** \"A red apple on a white plate\"\n\n**YOUR RESPONSE:**\n```\nSimple product still life - red apple as primary subject on white plate in clean setup.\n\n{\n  \"scene\": \"Clean minimalist setup with neutral background\",\n  \"subjects\": [\n    {\n      \"description\": \"Fresh red apple with glossy skin and natural stem\",\n      \"position\": \"center on white ceramic plate\",\n      \"color_palette\": [\"#DC143C\", \"#8B0000\"]\n    }\n  ],\n  \"style\": \"Clean product photography with commercial quality\",\n  \"lighting\": \"Soft diffused lighting from above\",\n  \"camera\": {\n    \"distance\": \"Close-up\",\n    \"lens-mm\": 85,\n    \"f-number\": \"f/5.6\"\n  }\n}\n```\n\n### Example 2: Complex Scene\n**USER:** \"A cyberpunk street scene at night with neon signs reflecting in wet pavement, a lone figure in a trench coat walking away from camera\"\n\n**YOUR RESPONSE:**\n```\nCinematic cyberpunk scene with environmental storytelling. Split into urban environment \nand character subject for better control. Camera positioned for dramatic perspective.\n\n{\n  \"scene\": \"Futuristic cyberpunk street at night with towering buildings\",\n  \"subjects\": [\n    {\n      \"description\": \"Lone figure in dark trench coat and hat, silhouette visible\",\n      \"position\": \"center midground walking away from camera\",\n      \"action\": \"Walking away slowly\",\n      \"pose\": \"Back to camera, hunched posture\",\n      \"color_palette\": [\"#1A1A1A\", \"#2C2C2C\"]\n    },\n    {\n      \"description\": \"Vibrant neon signs in kanji and English, holographic advertisements\",\n      \"position\": \"flanking both sides, reflecting in wet ground\",\n      \"color_palette\": [\"#FF00FF\", \"#00FFFF\", \"#FF1493\"]\n    }\n  ],\n  \"style\": \"Cinematic cyberpunk aesthetic with blade runner influences\",\n  \"lighting\": \"Dramatic neon lighting, deep shadows, strong color contrast\",\n  \"mood\": \"Noir, mysterious, dystopian, atmospheric\",\n  \"background\": \"Rain-slicked pavement reflecting neon lights, steam rising from vents\",\n  \"composition\": \"Wide shot with strong leading lines toward vanishing point\",\n  \"camera\": {\n    \"angle\": \"Slight low angle looking forward\",\n    \"distance\": \"Wide shot\",\n    \"lens-mm\": 35,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 1600,\n    \"depth_of_field\": \"Moderate depth, neon signs creating bokeh in background\",\n    \"focus\": \"Focus on figure, background softly blurred with light streaks\"\n  }\n}\n\nTechnical notes: Higher ISO (1600) for low-light night scene, f/2.8 for bokeh effect \nwith neon lights, 35mm for cinematic field of view typical of this genre.\n```\n\n---\n\n## Response Protocol\n\nFor every user prompt:\n\n1. **Analyze** the natural language quickly\n2. **Extract** all relevant semantic information\n3. **Structure** into appropriate JSON fields\n4. **Verify** formatting rules are followed\n5. **Output** with brief context and technical notes\n6. **Be concise** - no lengthy explanations unless asked\n\n---\n\n## Your Role\n\nYou are a precise, efficient JSON converter. Your goals:\n- Produce immediately usable FLUX.2 JSON prompts\n- Follow schema specifications exactly\n- Convert color descriptions to hex codes\n- Infer appropriate technical camera parameters\n- Omit irrelevant fields\n- Provide valid, clean JSON output\n\n**Every response should be clean, precise JSON that works immediately with FLUX.2.**\n\n---\n\n**Ready to convert natural language directly to FLUX.2 JSON!**"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "VAEEncode",
+      "pos": [
+        -450,
+        1080
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 177
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 190
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            179
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 77,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        -530,
+        940
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 178
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            177
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "area",
+        1
+      ]
+    },
+    {
+      "id": 39,
+      "type": "ReferenceLatent",
+      "pos": [
+        -498.78903441820006,
+        395.3624979706346
+      ],
+      "size": [
+        197.712890625,
+        46
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 166
+        },
+        {
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 121
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            180
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "ReferenceLatent"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 78,
+      "type": "ReferenceLatent",
+      "pos": [
+        -490,
+        1210
+      ],
+      "size": [
+        197.712890625,
+        46
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 180
+        },
+        {
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 179
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            181
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "ReferenceLatent"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 74,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1296.3813279335636,
+        619.1981809025153
+      ],
+      "size": [
+        581.7118721467377,
+        632.3680737663562
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 176
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            186
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Interpreting this as a dynamic cyber-futuristic vehicle portrait: a low pod-chair motorbike performing a power-slide with a redheaded female agent leaning back in a confident, stylized pose. I'll prioritize the vehicle as the primary subject with the rider as a close secondary subject and set cinematic camera/lighting for motion and glossy red materials.\n\n{\n  \"scene\": \"Futuristic urban racetrack / neon street environment with wet reflective surface\",\n  \"subjects\": [\n    {\n      \"description\": \"Low pod-chair-design motorbike with integrated aerodynamic 'muscled' windshield and low-slung cockpit, glossy red lacquer panels, wide rear tire and covered wheel hubs, stunt-ready chassis\",\n      \"position\": \"center foreground\",\n      \"action\": \"Power slide drifting with rear end kicked out, motion blur on wheels and ground\",\n      \"color_palette\": [\n        \"#FF0000\",\n        \"#000000\",\n        \"#B0B0B0\"\n      ]\n    },\n    {\n      \"description\": \"Female redhead agent wearing a fitted red tactical suit and black harness, leaning back in the pod-chair cockpit with one hand near controls and the other balancing the drift, confident expression\",\n      \"position\": \"center foreground seated in cockpit\",\n      \"action\": \"Leaning back while maintaining control of the drift\",\n      \"pose\": \"Relaxed, confident lean-back, torso rotated slightly toward camera, legs braced in cockpit\",\n      \"color_palette\": [\n        \"#FF4500\",\n        \"#FF0000\",\n        \"#FFBF00\",\n        \"#000000\"\n      ]\n    }\n  ],\n  \"style\": \"Cinematic futuristic concept art with anime-influenced character detailing and high-gloss vehicle rendering\",\n  \"color_palette\": [\n    \"#FF0000\",\n    \"#FF4500\",\n    \"#FFBF00\",\n    \"#000000\",\n    \"#B0B0B0\",\n    \"#FFFFFF\"\n  ],\n  \"lighting\": \"Dynamic high-contrast rim and directional neon lighting with specular highlights on lacquered surfaces, subtle fill to reveal form, motion streaks and particle sparks\",\n  \"mood\": \"Adrenaline-charged, stylish, confident\",\n  \"background\": \"Blurred neon-lit cityscape / racetrack with wet reflective asphalt and light streaks to emphasize speed\",\n  \"composition\": \"Low-angle three-quarter view, subject centered slightly to the right foreground, strong leading lines and motion blur toward the rear to emphasize drift\",\n  \"camera\": {\n    \"angle\": \"Low angle, slight tilt\",\n    \"distance\": \"Full shot\",\n    \"lens-mm\": 35,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 400,\n    \"depth_of_field\": \"Shallow with motion blur; rider and cockpit sharp, background and wheels blurred\",\n    \"focus\": \"Sharp focus on rider's face and vehicle cockpit\"\n  }\n}\n\nTechnical notes: Chose 35mm for a cinematic, dynamic field of view capturing full vehicle and rider while preserving perspective distortion; f/2.8 and shallow DOF emphasize subject separation and neon bokeh; red lacquer and hair tones use #FF0000 and #FF4500 for clear differentiation; ISO 400 balances low-light neon with minimal noise."
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 42,
+      "type": "LoadImage",
+      "pos": [
+        -2549.787871811845,
+        -194.76786477408723
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            123,
+            187
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "cathode_00020.png",
+        "image"
+      ]
+    },
+    {
+      "id": 76,
+      "type": "LoadImage",
+      "pos": [
+        -2554.4109674017427,
+        188.64596678738422
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            178,
+            188
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "bike.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 79,
+      "type": "ImpactMakeImageBatch",
+      "pos": [
+        -2174.736321186464,
+        622.7569113305889
+      ],
+      "size": [
+        156.6236328125,
+        66
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 187
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 188
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            189
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "8.28.0",
+        "Node name for S&R": "ImpactMakeImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -1270.8340279406139,
+        358.5163907134733
+      ],
+      "size": [
+        430,
+        230
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 117
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 184
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            41
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 47,
+      "type": "EmptyFlux2LatentImage",
+      "pos": [
+        -965.4615152697612,
+        26.995264305892334
+      ],
+      "size": [
+        224.00000610351572,
+        106.99999694824226
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 161
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 162
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            131
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "EmptyFlux2LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 48,
+      "type": "Flux2Scheduler",
+      "pos": [
+        -967.3770875867278,
+        -146.99222311169663
+      ],
+      "size": [
+        222.3482666015625,
+        106
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 159
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 160
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            132
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "Flux2Scheduler"
+      },
+      "widgets_values": [
+        20,
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": 62,
+      "type": "AspectSizeV2",
+      "pos": [
+        -1255.7143153961988,
+        53.22978971105182
+      ],
+      "size": [
+        239.42149769176137,
+        150
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            159,
+            161
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            160,
+            162
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "1440x",
+        16,
+        9,
+        64
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        -1778.6955565535761,
+        236.44408309137825
+      ],
+      "size": [
+        298.1818181818182,
+        60.429901123046875
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            12,
+            120,
+            190
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.71",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "flux2-vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "flux2-vae.safetensors"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "OpenAIChatNode",
+      "pos": [
+        -1816.2069627798573,
+        620.4673594483309
+      ],
+      "size": [
+        400,
+        638
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 189
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 175
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            176,
+            184
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "power slide drifting low-podchair-design motorbike vehicle, female redhead agent lean-back, muscled-windshield",
+        false,
+        "gpt-4.1"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      16,
+      0,
+      13,
+      2,
+      "SAMPLER"
+    ],
+    [
+      24,
+      13,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      30,
+      22,
+      0,
+      13,
+      1,
+      "GUIDER"
+    ],
+    [
+      37,
+      25,
+      0,
+      13,
+      0,
+      "NOISE"
+    ],
+    [
+      41,
+      6,
+      0,
+      26,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      117,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      120,
+      10,
+      0,
+      40,
+      1,
+      "VAE"
+    ],
+    [
+      121,
+      40,
+      0,
+      39,
+      1,
+      "LATENT"
+    ],
+    [
+      122,
+      41,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ],
+    [
+      123,
+      42,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      131,
+      47,
+      0,
+      13,
+      4,
+      "LATENT"
+    ],
+    [
+      132,
+      48,
+      0,
+      13,
+      3,
+      "SIGMAS"
+    ],
+    [
+      158,
+      63,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      159,
+      62,
+      0,
+      48,
+      0,
+      "INT"
+    ],
+    [
+      160,
+      62,
+      1,
+      48,
+      1,
+      "INT"
+    ],
+    [
+      161,
+      62,
+      0,
+      47,
+      0,
+      "INT"
+    ],
+    [
+      162,
+      62,
+      1,
+      47,
+      1,
+      "INT"
+    ],
+    [
+      163,
+      64,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      164,
+      65,
+      0,
+      64,
+      0,
+      "STRING"
+    ],
+    [
+      166,
+      26,
+      0,
+      39,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      174,
+      8,
+      0,
+      71,
+      0,
+      "*"
+    ],
+    [
+      175,
+      72,
+      0,
+      73,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      176,
+      73,
+      0,
+      74,
+      0,
+      "STRING"
+    ],
+    [
+      177,
+      77,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      178,
+      76,
+      0,
+      77,
+      0,
+      "IMAGE"
+    ],
+    [
+      179,
+      75,
+      0,
+      78,
+      1,
+      "LATENT"
+    ],
+    [
+      180,
+      39,
+      0,
+      78,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      181,
+      78,
+      0,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      184,
+      73,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      186,
+      74,
+      0,
+      70,
+      0,
+      "STRING"
+    ],
+    [
+      187,
+      42,
+      0,
+      79,
+      0,
+      "IMAGE"
+    ],
+    [
+      188,
+      76,
+      0,
+      79,
+      1,
+      "IMAGE"
+    ],
+    [
+      189,
+      79,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      190,
+      10,
+      0,
+      75,
+      1,
+      "VAE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "models",
+      "bounding": [
+        -1785.5128200700888,
+        -113.55591690862182,
+        314.55182925969893,
+        590.26989743042
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "sampler / decoder",
+      "bounding": [
+        -106.56398062331701,
+        -225.29921634155434,
+        558.5359191894531,
+        501.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "prompt / dims",
+      "bounding": [
+        -1284.8296737532426,
+        -329.7945733410816,
+        574.4977104962159,
+        809.4273207946776
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "up to 10 images, example for two:",
+      "bounding": [
+        -578.8544755351452,
+        -295.41171990168147,
+        370.60200479675245,
+        772.672565880127
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "image 2",
+      "bounding": [
+        -540,
+        506.4,
+        294.080078125,
+        759.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.42409761837248483,
+      "offset": [
+        2690.3074964422203,
+        793.5641092139534
+      ]
+    },
+    "frontendVersion": "1.30.6",
+    "groupNodes": {},
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "workflowRendererVersion": "LG"
+  },
+  "version": 0.4
+}
