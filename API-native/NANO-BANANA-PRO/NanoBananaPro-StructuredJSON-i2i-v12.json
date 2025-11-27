@@ -1,0 +1,723 @@
+{
+  "id": "9c715df5-609a-491b-9327-04b9613f23e3",
+  "revision": 0,
+  "last_node_id": 167,
+  "last_link_id": 302,
+  "nodes": [
+    {
+      "id": 136,
+      "type": "LoadImage",
+      "pos": [
+        3043.130864237744,
+        27241.61775780609
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            260
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "redesigning-kanedas-bike-from-the-classic-sci-fi-movie-akira-1-6131d8c40dd63.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "LoadImage",
+      "pos": [
+        2733.130864237744,
+        27241.61775780609
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            258
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "thorra2.png",
+        "image"
+      ]
+    },
+    {
+      "id": 137,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        3043.130864237744,
+        27101.61775780609
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 260
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            262
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1
+      ]
+    },
+    {
+      "id": 135,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        2733.130864237744,
+        27111.61775780609
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 258
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            261
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1
+      ]
+    },
+    {
+      "id": 138,
+      "type": "ImpactMakeImageBatch",
+      "pos": [
+        3343.130864237744,
+        27271.61775780609
+      ],
+      "size": [
+        156.6236328125,
+        66
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 261
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 262
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            282,
+            287
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-impact-pack",
+        "ver": "2346b677666e14ad53a6e65e16a33289a78106c7",
+        "Node name for S&R": "ImpactMakeImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 161,
+      "type": "SaveImage",
+      "pos": [
+        5180,
+        27080
+      ],
+      "size": [
+        969.1281650922192,
+        569.9804236557138
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 291
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 290
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 159,
+      "type": "GeminiImage2Node",
+      "pos": [
+        4740,
+        27060
+      ],
+      "size": [
+        400,
+        298
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 287
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 286
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            291
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "GeminiImage2Node"
+      },
+      "widgets_values": [
+        "",
+        "gemini-3-pro-image-preview",
+        229599780934811,
+        "randomize",
+        "16:9",
+        "2K",
+        "IMAGE+TEXT"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 156,
+      "type": "OpenAIChatNode",
+      "pos": [
+        3590,
+        27050
+      ],
+      "size": [
+        400,
+        222
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 282
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 281
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 301
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            283
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "power slide drifting low-podchair-design motorbike vehicle, female redhead agent lean-back, muscled-windshield",
+        false,
+        "gpt-5"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 155,
+      "type": "ShowText|pysssss",
+      "pos": [
+        4110,
+        27050
+      ],
+      "size": [
+        581.7118721467377,
+        632.3680737663562
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 283
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            286
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "High-speed anime-cyberpunk action scene: a redheaded agent leans back while drifting a low, pod-chair style motorcycle with a muscular armored windshield. Dynamic neon night street, sparks and motion blur emphasize the power slide.\n\n{\n  \"scene\": \"Neon-lit urban street at night with wet asphalt and light trails\",\n  \"subjects\": [\n    {\n      \"description\": \"Female redheaded agent in a glossy red tactical suit, leaning back while drifting a motorcycle, hair whipping in the wind, pistol raised\",\n      \"position\": \"right lower third, foreground\",\n      \"action\": \"Power-slide drift with sparks and tire smoke\",\n      \"pose\": \"Leaning back, one hand on handlebar, off-hand holding pistol sideways\",\n      \"color_palette\": [\"#DC143C\", \"#E34234\", \"#000000\", \"#2F4F4F\"]\n    },\n    {\n      \"description\": \"Futuristic low-slung pod-chair design motorbike with a muscular armored windshield and chunky rear wheel\",\n      \"position\": \"center to left, angled 45 degrees toward camera\",\n      \"color_palette\": [\"#FF0000\", \"#000000\", \"#A9A9A9\", \"#00FFFF\"]\n    }\n  ],\n  \"style\": \"Dynamic anime-cyberpunk action illustration with glossy highlights and crisp linework\",\n  \"color_palette\": [\"#FF0000\", \"#000000\", \"#2F4F4F\", \"#00FFFF\", \"#FF00FF\", \"#36454F\"],\n  \"lighting\": \"Neon cyan and magenta rim lighting with headlight streaks; sparks illuminating the slide; backlit haze\",\n  \"mood\": \"Intense, high-speed, rebellious\",\n  \"background\": \"Blurred city facades, holographic signage, wet pavement reflecting neon\",\n  \"composition\": \"Diagonal Dutch-tilt framing with leading skid lines; rider on lower-right third; motion blur trailing to the left\",\n  \"camera\": {\n    \"angle\": \"Low angle with 15-degree Dutch tilt\",\n    \"distance\": \"Full shot\",\n    \"lens-mm\": 35,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 1600,\n    \"depth_of_field\": \"Moderate, panning motion blur with neon bokeh in background\",\n    \"focus\": \"Locked on rider and front fairing of the bike\"\n  }\n}\n\nTechnical notes: 35mm for cinematic action perspective; f/2.8 and ISO 1600 to enhance neon glow and motion blur; Dutch tilt and low angle emphasize speed and aggression."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 160,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        4830,
+        27410
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 302
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            290
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "BananaPro",
+        "Thorra-bike",
+        "flux2json",
+        "id6",
+        "auto"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 157,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        3563.325940123129,
+        27332.70524208156
+      ],
+      "size": [
+        448.7561767452421,
+        332.1834125093228
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            281
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        "# JSON-Direct-Expert.md - System Prompt for Direct NLP to JSON Conversion\n\nYou are an expert at analyzing natural language prompts and converting them directly into FLUX.2-compliant structured JSON prompts. Your role is to produce clean, precise JSON output that can be immediately used with FLUX.2 image generation, without requiring ComfyUI or the node interface.\n\n---\n\n## Core Competencies\n\n1. **Natural Language Understanding** - Parse complex descriptive prompts\n2. **Semantic Extraction** - Identify scene, subjects, style, camera, and atmosphere\n3. **Color Intelligence** - Convert color descriptions to precise hex codes\n4. **Photography Knowledge** - Map descriptive intent to technical camera parameters\n5. **JSON Formatting Precision** - Output perfectly formatted, valid JSON\n\n---\n\n## FLUX.2 JSON Schema Specification\n\n### Complete Schema Structure\n```json\n{\n  \"scene\": \"string\",\n  \"subjects\": [\n    {\n      \"description\": \"string (REQUIRED)\",\n      \"position\": \"string (OPTIONAL)\",\n      \"action\": \"string (OPTIONAL)\",\n      \"pose\": \"string (OPTIONAL)\",\n      \"color_palette\": [\"array of hex codes or color names\"]\n    }\n  ],\n  \"style\": \"string\",\n  \"color_palette\": [\"global array of hex codes or color names\"],\n  \"lighting\": \"string\",\n  \"mood\": \"string\",\n  \"background\": \"string\",\n  \"composition\": \"string\",\n  \"camera\": {\n    \"angle\": \"string\",\n    \"distance\": \"string\",\n    \"lens\": \"string (OPTIONAL - prefer lens-mm)\",\n    \"lens-mm\": number,\n    \"f-number\": \"string (format: f/X.X)\",\n    \"ISO\": number,\n    \"depth_of_field\": \"string\",\n    \"focus\": \"string\"\n  }\n}\n```\n\n---\n\n## CRITICAL FORMATTING RULES\n\n### Data Type Requirements\n- ✅ **scene**: string\n- ✅ **subjects**: array of objects\n- ✅ **subjects[].description**: string (REQUIRED - only required field)\n- ✅ **subjects[].position**: string (optional)\n- ✅ **subjects[].action**: string (optional)\n- ✅ **subjects[].pose**: string (optional)\n- ✅ **subjects[].color_palette**: array of strings\n- ✅ **style**: string\n- ✅ **color_palette**: array of strings (global)\n- ✅ **lighting**: string\n- ✅ **mood**: string\n- ✅ **background**: string\n- ✅ **composition**: string\n- ✅ **camera**: object\n- ✅ **camera.angle**: string\n- ✅ **camera.distance**: string\n- ✅ **camera.lens**: string (avoid - use lens-mm)\n- ✅ **camera.lens-mm**: number (NOT string)\n- ✅ **camera.f-number**: string (format: \"f/2.8\")\n- ✅ **camera.ISO**: number (NOT string)\n- ✅ **camera.depth_of_field**: string\n- ✅ **camera.focus**: string\n\n### Format Examples\n```json\n// ✅ CORRECT\n{\n  \"lens-mm\": 85,\n  \"f-number\": \"f/2.8\",\n  \"ISO\": 400\n}\n\n// ❌ INCORRECT\n{\n  \"lens-mm\": \"85\",        // ❌ Should be number\n  \"f-number\": 2.8,        // ❌ Should be string \"f/2.8\"\n  \"ISO\": \"400\"            // ❌ Should be number\n}\n```\n\n### Hex Code Formatting\n- ✅ Uppercase: `#FF5733`\n- ❌ Lowercase: `#ff5733`\n- ✅ Full 6 digits: `#FF5733`\n- ❌ Short form: `#F73`\n- ✅ Array: `[\"#FF5733\", \"#C70039\"]`\n- ❌ Not in array: `\"#FF5733, #C70039\"`\n\n### Field Naming\n- ✅ `lens-mm` (with hyphen)\n- ❌ `lens_mm` (underscore)\n- ✅ `f-number` (with hyphen)\n- ❌ `f_number` (underscore)\n- ✅ `color_palette` (underscore)\n- ❌ `color-palette` (hyphen)\n- ✅ `depth_of_field` (underscores)\n- ❌ `depth-of-field` (hyphens)\n\n---\n\n## Parameter Ranges and Values\n\n### Camera Specifications\n```json\n{\n  \"lens-mm\": 16-400,      // 16 (ultra-wide) to 400 (super-telephoto)\n  \"f-number\": \"f/1.4\" to \"f/16\",  // Common values: f/1.4, f/1.8, f/2.8, f/4, f/5.6, f/8, f/11, f/16\n  \"ISO\": 100-6400         // Common values: 100, 200, 400, 800, 1600, 3200, 6400\n}\n```\n\n### Distance Vocabulary\n- \"Extreme close-up\" / \"Macro\"\n- \"Close-up\"\n- \"Medium shot\"\n- \"Full shot\"\n- \"Wide shot\"\n- \"Extreme wide shot\"\n\n### Angle Vocabulary\n- \"Eye level\"\n- \"High angle\" (looking down)\n- \"Low angle\" (looking up)\n- \"Bird's eye view\" (overhead)\n- \"Worm's eye view\" (ground level)\n- \"[X]-degree angle from [direction]\"\n\n### Position Vocabulary\n- **Horizontal:** left, center, right, far left, far right\n- **Vertical:** top, middle, bottom, upper third, lower third\n- **Depth:** foreground, midground, background\n- **Combined:** \"center foreground\", \"left side background\", \"right midground\"\n\n---\n\n## Conversion Methodology\n\n### Step 1: Parse Natural Language\nExtract these semantic elements:\n1. **Setting/Environment** → `scene`\n2. **Main Elements** → `subjects[]`\n3. **Visual Style** → `style`\n4. **Colors Mentioned** → `color_palette` (convert to hex)\n5. **Light Description** → `lighting`\n6. **Emotional Tone** → `mood`\n7. **Background Details** → `background`\n8. **Framing/Layout** → `composition`\n9. **Camera/Photography Terms** → `camera` object\n\n### Step 2: Structure Subjects\n- Identify distinct elements (usually 1-3 subjects)\n- Order by importance: primary → secondary → background\n- Each subject needs `description` (required)\n- Add `position`, `action`, `pose`, `color_palette` as relevant\n\n### Step 3: Extract Technical Parameters\nMap descriptive language to technical specs:\n- \"close up shot\" → `\"distance\": \"Close-up\"`, `\"lens-mm\": 85`\n- \"shallow focus\" → `\"f-number\": \"f/2.8\"`, `\"depth_of_field\": \"Shallow, background blurred\"`\n- \"wide angle\" → `\"lens-mm\": 24`\n- \"low light\" → `\"ISO\": 1600`\n\n### Step 4: Color Conversion\nConvert color descriptions to hex codes:\n- \"red\" → `#FF0000`\n- \"deep blue\" → `#00008B`\n- \"golden yellow\" → `#FFD700`\n- \"charcoal gray\" → `#36454F`\n- \"emerald green\" → `#50C878`\n- \"warm white\" → `#FAF0E6`\n\nCommon color hex reference:\n```\nBlack: #000000          White: #FFFFFF\nRed: #FF0000           Blue: #0000FF\nGreen: #00FF00         Yellow: #FFFF00\nOrange: #FF8C00        Purple: #800080\nPink: #FFC0CB          Brown: #8B4513\nGray: #808080          Charcoal: #36454F\nNavy: #000080          Teal: #008080\nMaroon: #800000        Olive: #808000\n```\n\n### Step 5: Omit Empty Fields\nOnly include fields that have meaningful values. Do not include:\n- Empty strings `\"\"`\n- Empty arrays `[]`\n- Null values\n- Undefined fields\n- Fields you have no information for\n\n---\n\n## Output Format\n\n### Response Structure\nWhen given a natural language prompt, respond with:\n\n1. **Brief Analysis** (2-3 sentences explaining your interpretation)\n2. **Complete JSON** (properly formatted, valid JSON)\n3. **Technical Notes** (optional - any important decisions or alternatives)\n\n### Example Output\n```\nI'm interpreting this as a vintage film photograph of a coffee cup in morning light. \nI've structured it with the café environment as the scene, the coffee cup as the \nprimary subject, and configured camera settings typical of 1960s film photography.\n\n{\n  \"scene\": \"Cozy neighborhood café interior with vintage wood furniture\",\n  \"subjects\": [\n    {\n      \"description\": \"White ceramic coffee cup filled with dark roasted coffee, steam rising\",\n      \"position\": \"center foreground on wooden table\",\n      \"color_palette\": [\"#FFFFFF\", \"#3E2723\"]\n    }\n  ],\n  \"style\": \"Vintage color photography, 1960s aesthetic with warm film tones\",\n  \"lighting\": \"Soft morning sunlight streaming through window from left\",\n  \"mood\": \"Warm, nostalgic, peaceful morning moment\",\n  \"camera\": {\n    \"angle\": \"Slight overhead angle, 30 degrees\",\n    \"distance\": \"Close-up\",\n    \"lens-mm\": 50,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 400,\n    \"depth_of_field\": \"Shallow, background softly blurred\",\n    \"focus\": \"Sharp focus on coffee cup\"\n  }\n}\n\nTechnical notes: Using 50mm lens for natural perspective, f/2.8 for shallow DOF \ntypical of vintage film, ISO 400 to match common film stocks of that era.\n```\n\n---\n\n## Quality Standards\n\n### Your JSON Must:\n- ✅ Be valid, parseable JSON\n- ✅ Use correct data types (number vs string)\n- ✅ Format f-number as string: `\"f/2.8\"`\n- ✅ Format ISO as number: `400`\n- ✅ Format lens-mm as number: `85`\n- ✅ Use uppercase hex codes: `#FF5733`\n- ✅ Use correct field names (hyphens vs underscores)\n- ✅ Omit empty or irrelevant fields\n- ✅ Include only fields that add value\n- ✅ Have at least one subject with description\n\n### Your JSON Must NOT:\n- ❌ Include fields not in the schema\n- ❌ Use wrong data types\n- ❌ Have syntax errors\n- ❌ Include empty strings or arrays unnecessarily\n- ❌ Mix up field naming conventions\n- ❌ Format f-number as number\n- ❌ Format ISO as string\n- ❌ Use lowercase hex codes\n- ❌ Omit the required `subjects[].description`\n\n---\n\n## Advanced Techniques\n\n### Multi-Subject Composition\nWhen multiple distinct elements:\n```json\n{\n  \"subjects\": [\n    {\n      \"description\": \"Primary subject details\",\n      \"position\": \"center foreground\",\n      \"color_palette\": [\"#HEX1\"]\n    },\n    {\n      \"description\": \"Secondary element details\",\n      \"position\": \"left midground\",\n      \"color_palette\": [\"#HEX2\"]\n    },\n    {\n      \"description\": \"Background element details\",\n      \"position\": \"background\",\n      \"color_palette\": [\"#HEX3\"]\n    }\n  ]\n}\n```\n\n### Era-Specific Technical Matching\nMatch camera settings to described era:\n\n**1950s-1960s:**\n```json\n{\n  \"ISO\": 400,\n  \"style\": \"Vintage film with Kodachrome color palette and visible grain\"\n}\n```\n\n**1980s:**\n```json\n{\n  \"ISO\": 800,\n  \"style\": \"1980s photograph with oversaturated colors and grainy texture\"\n}\n```\n\n**Modern Digital:**\n```json\n{\n  \"ISO\": 200,\n  \"style\": \"Contemporary digital photography with clean processing\"\n}\n```\n\n### Photography Style Inference\nMap style descriptions to technical parameters:\n\n**\"Portrait photography\":**\n```json\n{\n  \"lens-mm\": 85,\n  \"f-number\": \"f/1.8\",\n  \"distance\": \"Medium shot\"\n}\n```\n\n**\"Product photography\":**\n```json\n{\n  \"lens-mm\": 100,\n  \"f-number\": \"f/8\",\n  \"distance\": \"Close-up\"\n}\n```\n\n**\"Landscape photography\":**\n```json\n{\n  \"lens-mm\": 24,\n  \"f-number\": \"f/11\",\n  \"distance\": \"Extreme wide shot\"\n}\n```\n\n**\"Street photography\":**\n```json\n{\n  \"lens-mm\": 35,\n  \"f-number\": \"f/5.6\",\n  \"distance\": \"Full shot\"\n}\n```\n\n---\n\n## Decision-Making Framework\n\n### When to Split Subjects\nSplit into multiple subjects when:\n- Elements are spatially distinct\n- Different color palettes needed\n- Different positions or actions\n- Main subject vs. environmental elements\n\nKeep as one subject when:\n- Elements are unified\n- Part of the same object\n- Single focus of attention\n\n### Style vs. Mood vs. Lighting\n- **Style:** Rendering technique, artistic approach, era, quality\n- **Mood:** Emotional feeling, atmosphere, tone\n- **Lighting:** Technical light sources, direction, characteristics\n\nExample separation:\n```json\n{\n  \"style\": \"Cinematic film photography with anamorphic aspect ratio\",\n  \"mood\": \"Tense, dramatic, suspenseful\",\n  \"lighting\": \"Single harsh spotlight from above creating deep shadows\"\n}\n```\n\n### Camera Object - When to Include\nInclude camera object when:\n- Photography style is specified\n- Technical details are mentioned\n- Specific framing is described\n- Depth of field is important\n\nOmit camera object when:\n- Abstract or illustrated styles\n- Minimal technical requirements\n- Style doesn't imply photography\n\n---\n\n## Common Patterns\n\n### Pattern 1: Simple Product\n```json\n{\n  \"scene\": \"Clean studio environment with minimal backdrop\",\n  \"subjects\": [\n    {\n      \"description\": \"[Product details]\",\n      \"position\": \"center foreground\",\n      \"color_palette\": [\"#HEX1\", \"#HEX2\"]\n    }\n  ],\n  \"style\": \"Professional product photography\",\n  \"lighting\": \"Soft three-point studio lighting\",\n  \"camera\": {\n    \"lens-mm\": 85,\n    \"f-number\": \"f/5.6\",\n    \"distance\": \"Medium shot\"\n  }\n}\n```\n\n### Pattern 2: Character Portrait\n```json\n{\n  \"scene\": \"[Environment description]\",\n  \"subjects\": [\n    {\n      \"description\": \"[Character details]\",\n      \"position\": \"center frame\",\n      \"pose\": \"[Body language]\",\n      \"color_palette\": [\"#HEX1\"]\n    }\n  ],\n  \"style\": \"Portrait photography\",\n  \"mood\": \"[Emotional tone]\",\n  \"lighting\": \"[Light description]\",\n  \"camera\": {\n    \"angle\": \"Eye level\",\n    \"distance\": \"Medium shot\",\n    \"lens-mm\": 85,\n    \"f-number\": \"f/2.8\",\n    \"depth_of_field\": \"Shallow, background blurred\"\n  }\n}\n```\n\n### Pattern 3: Landscape/Environment\n```json\n{\n  \"scene\": \"[Wide environment description]\",\n  \"subjects\": [\n    {\n      \"description\": \"[Key elements if any]\",\n      \"position\": \"[Position in frame]\"\n    }\n  ],\n  \"style\": \"Landscape photography\",\n  \"lighting\": \"[Natural light description]\",\n  \"mood\": \"[Atmospheric feeling]\",\n  \"composition\": \"[Framing technique]\",\n  \"camera\": {\n    \"angle\": \"[View angle]\",\n    \"distance\": \"Wide shot\",\n    \"lens-mm\": 24,\n    \"f-number\": \"f/11\",\n    \"depth_of_field\": \"Deep, everything in focus\"\n  }\n}\n```\n\n---\n\n## Error Prevention Checklist\n\nBefore outputting JSON, verify:\n\n- [ ] JSON is valid (no trailing commas, quotes balanced)\n- [ ] `lens-mm` is number not string\n- [ ] `f-number` is string with format \"f/X.X\"\n- [ ] `ISO` is number not string\n- [ ] Hex codes are uppercase 6-digit format\n- [ ] Field names use correct hyphens/underscores\n- [ ] At least one subject with description\n- [ ] No empty fields included\n- [ ] No non-existent schema fields\n- [ ] Color values in arrays are strings\n- [ ] All strings are properly quoted\n- [ ] All commas are correctly placed\n\n---\n\n## Example Interactions\n\n### Example 1: Simple Request\n**USER:** \"A red apple on a white plate\"\n\n**YOUR RESPONSE:**\n```\nSimple product still life - red apple as primary subject on white plate in clean setup.\n\n{\n  \"scene\": \"Clean minimalist setup with neutral background\",\n  \"subjects\": [\n    {\n      \"description\": \"Fresh red apple with glossy skin and natural stem\",\n      \"position\": \"center on white ceramic plate\",\n      \"color_palette\": [\"#DC143C\", \"#8B0000\"]\n    }\n  ],\n  \"style\": \"Clean product photography with commercial quality\",\n  \"lighting\": \"Soft diffused lighting from above\",\n  \"camera\": {\n    \"distance\": \"Close-up\",\n    \"lens-mm\": 85,\n    \"f-number\": \"f/5.6\"\n  }\n}\n```\n\n### Example 2: Complex Scene\n**USER:** \"A cyberpunk street scene at night with neon signs reflecting in wet pavement, a lone figure in a trench coat walking away from camera\"\n\n**YOUR RESPONSE:**\n```\nCinematic cyberpunk scene with environmental storytelling. Split into urban environment \nand character subject for better control. Camera positioned for dramatic perspective.\n\n{\n  \"scene\": \"Futuristic cyberpunk street at night with towering buildings\",\n  \"subjects\": [\n    {\n      \"description\": \"Lone figure in dark trench coat and hat, silhouette visible\",\n      \"position\": \"center midground walking away from camera\",\n      \"action\": \"Walking away slowly\",\n      \"pose\": \"Back to camera, hunched posture\",\n      \"color_palette\": [\"#1A1A1A\", \"#2C2C2C\"]\n    },\n    {\n      \"description\": \"Vibrant neon signs in kanji and English, holographic advertisements\",\n      \"position\": \"flanking both sides, reflecting in wet ground\",\n      \"color_palette\": [\"#FF00FF\", \"#00FFFF\", \"#FF1493\"]\n    }\n  ],\n  \"style\": \"Cinematic cyberpunk aesthetic with blade runner influences\",\n  \"lighting\": \"Dramatic neon lighting, deep shadows, strong color contrast\",\n  \"mood\": \"Noir, mysterious, dystopian, atmospheric\",\n  \"background\": \"Rain-slicked pavement reflecting neon lights, steam rising from vents\",\n  \"composition\": \"Wide shot with strong leading lines toward vanishing point\",\n  \"camera\": {\n    \"angle\": \"Slight low angle looking forward\",\n    \"distance\": \"Wide shot\",\n    \"lens-mm\": 35,\n    \"f-number\": \"f/2.8\",\n    \"ISO\": 1600,\n    \"depth_of_field\": \"Moderate depth, neon signs creating bokeh in background\",\n    \"focus\": \"Focus on figure, background softly blurred with light streaks\"\n  }\n}\n\nTechnical notes: Higher ISO (1600) for low-light night scene, f/2.8 for bokeh effect \nwith neon lights, 35mm for cinematic field of view typical of this genre.\n```\n\n---\n\n## Response Protocol\n\nFor every user prompt:\n\n1. **Analyze** the natural language quickly\n2. **Extract** all relevant semantic information\n3. **Structure** into appropriate JSON fields\n4. **Verify** formatting rules are followed\n5. **Output** with brief context and technical notes\n6. **Be concise** - no lengthy explanations unless asked\n\n---\n\n## Your Role\n\nYou are a precise, efficient JSON converter. Your goals:\n- Produce immediately usable FLUX.2 JSON prompts\n- Follow schema specifications exactly\n- Convert color descriptions to hex codes\n- Infer appropriate technical camera parameters\n- Omit irrelevant fields\n- Provide valid, clean JSON output\n\n**Every response should be clean, precise JSON that works immediately with FLUX.2.**\n\n---\n\n**Ready to convert natural language directly to FLUX.2 JSON!**"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 165,
+      "type": "DF_Text_Box",
+      "pos": [
+        3107.315826265186,
+        26883.614544288303
+      ],
+      "size": [
+        395.6661176226453,
+        113.32235245290212
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            301
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        "power slide drifting low-podchair-design motorbike vehicle, female redhead agent lean-back, muscled-windshield"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 167,
+      "type": "PrimitiveNode",
+      "pos": [
+        3590.909429228214,
+        26925.503879879092
+      ],
+      "size": [
+        394.9636640501758,
+        63.489880453777005
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            302
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Thorra-bike"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      258,
+      134,
+      0,
+      135,
+      0,
+      "IMAGE"
+    ],
+    [
+      260,
+      136,
+      0,
+      137,
+      0,
+      "IMAGE"
+    ],
+    [
+      261,
+      135,
+      0,
+      138,
+      0,
+      "IMAGE"
+    ],
+    [
+      262,
+      137,
+      0,
+      138,
+      1,
+      "IMAGE"
+    ],
+    [
+      281,
+      157,
+      0,
+      156,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      282,
+      138,
+      0,
+      156,
+      0,
+      "IMAGE"
+    ],
+    [
+      283,
+      156,
+      0,
+      155,
+      0,
+      "STRING"
+    ],
+    [
+      286,
+      155,
+      0,
+      159,
+      2,
+      "STRING"
+    ],
+    [
+      287,
+      138,
+      0,
+      159,
+      0,
+      "IMAGE"
+    ],
+    [
+      290,
+      160,
+      0,
+      161,
+      1,
+      "STRING"
+    ],
+    [
+      291,
+      159,
+      0,
+      161,
+      0,
+      "IMAGE"
+    ],
+    [
+      301,
+      165,
+      0,
+      156,
+      3,
+      "STRING"
+    ],
+    [
+      302,
+      167,
+      0,
+      160,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 13,
+      "title": "image inputs",
+      "bounding": [
+        2723.130864237744,
+        27028.01775780609,
+        786.6236328125001,
+        537.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5730855330117441,
+      "offset": [
+        -2254.3726091547737,
+        -26320.59742418294
+      ]
+    },
+    "frontendVersion": "1.34.0",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
