@@ -1,0 +1,860 @@
+{
+  "id": "afcd368a-2160-4da9-9816-4034fdff1155",
+  "revision": 0,
+  "last_node_id": 21,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "GetVideoComponents",
+      "pos": [
+        -245.47100782948382,
+        1421.2088061807492
+      ],
+      "size": [
+        185.17734375,
+        66
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64",
+        "Node name for S&R": "GetVideoComponents"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        11.60701500907242,
+        1422.1937794483292
+      ],
+      "size": [
+        214.7587890625,
+        457.55181884765625
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 6
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 7
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "a7ce59e381934733bfae03b1be029756d6ce936d",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 8,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "sora_00001-audio.mp4",
+            "subfolder": "SORA-api\\ahab\\video",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30,
+            "workflow": "sora_00001.png",
+            "fullpath": "C:\\MACHINES00\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\ComfyUI\\output\\SORA-api\\ahab\\video\\sora_00001-audio.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        -240.54614149158044,
+        1551.2252775013994
+      ],
+      "size": [
+        210,
+        154
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "SORA-api",
+        "empire",
+        "video",
+        "sora",
+        "auto"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "OpenAIVideoSora2",
+      "pos": [
+        -686.7390317056264,
+        1421.2088061807485
+      ],
+      "size": [
+        400.9849732675807,
+        289.7527812091962
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64",
+        "Node name for S&R": "OpenAIVideoSora2"
+      },
+      "widgets_values": [
+        "sora-2",
+        "",
+        "1280x720",
+        12,
+        1489238993,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        -684.3290003153202,
+        1777.7077958856858
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.36",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "492b9c63-9f1e-47d1-aecf-a1bcab9b27a2.png",
+        "image"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1160.5111734119305,
+        1790.5737815235045
+      ],
+      "size": [
+        387.22829016274954,
+        179.6558297425854
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "\"A dramatic maritime scene unfolds, featuring seamen in weathered blue uniforms launching smaller whaling boats from the sturdy hull of a larger ship. The vessel's sides are reinforced with robust metal frames and thick ropes that creak under strain as they swing outwards to release the wooden craft. Each sailor is visibly exerting effort, their faces contorted with determination as they secure the boats by hand, muscles straining against the tension in the rigging. Camera work dynamically follows alongside the descending vessels, maintaining a medium shot that captures the rhythmic motion of the oars cutting through tumultuous waves. As the boats hit the water, powerful splashes engulf their wooden hulls, creating dramatic arcs of white foam that contrast sharply with the deep blue sea. The ship itself is partially visible in the background, its structure and rigging emphasizing the nautical theme. Waves crash against the vessel's sides, adding to the intensity of the scene. Lighting suggests late afternoon or early evening, with golden hour rays casting long shadows and highlighting the texture of water and wood. The overall composition evokes a sense of urgency and adventure typical of classic maritime TV shows, with dynamic camera movements and realistic motion physics enhancing the dramatic atmosphere over 8-10 seconds.\""
+      ]
+    },
+    {
+      "id": 12,
+      "type": "ZenkaiENH",
+      "pos": [
+        -1165.4360397498335,
+        1331.5762388309095
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "t2v-ENH-temporal.md"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "OllamaOptionsV2",
+      "pos": [
+        -1453.0482338833906,
+        1381.8098754775242
+      ],
+      "size": [
+        286.103515625,
+        754
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "OLLAMA_OPTIONS",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaOptionsV2"
+      },
+      "widgets_values": [
+        false,
+        0,
+        false,
+        0.1,
+        false,
+        5,
+        false,
+        2048,
+        false,
+        64,
+        false,
+        1.1,
+        false,
+        0.8,
+        false,
+        2036161522,
+        "randomize",
+        false,
+        "",
+        false,
+        1,
+        false,
+        -1,
+        false,
+        40,
+        false,
+        0.9,
+        false,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 11,
+      "type": "OllamaGenerateV2",
+      "pos": [
+        -1169.3759328201563,
+        1440.9082715323646
+      ],
+      "size": [
+        400,
+        294
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 19
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 17
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "OLLAMA_CONTEXT",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "system",
+          "type": "STRING",
+          "widget": {
+            "name": "system"
+          },
+          "link": 16
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            11,
+            14
+          ]
+        },
+        {
+          "name": "thinking",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "context",
+          "type": "OLLAMA_CONTEXT",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaGenerateV2"
+      },
+      "widgets_values": [
+        "You are an AI artist.",
+        "What is art?",
+        true,
+        false,
+        "text"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        -1517.0714962761347,
+        1195.649927904776
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.5",
+        "Node name for S&R": "OllamaConnectivityV2"
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "blaifa/InternVL3_5:4b",
+        0,
+        "minutes",
+        null
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ZenkaiImagePromptV2",
+      "pos": [
+        -1510.0712912634385,
+        1607.5174847169058
+      ],
+      "size": [
+        270,
+        198
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20,
+            21
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ZenkaiImagePromptV2"
+      },
+      "widgets_values": [
+        "empire-dataset-v1c1",
+        4206543730,
+        "randomize",
+        "sequential",
+        1,
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "PrimitiveNode",
+      "pos": [
+        -1509.1917101354904,
+        1433.0284853917194
+      ],
+      "size": [
+        264.1735297169371,
+        109.24866337903381
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "empire"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 20,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2060.682038682689,
+        1030.5169625317453
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 21,
+      "type": "Label (rgthree)",
+      "pos": [
+        -2060.691047306383,
+        869.4248117355199
+      ],
+      "size": [
+        962.9150390625,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Ollama + Sora",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 19,
+      "type": "Note",
+      "pos": [
+        -2052.0846937533265,
+        1203.2435250317453
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "APInodes-Sora2-ollama-V10\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      4,
+      4,
+      0,
+      5,
+      0,
+      "VIDEO"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      5,
+      1,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      7,
+      5,
+      2,
+      6,
+      4,
+      "FLOAT"
+    ],
+    [
+      8,
+      7,
+      0,
+      6,
+      5,
+      "STRING"
+    ],
+    [
+      9,
+      8,
+      0,
+      7,
+      0,
+      "STRING"
+    ],
+    [
+      11,
+      11,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      14,
+      11,
+      0,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      16,
+      12,
+      0,
+      11,
+      5,
+      "STRING"
+    ],
+    [
+      17,
+      15,
+      0,
+      11,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      19,
+      17,
+      0,
+      11,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      20,
+      18,
+      0,
+      11,
+      2,
+      "IMAGE"
+    ],
+    [
+      21,
+      18,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      18,
+      1,
+      11,
+      6,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 2.6333125430610322,
+      "offset": [
+        2210.962693690138,
+        -1075.836134656856
+      ]
+    },
+    "frontendVersion": "1.34.2",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
