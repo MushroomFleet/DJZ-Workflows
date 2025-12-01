@@ -1,0 +1,869 @@
+{
+  "id": "82f00663-b59a-4066-bc7f-32dee53534bd",
+  "revision": 0,
+  "last_node_id": 93,
+  "last_link_id": 200,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1728.0984080820617,
+        26642.680366849734
+      ],
+      "size": [
+        546.171875,
+        299.203125
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 165
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            7,
+            109
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 9,
+      "type": "ZenkaiENH",
+      "pos": [
+        1236.526730032092,
+        26485.72080809096
+      ],
+      "size": [
+        446,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            195
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "t2i-base-ENH.md"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "ByteDanceSeedreamNode",
+      "pos": [
+        2340.099476540629,
+        26525.949932932366
+      ],
+      "size": [
+        446,
+        410
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            108
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "ByteDanceSeedreamNode"
+      },
+      "widgets_values": [
+        "seedream-4-0-250828",
+        "",
+        "3024x1296 (21:9)",
+        2048,
+        2048,
+        "disabled",
+        1,
+        0,
+        "randomize",
+        false,
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "SaveImage",
+      "pos": [
+        2881.6047152540914,
+        26494.47221820457
+      ],
+      "size": [
+        1129.75,
+        672.109375
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 112
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "BoyoPairedSaver",
+      "pos": [
+        2530.3739027329734,
+        26468.71216134015
+      ],
+      "size": [
+        257.78125,
+        54
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 108
+        },
+        {
+          "name": "enhanced_prompt",
+          "type": "STRING",
+          "link": 109
+        },
+        {
+          "name": "folder_name",
+          "type": "STRING",
+          "widget": {
+            "name": "folder_name"
+          },
+          "link": 111
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 117
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "Boyonodes",
+        "ver": "8316bc15812bc4d80bf0cd765fd2850369d3f412",
+        "Node name for S&R": "BoyoPairedSaver"
+      },
+      "widgets_values": [
+        "seedream4",
+        "generated"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        217.4845393521922,
+        26759.362696650485
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 110
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "widget": {
+            "name": "filename"
+          },
+          "link": 114
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "200",
+        "seedream4",
+        "images",
+        "seedream4",
+        "auto"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "PrimitiveNode",
+      "pos": [
+        -73.55093020609245,
+        26765.400313741982
+      ],
+      "size": [
+        225,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            110,
+            111,
+            114
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "seedream4"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "WidgetToString",
+      "pos": [
+        598.1243234487474,
+        26861.36787866264
+      ],
+      "size": [
+        233.53125,
+        34
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_input",
+          "shape": 7,
+          "type": "*",
+          "link": 198
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "cebd0fc1c54f1a6bbbdeaf346172921933b41708",
+        "Node name for S&R": "WidgetToString"
+      },
+      "widgets_values": [
+        0,
+        "seed",
+        false,
+        "",
+        2
+      ]
+    },
+    {
+      "id": 72,
+      "type": "DF_String_Concatenate",
+      "pos": [
+        526.0599866299035,
+        26932.765683346213
+      ],
+      "size": [
+        376.453125,
+        34
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Append",
+          "type": "STRING",
+          "widget": {
+            "name": "Append"
+          },
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            117
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "d0905bed31249f2bd0814c67585cf4fe3c77c015",
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "image",
+        "",
+        "_"
+      ]
+    },
+    {
+      "id": 86,
+      "type": "OpenAIChatNode",
+      "pos": [
+        1263.60352484578,
+        26721.389358005028
+      ],
+      "size": [
+        400,
+        220
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 194
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 196
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            165
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "",
+        false,
+        "o4-mini"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 87,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        1313.366902856278,
+        26635.480830459015
+      ],
+      "size": [
+        306.625,
+        34
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "instructions",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "instructions"
+          },
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            194
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        "# Image Prompt Enhancement System\nTransform basic prompts into professional, visually-rich descriptions for AI image generation.\n\n## Enhancement Rules\n**Target**: 80-100 words with detailed visual specifications\n**Priority**: User style → Content-appropriate → High-quality photography default\n**Core Elements**:\n- **Subjects**: Detailed appearance, expressions, clothing, pose specifics\n- **Composition**: Framing, perspective, depth of field, focus points\n- **Style**: Photography/art style specification with technical details\n- **Lighting**: Light sources, shadows, mood, time of day\n- **Technical**: Textures, materials, colors, image quality descriptors\n\n## Style Categories\n**Photography**: Portrait, landscape, macro, fashion, documentary, fine art\n**Digital Art**: Concept art, digital painting, 3D render, photorealistic CG\n**Traditional Art**: Oil painting, watercolor, pencil sketch, ink illustration\n**Stylized**: Anime, cartoon, minimalist, vintage, film photography\n\n## Enhancement Examples\n**Input**: \n\"A girl by the water\"\n**Output**: \n\"Professional portrait photography, young East Asian woman with long dark braids sitting beside a tranquil lake. She wears a flowing white cotton dress with delicate embroidered details. Soft natural lighting creates gentle shadows across her serene expression as she gazes thoughtfully toward the camera. Background features beautifully blurred water with distant mountains. Shot with shallow depth of field, 85mm lens equivalent. Warm golden hour lighting with subtle film grain texture. Medium shot composition with rule of thirds framing.\"\n\n**Input**: \n\"Cat girl with folder\"  \n**Output**: \n\"High-quality anime digital art, elegant cat-eared girl with long silver hair holding a manila folder. She has bright amber eyes and wears a crisp white office blouse with navy blue skirt. Her expression shows mild curiosity with one eyebrow slightly raised. Clean indoor office background with soft diffused lighting. Smooth cel-shaded style with vibrant colors and sharp lineart. Centered composition, waist-up view with slight low angle perspective to emphasize her confident pose.\"\n\n**Input**: \n\"Big crocodile\"\n**Output**: \n\"Photorealistic digital concept art of a massive ancient crocodile with weathered, moss-covered scales. Thick vegetation and gnarled tree roots grow along its spine, creating a living ecosystem. Dramatic side lighting emphasizes the reptile's textured hide and powerful jaw structure. Misty swampland background with filtered sunlight streaming through cypress trees. Rich earth tones with deep greens and browns. Wide-angle composition showing full creature scale, shot from ground level for maximum impact.\"\n\n**Input**: \n\"Walter White in yellow suit\"\n**Output**: \n\"Cinematic character portrait in dramatic lighting style. Middle-aged man with glasses and goatee wearing bright yellow hazmat suit, seated on metal chair surrounded by stacks of cash. Intense direct gaze with serious expression, hands clasped. Industrial warehouse background with harsh fluorescent lighting creating strong shadows. Desaturated color palette except for the vivid yellow suit. Medium close-up shot with centered composition, slight low angle to convey authority and tension.\"\n\n## Process\n1. Analyze input for subject matter and implied style\n2. Select appropriate visual style and technical approach  \n3. Add specific composition and lighting details\n4. Include texture, color, and quality descriptors\n5. Specify framing and perspective elements\n6. Output enhanced prompt only as a single line paragraph\n\nTransform prompts while preserving original intent, adding professional visual depth and technical precision for optimal image generation results."
+      ]
+    },
+    {
+      "id": 88,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        -73.08521308289289,
+        26382.596865754396
+      ],
+      "size": [
+        399.671875,
+        256.84375
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            196,
+            198,
+            200
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "58baa825b8eb2055b9841665cb662bad9689700c",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "200-list.txt",
+        0,
+        "randomize",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 90,
+      "type": "ShowText|pysssss",
+      "pos": [
+        406.3972632672402,
+        26379.723401844134
+      ],
+      "size": [
+        504.4375,
+        267.984375
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 200
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 91,
+      "type": "Label (rgthree)",
+      "pos": [
+        -730.2807099980589,
+        25907.712545826762
+      ],
+      "size": [
+        1867.67578125,
+        150
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Blind Rank Batch Generator",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 92,
+      "type": "Label (rgthree)",
+      "pos": [
+        -723.2919404668089,
+        26072.294577076762
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "pinned": true,
+        "allow_interaction": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 93,
+      "type": "Note",
+      "pos": [
+        -712.9496553105589,
+        26245.021139576762
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Blind-Rank-Generator-v20\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      7,
+      5,
+      0,
+      10,
+      1,
+      "STRING"
+    ],
+    [
+      10,
+      10,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      108,
+      10,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ],
+    [
+      109,
+      5,
+      0,
+      68,
+      1,
+      "STRING"
+    ],
+    [
+      110,
+      70,
+      0,
+      69,
+      0,
+      "STRING"
+    ],
+    [
+      111,
+      70,
+      0,
+      68,
+      2,
+      "STRING"
+    ],
+    [
+      112,
+      69,
+      0,
+      12,
+      1,
+      "STRING"
+    ],
+    [
+      114,
+      70,
+      0,
+      69,
+      1,
+      "STRING"
+    ],
+    [
+      116,
+      71,
+      0,
+      72,
+      0,
+      "STRING"
+    ],
+    [
+      117,
+      72,
+      0,
+      68,
+      3,
+      "STRING"
+    ],
+    [
+      165,
+      86,
+      0,
+      5,
+      0,
+      "STRING"
+    ],
+    [
+      194,
+      87,
+      0,
+      86,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      195,
+      9,
+      0,
+      87,
+      0,
+      "STRING"
+    ],
+    [
+      196,
+      88,
+      0,
+      86,
+      3,
+      "STRING"
+    ],
+    [
+      198,
+      88,
+      0,
+      71,
+      0,
+      "*"
+    ],
+    [
+      200,
+      88,
+      0,
+      90,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Group",
+      "bounding": [
+        1194.214962402185,
+        26373.832813604666,
+        2843.5993943026174,
+        816.4353441664607
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Group",
+      "bounding": [
+        -90.01235353764983,
+        26681.146596271366,
+        1013.863473435933,
+        357.27797149433684
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.9194342495775807,
+      "offset": [
+        1094.603652325109,
+        -26072.41201970008
+      ]
+    },
+    "workflowRendererVersion": "Vue",
+    "frontendVersion": "1.34.2",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
