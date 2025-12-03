@@ -1,0 +1,425 @@
+{
+  "id": "311042db-4a27-4895-b88c-abcd9ca0aa01",
+  "revision": 0,
+  "last_node_id": 11,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        -482.2766886516124,
+        117.63502932392628
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "BananaPro",
+        "style-transfer",
+        "images",
+        "image",
+        "auto"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -52.82834398640498,
+        116.65005605634533
+      ],
+      "size": [
+        496.5603228642326,
+        143.21181884210966
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "aac13aa7ce35b07d43633c3bbe654a38c00d74f5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "**Beginning The Manuscript**\n\nI'm starting with a new image. I'm focusing on the style and color palette first to match the reference. The text will be \"SCUFFED EPOCH,\" rendered in the aged, hand-drawn style. I'm working to get the right look for the crowd and the text within the scene.\n\n\n\n**Refining the Composition**\n\nI'm now refining the composition, concentrating on the arrangement of the crowd and their upward gaze. Adjusting the text's placement to ensure it interacts with the figures correctly is critical. The aim is to create a sense of scale and depth.\n\n\n\n**Considering Visual Accuracy**\n\nI am now focused on evaluating the visual accuracy of the generated composition, specifically how closely it adheres to the initial prompts and instructions. The task is complex and requires detailed examination.\n\n\n\n**Verifying Compositional Elements**\n\nI'm now cross-referencing the output with the prompt, confirming the presence and placement of all requested elements, including the text \"SCUFFED EPOCH.\" The model appears to have successfully integrated the text within the medieval manuscript style.\n\n\n"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveImage",
+      "pos": [
+        -52.82834398640372,
+        368.8032125570183
+      ],
+      "size": [
+        508.3635307545421,
+        411.6054030614904
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        -1013.0876473102886,
+        369.788185824599
+      ],
+      "size": [
+        419.60101365064816,
+        412.3249564362487
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Screenshot 2025-12-03 183525.png",
+        "image"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "GeminiImage2Node",
+      "pos": [
+        -540.3901114388772,
+        368.8032125570188
+      ],
+      "size": [
+        400,
+        714
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "GeminiImage2Node"
+      },
+      "widgets_values": [
+        "",
+        "gemini-3-pro-image-preview",
+        973810206983042,
+        "randomize",
+        "16:9",
+        "2K",
+        "IMAGE+TEXT",
+        "Status: Completed\nPrice: $0.1392\nTime elapsed: 52s",
+        ""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1027.9518788913488,
+        79.22107188827681
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.74",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "using the style from the image, create a new image matching the same style, using new composition and subject which depicts \"SCUFFED EPOCH\" as text that all look up to"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 9,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1589.0618547280926,
+        -138.47536936494873
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 10,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1589.0708633517868,
+        -299.5675201611716
+      ],
+      "size": [
+        1250.7568359375,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Simple BananaPro",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 11,
+      "type": "Note",
+      "pos": [
+        -1580.4645097987311,
+        34.25119313505144
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "API-Simple-BananaPro-v15\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nhttps://www.scuffedepoch.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      4,
+      2,
+      "STRING"
+    ],
+    [
+      2,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      4,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      6,
+      0,
+      5,
+      1,
+      "STRING"
+    ],
+    [
+      5,
+      4,
+      1,
+      7,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "text 2 image",
+      "bounding": [
+        -1037.9518788913488,
+        5.621071888276816,
+        1503.4870656594871,
+        1087.182140668742
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.6350799082655978,
+      "offset": [
+        1834.854431920199,
+        106.09732211902423
+      ]
+    },
+    "frontendVersion": "1.28.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
