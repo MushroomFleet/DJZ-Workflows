@@ -1,0 +1,1790 @@
+{
+  "id": "bca01c8f-e8d9-4b3a-953e-9da6aa19b6d3",
+  "revision": 0,
+  "last_node_id": 164,
+  "last_link_id": 299,
+  "nodes": [
+    {
+      "id": 28,
+      "type": "Seed (rgthree)",
+      "pos": [
+        1324.2008000085352,
+        625.8804714253529
+      ],
+      "size": [
+        240,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "SEED",
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            136
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "32142fe476878a354dda6e2d4b5ea98960de3ced",
+        "randomMax": 1125899906842624,
+        "randomMin": 0,
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        473019378226689,
+        "increment",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 122,
+      "type": "UNETLoader",
+      "pos": [
+        1321.7490801190968,
+        254.1124863948676
+      ],
+      "size": [
+        375.0749223208022,
+        82
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "Magic-Wan-Image-v2_fp16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "CLIPLoader",
+      "pos": [
+        1338.0037292746547,
+        375.2702732112016
+      ],
+      "size": [
+        466.2078857421875,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "CLIPLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "wan",
+        "default"
+      ]
+    },
+    {
+      "id": 135,
+      "type": "Label (rgthree)",
+      "pos": [
+        957.3851690694837,
+        62.407650606476636
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 133,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        1304.0973021347454,
+        246.76630405135546
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            250
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "d3e14efda6bb891de0406d2debffcb07e88d4231",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "Magic-Wan-Image-v2-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "CLIPLoaderGGUF",
+      "pos": [
+        1307.9594388610271,
+        365.2068131087455
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            254
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "d3e14efda6bb891de0406d2debffcb07e88d4231",
+        "Node name for S&R": "CLIPLoaderGGUF"
+      },
+      "widgets_values": [
+        "umt5-xxl-encoder-Q8_0.gguf",
+        "wan"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "VAELoader",
+      "pos": [
+        1308.2486114260644,
+        512.2836164310925
+      ],
+      "size": [
+        269.2163941340725,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            271
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ]
+    },
+    {
+      "id": 139,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        2770,
+        800
+      ],
+      "size": [
+        236.8841118856676,
+        154
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 247
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            248
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "WANMAGIC",
+        "sharona",
+        "wan22UP",
+        "wanm",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 142,
+      "type": "LoraLoader",
+      "pos": [
+        1608.6266929585015,
+        246.2965578228639
+      ],
+      "size": [
+        396.94389809296945,
+        161.87543737762667
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 250
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 254
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            251
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            252,
+            253
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "AAA_testing\\wan\\sh4r0na-wan-v6p.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 149,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        3020,
+        480
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 270
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 271
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            272
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "VAEDecodeTiled"
+      },
+      "widgets_values": [
+        256,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 141,
+      "type": "SaveImage",
+      "pos": [
+        3300,
+        230
+      ],
+      "size": [
+        730.7018812561723,
+        789.1932936019033
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 272
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 248
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 136,
+      "type": "Note",
+      "pos": [
+        957.9714629585986,
+        247.0429184412419
+      ],
+      "size": [
+        310.6514635267413,
+        511.56691518423065
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "WANMAGIC-t2i-LORA-AR-Auto4K-v10\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nWorkflow: https://huggingface.co/mushroomfleet\nhttps://github.com/MushroomFleet\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 21,
+      "type": "KSampler",
+      "pos": [
+        2770,
+        450
+      ],
+      "size": [
+        234.73780359163084,
+        262
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 277
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 27
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 28
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 281
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 136
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            270
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        640966549047858,
+        "fixed",
+        25,
+        1,
+        "deis",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 151,
+      "type": "HyperTile",
+      "pos": [
+        2770,
+        250
+      ],
+      "size": [
+        227.35082033732078,
+        130
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 276
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            277
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "HyperTile"
+      },
+      "widgets_values": [
+        256,
+        2,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 125,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        2494.878132349617,
+        250.8761374342489
+      ],
+      "size": [
+        229.31758596008922,
+        58
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 251
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            276
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "ModelSamplingSD3",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2506.4410617862054,
+        390.6458412094739
+      ],
+      "size": [
+        402.33027144175594,
+        171.5612254042402
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 253
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 246
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "A photorealistic image of a cheerful girl in office, portrait of a woman sitting on an office chair, on her desk, one elbow resting on the table, long hair, black suit, High heel, black stockings, 22 year-old, curvaceous, slim waist, surrounded by tech gadgets in a modern apartment. She holds a smartphone, smart watch on her wrist, interacting with her online followers while seated in front of a high-tech desk setup. , full body, natural outdoor background viewed through the window, natural lighting, eye level, Canon EOS 5D, film grain, in the style of David LaChapelle"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 8,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2505.973779753764,
+        441.7790363316036
+      ],
+      "size": [
+        401.6261901855469,
+        120.38131713867188
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 252
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 153,
+      "type": "EmptyLatentImage",
+      "pos": [
+        2509.932368963519,
+        509.4814926191908
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 282
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 283
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            281
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 140,
+      "type": "PrimitiveNode",
+      "pos": [
+        964.8036057345232,
+        853.9815994362958
+      ],
+      "size": [
+        292.7894676322983,
+        83.8333973065553
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            247
+          ]
+        }
+      ],
+      "title": "Project name",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "sharona"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 154,
+      "type": "AspectSizeV2",
+      "pos": [
+        1689.9019062355196,
+        541.2802864766852
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            282
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            283
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "WAN22",
+        16,
+        9,
+        32
+      ]
+    },
+    {
+      "id": 158,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        1743.860275834298,
+        826.3751531847088
+      ],
+      "size": [
+        267.9126953125,
+        136
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "instructions",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "instructions"
+          },
+          "link": 285
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            284
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        ""
+      ]
+    },
+    {
+      "id": 157,
+      "type": "OpenAIChatNode",
+      "pos": [
+        2106.377923986771,
+        828.8840027688468
+      ],
+      "size": [
+        210,
+        176
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 284
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 296
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "",
+        false,
+        "gpt-5-mini"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 161,
+      "type": "OllamaOptionsV2",
+      "pos": [
+        1863.0269254956959,
+        1340.67348497824
+      ],
+      "size": [
+        286.103515625,
+        754
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "OLLAMA_OPTIONS",
+          "links": [
+            289
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.1.0",
+        "Node name for S&R": "OllamaOptionsV2"
+      },
+      "widgets_values": [
+        false,
+        0,
+        false,
+        0.1,
+        false,
+        5,
+        false,
+        2048,
+        false,
+        64,
+        false,
+        1.1,
+        false,
+        0.8,
+        false,
+        814552110,
+        "randomize",
+        false,
+        "",
+        false,
+        1,
+        false,
+        -1,
+        false,
+        40,
+        false,
+        0.9,
+        false,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 160,
+      "type": "OllamaChat",
+      "pos": [
+        2048.675983690638,
+        1143.7349826349748
+      ],
+      "size": [
+        400,
+        294
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 288
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": 289
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "history",
+          "shape": 7,
+          "type": "OLLAMA_HISTORY",
+          "link": null
+        },
+        {
+          "name": "system",
+          "type": "STRING",
+          "widget": {
+            "name": "system"
+          },
+          "link": 290
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 297
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            292
+          ]
+        },
+        {
+          "name": "thinking",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": null
+        },
+        {
+          "name": "history",
+          "type": "OLLAMA_HISTORY",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.1.0",
+        "Node name for S&R": "OllamaChat"
+      },
+      "widgets_values": [
+        "You are an AI artist.",
+        "What is art?",
+        false,
+        "text",
+        false
+      ]
+    },
+    {
+      "id": 162,
+      "type": "OpenRouterNode",
+      "pos": [
+        2021.0796067703332,
+        1585.2789924792269
+      ],
+      "size": [
+        425.9126953125,
+        418
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pdf_data",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "name": "user_message_input",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": 295
+        },
+        {
+          "name": "system_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 293
+        },
+        {
+          "name": "user_message_box",
+          "type": "STRING",
+          "widget": {
+            "name": "user_message_box"
+          },
+          "link": 298
+        },
+        {
+          "color_off": "#666",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "Stats",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "Credits",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "openrouter_node",
+        "ver": "1.0.2",
+        "Node name for S&R": "OpenRouterNode"
+      },
+      "widgets_values": [
+        "",
+        "You are a helpful assistant.",
+        "Hello, how are you?",
+        "ai21/jamba-large-1.7",
+        false,
+        true,
+        false,
+        false,
+        1,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 163,
+      "type": "PrimitiveNode",
+      "pos": [
+        1744.5355086944069,
+        1667.732762186891
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "links": [
+            295
+          ]
+        }
+      ],
+      "title": "KEY GOES HERE",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 156,
+      "type": "ZenkaiENH",
+      "pos": [
+        1294.7897593465548,
+        1104.8489720761966
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            285,
+            290,
+            293
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-enh-system",
+        "ver": "523a03923ee2589a78d2f50a87a66ae2ca93cf65",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "JSON-Direct-Expert.md"
+      ]
+    },
+    {
+      "id": 152,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        1300.3813260994727,
+        834.070649920981
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            299
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "sharona-v6p.txt",
+        2916832745,
+        "randomize",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 159,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        1743.8601916164537,
+        1142.480473625062
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            288
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.1.0",
+        "Node name for S&R": "OllamaConnectivityV2"
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "huihui_ai/devstral-abliterated:24b",
+        0,
+        "minutes",
+        null
+      ]
+    },
+    {
+      "id": 138,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2469.923263248622,
+        676.0064283037414
+      ],
+      "size": [
+        271.7106449285575,
+        337.08791603453267
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 292
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            246
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "```json\n{\n  \"scene\": \"Post-regression ruins with ancient industrial elements and mechanical plants\",\n  \"subjects\": [\n    {\n      \"description\": \"Sh4r0na woman with short white hair, vibrant orange fur skin blouse with black accents and exposed torso, matching fur skin wrapped oversized boots and gloves\",\n      \"position\": \"Sitting confidently on weathered stone steps\",\n      \"pose\": \"Predatory stance\",\n      \"color_palette\": [\"#FFA500\", \"#FFFFFF\", \"#000000\"]\n    }\n  ],\n  \"style\": \"Watercolor style graphic novel illustration, detailed ink linework\",\n  \"lighting\": \"Harsh winter sunlight creating stark shadows on wind-sculpted stone structures\",\n  \"mood\": \"Isolated, intimidating, predatory\",\n  \"background\": \"Vast steppe landscape stretching endlessly beyond ruined columns\",\n  \"composition\": \"Low-angle shot emphasizing isolation against towering weathered formations\"\n}\n```"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 164,
+      "type": "DF_String_Concatenate",
+      "pos": [
+        1294.383897719693,
+        1244.5910766240945
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Append",
+          "type": "STRING",
+          "widget": {
+            "name": "Append"
+          },
+          "link": 299
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            296,
+            297,
+            298
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "1.0.1",
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "without inclusion of feedback or commentary, transform this image text prompt into a structured JSON output using the system prompt logic",
+        "",
+        ": "
+      ]
+    }
+  ],
+  "links": [
+    [
+      27,
+      13,
+      0,
+      21,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      8,
+      0,
+      21,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      136,
+      28,
+      0,
+      21,
+      4,
+      "INT"
+    ],
+    [
+      246,
+      138,
+      0,
+      13,
+      1,
+      "STRING"
+    ],
+    [
+      247,
+      140,
+      0,
+      139,
+      0,
+      "STRING"
+    ],
+    [
+      248,
+      139,
+      0,
+      141,
+      1,
+      "STRING"
+    ],
+    [
+      250,
+      133,
+      0,
+      142,
+      0,
+      "MODEL"
+    ],
+    [
+      251,
+      142,
+      0,
+      125,
+      0,
+      "MODEL"
+    ],
+    [
+      252,
+      142,
+      1,
+      8,
+      0,
+      "CLIP"
+    ],
+    [
+      253,
+      142,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      254,
+      134,
+      0,
+      142,
+      1,
+      "CLIP"
+    ],
+    [
+      270,
+      21,
+      0,
+      149,
+      0,
+      "LATENT"
+    ],
+    [
+      271,
+      12,
+      0,
+      149,
+      1,
+      "VAE"
+    ],
+    [
+      272,
+      149,
+      0,
+      141,
+      0,
+      "IMAGE"
+    ],
+    [
+      276,
+      125,
+      0,
+      151,
+      0,
+      "MODEL"
+    ],
+    [
+      277,
+      151,
+      0,
+      21,
+      0,
+      "MODEL"
+    ],
+    [
+      281,
+      153,
+      0,
+      21,
+      3,
+      "LATENT"
+    ],
+    [
+      282,
+      154,
+      0,
+      153,
+      0,
+      "INT"
+    ],
+    [
+      283,
+      154,
+      1,
+      153,
+      1,
+      "INT"
+    ],
+    [
+      284,
+      158,
+      0,
+      157,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      285,
+      156,
+      0,
+      158,
+      0,
+      "STRING"
+    ],
+    [
+      288,
+      159,
+      0,
+      160,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      289,
+      161,
+      0,
+      160,
+      1,
+      "OLLAMA_OPTIONS"
+    ],
+    [
+      290,
+      156,
+      0,
+      160,
+      5,
+      "STRING"
+    ],
+    [
+      292,
+      160,
+      0,
+      138,
+      0,
+      "STRING"
+    ],
+    [
+      293,
+      156,
+      0,
+      162,
+      3,
+      "STRING"
+    ],
+    [
+      295,
+      163,
+      0,
+      162,
+      2,
+      "STRING"
+    ],
+    [
+      296,
+      164,
+      0,
+      157,
+      3,
+      "STRING"
+    ],
+    [
+      297,
+      164,
+      0,
+      160,
+      6,
+      "STRING"
+    ],
+    [
+      298,
+      164,
+      0,
+      162,
+      4,
+      "STRING"
+    ],
+    [
+      299,
+      152,
+      0,
+      164,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "ChatGPT Native",
+      "bounding": [
+        1733.860275834298,
+        752.7751531847093,
+        592.5176481524711,
+        262.10884958413806
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Ollama (local)",
+      "bounding": [
+        1733.8601916164537,
+        1068.880473625062,
+        724.8157920741855,
+        378.85450900991293
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Openrouter API",
+      "bounding": [
+        1734.5355086944069,
+        1511.678992479227,
+        722.4567933884264,
+        501.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7972024500000103,
+      "offset": [
+        -2052.840200024882,
+        -164.6282078778992
+      ]
+    },
+    "frontendVersion": "1.33.10",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "workflowRendererVersion": "LG"
+  },
+  "version": 0.4
+}
