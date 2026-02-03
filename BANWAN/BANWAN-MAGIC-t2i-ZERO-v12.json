@@ -1,0 +1,2353 @@
+{
+  "id": "dc2b2ad8-369a-48f9-aab4-c1e708718470",
+  "revision": 0,
+  "last_node_id": 58,
+  "last_link_id": 102,
+  "nodes": [
+    {
+      "id": 30,
+      "type": "UNETLoader",
+      "pos": [
+        2760,
+        -150
+      ],
+      "size": [
+        375.0749223208022,
+        82
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "UNETLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "Magic-Wan-Image-v2_fp16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "CLIPLoader",
+      "pos": [
+        2770,
+        -30
+      ],
+      "size": [
+        466.2078857421875,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "CLIPLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "umt5-xxl-enc-bf16.safetensors",
+        "wan",
+        "default"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "CLIPLoaderGGUF",
+      "pos": [
+        2740,
+        -40
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            59
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "d3e14efda6bb891de0406d2debffcb07e88d4231",
+        "Node name for S&R": "CLIPLoaderGGUF"
+      },
+      "widgets_values": [
+        "umt5-xxl-encoder-Q8_0.gguf",
+        "wan"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "Seed (rgthree)",
+      "pos": [
+        2760,
+        220
+      ],
+      "size": [
+        240,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "SEED",
+          "name": "SEED",
+          "shape": 3,
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            50
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "32142fe476878a354dda6e2d4b5ea98960de3ced",
+        "randomMax": 1125899906842624,
+        "randomMin": 0,
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        128913900487170,
+        "increment",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 32,
+      "type": "Label (rgthree)",
+      "pos": [
+        2541.959974627366,
+        -902.3677393452825
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 4,
+      "type": "GeminiImage2Node",
+      "pos": [
+        3440.2642277829623,
+        -1484.6522905226109
+      ],
+      "size": [
+        310.3091796875,
+        404.8999366162665
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 39
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 26
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 11
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "GeminiImage2Node"
+      },
+      "widgets_values": [
+        "create multipanel integrated key art for this character. \nfemale Hero: Kage\nhair colour: black, long ponytail\ndirector: Hideo Kojima",
+        "gemini-3-pro-image-preview",
+        1069202915397966,
+        "randomize",
+        "2:3",
+        "2K",
+        "IMAGE+TEXT",
+        "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "SaveImage",
+      "pos": [
+        4911.865341898192,
+        -1490.8285950936722
+      ],
+      "size": [
+        577.7056487922232,
+        506.55682605626953
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "SaveImage",
+      "pos": [
+        3823.5462864019264,
+        -1489.642749572613
+      ],
+      "size": [
+        577.7056487922232,
+        506.55682605626953
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "Text Multiline",
+      "pos": [
+        3684.069610747622,
+        -409.05842154198933
+      ],
+      "size": [
+        439.00494139619695,
+        88
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "using only the colorised art style from image 2, we can create a new image featuring the black haired woman in image 1, "
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 11,
+      "type": "PrimitiveNode",
+      "pos": [
+        3459.4673211462864,
+        -1011.8758947542806
+      ],
+      "size": [
+        268.9949738617488,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "links": [
+            11,
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1069202915397966,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 39,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        5536.6560219725,
+        -406.7370543755551
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "ModelSamplingSD3",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 34,
+      "type": "VAEDecode",
+      "pos": [
+        6137.2242039390985,
+        -61.55844813494987
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 54
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 55
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            60
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 45,
+      "type": "SaveImage",
+      "pos": [
+        6438.455087362246,
+        -362.69481206815846
+      ],
+      "size": [
+        595.2357284058603,
+        563.4602158721709
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 60
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 61
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.76",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ZenkaiENH",
+      "pos": [
+        4096.081213737994,
+        -420.5387152263131
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-enh-system",
+        "ver": "523a03923ee2589a78d2f50a87a66ae2ca93cf65",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "no-redeem.md"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "PrimitiveNode",
+      "pos": [
+        4508.769543251945,
+        -439.38345764274044
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "links": [
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "8th-img-lora-proc"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 25,
+      "type": "VAELoader",
+      "pos": [
+        2740,
+        110
+      ],
+      "size": [
+        269.2163941340725,
+        58
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            55,
+            78
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "VAELoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "KSampler",
+      "pos": [
+        5844.150490935798,
+        -411.0632908456181
+      ],
+      "size": [
+        234.73780359163084,
+        262
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 46
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 87
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 88
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 77
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        640966549047858,
+        "fixed",
+        25,
+        1,
+        "deis",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 24,
+      "type": "DJZImageScaleToTotalPixels",
+      "pos": [
+        3643.598282259067,
+        -702.8529086214995
+      ],
+      "size": [
+        261.33036084116156,
+        106
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            39,
+            40,
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "DJZImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1.5,
+        32
+      ]
+    },
+    {
+      "id": 53,
+      "type": "CLIPVisionEncode",
+      "pos": [
+        4566.287459709578,
+        -774.3098084850692
+      ],
+      "size": [
+        289.505859375,
+        78
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 82
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP_VISION_OUTPUT",
+          "type": "CLIP_VISION_OUTPUT",
+          "links": [
+            80
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "CLIPVisionEncode"
+      },
+      "widgets_values": [
+        "center"
+      ]
+    },
+    {
+      "id": 54,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        4576.869689192807,
+        -631.8549945738893
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "widgets_values": [
+        "sigclip_vision_patch14_384.safetensors"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "CLIPTextEncode",
+      "pos": [
+        5219.488778848776,
+        21.13636393320855
+      ],
+      "size": [
+        401.6261901855469,
+        120.38131713867188
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            84
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 27,
+      "type": "EmptyLatentImage",
+      "pos": [
+        5541.076971573763,
+        85.55731353447825
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 44
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "label": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "EmptyLatentImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        768,
+        1376,
+        1
+      ]
+    },
+    {
+      "id": 40,
+      "type": "LoraLoader",
+      "pos": [
+        5050.17816354194,
+        -398.7666881091795
+      ],
+      "size": [
+        407.78848208560794,
+        126
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 58
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            57
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            43,
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.0",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "AAA_testing\\wan\\wan-m8t-style-img-v0p.safetensors",
+        0.6,
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "ZenkaiENH",
+      "pos": [
+        4071.71341205627,
+        192.08291368233463
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            23,
+            41,
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-enh-system",
+        "ver": "523a03923ee2589a78d2f50a87a66ae2ca93cf65",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "t2i-Araki-ENH.md"
+      ]
+    },
+    {
+      "id": 52,
+      "type": "WanImageToVideo",
+      "pos": [
+        5518.742018395369,
+        -287.75944772915807
+      ],
+      "size": [
+        270,
+        210
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 83
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 84
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 78
+        },
+        {
+          "name": "clip_vision_output",
+          "shape": 7,
+          "type": "CLIP_VISION_OUTPUT",
+          "link": 80
+        },
+        {
+          "name": "start_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 101
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 89
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            87
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            88
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            77
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "WanImageToVideo"
+      },
+      "widgets_values": [
+        832,
+        480,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 29,
+      "type": "CLIPTextEncode",
+      "pos": [
+        5053.909728450043,
+        -202.90582996387016
+      ],
+      "size": [
+        402.33027144175594,
+        171.5612254042402
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 51
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 93
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.46",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "m8t style anime, Volkyri vanguard in void chrome bodysuit with Blacksun Style, A futuristic scene with a lone figure holding red lightsabers, with debris scattered around. accents, single conical spire horn emerging from right temple fused to skull bone, standing before a massive spherical spaceship against a dramatic sky with clouds and a distant planet. The ground is rocky and desolate, expression of glacial serenity masking lethal capability, space, wide shot showing scale against environment, pale porcelain skin contrasting dark metallic attire, Hel Vortex homeworld aesthetic, person, clouds"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 47,
+      "type": "DF_String_Concatenate",
+      "pos": [
+        4723.8857821283855,
+        365.87710430824575
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "Append",
+          "type": "STRING",
+          "widget": {
+            "name": "Append"
+          },
+          "link": 65
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TEXT",
+          "type": "STRING",
+          "links": [
+            93
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "derfuu_comfyui_moddednodes",
+        "ver": "1.0.1",
+        "Node name for S&R": "DF_String_Concatenate"
+      },
+      "widgets_values": [
+        "M8T style anime, sexy woman ",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 56,
+      "type": "PromptCombiner",
+      "pos": [
+        3629.80433742786,
+        -286.18224108369276
+      ],
+      "size": [
+        400,
+        274
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_1",
+          "type": "STRING",
+          "widget": {
+            "name": "text_1"
+          },
+          "link": 95
+        },
+        {
+          "name": "text_2",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_2"
+          },
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "combined_text",
+          "type": "STRING",
+          "links": [
+            94
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptCombiner"
+      },
+      "widgets_values": [
+        "",
+        "Volkyri vanguard in void chrome bodysuit with Blacksun Style, A futuristic scene with a lone figure holding red lightsabers, with debris scattered around. accents, single conical spire horn emerging from right temple fused to skull bone, standing before a massive spherical spaceship against a dramatic sky with clouds and a distant planet. The ground is rocky and desolate, expression of glacial serenity masking lethal capability, space, wide shot showing scale against environment, pale porcelain skin contrasting dark metallic attire, Hel Vortex homeworld aesthetic, person, clouds",
+        "",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 2,
+      "type": "easy showAnything",
+      "pos": [
+        3645.9139430867526,
+        38.109029103840356
+      ],
+      "size": [
+        367.7439226159654,
+        221.7828311488007
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "76b5896f089d5b4f7619559cf5f7fc0560e3dc40",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "using the black haired with matching outfit and single cranial horn in image 1 to update the following prompt: , Volkyri attendant in gold chrome bodysuit with crimson red accents, high angle conveying vulnerability of a theatrical rival with torso twisted against hips. crop top with elaborate harness accessories. crossed arms with visible tension. surreal color shifts throughout, under Niflheim-IX skies with metallic aurora, expression of glacial serenity masking lethal capability, dramatic side lighting, gloved hands with articulated fingers, Hel Vortex origin aesthetic, Baroque drama meets modern design, electric anticipation energy, high saturation throughout"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 38,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        2740,
+        -160
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            58
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "d3e14efda6bb891de0406d2debffcb07e88d4231",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "Magic-Wan-Image-v2-Q8_0.gguf"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "DJZ-ZeroPrompt-V2",
+      "pos": [
+        3164.6748839765955,
+        -293.7715199501518
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            99
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "MushroomFleet/ComfyUI-DJZ-ZeroPrompt",
+        "ver": "07ba4485fc805a2c6e01972a468130a8a9de4b71",
+        "Node name for S&R": "DJZ-ZeroPrompt-V2"
+      },
+      "widgets_values": [
+        "araki-jojo.json",
+        4134313946,
+        "randomize",
+        72,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 57,
+      "type": "DJZ-ZeroENH-V2",
+      "pos": [
+        3108.5072339207927,
+        -32.276166969435906
+      ],
+      "size": [
+        400,
+        256
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "enhanced_prompt",
+          "type": "STRING",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "MushroomFleet/ComfyUI-ZeroENH",
+        "ver": "36c40c34c18eb12cbea0eda6b5f1bdafbbb8bac5",
+        "Node name for S&R": "DJZ-ZeroENH-V2"
+      },
+      "widgets_values": [
+        "",
+        "volkyri-zeroenh-profile-v2.json",
+        42,
+        "fixed",
+        "full",
+        200,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 58,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        3167.7266232580196,
+        318.14498359468683
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "blacksunv4.txt",
+        1579428568,
+        "randomize",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 35,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        6139.307505543102,
+        -347.0507931282615
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "project_name",
+          "type": "STRING",
+          "widget": {
+            "name": "project_name"
+          },
+          "link": 64
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            61
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "WANMAGIC",
+        "8th-img-lora-proc",
+        "volkyri",
+        "wanm",
+        "auto"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 14,
+      "type": "Text Multiline",
+      "pos": [
+        3620.7547847069213,
+        -442.5569591987176
+      ],
+      "size": [
+        405.5158863692509,
+        105.72953084005235
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            95
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "using the black haired with matching outfit and single cranial horn in image 1 to update the following prompt: "
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 23,
+      "type": "LoadImage",
+      "pos": [
+        3168.0346948561646,
+        -697.0621299910537
+      ],
+      "size": [
+        282.798828125,
+        314.00000000000006
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "KAGE-twin.png",
+        "image"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "OpenRouterNode",
+      "pos": [
+        4065.5598635837077,
+        -297.4002522026351
+      ],
+      "size": [
+        386.386328125,
+        438
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pdf_data",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "name": "user_message_input",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": 24
+        },
+        {
+          "name": "system_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 23
+        },
+        {
+          "name": "user_message_box",
+          "type": "STRING",
+          "widget": {
+            "name": "user_message_box"
+          },
+          "link": 29
+        },
+        {
+          "color_off": "#666",
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 70
+        },
+        {
+          "color_off": "#666",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "STRING",
+          "links": [
+            26,
+            27,
+            69
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "Stats",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "Credits",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "openrouter_node",
+        "ver": "1.0.2",
+        "Node name for S&R": "OpenRouterNode"
+      },
+      "widgets_values": [
+        "",
+        "You are a helpful assistant.",
+        "Hello, how are you?",
+        "anthropic/claude-sonnet-4.5",
+        false,
+        true,
+        false,
+        false,
+        1,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 43,
+      "type": "AspectSizeV2",
+      "pos": [
+        5069.250847014726,
+        63.8998945772802
+      ],
+      "size": [
+        274.61328125,
+        150
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            44,
+            89
+          ]
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            45,
+            90
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "AspectSizeV2"
+      },
+      "widgets_values": [
+        "WAN22",
+        4,
+        3,
+        32
+      ]
+    },
+    {
+      "id": 19,
+      "type": "easy showAnything",
+      "pos": [
+        4510,
+        -290
+      ],
+      "size": [
+        372.6090730105893,
+        541.4459113082573
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            65
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "76b5896f089d5b4f7619559cf5f7fc0560e3dc40",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "# Enhanced Prompt\n\nTheatrical fashion illustration of Valkyri attendant with flowing black hair cascading past shoulders and single elegant cranial horn, wearing gold chrome bodysuit with crimson red shoulder armor and harness details. Figure photographed from high angle emphasizing psychological vulnerability, spine twisted in extreme S-curve with torso rotated dramatically against hip placement creating Renaissance contrapposto tension. Crop top construction reveals toned midriff beneath elaborate leather harness with metallic buckles and chain accessories. Arms crossed defensively across chest with articulated gloved fingers spread rigid showing visible muscular tension. Expression of glacial serenity—face half-shadowed by dramatic side lighting with only piercing eyes illuminated, masking lethal capability beneath composed exterior. Background features Niflheim-IX alien skies with metallic aurora in surreal cyan-violet-gold shifting palette, Hel Vortex origin aesthetic blending Baroque sculptural drama with cyberpunk design language. Gold-crimson-black color scheme clashing against electric blue atmospheric effects, high saturation non-naturalistic palette throughout. Clean graphic linework, fashion editorial composition, electric anticipation energy conveyed through frozen dynamic pose and complementary color tension."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 13,
+      "type": "GeminiImage2Node",
+      "pos": [
+        4556.8179754274015,
+        -1490.8285306595392
+      ],
+      "size": [
+        310.3091796875,
+        404.8999366162666
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 40
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 27
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 15
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            101,
+            102
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "GeminiImage2Node"
+      },
+      "widgets_values": [
+        "create multipanel integrated key art for this character. \nfemale Hero: Kage\nhair colour: black, long ponytail\ndirector: Hideo Kojima",
+        "gemini-3-pro-image-preview",
+        1069202915397966,
+        "randomize",
+        "3:2",
+        "2K",
+        "IMAGE+TEXT",
+        "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 36,
+      "type": "Note",
+      "pos": [
+        2554.62823745287,
+        -728.7018175998746
+      ],
+      "size": [
+        462.72741615240056,
+        489.2799490637975
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "BANWAN-MAGIC-t2i-ZERO-v12\n\nVideo: https://www.youtube.com/@ScuffedEpoch\nWorkflow: https://civitai.com/user/driftjohnson\nWorkflow: https://huggingface.co/mushroomfleet\nhttps://github.com/MushroomFleet\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\n\n\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      11,
+      0,
+      4,
+      3,
+      "INT"
+    ],
+    [
+      12,
+      13,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      11,
+      0,
+      13,
+      3,
+      "INT"
+    ],
+    [
+      23,
+      3,
+      0,
+      17,
+      3,
+      "STRING"
+    ],
+    [
+      24,
+      18,
+      0,
+      17,
+      2,
+      "STRING"
+    ],
+    [
+      26,
+      17,
+      0,
+      4,
+      2,
+      "STRING"
+    ],
+    [
+      27,
+      17,
+      0,
+      13,
+      2,
+      "STRING"
+    ],
+    [
+      29,
+      2,
+      0,
+      17,
+      4,
+      "STRING"
+    ],
+    [
+      37,
+      23,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      39,
+      24,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      24,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      3,
+      0,
+      4,
+      4,
+      "STRING"
+    ],
+    [
+      42,
+      3,
+      0,
+      13,
+      4,
+      "STRING"
+    ],
+    [
+      43,
+      40,
+      1,
+      26,
+      0,
+      "CLIP"
+    ],
+    [
+      44,
+      43,
+      0,
+      27,
+      0,
+      "INT"
+    ],
+    [
+      45,
+      43,
+      1,
+      27,
+      1,
+      "INT"
+    ],
+    [
+      46,
+      39,
+      0,
+      28,
+      0,
+      "MODEL"
+    ],
+    [
+      50,
+      44,
+      0,
+      28,
+      4,
+      "INT"
+    ],
+    [
+      51,
+      40,
+      1,
+      29,
+      0,
+      "CLIP"
+    ],
+    [
+      54,
+      28,
+      0,
+      34,
+      0,
+      "LATENT"
+    ],
+    [
+      55,
+      25,
+      0,
+      34,
+      1,
+      "VAE"
+    ],
+    [
+      57,
+      40,
+      0,
+      39,
+      0,
+      "MODEL"
+    ],
+    [
+      58,
+      38,
+      0,
+      40,
+      0,
+      "MODEL"
+    ],
+    [
+      59,
+      37,
+      0,
+      40,
+      1,
+      "CLIP"
+    ],
+    [
+      60,
+      34,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      61,
+      35,
+      0,
+      45,
+      1,
+      "STRING"
+    ],
+    [
+      64,
+      46,
+      0,
+      35,
+      0,
+      "STRING"
+    ],
+    [
+      65,
+      19,
+      0,
+      47,
+      0,
+      "STRING"
+    ],
+    [
+      69,
+      17,
+      0,
+      19,
+      0,
+      "STRING"
+    ],
+    [
+      70,
+      24,
+      0,
+      17,
+      5,
+      "IMAGE"
+    ],
+    [
+      77,
+      52,
+      2,
+      28,
+      3,
+      "LATENT"
+    ],
+    [
+      78,
+      25,
+      0,
+      52,
+      2,
+      "VAE"
+    ],
+    [
+      80,
+      53,
+      0,
+      52,
+      3,
+      "CLIP_VISION_OUTPUT"
+    ],
+    [
+      82,
+      54,
+      0,
+      53,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      83,
+      29,
+      0,
+      52,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      84,
+      26,
+      0,
+      52,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      87,
+      52,
+      0,
+      28,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      88,
+      52,
+      1,
+      28,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      89,
+      43,
+      0,
+      52,
+      5,
+      "INT"
+    ],
+    [
+      90,
+      43,
+      1,
+      52,
+      6,
+      "INT"
+    ],
+    [
+      93,
+      47,
+      0,
+      29,
+      1,
+      "STRING"
+    ],
+    [
+      94,
+      56,
+      0,
+      2,
+      0,
+      "STRING"
+    ],
+    [
+      95,
+      14,
+      0,
+      56,
+      0,
+      "STRING"
+    ],
+    [
+      96,
+      57,
+      0,
+      56,
+      1,
+      "STRING"
+    ],
+    [
+      99,
+      5,
+      0,
+      57,
+      0,
+      "STRING"
+    ],
+    [
+      101,
+      13,
+      0,
+      52,
+      4,
+      "IMAGE"
+    ],
+    [
+      102,
+      13,
+      0,
+      53,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "v2 Araki",
+      "bounding": [
+        3610,
+        -513.6,
+        1354.973829571998,
+        795.4812945108847
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "banana pro",
+      "bounding": [
+        3430.2642277829623,
+        -1564.4285950936721,
+        2069.306762907453,
+        591.3426715773288
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 2.6333125430609314,
+      "offset": [
+        -2403.97514558332,
+        881.952091288493
+      ]
+    },
+    "workflowRendererVersion": "LG",
+    "frontendVersion": "1.37.11",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
