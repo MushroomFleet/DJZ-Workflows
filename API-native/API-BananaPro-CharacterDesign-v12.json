@@ -1,0 +1,981 @@
+{
+  "id": "723c6724-b3b9-4e41-af0b-29c36e88de3f",
+  "revision": 0,
+  "last_node_id": 93,
+  "last_link_id": 115,
+  "nodes": [
+    {
+      "id": 72,
+      "type": "LoadImage",
+      "pos": [
+        -385.61494857574496,
+        -890.1462504370135
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            78
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00122_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "LoadImage",
+      "pos": [
+        -65.85130866102352,
+        -492.30372489053616
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            73
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00127_ (1).png",
+        "image"
+      ]
+    },
+    {
+      "id": 61,
+      "type": "easy showAnything",
+      "pos": [
+        1244.4509367068868,
+        -512.7337375896035
+      ],
+      "size": [
+        423.978283008832,
+        351.30383028563176
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "76b5896f089d5b4f7619559cf5f7fc0560e3dc40",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "Hero-class layout sheet, dorikami-style, matching the reference layout and art style. Female knight with open-faced helm (primary metal color #78909C) as silhouette anchor — rounded visor raised to reveal large, expressive green eyes and a confident, approachable smile; ponytail threaded through a rear helm slot for instant silhouette recognition. Practical segmented pauldrons and short teal tunic (readable at sprite scale) with brown leather belt and knee-high boots; sword at hip, relaxed ready stance suggesting movement. Full 4K portrait, close-up face box, and 32px chibi sprite sheet (walk/attack/idle) arranged like the reference. Clean bold outlines, cel-shaded with soft gradient highlights, high-contrast limited palette, animation-friendly proportions, readable at 32×32 and 4K. Title header and labeled boxes replicate the original layout."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 86,
+      "type": "PromptSwap",
+      "pos": [
+        759.017385391619,
+        -323.55214025596354
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            109
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "PromptSwap"
+      },
+      "widgets_values": [
+        "",
+        "toriyama",
+        "dorikami"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "LoadImage",
+      "pos": [
+        -415.61494857574496,
+        -500.14625043701386
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            112
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00123_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "GeminiImage2Node",
+      "pos": [
+        1256.3549979594163,
+        -923.4850742105662
+      ],
+      "size": [
+        400,
+        348
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 115
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            68
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "GeminiImage2Node"
+      },
+      "widgets_values": [
+        "d on a white background",
+        "gemini-3-pro-image-preview",
+        424031598065339,
+        "randomize",
+        "1:1",
+        "2K",
+        "IMAGE+TEXT",
+        "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 65,
+      "type": "SaveImage",
+      "pos": [
+        1715.361042130655,
+        -919.4762330115132
+      ],
+      "size": [
+        1251.6161443698788,
+        758.1439601057436
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 68
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 59,
+      "type": "OpenAIChatNode",
+      "pos": [
+        759.6765028559402,
+        -639.2408644033
+      ],
+      "size": [
+        398.51995001114847,
+        253.82107476031007
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 114
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 64
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            108
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "female hero mecha",
+        false,
+        "gpt-5-mini"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 88,
+      "type": "LoadImage",
+      "pos": [
+        -408.02684994336073,
+        -2.2698753503259597
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00111_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 87,
+      "type": "LoadImage",
+      "pos": [
+        -41.69956018807238,
+        -18.186073674257035
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00109_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 85,
+      "type": "LoadImage",
+      "pos": [
+        354.0389555063578,
+        -18.41089316902525
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00110_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 89,
+      "type": "LoadImage",
+      "pos": [
+        762.6336803867933,
+        -14.498763703409066
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00118_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "ZenkaiPromptV5",
+      "pos": [
+        364.38505142425515,
+        -323.62028877311633
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ZenkaiPromptV5"
+      },
+      "widgets_values": [
+        "blacksunv4.txt",
+        103624232,
+        "randomize",
+        1,
+        "sequential",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 66,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        364.38505142425515,
+        -486.22040091288136
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 63,
+      "type": "ImageBatchMulti",
+      "pos": [
+        364.4797469517098,
+        -671.7994073022317
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 78
+        },
+        {
+          "name": "image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 113
+        },
+        {
+          "name": "image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 112
+        },
+        {
+          "name": "image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "c661baadd9683c0033cd2a6ad90157c6d099a6c2",
+        "Node name for S&R": "ImageBatchMulti"
+      },
+      "widgets_values": [
+        4,
+        null
+      ]
+    },
+    {
+      "id": 90,
+      "type": "LoadImage",
+      "pos": [
+        354.30890071512476,
+        -1048.8931862684724
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            114,
+            115
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00127_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "LoadImage",
+      "pos": [
+        -55.61494857574491,
+        -890.1462504370135
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            113
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00126_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 91,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1031.9637007077695,
+        -1277.6606667733056
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 60,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        765.296576356217,
+        -897.3266552907712
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        "# Vehicle & Mecha Prompt Enhancement System\n## FromSoftware Design Philosophy Edition\n\nTransform basic vehicle prompts into weighted, battle-scarred, mechanically-coherent designs for video game asset generation.\n\n---\n\n## Core Philosophy\n\n**\"Weight creates meaning. Function creates beauty. Damage tells stories.\"**\n\nEvery vehicle emerges from conflict. Every scratch is a chapter. Every rivet serves purpose. This system applies FromSoftware's design principles—animation commitment becomes mechanical weight, environmental storytelling becomes operational history, spatial coherence becomes engineering logic.\n\n---\n\n## Enhancement Rules\n\n**Target**: 90-120 words with mechanical specificity and narrative weathering\n**Priority**: User style → Operational context → Weighted realism default\n**Tone**: Dignified brutality—elegant even in decay\n\n### Tier 1 Elements (Essential)\n- **Mass & Weight**: Armor thickness, heavy plating, grounded stance, mechanical heft\n- **Functional Readability**: Every component has visible purpose (vents, joints, hardpoints)\n- **Engineering Logic**: Geometric coherence, believable construction, structural integrity\n\n### Tier 2 Elements (Core Identity)\n- **Operational History**: Battle damage, repair welds, replacement panels, kill markings\n- **Environmental Weathering**: Rust patterns, dust accumulation, fuel stains, carbon scoring\n- **Modular Systems**: Visible customization potential, swappable hardpoints, loadout variety\n\n### Tier 3 Elements (Reinforcing)\n- **Material Hierarchy**: Primary armor, secondary plating, tertiary mechanical details\n- **Silhouette Weight**: Recognizable profile, asymmetric damage, distinctive mass distribution\n- **Dignified Decay**: Beauty in corrosion, elegance in brutality, purpose in wear\n\n---\n\n## Vehicle Categories\n\n### LANDCRAFT\n**Tanks, APCs, Combat Vehicles, Walkers, Treaded Units**\n- Emphasize: Track/wheel wear, glacis plate damage, turret traverse mechanisms\n- Weathering focus: Mud caking, exhaust soot, thrown track scars, field repairs\n- Engineering tells: Tow cables, external fuel drums, reactive armor, tool stowage\n\n### MECHA / BIPEDAL UNITS\n**Armored Cores, Vertical Tanks, Combat Frames, Piloted Machines**\n- Emphasize: Joint articulation, hydraulic systems, cockpit integration, weapon hardpoints\n- Weathering focus: Joint seal wear, coolant stains, ballistic impacts, limb replacements\n- Engineering tells: Boost verniers, ammunition feeds, sensor arrays, maintenance hatches\n\n### AIRCRAFT\n**Fighters, Bombers, Gunships, VTOL, Atmospheric Craft**\n- Emphasize: Control surfaces, engine nacelles, weapons pylons, landing gear bays\n- Weathering focus: Leading edge erosion, exhaust staining, panel line grime, bird strike repairs\n- Engineering tells: Intake geometry, ordnance mounting, canopy wear, fuel probe systems\n\n### SPACECRAFT\n**Fighters, Corvettes, Frigates, Industrial Vessels, Exploration Craft**\n- Emphasize: Thruster placement, radiator panels, docking systems, hull segmentation\n- Weathering focus: Micrometeorite pitting, thermal cycling stress, docking scars, EVA handholds\n- Engineering tells: RCS clusters, antenna arrays, viewport armoring, modular cargo systems\n\n### SEACRAFT\n**Destroyers, Submarines, Patrol Boats, Amphibious Units**\n- Emphasize: Waterline wear, deck equipment, weapons turrets, superstructure logic\n- Weathering focus: Salt corrosion, barnacle scarring, wave impact damage, anchor chain wear\n- Engineering tells: Sonar domes, torpedo tubes, CIWS mounts, mooring equipment\n\n---\n\n## Style Modifiers\n\n### Era / Setting\n- **Near-Future Military**: Composite armor, stealth faceting, drone integration\n- **Far-Future Sci-Fi**: Energy shielding emitters, exotic alloys, anti-gravity systems\n- **Dieselpunk**: Riveted construction, exposed engines, analog instrumentation\n- **Armored Core Style**: Boosters, energy weapons, modular frame systems, aggressive angles\n\n### Operational Status\n- **Factory Fresh**: Clean panels, unmarked armor, bright identification markings\n- **Combat Veteran**: Battle scars, field repairs, kill tallies, mismatched replacement parts\n- **Salvage Recovery**: Heavy corrosion, missing components, jury-rigged systems\n- **Museum Restoration**: Preserved damage, display weathering, historical authenticity\n\n### Visual Approach\n- **Technical Illustration**: Cutaway potential, labeled hardpoints, blueprint clarity\n- **Cinematic Render**: Dramatic lighting, atmosphere, hero shot composition\n- **Concept Art**: Design exploration, multiple angles implied, annotation-ready\n- **In-Game Asset**: Optimized silhouette, readable at distance, faction-identifiable\n\n---\n\n## Enhancement Examples\n\n**Input**: \n\"Cool mech\"\n\n**Output**: \n\"Armored Core-style bipedal combat frame, 12-meter vertical tank with asymmetric loadout. Right arm mounts heavy kinetic cannon with external ammunition drum, left arm features articulated manipulator with integrated pile bunker. Torso armor shows overlapping plates with exposed joint seals at waist and shoulders. Back-mounted booster unit with quad vernier thrusters, fuel lines running externally along spine. Heavy battle damage across left leg with visible field-welded repair plates in mismatched alloy. Cockpit hatch shows pilot wear patterns. Muted military olive with rust bleeding through scratched paint. Overcast lighting, three-quarter view emphasizing mass and weapon loadout.\"\n\n**Input**: \n\"Space fighter\"\n\n**Output**: \n\"Angular interceptor-class spacecraft with faceted stealth geometry and aggressive forward rake. Twin engine nacelles with visible heat radiator panels extended in combat configuration. Cockpit canopy shows blast scoring and replacement panel along starboard frame. Nose-mounted rotary cannon with exposed ammunition feed, wingtip hardpoints carrying missile pods. Hull plating displays micrometeorite pitting across leading edges and thermal stress discoloration near thruster bells. RCS thruster clusters at each control surface junction. Operational kill markings stenciled below canopy—seventeen silhouettes. Gunmetal and hazard yellow accent striping worn to bare metal at high-contact points. Hangar bay lighting, slight low angle showcasing underside weapon systems.\"\n\n**Input**: \n\"Tank\"\n\n**Output**: \n\"Heavy main battle tank with low-profile turret and sloped composite armor arrays. 140mm smoothbore cannon with thermal sleeve and bore evacuator, coaxial autocannon visible beside main gun. Glacis plate shows two penetration impacts with improvised welded patches—one crater still exposing damaged reactive armor brick. Track skirts torn away on port side revealing road wheels and torsion bar suspension. External fuel drums mounted rear deck, one punctured and replaced with salvaged civilian container. Commander's cupola with ring-mounted heavy machine gun, hatch open. Mud caking lower hull, dust accumulated in every horizontal surface. Desert tan base coat with darker replacement panels. Late afternoon side lighting casting long shadows, ground-level perspective emphasizing frontal armor mass.\"\n\n**Input**: \n\"Submarine\"\n\n**Output**: \n\"Attack submarine with teardrop hull form and cruciform stern planes. Sail structure shows retractable sensor masts and periscope housing, surface heavily weathered with salt corrosion patterns. Forward torpedo tube doors visible as subtle panel lines in bow section. Hull coating displays acoustic tile pattern with several missing sections revealing pressure hull beneath. Anchor chain scoring along bow, barnacle removal scars along waterline. Diving planes extended in neutral position with hydraulic actuator housings exposed. Emergency buoy housing on sail top, navigation lights recessed into leading edges. Conning tower displays faded hull number and small victory pennants. Deep ocean blue-black coating, underwater lighting from below creating dramatic uplighting effect.\"\n\n**Input**: \n\"Gunship helicopter\"\n\n**Output**: \n\"Twin-rotor attack gunship with tandem cockpit configuration and stub wings. Chin turret houses 30mm chaingun with ammunition feed running internally. Wing hardpoints carrying rocket pods and anti-tank missiles in mixed loadout suggesting mid-mission rearm. Rotor heads show complex swashplate mechanisms, blade roots displaying leading edge tape repairs. Engine cowlings open on starboard side revealing maintenance access, turbine exhaust staining fuselage. Cockpit glass shows blast-resistant laminate with spider-crack damage on gunner's station. Sensor ball beneath nose, IR suppressor modifications on exhaust. Tail boom displays antenna farm and wire-strike cutter. Flat dark earth camouflage with low-visibility markings, nose art showing predatory bird motif. Dawn lighting, rotors static, forward operating base tarmac environment.\"\n\n---\n\n## Process\n\n1. **Identify vehicle class** and operational context\n2. **Establish mass language**: How does this vehicle communicate weight and engineering logic?\n3. **Layer operational history**: What battles has it survived? What repairs were made?\n4. **Add functional details**: Every visible component serves readable purpose\n5. **Apply weathering hierarchy**: Primary structure → secondary systems → tertiary details\n6. **Specify perspective and lighting** that emphasizes mechanical weight\n7. **Output enhanced prompt** as single paragraph preserving original intent\n\n---\n\n## The FromSoftware Test\n\nBefore finalizing any vehicle prompt, validate:\n\n| Test | Question |\n|------|----------|\n| **Weight Test** | Does the vehicle feel heavy and grounded? |\n| **Function Test** | Does every visible component serve readable purpose? |\n| **History Test** | Does the design imply operational experience? |\n| **Coherence Test** | Does the engineering make geometric sense? |\n| **Dignity Test** | Is there beauty even in damage and decay? |\n| **Silhouette Test** | Is the profile distinctive and recognizable? |\n\n---\n\n## Anti-Patterns to Avoid\n\n- **Weightless designs**: Floating elements, impossible mass distribution, anti-gravity aesthetics without justification\n- **Decorative complexity**: Greebles without function, detail without purpose\n- **Pristine perfection**: Factory-fresh appearance without operational context\n- **Grotesque without dignity**: Damage without elegance, decay without beauty\n- **Generic templates**: Interchangeable designs lacking distinctive silhouette\n\n---\n\n## The Core Insight\n\nFromSoftware's Armored Core taught us: **the machine is the character.** Every scratch is backstory. Every modification is player choice made visible. Every ton of armor is commitment to a philosophy of war.\n\nApply this to prompt generation: vehicles are not objects—they are histories compressed into metal.\n\n**Transform prompts while embedding operational truth, mechanical weight, and the dignified brutality that defines machines built to endure.**"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1031.9727093314636,
+        -1438.7528175695284
+      ],
+      "size": [
+        866.89453125,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "API workflow",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 92,
+      "type": "Note",
+      "pos": [
+        -1023.366355778408,
+        -1104.9341042733054
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "API-BananaPro-CharacterDesign-v12\n\n| Drift Johnson |\n| Scuffed Epoch |\n\nVideos: https://www.youtube.com/@ScuffedEpoch\n\nhttps://github.com/MushroomFleet\nhttps://huggingface.co/mushroomfleet\n\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\nSupport: https://ko-fi.com/driftjohnson\nArchive: https://civitai.com/user/driftjohnson\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      64,
+      60,
+      0,
+      59,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      68,
+      64,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      63,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      70,
+      0,
+      63,
+      3,
+      "IMAGE"
+    ],
+    [
+      74,
+      61,
+      0,
+      64,
+      2,
+      "STRING"
+    ],
+    [
+      78,
+      72,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      108,
+      59,
+      0,
+      86,
+      0,
+      "STRING"
+    ],
+    [
+      109,
+      86,
+      0,
+      61,
+      0,
+      "STRING"
+    ],
+    [
+      112,
+      68,
+      0,
+      63,
+      2,
+      "IMAGE"
+    ],
+    [
+      113,
+      67,
+      0,
+      63,
+      1,
+      "IMAGE"
+    ],
+    [
+      114,
+      90,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ],
+    [
+      115,
+      90,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 7,
+      "title": "ENH GPT",
+      "bounding": [
+        -472.7413060539684,
+        -1149.5712311431787,
+        3536.619426078512,
+        1060.560770232897
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.635079908265602,
+      "offset": [
+        1222.9290469077173,
+        1285.9145427280844
+      ]
+    },
+    "workflowRendererVersion": "LG",
+    "frontendVersion": "1.35.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

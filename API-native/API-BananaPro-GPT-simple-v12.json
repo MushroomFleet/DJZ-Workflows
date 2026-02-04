@@ -1,0 +1,451 @@
+{
+  "id": "29a878b6-bea1-4658-9f80-d38c9f4cab0f",
+  "revision": 3,
+  "last_node_id": 63,
+  "last_link_id": 91,
+  "nodes": [
+    {
+      "id": 43,
+      "type": "SaveVideo",
+      "pos": [
+        -1600,
+        -40
+      ],
+      "size": [
+        540,
+        500
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 65
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/wan_2.6",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "LoadImage",
+      "pos": [
+        -3136.3636363636388,
+        -41.81818181818184
+      ],
+      "size": [
+        460,
+        500
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            87,
+            88
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "image_00084_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 59,
+      "type": "OpenAIChatConfig",
+      "pos": [
+        -2553.532697866128,
+        576.3186447910041
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "instructions",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "instructions"
+          },
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OPENAI_CHAT_CONFIG",
+          "type": "OPENAI_CHAT_CONFIG",
+          "links": [
+            89
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "OpenAIChatConfig"
+      },
+      "widgets_values": [
+        "auto",
+        4096,
+        ""
+      ]
+    },
+    {
+      "id": 58,
+      "type": "OpenAIChatNode",
+      "pos": [
+        -2542.243571375763,
+        53.81390812009431
+      ],
+      "size": [
+        400,
+        222
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 88
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "OPENAI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "advanced_options",
+          "shape": 7,
+          "type": "OPENAI_CHAT_CONFIG",
+          "link": 89
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            91
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.6.0",
+        "Node name for S&R": "OpenAIChatNode"
+      },
+      "widgets_values": [
+        "woman with red hair is running from explosion with man with white hair",
+        false,
+        "gpt-5"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "WanImageToVideoApi",
+      "pos": [
+        -2040,
+        -40
+      ],
+      "size": [
+        420,
+        500.00000000000006
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 87
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            65
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "WanImageToVideoApi"
+      },
+      "widgets_values": [
+        "wan2.6-i2v",
+        "A cinematic low-angle tracking shot follows a glossy red supercar speeding along a winding road at golden hour. The camera rides inches above the asphalt near the front wheel, locked to the car as trees and scenery streak into smooth motion blur, intense parallax and lens flare from the setting sun. The car body reflections flow like liquid, wheel spin blur, sharp subject with shallow depth of field, realistic lighting, 4K, 60fps, speed ramp, premium car commercial style.\n",
+        "low quality, blurry, out of focus, jittery camera, excessive shake, warped car body, deformed wheels, extra wheels, bad reflections, artifacts, banding, flicker, text, watermark, logo, oversaturated, noisy",
+        "1080P",
+        5,
+        2040766153,
+        "randomize",
+        true,
+        true,
+        false,
+        "single"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 60,
+      "type": "ZenkaiENH",
+      "pos": [
+        -2908.853761502496,
+        644.2995357000958
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            90
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-enh-system",
+        "ver": "523a03923ee2589a78d2f50a87a66ae2ca93cf65",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "t2i-TH0RR4-ENH-action.md"
+      ]
+    },
+    {
+      "id": 61,
+      "type": "Label (rgthree)",
+      "pos": [
+        -3705.6098594817017,
+        -211.19909206113746
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 63,
+      "type": "Label (rgthree)",
+      "pos": [
+        -3705.618868105396,
+        -372.2912428573602
+      ],
+      "size": [
+        866.89453125,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "API workflow",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 62,
+      "type": "Note",
+      "pos": [
+        -3697.0125145523402,
+        -38.47252956113713
+      ],
+      "size": [
+        493.692138671875,
+        572.3177490234375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "API-BananaPro-GPT-simple-v12\n\n| Drift Johnson |\n| Scuffed Epoch |\n\nVideos: https://www.youtube.com/@ScuffedEpoch\n\nhttps://github.com/MushroomFleet\nhttps://huggingface.co/mushroomfleet\n\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\nSupport: https://ko-fi.com/driftjohnson\nArchive: https://civitai.com/user/driftjohnson\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      65,
+      41,
+      0,
+      43,
+      0,
+      "VIDEO"
+    ],
+    [
+      87,
+      42,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      88,
+      42,
+      0,
+      58,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      59,
+      0,
+      58,
+      2,
+      "OPENAI_CHAT_CONFIG"
+    ],
+    [
+      90,
+      60,
+      0,
+      59,
+      0,
+      "STRING"
+    ],
+    [
+      91,
+      58,
+      0,
+      41,
+      2,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "System Prompt I2V Enhancer (.md)",
+      "bounding": [
+        -2967.1690615024954,
+        502.71864479100316,
+        823.6363636363676,
+        283.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3310000000000004,
+      "offset": [
+        3944.9197788099514,
+        323.98551255307524
+      ]
+    },
+    "frontendVersion": "1.35.9",
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}
