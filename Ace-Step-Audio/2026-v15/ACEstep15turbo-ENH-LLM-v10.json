@@ -1,0 +1,1132 @@
+{
+  "id": "c1d536a1-7123-4f98-88de-b19f59e3cc8a",
+  "revision": 0,
+  "last_node_id": 113,
+  "last_link_id": 267,
+  "nodes": [
+    {
+      "id": 78,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [
+        924.0130208333334,
+        -670
+      ],
+      "size": [
+        330,
+        60
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 266
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            175
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "ModelSamplingAuraFlow",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 18,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1296.0130208333335,
+        -670
+      ],
+      "size": [
+        190,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 256
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 248
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            260
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "VAEDecodeAudio",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 98,
+      "type": "EmptyAceStep1.5LatentAudio",
+      "pos": [
+        -140,
+        -150
+      ],
+      "size": [
+        314.89583333333337,
+        82
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "link": 250
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            249
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "EmptyAceStep1.5LatentAudio",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        120,
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        930,
+        -550
+      ],
+      "size": [
+        329.38802083333337,
+        262
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 175
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 254
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 119
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 249
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 258
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            256
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "KSampler",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        611760896196617,
+        "fixed",
+        8,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 99,
+      "type": "PrimitiveNode",
+      "pos": [
+        -140,
+        -470
+      ],
+      "size": [
+        278.9713541666667,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "links": [
+            250,
+            251
+          ]
+        }
+      ],
+      "title": "Song Duration",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        120,
+        "fixed"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        680,
+        30
+      ],
+      "size": [
+        204.134765625,
+        26
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 255
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            119
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "ConditioningZeroOut",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 102,
+      "type": "PrimitiveNode",
+      "pos": [
+        -140,
+        -290
+      ],
+      "size": [
+        268.3984375,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "links": [
+            257,
+            258
+          ]
+        }
+      ],
+      "title": "seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        611760896196617,
+        "randomize"
+      ]
+    },
+    {
+      "id": 105,
+      "type": "MarkdownNote",
+      "pos": [
+        -680,
+        -710
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Model Links (for Local Users)\n\n**checkpoints**\n\n- [ace_step_1.5_turbo_aio.safetensors](https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   └── 📂 checkpoints/\n│       └── ace_step_1.5_turbo_aio.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/zh-CN/installation/update_comfyui)) and prepare required models. Desktop/Cloud ship stable builds; nightly-supported models may not be included yet, please wait for the next stable release.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 94,
+      "type": "TextEncodeAceStepAudio1.5",
+      "pos": [
+        270.09895833333337,
+        -670
+      ],
+      "size": [
+        611.9140625,
+        569.7526041666667
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 244
+        },
+        {
+          "name": "tags",
+          "type": "STRING",
+          "widget": {
+            "name": "tags"
+          },
+          "link": 261
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 257
+        },
+        {
+          "name": "duration",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": 251
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            254,
+            255
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "TextEncodeAceStepAudio1.5",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Neo-Soul: A warm, organic neo-soul track dripping with live instrumentation and effortless groove. A live drummer plays a loose, hip-hop influenced pocket—soft kick drum with lazy swing, snare hits that sit just behind the beat, and brushed hi-hats that breathe and shuffle with human imperfection.",
+        "",
+        611760896196617,
+        "fixed",
+        140,
+        120,
+        "4",
+        "en",
+        "G major"
+      ]
+    },
+    {
+      "id": 97,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -210,
+        -670
+      ],
+      "size": [
+        428.09895833333337,
+        98
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            265
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            244
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            248
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "models": [
+          {
+            "name": "ace_step_1.5_turbo_aio.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+            "directory": "checkpoints"
+          }
+        ],
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "ace_step_1.5_turbo_aio.safetensors"
+      ]
+    },
+    {
+      "id": 110,
+      "type": "EasyCache",
+      "pos": [
+        950.4965635175447,
+        -864.4965801915715
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 265
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            266
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.2",
+        "Node name for S&R": "EasyCache"
+      },
+      "widgets_values": [
+        0.2,
+        0.15,
+        0.95,
+        false
+      ]
+    },
+    {
+      "id": 108,
+      "type": "OpenRouterNode",
+      "pos": [
+        238.48426797155108,
+        -1437.9538616678115
+      ],
+      "size": [
+        446.386328125,
+        418
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pdf_data",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "name": "user_message_input",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": 263
+        },
+        {
+          "name": "system_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 264
+        },
+        {
+          "name": "user_message_box",
+          "type": "STRING",
+          "widget": {
+            "name": "user_message_box"
+          },
+          "link": 267
+        },
+        {
+          "color_off": "#666",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "STRING",
+          "links": [
+            261,
+            262
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "Stats",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "Credits",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "openrouter_node",
+        "ver": "1.0.2",
+        "Node name for S&R": "OpenRouterNode"
+      },
+      "widgets_values": [
+        "",
+        "You are a helpful assistant.",
+        "create drift phonk chacago phonk house song with russain elements and deep 808 baseline SIXMAFIA, output the response as a one line single paragraph without feedback or commentary",
+        "anthropic/claude-sonnet-4.5",
+        false,
+        false,
+        false,
+        false,
+        1,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 107,
+      "type": "ZenkaiENH",
+      "pos": [
+        59.900804006602435,
+        -1428.7963397222204
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            263
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-enh-system",
+        "ver": "523a03923ee2589a78d2f50a87a66ae2ca93cf65",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "no-redeem.md"
+      ]
+    },
+    {
+      "id": 106,
+      "type": "ZenkaiENH",
+      "pos": [
+        -83.89928634641402,
+        -1373.697683149878
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            264
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-enh-system",
+        "ver": "523a03923ee2589a78d2f50a87a66ae2ca93cf65",
+        "Node name for S&R": "ZenkaiENH"
+      },
+      "widgets_values": [
+        "t2a-ENH-aces15Turbo.md"
+      ]
+    },
+    {
+      "id": 111,
+      "type": "PromptCombiner",
+      "pos": [
+        -213.62185955769704,
+        -1256.1720513518283
+      ],
+      "size": [
+        400,
+        274
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "combined_text",
+          "type": "STRING",
+          "links": [
+            267
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "4ca100c499643254b0c7fb29d664330c6664c3a3",
+        "Node name for S&R": "PromptCombiner"
+      },
+      "widgets_values": [
+        "create drift phonk chacago phonk house song with russain elements and deep 808 baseline SIXMAFIA",
+        "output the response as a one line single paragraph without feedback or commentary",
+        "",
+        "",
+        ", "
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 109,
+      "type": "easy showAnything",
+      "pos": [
+        243.39493483837919,
+        -966.5276089577759
+      ],
+      "size": [
+        441.4165915058404,
+        185.34257167390433
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 262
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "76b5896f089d5b4f7619559cf5f7fc0560e3dc40",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "An aggressive, high-energy drift phonk track that fuses Chicago house grooves with dark Memphis aesthetics and Russian cultural elements, driven by a relentless four-on-the-floor kick pattern layered with sharp cowbell hits and crisp snare rolls typical of Three 6 Mafia's production style. The foundation is built on a deep, overdriven 808 bassline that pulses with distorted sub-bass frequencies, underpinning dark minor-key synths that blend with haunting Russian folk instrument samples including balalaika plucks and accordion-style melodic phrases. A chopped and pitched-down male vocal sample delivers repetitive, hypnotic chants with heavy saturation, phasing, and tape-style compression, creating a raw underground atmosphere. The arrangement features intense build-ups with filter sweeps opening to reveal the full groove, punctuated by glitchy beat cuts, vinyl crackle, and Memphis-style vocal ad-libs shouted in the background. Sharp hi-hat programming alternates between rapid rolls and syncopated patterns, while the house influence emerges through the steady four-on-the-floor foundation and occasional piano stabs processed with lo-fi degradation. The track maintains relentless energy throughout, concluding with an abrupt tape-stop effect that cuts to silence."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 104,
+      "type": "SaveAudioMP3",
+      "pos": [
+        1528.0130208333335,
+        -670
+      ],
+      "size": [
+        550,
+        150
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 260
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "SaveAudioMP3",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "audio/ComfyUI",
+        "V0"
+      ]
+    },
+    {
+      "id": 113,
+      "type": "Label (rgthree)",
+      "pos": [
+        -582.7160799561835,
+        -1636.5387346318257
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 112,
+      "type": "Note",
+      "pos": [
+        -578.5114585600727,
+        -1477.6775431411404
+      ],
+      "size": [
+        318.9659735183237,
+        257.3214566651143
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ACEstep15turbo-ENH-LLM-v10\n\n| Drift Johnson |\n| Scuffed Epoch |\n\nVideos: https://www.youtube.com/@ScuffedEpoch\n\nhttps://github.com/MushroomFleet\nhttps://huggingface.co/mushroomfleet\n\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\nSupport: https://ko-fi.com/driftjohnson\nArchive: https://civitai.com/user/driftjohnson\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      119,
+      47,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      175,
+      78,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      244,
+      97,
+      1,
+      94,
+      0,
+      "CLIP"
+    ],
+    [
+      248,
+      97,
+      2,
+      18,
+      1,
+      "VAE"
+    ],
+    [
+      249,
+      98,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      250,
+      99,
+      0,
+      98,
+      0,
+      "FLOAT"
+    ],
+    [
+      251,
+      99,
+      0,
+      94,
+      3,
+      "FLOAT"
+    ],
+    [
+      254,
+      94,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      255,
+      94,
+      0,
+      47,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      256,
+      3,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      257,
+      102,
+      0,
+      94,
+      2,
+      "INT"
+    ],
+    [
+      258,
+      102,
+      0,
+      3,
+      4,
+      "INT"
+    ],
+    [
+      260,
+      18,
+      0,
+      104,
+      0,
+      "AUDIO"
+    ],
+    [
+      261,
+      108,
+      0,
+      94,
+      1,
+      "STRING"
+    ],
+    [
+      262,
+      108,
+      0,
+      109,
+      0,
+      "STRING"
+    ],
+    [
+      263,
+      107,
+      0,
+      108,
+      2,
+      "STRING"
+    ],
+    [
+      264,
+      106,
+      0,
+      108,
+      3,
+      "STRING"
+    ],
+    [
+      265,
+      97,
+      0,
+      110,
+      0,
+      "MODEL"
+    ],
+    [
+      266,
+      110,
+      0,
+      78,
+      0,
+      "MODEL"
+    ],
+    [
+      267,
+      111,
+      0,
+      108,
+      4,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Step 1 - Load Model",
+      "bounding": [
+        -220,
+        -740,
+        448.09895833333337,
+        181.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Step 2 - Duration",
+      "bounding": [
+        -220,
+        -540,
+        450,
+        170
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Step 3 - Prompt",
+      "bounding": [
+        260,
+        -740,
+        640,
+        820
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "DJZ-ENH-Acestep",
+      "bounding": [
+        -223.62185955769704,
+        -1511.5538616678114,
+        918.492455654248,
+        740.3688243839399
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8701484897118072,
+      "offset": [
+        808.0691023815077,
+        1963.0759210179
+      ]
+    },
+    "frontendVersion": "1.37.11",
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
