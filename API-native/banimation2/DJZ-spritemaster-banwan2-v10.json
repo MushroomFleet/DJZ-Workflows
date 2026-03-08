@@ -1,0 +1,651 @@
+{
+  "id": "22daddb1-e980-42ae-866b-031741973f1d",
+  "revision": 0,
+  "last_node_id": 21,
+  "last_link_id": 12,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        664.9177204262345,
+        -680.9868465717936
+      ],
+      "size": [
+        562.5370604714803,
+        573.732002905276
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        -135.1407897091342,
+        -439.82051354944736
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00301_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "GeminiNanoBanana2",
+      "pos": [
+        218.77175383727408,
+        -439.9092551759742
+      ],
+      "size": [
+        400,
+        372
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "GeminiNanoBanana2"
+      },
+      "widgets_values": [
+        "using the image reference in image 1, we can create a master stritesheet for the character in the chibi anime style",
+        "Nano Banana 2 (Gemini 3.1 Flash Image)",
+        313794264626285,
+        "randomize",
+        "auto",
+        "2K",
+        "IMAGE",
+        "MINIMAL",
+        "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 12,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        285.7030124076482,
+        -661.4843758736938
+      ],
+      "size": [
+        277.3677734375,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "LAINA",
+        "phase-zero",
+        "spritesheet",
+        "ban2",
+        "auto"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        658.7750060835125,
+        -1717.6654295193875
+      ],
+      "size": [
+        562.5370604714803,
+        573.732002905276
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "GeminiNanoBanana2",
+      "pos": [
+        212.6290394945521,
+        -1476.5878381235682
+      ],
+      "size": [
+        404.07013746934194,
+        466.42718928873217
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "GeminiNanoBanana2"
+      },
+      "widgets_values": [
+        "using the image reference in image 1, we can create a master stritesheet for the character in the chibi anime style",
+        "Nano Banana 2 (Gemini 3.1 Flash Image)",
+        570908424455922,
+        "randomize",
+        "auto",
+        "2K",
+        "IMAGE",
+        "MINIMAL",
+        "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 19,
+      "type": "Label (rgthree)",
+      "pos": [
+        -803.4010082937823,
+        -2036.1587836237009
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 20,
+      "type": "Label (rgthree)",
+      "pos": [
+        -798.1751962368107,
+        -2186.781293058593
+      ],
+      "size": [
+        1050.29296875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Zerobytes EDIT",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 18,
+      "type": "Note",
+      "pos": [
+        -817.4878863139713,
+        -1875.6468027119204
+      ],
+      "size": [
+        492.50032101810234,
+        301.77514161703834
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "2026",
+      "properties": {},
+      "widgets_values": [
+        "DJZ-spritemaster-banwan2-v10\n\n| Drift Johnson |\n| Scuffed Epoch |\n\nVideos: https://www.youtube.com/@ScuffedEpoch\n\nhttps://github.com/MushroomFleet\nhttps://huggingface.co/mushroomfleet\n\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\nSupport: https://ko-fi.com/driftjohnson\nArchive: https://civitai.com/user/driftjohnson\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "PromptCombiner",
+      "pos": [
+        -260.5965796474427,
+        -1444.9982480189362
+      ],
+      "size": [
+        402.6219988382999,
+        511.2908948661436
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_2",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_2"
+          },
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "combined_text",
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-variationator",
+        "ver": "ab715a68f58f9d39630e3543292829c8c6337195",
+        "Node name for S&R": "PromptCombiner"
+      },
+      "widgets_values": [
+        "using the character reference in image 1 keeping the chibi anime style which depicts a 4x4 grid composition displaying frames for the animation",
+        "",
+        "",
+        "",
+        ", "
+      ]
+    },
+    {
+      "id": 21,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -780.6175825397129,
+        -1342.7079869085283
+      ],
+      "size": [
+        453.6317944197708,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "title": "Scene Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "**Description:** The character enters \"creative mode\" -- a flourish of artistic inspiration.\n\n**Art Direction:** The character dons a beret, picks up a paintbrush, strikes a dramatic pose, or is surrounded by a burst of color/sparkles. a costume/prop transformation that's playful and brief. The character should look inspired and slightly pretentious in an endearing way. Return to RestPose."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 16,
+      "type": "LoadImage",
+      "pos": [
+        -255.45551977158624,
+        -1826.800652877502
+      ],
+      "size": [
+        393.062552294443,
+        326
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Spritesheet of consistent character",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ban2_00001_ (1).png",
+        "image"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        279.5602980649262,
+        -1698.1629588212877
+      ],
+      "size": [
+        277.3677734375,
+        154
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "project-name",
+        "character-name",
+        "action-name",
+        "ban2",
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      8,
+      0,
+      7,
+      1,
+      "STRING"
+    ],
+    [
+      6,
+      11,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      12,
+      0,
+      9,
+      1,
+      "STRING"
+    ],
+    [
+      8,
+      10,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      17,
+      0,
+      6,
+      2,
+      "STRING"
+    ],
+    [
+      11,
+      16,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      21,
+      0,
+      17,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "EDIT",
+      "bounding": [
+        -145.1407897091342,
+        -754.5868465717936,
+        1382.5955706068492,
+        696.6775913958194
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "SPRITEMASTER",
+      "bounding": [
+        -270.5965796474427,
+        -1900.400652877502,
+        1501.9086462024354,
+        976.6932997247094
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.47362440744768564,
+      "offset": [
+        1598.661441506734,
+        2177.888660348316
+      ]
+    },
+    "frontendVersion": "1.39.19",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
