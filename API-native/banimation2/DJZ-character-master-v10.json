@@ -1,0 +1,506 @@
+{
+  "id": "22daddb1-e980-42ae-866b-031741973f1d",
+  "revision": 0,
+  "last_node_id": 11,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "ByteDanceImageToVideoNode",
+      "pos": [
+        1608.5197280414939,
+        -1791.026148150903
+      ],
+      "size": [
+        400,
+        304
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "ByteDanceImageToVideoNode"
+      },
+      "widgets_values": [
+        "seedance-1-5-pro-251215",
+        "",
+        "1080p",
+        "adaptive",
+        3,
+        0,
+        "randomize",
+        false,
+        false,
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "SaveVideo",
+      "pos": [
+        2130.531576139795,
+        -1475.4990608311105
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 1
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 2
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        1264.8385712630843,
+        -1452.746178349995
+      ],
+      "size": [
+        277.3677734375,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "output",
+        "MyProject",
+        "images",
+        "image",
+        "auto"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "ByteDanceImageReferenceNode",
+      "pos": [
+        1604.2268966866598,
+        -1374.4805025545268
+      ],
+      "size": [
+        400,
+        256
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "ByteDanceImageReferenceNode"
+      },
+      "widgets_values": [
+        "seedance-1-0-pro-250528",
+        "",
+        "720p",
+        "adaptive",
+        5,
+        0,
+        "randomize",
+        false
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        -141.28350405185617,
+        -1476.4990964970414
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00301_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        658.7750060835125,
+        -1717.6654295193875
+      ],
+      "size": [
+        562.5370604714803,
+        573.732002905276
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "GeminiNanoBanana2",
+      "pos": [
+        212.6290394945521,
+        -1476.5878381235682
+      ],
+      "size": [
+        400,
+        330
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "files",
+          "shape": 7,
+          "type": "GEMINI_INPUT_FILES",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "GeminiNanoBanana2"
+      },
+      "widgets_values": [
+        "using the image reference in image 1, we can create a master stritesheet for the character in the chibi anime style",
+        "Nano Banana 2 (Gemini 3.1 Flash Image)",
+        42,
+        "randomize",
+        "auto",
+        "2K",
+        "IMAGE",
+        "MINIMAL",
+        "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        279.5602980649262,
+        -1698.1629588212877
+      ],
+      "size": [
+        277.3677734375,
+        154
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "LAINA",
+        "phase-zero",
+        "spritesheet",
+        "ban2",
+        "auto"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "Label (rgthree)",
+      "pos": [
+        -680.7463380027644,
+        -1875.8090373903442
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 9,
+      "type": "Label (rgthree)",
+      "pos": [
+        -675.5205259457927,
+        -2026.4315468252362
+      ],
+      "size": [
+        1050.29296875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Zerobytes EDIT",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 10,
+      "type": "Note",
+      "pos": [
+        -694.8332160229535,
+        -1715.2970564785637
+      ],
+      "size": [
+        492.50032101810234,
+        301.77514161703834
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "2026",
+      "properties": {},
+      "widgets_values": [
+        "DJZ-character-master-v10\n\n| Drift Johnson |\n| Scuffed Epoch |\n\nVideos: https://www.youtube.com/@ScuffedEpoch\n\nhttps://github.com/MushroomFleet\nhttps://huggingface.co/mushroomfleet\n\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\nSupport: https://ko-fi.com/driftjohnson\nArchive: https://civitai.com/user/driftjohnson\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n\n\nFOR **INPUT IMAGE** USE A CONSISTENT CHARACTER COLLAGE !"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      3,
+      0,
+      "VIDEO"
+    ],
+    [
+      2,
+      4,
+      0,
+      3,
+      1,
+      "STRING"
+    ],
+    [
+      3,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      8,
+      0,
+      7,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 1.978446689001395,
+      "offset": [
+        815.0017209676486,
+        1845.9577470762638
+      ]
+    },
+    "frontendVersion": "1.39.19",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

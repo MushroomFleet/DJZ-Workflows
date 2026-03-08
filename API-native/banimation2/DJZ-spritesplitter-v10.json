@@ -1,0 +1,452 @@
+{
+  "id": "4963ecf9-2691-4564-9021-697f81125acb",
+  "revision": 0,
+  "last_node_id": 14,
+  "last_link_id": 14,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "ProjectFilePathNode",
+      "pos": [
+        270.67663028831515,
+        -1249.655692801989
+      ],
+      "size": [
+        277.3677734375,
+        204
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "ProjectFilePathNode"
+      },
+      "widgets_values": [
+        "dorikami",
+        "test",
+        "cells",
+        "ban2",
+        "auto"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveImage",
+      "pos": [
+        618.9287221411217,
+        -1441.96725354616
+      ],
+      "size": [
+        502.32781289750073,
+        393.0719210910852
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        -535.5734006953913,
+        -1446.4330823800217
+      ],
+      "size": [
+        456.1541232192087,
+        397.42723576408775
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ban2_00001_ (2).png",
+        "image"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "ImageRemoveAlpha+",
+      "pos": [
+        -29.358242570715895,
+        -1284.711229444631
+      ],
+      "size": [
+        247.74685624621364,
+        26
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "1.1.0",
+        "Node name for S&R": "ImageRemoveAlpha+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        -25.06017740309124,
+        -1211.839488193534
+      ],
+      "size": [
+        241.4522465608153,
+        246
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "DJZImageScaleToTotalPixels",
+      "pos": [
+        -32.93996354373711,
+        -1446.2631258777458
+      ],
+      "size": [
+        255.30877030871363,
+        106
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "djz-nodes",
+        "ver": "f6ca9376132600e6245d3d9d2f1e5d0ffa448d99",
+        "Node name for S&R": "DJZImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        2,
+        64
+      ]
+    },
+    {
+      "id": 11,
+      "type": "ImageTile+",
+      "pos": [
+        273.4273035724939,
+        -1542.5163880402904
+      ],
+      "size": [
+        270,
+        234
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        },
+        {
+          "name": "tile_width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "tile_height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "overlap_x",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "overlap_y",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_essentials",
+        "ver": "1.1.0",
+        "Node name for S&R": "ImageTile+"
+      },
+      "widgets_values": [
+        4,
+        4,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1057.2192915066623,
+        -1727.5666613626524
+      ],
+      "size": [
+        1480.46875,
+        100
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Drift Johnson | scuffedepoch.com",
+      "properties": {
+        "fontSize": 100,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 13,
+      "type": "Label (rgthree)",
+      "pos": [
+        -1051.9934794496905,
+        -1878.1891707975444
+      ],
+      "size": [
+        1050.29296875,
+        150
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Zerobytes EDIT",
+      "properties": {
+        "fontSize": 150,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 14,
+      "type": "Note",
+      "pos": [
+        -1071.3061695268514,
+        -1567.054680450872
+      ],
+      "size": [
+        492.50032101810234,
+        301.77514161703834
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "2026",
+      "properties": {},
+      "widgets_values": [
+        "DJZ-spritesplitter-v10\n\n| Drift Johnson |\n| Scuffed Epoch |\n\nVideos: https://www.youtube.com/@ScuffedEpoch\n\nhttps://github.com/MushroomFleet\nhttps://huggingface.co/mushroomfleet\n\nhttps://www.scuffedepoch.com\nhttps://www.oragenai.com\n\nSupport: https://ko-fi.com/driftjohnson\nArchive: https://civitai.com/user/driftjohnson\n\n[discord early editions]\nhttps://discord.com/invite/uubQXhwzkj \n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      7,
+      6,
+      0,
+      5,
+      1,
+      "STRING"
+    ],
+    [
+      10,
+      2,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      8,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      7,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      7,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      11,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 1.635079908265631,
+      "offset": [
+        1220.239502869749,
+        1725.7386541714766
+      ]
+    },
+    "frontendVersion": "1.39.19",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
