@@ -85,3 +85,11 @@ If you use this codebase in your research or project, please cite:
 - [ComfyUI-FLUX2-JSON](https://github.com/MushroomFleet/ComfyUI-FLUX2-JSON) — Flux 2 JSON nodes
 - [djz-Aesthetic-Embeddings](https://github.com/MushroomFleet/djz-Aesthetic-Embeddings) — Aesthetic embeddings
 - [svg-suite](https://github.com/MushroomFleet/svg-suite) — SVG generation toolkit
+
+---
+
+## Support This Project
+
+If you found this useful, please **star the repo** — it helps others discover it!
+
+[![Star on GitHub](https://img.shields.io/github/stars/MushroomFleet/DJZ-Workflows?style=social)](https://github.com/MushroomFleet/DJZ-Workflows)
